@@ -14,4 +14,15 @@
 - (CGFloat)getMax;
 - (NSArray *)randomCopy;
 
+/**
+ *  创建反向数组
+ */
+- (NSArray *)reversedArray;
+
+/**
+ *  转换成JSON的NSString
+ */
+- (NSString *)arrayToJson;
+
+
 @end

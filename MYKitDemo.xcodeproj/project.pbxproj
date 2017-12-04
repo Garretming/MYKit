@@ -96,6 +96,7 @@
 		321373B51F627D9700E15D0A /* NSObject+AssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373B21F627D9700E15D0A /* NSObject+AssociatedObject.m */; };
 		321373B61F627D9700E15D0A /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373B41F627D9700E15D0A /* NSObject+Swizzling.m */; };
 		321373BA1F627E9F00E15D0A /* NSNumber+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373B91F627E9F00E15D0A /* NSNumber+Round.m */; };
+		32322A1F1FD4E7CC008060D9 /* NSMutableArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 32322A1E1FD4E7CC008060D9 /* NSMutableArray+Sort.m */; };
 		325AFEA21FC023D1009FF8B1 /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEA11FC023D1009FF8B1 /* NSArray+Extension.m */; };
 		325AFEA51FC0259A009FF8B1 /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEA41FC0259A009FF8B1 /* NSDate+Addition.m */; };
 		325AFEA81FC025F9009FF8B1 /* NSDate+NSDateRFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEA71FC025F9009FF8B1 /* NSDate+NSDateRFC1123.m */; };
@@ -318,6 +319,8 @@
 		321373B41F627D9700E15D0A /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
 		321373B81F627E9F00E15D0A /* NSNumber+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Round.h"; sourceTree = "<group>"; };
 		321373B91F627E9F00E15D0A /* NSNumber+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Round.m"; sourceTree = "<group>"; };
+		32322A1D1FD4E7CC008060D9 /* NSMutableArray+Sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Sort.h"; sourceTree = "<group>"; };
+		32322A1E1FD4E7CC008060D9 /* NSMutableArray+Sort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Sort.m"; sourceTree = "<group>"; };
 		325AFEA01FC023D1009FF8B1 /* NSArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extension.h"; sourceTree = "<group>"; };
 		325AFEA11FC023D1009FF8B1 /* NSArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extension.m"; sourceTree = "<group>"; };
 		325AFEA31FC0259A009FF8B1 /* NSDate+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Addition.h"; sourceTree = "<group>"; };
@@ -515,6 +518,7 @@
 		32077C221F5FEE96006E4C70 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				32322A1C1FD4E7B8008060D9 /* NSMutableArray */,
 				325AFEA91FC0271E009FF8B1 /* NSNull */,
 				4C3894F41F64E27700BD95ED /* NSMutableAttributedString */,
 				4C3894F01F64E1D800BD95ED /* NSMutableDictionary */,
@@ -947,6 +951,15 @@
 			path = NSNumber;
 			sourceTree = "<group>";
 		};
+		32322A1C1FD4E7B8008060D9 /* NSMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				32322A1D1FD4E7CC008060D9 /* NSMutableArray+Sort.h */,
+				32322A1E1FD4E7CC008060D9 /* NSMutableArray+Sort.m */,
+			);
+			path = NSMutableArray;
+			sourceTree = "<group>";
+		};
 		325AFEA91FC0271E009FF8B1 /* NSNull */ = {
 			isa = PBXGroup;
 			children = (
@@ -1148,6 +1161,7 @@
 				328505AB1F9F57C80098E2C0 /* NSString+Regular.m in Sources */,
 				321373B51F627D9700E15D0A /* NSObject+AssociatedObject.m in Sources */,
 				325AFEA81FC025F9009FF8B1 /* NSDate+NSDateRFC1123.m in Sources */,
+				32322A1F1FD4E7CC008060D9 /* NSMutableArray+Sort.m in Sources */,
 				321373871F626D1F00E15D0A /* NSFileHandle+ReadLine.m in Sources */,
 				321373171F61676600E15D0A /* UINavigationController+Transitions.m in Sources */,
 				3213735A1F62665B00E15D0A /* NSData+Base64.m in Sources */,

@@ -29,4 +29,49 @@
     return [mutableArray copy];
 }
 
+/* 创建反向数组 */
+- (NSArray *)reversedArray
+{
+    return [NSArray reversedArray:self];
+}
+
+/* 将指定的数组创建反向数组 */
++ (NSArray *)reversedArray:(NSArray *)array
+{
+    // 从一个阵列容量初始化阵列
+    NSMutableArray *arrayTemp = [NSMutableArray arrayWithCapacity:array.count];
+    // 获取NSArray的逆序枚举器
+    NSEnumerator *enumerator = [array reverseObjectEnumerator];
+    
+    for (id element in enumerator) {
+        [arrayTemp addObject:element];
+    }
+    return arrayTemp;
+}
+
+/* 转换成JSON的NSString */
+- (NSString *)arrayToJson
+{
+    return [NSArray arrayToJson:self];
+}
+
+/* 将指定的数组转换成JSON的NSString */
++ (NSString *)arrayToJson:(NSArray*)array
+{
+    NSString *json = nil;
+    NSError *error = nil;
+    // 生成一个Foundation对象JSON数据
+    NSData *data = [NSJSONSerialization dataWithJSONObject:array
+                                                   options:0
+                                                     error:&error];
+    if(!error) {
+        json = [[NSString alloc] initWithData:data
+                                     encoding:NSUTF8StringEncoding];
+        return json;
+    } else {
+        // 返回主用户显示消息的错误
+        return error.localizedDescription;
+    }
+}
+
 @end
