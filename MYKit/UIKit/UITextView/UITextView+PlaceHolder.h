@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITextView (PlaceHolder)<UITextViewDelegate>
+@interface UITextView (PlaceHolder)
 
-@property (nonatomic, strong) UITextView *placeHolderTextView;
+@property (nonatomic, readonly) UILabel *placeholderLabel;
 
-- (void)addPlaceHolder:(NSString *)placeHolder;
+@property (nonatomic, strong) IBInspectable NSString *placeholder;
+@property (nonatomic, strong) NSAttributedString *attributedPlaceholder;
+@property (nonatomic, strong) IBInspectable UIColor *placeholderColor;
+
++ (UIColor *)defaultPlaceholderColor;
 
 @end
