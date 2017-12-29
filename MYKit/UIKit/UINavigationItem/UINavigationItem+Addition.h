@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  @brief  隐藏导航返回箭头后面的文字
+ */
+
 @interface UINavigationItem (Addition)
 
 @end

@@ -11,6 +11,7 @@
 #import "UIImage+Color.h"
 #import "UIImageView+CornerRadius.h"
 #import "XXObject.h"
+#import "UIView+RedDot.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -24,7 +25,17 @@
     
 //    self.imageView.image = [self.imageView.image circleImage];
     
-    XXObject *object1 = [[XXObject alloc] init];
+//    XXObject *object1 = [[XXObject alloc] init];
+    
+    UIView *yellowView = [[UIView alloc] init];
+    yellowView.backgroundColor = [UIColor yellowColor];
+    yellowView.frame = CGRectMake(100, 300, 50, 100);
+    [yellowView addRedDotWithRadius:5 offsetX:0 offsetY:0];
+    [yellowView showRedDot];
+
+    [self.view addSubview:yellowView];
+    
+    
 }
 
 
