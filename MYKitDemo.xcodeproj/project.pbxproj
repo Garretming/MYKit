@@ -116,6 +116,7 @@
 		325AFEBE1FC02A75009FF8B1 /* UIView+CornerRadii.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEBD1FC02A75009FF8B1 /* UIView+CornerRadii.m */; };
 		325AFEC51FC02B0D009FF8B1 /* UINavigationItem+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEC41FC02B0D009FF8B1 /* UINavigationItem+Addition.m */; };
 		326A1EF71FE8AFE800535930 /* UIImageView+Fillet.m in Sources */ = {isa = PBXBuildFile; fileRef = 326A1EF61FE8AFE800535930 /* UIImageView+Fillet.m */; };
+		326BCD7D2004C08A00585315 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 326BCD7C2004C08A00585315 /* NSArray+Safe.m */; };
 		328505941F9F51ED0098E2C0 /* UIDevice+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505931F9F51ED0098E2C0 /* UIDevice+Extension.m */; };
 		328505981F9F52010098E2C0 /* UIActionSheet+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505971F9F52010098E2C0 /* UIActionSheet+Extension.m */; };
 		3285059B1F9F530F0098E2C0 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3285059A1F9F530F0098E2C0 /* UIImage+Extension.m */; };
@@ -369,6 +370,8 @@
 		325AFEC41FC02B0D009FF8B1 /* UINavigationItem+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Addition.m"; sourceTree = "<group>"; };
 		326A1EF51FE8AFE800535930 /* UIImageView+Fillet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Fillet.h"; sourceTree = "<group>"; };
 		326A1EF61FE8AFE800535930 /* UIImageView+Fillet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Fillet.m"; sourceTree = "<group>"; };
+		326BCD7B2004C08A00585315 /* NSArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
+		326BCD7C2004C08A00585315 /* NSArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
 		328505921F9F51ED0098E2C0 /* UIDevice+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extension.h"; sourceTree = "<group>"; };
 		328505931F9F51ED0098E2C0 /* UIDevice+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extension.m"; sourceTree = "<group>"; };
 		328505961F9F52010098E2C0 /* UIActionSheet+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Extension.h"; sourceTree = "<group>"; };
@@ -854,6 +857,8 @@
 				3213734A1F62647800E15D0A /* NSArray+SafeAccess.m */,
 				325AFEA01FC023D1009FF8B1 /* NSArray+Extension.h */,
 				325AFEA11FC023D1009FF8B1 /* NSArray+Extension.m */,
+				326BCD7B2004C08A00585315 /* NSArray+Safe.h */,
+				326BCD7C2004C08A00585315 /* NSArray+Safe.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -1279,6 +1284,7 @@
 				3213731E1F6167C600E15D0A /* UILabel+FitLines.m in Sources */,
 				328505941F9F51ED0098E2C0 /* UIDevice+Extension.m in Sources */,
 				3213734F1F6265CD00E15D0A /* NSBundle+AppIcon.m in Sources */,
+				326BCD7D2004C08A00585315 /* NSArray+Safe.m in Sources */,
 				32077C4A1F5FF6FC006E4C70 /* UIView+Visuals.m in Sources */,
 				321372EE1F615DF600E15D0A /* UIWebView+Block.m in Sources */,
 				328505A21F9F53BD0098E2C0 /* UINavigationBar+Extension.m in Sources */,
