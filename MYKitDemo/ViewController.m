@@ -12,6 +12,7 @@
 #import "UIImageView+CornerRadius.h"
 #import "XXObject.h"
 #import "UIView+RedDot.h"
+#import "UIButton+ImageTitleStyle.h"
 
 @interface ViewController ()
 
@@ -40,6 +41,14 @@
     [yellowView showRedDot];
 
     [self.view addSubview:yellowView];
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20,CGRectGetMaxY(yellowView.frame),100,100)];
+    [button setTitle:@"测试文本" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"btn_kaibo_set_zhuantou_click"] forState:UIControlStateNormal];
+    [button setButtonImageTitleStyle:ButtonImageTitleStyleDefault padding:10];
+    [button sizeToFit];
+    [self.view addSubview:button];
     
     /*
      * init array

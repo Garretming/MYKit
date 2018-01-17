@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32047E23200F552100A36003 /* UIButton+ImageTitleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 32047E22200F552100A36003 /* UIButton+ImageTitleStyle.m */; };
 		320695A41F600F780009FFDA /* UIResponder+Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = 320695A31F600F780009FFDA /* UIResponder+Chain.m */; };
 		320695A81F6010070009FFDA /* UIButton+CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 320695A71F6010070009FFDA /* UIButton+CountDown.m */; };
 		320695AF1F6010680009FFDA /* UILabel+CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 320695AE1F6010680009FFDA /* UILabel+CountDown.m */; };
@@ -152,6 +153,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32047E21200F552100A36003 /* UIButton+ImageTitleStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleStyle.h"; sourceTree = "<group>"; };
+		32047E22200F552100A36003 /* UIButton+ImageTitleStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleStyle.m"; sourceTree = "<group>"; };
 		320695A21F600F780009FFDA /* UIResponder+Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Chain.h"; sourceTree = "<group>"; };
 		320695A31F600F780009FFDA /* UIResponder+Chain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Chain.m"; sourceTree = "<group>"; };
 		320695A61F6010070009FFDA /* UIButton+CountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CountDown.h"; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 				321373311F616A1900E15D0A /* UIButton+TouchAreaInsets.m */,
 				324174541FF63D0C007BB277 /* UIButton+Addition.h */,
 				324174551FF63D0C007BB277 /* UIButton+Addition.m */,
+				32047E21200F552100A36003 /* UIButton+ImageTitleStyle.h */,
+				32047E22200F552100A36003 /* UIButton+ImageTitleStyle.m */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -1300,6 +1305,7 @@
 				325AFEA21FC023D1009FF8B1 /* NSArray+Extension.m in Sources */,
 				32077C371F5FF262006E4C70 /* UIAlertView+Block.m in Sources */,
 				321373411F616B4100E15D0A /* UIApplication+NetworkActivityIndicator.m in Sources */,
+				32047E23200F552100A36003 /* UIButton+ImageTitleStyle.m in Sources */,
 				321373161F61676600E15D0A /* UINavigationController+StackManager.m in Sources */,
 				32077C571F600133006E4C70 /* UIImage+CornerRadius.m in Sources */,
 				4C3894F31F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m in Sources */,
