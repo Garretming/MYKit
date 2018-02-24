@@ -130,6 +130,8 @@
 		328505B41F9F57FA0098E2C0 /* NSString+Attributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505B31F9F57FA0098E2C0 /* NSString+Attributed.m */; };
 		329AD3741FC030190036CF6D /* UIScreen+Accessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AD3731FC030190036CF6D /* UIScreen+Accessor.m */; };
 		32A7AA791FB3DA8F004B21D1 /* XXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A7AA781FB3DA8F004B21D1 /* XXObject.m */; };
+		32AF57D820410B1100BE9ABA /* NSDictionary+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF57D720410B1100BE9ABA /* NSDictionary+NilSafe.m */; };
+		32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m */; };
 		4C3894EF1F64E18C00BD95ED /* CIImage+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3894EE1F64E18C00BD95ED /* CIImage+Screenshot.m */; };
 		4C3894F31F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3894F21F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m */; };
 		4C3894F71F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3894F61F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.m */; };
@@ -399,6 +401,10 @@
 		329AD3731FC030190036CF6D /* UIScreen+Accessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+Accessor.m"; sourceTree = "<group>"; };
 		32A7AA771FB3DA8F004B21D1 /* XXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXObject.h; sourceTree = "<group>"; };
 		32A7AA781FB3DA8F004B21D1 /* XXObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXObject.m; sourceTree = "<group>"; };
+		32AF57D620410B1100BE9ABA /* NSDictionary+NilSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NilSafe.h"; sourceTree = "<group>"; };
+		32AF57D720410B1100BE9ABA /* NSDictionary+NilSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NilSafe.m"; sourceTree = "<group>"; };
+		32AF57D920410B2B00BE9ABA /* NSMutableDictionary+NilSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+NilSafe.h"; sourceTree = "<group>"; };
+		32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+NilSafe.m"; sourceTree = "<group>"; };
 		4C3894ED1F64E18C00BD95ED /* CIImage+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIImage+Screenshot.h"; sourceTree = "<group>"; };
 		4C3894EE1F64E18C00BD95ED /* CIImage+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIImage+Screenshot.m"; sourceTree = "<group>"; };
 		4C3894F11F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+ChainProgramming.h"; sourceTree = "<group>"; };
@@ -925,6 +931,8 @@
 			children = (
 				321373781F626BA800E15D0A /* NSDictionary+SafeAccess.h */,
 				321373791F626BA800E15D0A /* NSDictionary+SafeAccess.m */,
+				32AF57D620410B1100BE9ABA /* NSDictionary+NilSafe.h */,
+				32AF57D720410B1100BE9ABA /* NSDictionary+NilSafe.m */,
 				3213737B1F626BBD00E15D0A /* NSDictionary+JSONString.h */,
 				3213737C1F626BBD00E15D0A /* NSDictionary+JSONString.m */,
 				3213737E1F626C1B00E15D0A /* NSDictionary+Plist.h */,
@@ -1078,6 +1086,8 @@
 			children = (
 				4C3894F11F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.h */,
 				4C3894F21F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m */,
+				32AF57D920410B2B00BE9ABA /* NSMutableDictionary+NilSafe.h */,
+				32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m */,
 			);
 			path = NSMutableDictionary;
 			sourceTree = "<group>";
@@ -1244,6 +1254,7 @@
 				321372FB1F6162C800E15D0A /* UITextView+InputLengthCalculate.m in Sources */,
 				321373321F616A1900E15D0A /* UIButton+Badge.m in Sources */,
 				321373081F61645800E15D0A /* UITextField+InputLimit.m in Sources */,
+				32AF57D820410B1100BE9ABA /* NSDictionary+NilSafe.m in Sources */,
 				32077C2D1F5FEFAA006E4C70 /* UIImageView+FaceAwareFill.m in Sources */,
 				325AFEAC1FC02738009FF8B1 /* NSNull+NSNullSafe.m in Sources */,
 				321373341F616A1900E15D0A /* UIButton+Indicator.m in Sources */,
@@ -1270,6 +1281,7 @@
 				321373271F6169B100E15D0A /* UIColor+Gradient.m in Sources */,
 				3213736F1F626A9700E15D0A /* NSDate+YYAdd.m in Sources */,
 				321373931F626E8D00E15D0A /* NSURL+Param.m in Sources */,
+				32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m in Sources */,
 				32077BF21F5FEC6F006E4C70 /* AppDelegate.m in Sources */,
 				321372FE1F61633300E15D0A /* UITextView+Select.m in Sources */,
 				3213733C1F616ADB00E15D0A /* UIBarButtonItem+Badge.m in Sources */,

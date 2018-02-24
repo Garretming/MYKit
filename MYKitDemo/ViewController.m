@@ -76,6 +76,14 @@
     
     NSLog(@"self.signalArray[5]: %@",self.singleObjectArrayI[4]);
     NSLog(@"[self.signalArray objectAtIndex:4]: %@",[self.singleObjectArrayI objectAtIndex:4]);
+    
+    
+    NSMutableDictionary *testDict = [NSMutableDictionary dictionary];
+    testDict[@"test"] = nil;
+    
+    NSLog(@"判读字典是否可以为空%@",testDict[@"test"]);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

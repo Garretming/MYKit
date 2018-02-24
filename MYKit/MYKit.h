@@ -80,6 +80,7 @@
 #import <MYKit/NSNull+NSNullSafe.h>
 #import <MYKit/NSMutableAttributedString+ChainProgramming.h>
 #import <MYKit/NSMutableDictionary+ChainProgramming.h>
+#import <MYKit/NSMutableDictionary+NilSafe.h>
 #import <MYKit/NSNumber+Round.h>
 #import <MYKit/NSObject+AssociatedObject.h>
 #import <MYKit/NSObject+Swizzling.h>
@@ -93,6 +94,7 @@
 #import <MYKit/NSDictionary+JSONString.h>
 #import <MYKit/NSDictionary+Plist.h>
 #import <MYKit/NSDictionary+Key.h>
+#import <MYKit/NSDictionary+NilSafe.h>
 #import <MYKit/NSDateFormatter+Extension.h>
 #import <MYKit/NSDate+YYAdd.h>
 #import <MYKit/NSData+APNSToken.h>
@@ -120,6 +122,7 @@
 #import "NSNull+NSNullSafe.h"
 #import "NSMutableAttributedString+ChainProgramming.h"
 #import "NSMutableDictionary+ChainProgramming.h"
+#import "NSMutableDictionary+NilSafe.h"
 #import "NSString+Contains.h"
 #import "NSString+Emoji.h"
 #import "NSString+Trims.h"
@@ -142,6 +145,7 @@
 #import "NSDateFormatter+Extension.h"
 #import "NSDictionary+Key.h"
 #import "NSDictionary+Plist.h"
+#import "NSDictionary+NilSafe.h"
 #import "NSDictionary+JSONString.h"
 #import "NSDictionary+SafeAccess.h"
 #import "NSFileHandle+ReadLine.h"
