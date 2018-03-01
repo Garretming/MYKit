@@ -79,8 +79,13 @@
 
 #import <MYKit/NSNull+NSNullSafe.h>
 #import <MYKit/NSMutableAttributedString+ChainProgramming.h>
+#import <MYKit/NSAttributedString+AttributedString.h>
 #import <MYKit/NSMutableDictionary+ChainProgramming.h>
 #import <MYKit/NSMutableDictionary+NilSafe.h>
+#import <MYKit/NSMutableArray+SafeAccess.h>
+#import <MYKit/NSMutableArray+Sort.h>
+#import <MYKit/NSMutableArray+Stack.h>
+#import <MYKit/NSMutableArray+Queue.h>
 #import <MYKit/NSNumber+Round.h>
 #import <MYKit/NSObject+AssociatedObject.h>
 #import <MYKit/NSObject+Swizzling.h>
@@ -121,8 +126,13 @@
 
 #import "NSNull+NSNullSafe.h"
 #import "NSMutableAttributedString+ChainProgramming.h"
+#import "NSAttributedString+AttributedString.h"
 #import "NSMutableDictionary+ChainProgramming.h"
 #import "NSMutableDictionary+NilSafe.h"
+#import "NSMutableArray+SafeAccess.h"
+#import "NSMutableArray+Stack.h"
+#import "NSMutableArray+Sort.h"
+#import "NSMutableArray+Queue.h"
 #import "NSString+Contains.h"
 #import "NSString+Emoji.h"
 #import "NSString+Trims.h"
