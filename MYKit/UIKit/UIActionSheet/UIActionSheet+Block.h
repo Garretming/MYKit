@@ -1,5 +1,5 @@
 //
-//  UIActionSheet+Extension.h
+//  UIActionSheet+Block.h
 //  FXKitExampleDemo
 //
 //  Created by sunjinshuai on 2017/7/20.
@@ -11,7 +11,7 @@
 typedef void (^UIActionSheetBlock) (UIActionSheet *actionSheet);
 typedef void (^UIActionSheetCompletionBlock) (UIActionSheet *actionSheet, NSInteger buttonIndex);
 
-@interface UIActionSheet (Extension)
+@interface UIActionSheet (Block)
 
 @property (copy, nonatomic) UIActionSheetCompletionBlock tapBlock;
 @property (copy, nonatomic) UIActionSheetCompletionBlock willDismissBlock;

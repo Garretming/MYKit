@@ -10,7 +10,6 @@
 
 @interface UIButton (Indicator)
 
-
 /**
  This method will show the activity indicator in place of the button text.
  */

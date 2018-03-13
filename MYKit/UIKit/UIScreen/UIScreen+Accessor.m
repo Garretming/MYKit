@@ -81,11 +81,11 @@ static const CGFloat DefaultScreenHeight = 1134.0/2;
     return floor(pixelValue * scale) / scale;
 }
 
-+ (CGFloat) pixelResize:(CGFloat) value {
++ (CGFloat)pixelResize:(CGFloat)value {
     return [UIScreen ceilPixelValue:value * [UIScreen screenResizeScale]];
 }
 
-+ (CGRect) pixelFrameResize:(CGRect)value {
++ (CGRect)pixelFrameResize:(CGRect)value {
     
     CGRect new = CGRectMake(value.origin.x * [UIScreen screenResizeScale],
                             value.origin.y *[UIScreen screenResizeScale],
@@ -95,7 +95,7 @@ static const CGFloat DefaultScreenHeight = 1134.0/2;
     
 }
 
-+ (CGPoint) pixelPointResize:(CGPoint) value {
++ (CGPoint)pixelPointResize:(CGPoint)value {
     
     CGPoint new = CGPointMake(value.x * [UIScreen screenResizeScale],
                               value.y * [UIScreen screenResizeScale]);

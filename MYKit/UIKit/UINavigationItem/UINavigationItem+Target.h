@@ -11,7 +11,7 @@
 @interface UINavigationItem (Target)
 
 + (UIBarButtonItem *)barButtonItemWithTarget:(id)target
-action:(SEL)action
+                                      action:(SEL)action
                                        image:(NSString *)image;
 
 + (UIBarButtonItem *)barButtonItemWithTarget:(id)target

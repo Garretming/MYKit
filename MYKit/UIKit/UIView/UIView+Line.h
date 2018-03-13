@@ -12,8 +12,6 @@
 
 /**
  *  划各种线 和分割线
- *
- *
  */
 - (CAShapeLayer *)addBezierLine:(UIBezierPath *)bezierLine color:(UIColor *)lineColor;
 

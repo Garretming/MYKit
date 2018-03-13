@@ -51,7 +51,6 @@
     [attributedString addAttribute:NSFontAttributeName
                              value:self.font
                              range:NSMakeRange(0, [self.text length])];
-    
     [self setAttributedText:attributedString];
     self.bounds = CGRectMake(0, 0, textSize.width, textSize.height);
     return isLimitedToLines;
@@ -86,14 +85,13 @@
 
 - (void)adjustSizeAlignment:(MYAdjustAlignment)adjustAlignment {
     
-    [self  adjustSizeAlignment:adjustAlignment
-                       margins:5.0];
-    
+    [self adjustSizeAlignment:adjustAlignment
+                      margins:5.0];
 }
 
 - (void)adjustSizeAlignment:(MYAdjustAlignment)adjustAlignment
                     margins:(CGFloat)margins {
-    CGRect rect ;
+    CGRect rect;
     switch (adjustAlignment) {
         case MYAdjustAlignmentLeft:
         case MYAdjustAlignmentRight: {
@@ -138,9 +136,7 @@
 }
 
 - (NSDictionary *)attributes {
-    
     return @{NSFontAttributeName:self.font};
-    
 }
 
 @end

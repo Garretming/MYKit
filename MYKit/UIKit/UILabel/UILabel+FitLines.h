@@ -23,12 +23,10 @@ typedef NS_ENUM(NSInteger, MYAdjustAlignment) {
  */
 @property (nonatomic, assign) CGFloat myConstrainedWidth;
 
-
 /**
  行间距
  */
 @property (nonatomic, assign) CGFloat myLineSpacing;
-
 
 /**
  文本适应于指定的行数
@@ -42,7 +40,6 @@ typedef NS_ENUM(NSInteger, MYAdjustAlignment) {
  *  MYAdjustAlignmentBottom LPDAdjustAlignmentTop V adjust
  *
  */
-
 - (void)adjustSizeAlignment:(MYAdjustAlignment)adjustAlignment;
 
 - (void)adjustSizeAlignment:(MYAdjustAlignment)adjustAlignment
