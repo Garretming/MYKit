@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSObject (Swizzling)
 
 /**
@@ -95,3 +97,4 @@
 - (void)instanceSwizzle:(SEL)oldSelector newSelector:(SEL)newSElector;
 
 @end
+NS_ASSUME_NONNULL_END

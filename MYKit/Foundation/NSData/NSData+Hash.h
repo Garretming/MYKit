@@ -164,6 +164,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSData *)hmacSHA512DataWithKey:(NSData *)key;
 
+/**
+ Returns a lowercase NSString for crc32 hash.
+ */
+- (NSString *)crc32String;
+
+/**
+ Returns crc32 hash.
+ */
+- (uint32_t)crc32;
+
 @end
 
 NS_ASSUME_NONNULL_END

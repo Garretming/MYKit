@@ -11,19 +11,6 @@
 @interface NSString (Contains)
 
 /**
- *  @brief  判断URL中是否包含中文
- *
- *  @return 是否包含中文
- */
-- (BOOL)isContainChinese;
-/**
- *  @brief  是否包含空格
- *
- *  @return 是否包含空格
- */
-- (BOOL)isContainBlank;
-
-/**
  *  @brief  Unicode编码的字符串转成NSString
  *
  *  @return Unicode编码的字符串转成NSString
@@ -39,6 +26,7 @@
  *  @return YES, 包含;
  */
 - (BOOL)containsaString:(NSString *)string;
+
 /**
  *  @brief 获取字符数量
  */
@@ -48,5 +36,10 @@
  nil, @"", @"  ", @"\n" will Returns NO; otherwise Returns YES.
  */
 - (BOOL)isNotBlank;
+
+/**
+ 判断URL中是否包含中文
+ */
+- (BOOL)isContainChinese;
 
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSDictionary (JSONString)
 
 /**
@@ -17,4 +19,16 @@
  */
 - (NSString *)JSONString;
 
+/**
+ Convert dictionary to json string. return nil if an error occurs.
+ */
+- (nullable NSString *)jsonStringEncoded;
+
+/**
+ Convert dictionary to json string formatted. return nil if an error occurs.
+ */
+- (nullable NSString *)jsonPrettyStringEncoded;
+
 @end
+
+NS_ASSUME_NONNULL_END

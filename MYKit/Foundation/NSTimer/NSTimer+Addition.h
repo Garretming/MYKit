@@ -42,7 +42,9 @@
  
  @return A new NSTimer object, configured according to the specified parameters.
  */
-+ (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)seconds block:(void (^)(NSTimer *timer))block repeats:(BOOL)repeats;
++ (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)seconds
+                                      block:(void (^)(NSTimer *timer))block
+                                    repeats:(BOOL)repeats;
 
 /**
  Creates and returns a new NSTimer object initialized with the specified block.
@@ -64,6 +66,7 @@
  
  @return A new NSTimer object, configured according to the specified parameters.
  */
-+ (NSTimer *)timerWithTimeInterval:(NSTimeInterval)seconds block:(void (^)(NSTimer *timer))block repeats:(BOOL)repeats;
-
++ (NSTimer *)timerWithTimeInterval:(NSTimeInterval)seconds
+                             block:(void (^)(NSTimer *timer))block
+                           repeats:(BOOL)repeats;
 @end

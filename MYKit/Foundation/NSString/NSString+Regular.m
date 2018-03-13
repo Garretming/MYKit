@@ -108,19 +108,6 @@
     return [self isValidateByRegex:taxNoRegex];
 }
 
-- (BOOL)isContainChinese {
-    NSUInteger length = [self length];
-    for (NSUInteger i = 0; i < length; i++) {
-        NSRange range = NSMakeRange(i, 1);
-        NSString *subString = [self substringWithRange:range];
-        const char *cString = [subString UTF8String];
-        if (strlen(cString) == 3) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
 - (BOOL)isValidateByRegex:(NSString *)regex {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
     return [pre evaluateWithObject:self];

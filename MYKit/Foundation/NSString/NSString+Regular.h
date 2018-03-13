@@ -60,9 +60,4 @@
  */
 - (BOOL)isValidTaxNo;
 
-/**
- 判断URL中是否包含中文
- */
-- (BOOL)isContainChinese;
-
 @end

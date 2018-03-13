@@ -151,6 +151,16 @@
     return [NSData dataWithBytes:result length:CC_SHA512_DIGEST_LENGTH];
 }
 
+- (NSString *)crc32String {
+    uLong result = crc32(0, self.bytes, (uInt)self.length);
+    return [NSString stringWithFormat:@"%08x", (uint32_t)result];
+}
+
+- (uint32_t)crc32 {
+    uLong result = crc32(0, self.bytes, (uInt)self.length);
+    return (uint32_t)result;
+}
+
 - (NSString *)hmacStringUsingAlg:(CCHmacAlgorithm)alg withKey:(NSString *)key {
     size_t size;
     switch (alg) {
