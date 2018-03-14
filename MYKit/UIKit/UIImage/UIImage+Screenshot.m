@@ -10,16 +10,15 @@
 
 @implementation UIImage (Screenshot)
 
-+ (UIImage *)captureWithView:(UIView *)view
-{
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, [UIScreen mainScreen].scale);
++ (UIImage *)captureWithView:(UIView *)sourceView {
+    NSParameterAssert(sourceView);
+    UIGraphicsBeginImageContextWithOptions(sourceView.bounds.size, sourceView.opaque, [UIScreen mainScreen].scale);
     // IOS7及其后续版本
-    if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
+    if ([sourceView respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        [sourceView drawViewHierarchyInRect:sourceView.bounds afterScreenUpdates:NO];
     } else { // IOS7之前的版本
-        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        [sourceView.layer renderInContext:UIGraphicsGetCurrentContext()];
     }
-    
     UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return screenshot;
@@ -81,6 +80,18 @@
     view.transform = oldTransform;
     
     return screenshot;
+}
+
+- (UIImage *)imageByCropToRect:(CGRect)rect {
+    rect.origin.x *= self.scale;
+    rect.origin.y *= self.scale;
+    rect.size.width *= self.scale;
+    rect.size.height *= self.scale;
+    if (rect.size.width <= 0 || rect.size.height <= 0) return nil;
+    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
+    UIImage *image = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
+    CGImageRelease(imageRef);
+    return image;
 }
 
 @end

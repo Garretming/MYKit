@@ -20,6 +20,16 @@
 + (UIImage *)imageWithColor:(UIColor *)color;
 
 /**
+ *  @brief  根据颜色和传入的size生成图片
+ *
+ *  @param color 传入的颜色
+ *  @param size  生成图片的size
+ *
+ *  @return 返回图片
+ */
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+
+/**
  *  @brief  取图片某一点的颜色
  *
  *  @param point 某一点

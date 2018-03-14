@@ -108,6 +108,7 @@
 #import <MYKit/NSData+Hash.h>
 #import <MYKit/NSData+Encrypt.h>
 #import <MYKit/NSData+Encode.h>
+#import <MYKit/NSData+ImageContentType.h>
 #import <MYKit/NSDate+NSDateRFC1123.h>
 #import <MYKit/NSDate+Addition.h>
 #import <MYKit/NSDate+YYAdd.h>
@@ -149,6 +150,7 @@
 #import "NSData+DataCache.h"
 #import "NSData+Base64.h"
 #import "NSData+Addition.h"
+#import "NSData+ImageContentType.h"
 #import "NSDate+YYAdd.h"
 #import "NSDate+NSDateRFC1123.h"
 #import "NSDate+Addition.h"

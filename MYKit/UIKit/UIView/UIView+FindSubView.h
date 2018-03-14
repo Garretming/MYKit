@@ -11,10 +11,20 @@
 @interface UIView (FindSubView)
 
 /**
+ *  判断两个view是否重叠
+ */
++ (BOOL)intersectsWithOtherView:(UIView *)otherView anotherView:(UIView *)anotherView;
+
+/**
  *  @brief find all subviews
  *
  *  @param cls class of subview
  */
 - (NSArray *)subviewsWithClass:(Class)cls;
+
+/**
+ *  判断self和view是否重叠
+ */
+- (BOOL)intersectsWithView:(UIView *)view;
 
 @end

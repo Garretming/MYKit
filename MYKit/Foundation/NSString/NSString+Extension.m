@@ -8,6 +8,8 @@
 
 #import "NSString+Extension.h"
 #import "NSData+Hash.h"
+#import "NSData+Base64.h"
+#import "NSData+Encode.h"
 
 @implementation NSString (Extension)
 

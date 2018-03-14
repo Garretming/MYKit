@@ -13,13 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (Screenshot)
 
 /**
- *  @brief  截图指定view成图片
+ *  @brief  以传入的视图为源，根据主窗口压缩比例截图
  *
- *  @param view 一个view
+ *  @param sourceView 源视图
  *
- *  @return 图片
+ *  @return 如果源视图为nil，则返回nil
  */
-+ (UIImage *)captureWithView:(UIView *)view;
++ (UIImage *)captureWithView:(UIView *)sourceView;
 
 /**
  *  @brief  从原来图片截取图片
@@ -40,6 +40,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return 截图
  */
 + (UIImage *)screenshotWithView:(UIView *)view limitWidth:(CGFloat)maxWidth;
+
+/**
+ Returns a new image which is cropped from this image.
+ 
+ @param rect  Image's inner rect.
+ 
+ @return      The new image, or nil if an error occurs.
+ */
+- (nullable UIImage *)imageByCropToRect:(CGRect)rect;
 
 @end
 

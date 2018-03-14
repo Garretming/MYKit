@@ -11,41 +11,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (Extension)
-/**
- 根据URL生成图片
-
- @param imageURL URL
- @return 图片
- */
-+ (UIImage *)imageWithURL:(NSURL *)imageURL;
 
 /**
- *  @brief  以传入的视图为源，根据主窗口压缩比例截图
- *
- *  @param sourceView 源视图
- *
- *  @return 如果源视图为nil，则返回nil
- */
-+ (UIImage *)createImageFromView:(UIView *)sourceView;
-
-/**
- *  @brief  根据颜色生成图片，默认size为{1.f, 1.f}
- *
- *  @param color 传入颜色
- *
- *  @return 返回图片
- */
-+ (UIImage *)createImageWithColor:(UIColor *)color;
-
-/**
- *  @brief  根据颜色和传入的size生成图片
- *
- *  @param color 传入的颜色
- *  @param size  生成图片的size
- *
- *  @return 返回图片
- */
-+ (UIImage *)createImageWithColor:(UIColor *)color size:(CGSize)size;
+*  @brief 根据URL生成图片
+*
+*  @param imageURL 图片URL
+*
+*  @return 返回处理后的图片
+*/
++ (nullable UIImage *)imageWithURL:(NSURL *)imageURL;
 
 /**
  *  @brief 设置图片的透明度
@@ -54,16 +28,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回处理后的图片
  */
-- (UIImage *)imageWithAlpha:(CGFloat)alpha;
+- (nullable UIImage *)imageWithAlpha:(CGFloat)alpha;
 
 /**
- *  @brief 设置图片的size
- *
- *
- *
- *  @return 返回改变size之后的图片
+ *  @brief 平均的颜色
  */
-- (UIImage *)resizeTo:(CGSize)size;
+- (nullable UIColor *)averageColor;
+
+/**
+ Returns a new image which is scaled from this image.
+ The image will be stretched as needed.
+ 
+ @param size  The new size to be scaled, values should be positive.
+ 
+ @return      The new image with the given size.
+ */
+- (nullable UIImage *)imageByResizeToSize:(CGSize)size;
 
 /**
  *  @brief 获取高斯模糊图片
@@ -72,25 +52,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 返回处理后的图片
  */
-- (UIImage *)imageWithBlurNumber:(CGFloat)blur;
+- (nullable UIImage *)imageWithBlurNumber:(CGFloat)blur;
 
-+ (nullable UIImage *)imageCacheWithName:(NSString *)imageName;
+/**
+ *  @brief 根据name获取GIF图片
+ *
+ *  @param name 图片名称
+ *
+ *  @return 返回处理后的图片
+ */
++ (nullable UIImage *)animatedGIFNamed:(NSString *)name;
 
-+ (nullable UIImage *)imageNoCacheWithName:(NSString *)imageName;
+/**
+ *  @brief 根据data获取GIF图片
+ *
+ *  @param data 图片数据流
+ *
+ *  @return 返回处理后的图片
+ */
++ (nullable UIImage *)animatedGIFWithData:(NSData *)data;
 
-+ (nullable UIImage *)imageJPGName:(NSString *)imageName;
+- (nullable UIImage *)animatedImageByScalingAndCroppingToSize:(CGSize)size;
 
-+ (nullable UIImage *)opacityImage:(UIImage *)image opacity:(float)opacity;
-
-+ (nullable UIImage *)maskImage:(UIImage *)image withColor:(UIColor *)maskColor;
-
-+ (nullable UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
-
-+ (nullable UIImage *)roundImageWithOriginImage:(UIImage *)image withDiameter:(CGFloat)diameter;
-
-+ (nullable UIImage *)roundedRectImageWithColor:(UIColor *)color cornerRadius:(CGFloat)radius size:(CGSize)size;
-
-+ (nullable UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)size;
 @end
 
 NS_ASSUME_NONNULL_END

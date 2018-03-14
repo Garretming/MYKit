@@ -10,6 +10,20 @@
 
 @implementation UIView (FindSubView)
 
++ (BOOL)intersectsWithOtherView:(UIView *)otherView anotherView:(UIView *)anotherView {
+    // 先转换为相对于窗口的坐标，然后进行判断是否重合
+    CGRect selfRect = [otherView convertRect:otherView.bounds toView:nil];
+    CGRect viewRect = [anotherView convertRect:anotherView.bounds toView:nil];
+    return CGRectIntersectsRect(selfRect, viewRect);
+}
+
+- (BOOL)intersectsWithView:(UIView *)view {
+    // 先转换为相对于窗口的坐标，然后进行判断是否重合
+    CGRect selfRect = [self convertRect:self.bounds toView:nil];
+    CGRect viewRect = [view convertRect:view.bounds toView:nil];
+    return CGRectIntersectsRect(selfRect, viewRect);
+}
+
 - (NSArray *)subviewsWithClass:(Class)cls {
     NSMutableArray *subviews = [NSMutableArray array];
     for (UIView *subview in self.subviews) {
