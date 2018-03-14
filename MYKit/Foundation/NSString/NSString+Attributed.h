@@ -10,10 +10,6 @@
 
 @interface NSString (Attributed)
 
-+ (NSAttributedString *)stringWitParagraphStyle:(NSMutableParagraphStyle *)paragraphStyle
-                                          title:(NSString *)title
-                                          image:(UIImage *)image;
-
 /**
  给 button 添加下划线
  
