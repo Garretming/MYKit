@@ -15,6 +15,7 @@
 #import "UIView+RedDot.h"
 #import "UIButton+ImageTitleStyle.h"
 #import "UIView+FindSubView.h"
+#import "UIImage+RoundedAvatar.h"
 
 @interface ViewController ()
 
@@ -32,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.imageView.image = [self.imageView.image circleImage];
+    self.imageView.image = [self.imageView.image imageByRoundCornerRadius:100 scaleSize:self.imageView.bounds.size];
     
 //    XXObject *object1 = [[XXObject alloc] init];
     
@@ -45,9 +46,12 @@
     [self.view addSubview:yellowView];
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20,CGRectGetMaxY(yellowView.frame),100,100)];
-    [button setTitle:@"测试文本" forState:UIControlStateNormal];
+//    [button setTitle:@"测试文本" forState:UIControlStateNormal];
+    
+    UIImage *currentImage = [UIImage imageNamed:@"demo"];
+    currentImage = [currentImage imageByRoundCornerRadius:100];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [button setImage:[[UIImage imageNamed:@"btn_kaibo_set_zhuantou_click"] imageWithBlurNumber:5] forState:UIControlStateNormal];
+    [button setImage:currentImage forState:UIControlStateNormal];
     [button setButtonImageTitleStyle:ButtonImageTitleStyleDefault padding:10];
     [button sizeToFit];
     [self.view addSubview:button];

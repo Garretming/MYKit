@@ -72,14 +72,4 @@
  */
 - (nullable UIImage *)imageByInsetEdge:(UIEdgeInsets)insets withColor:(nullable UIColor *)color;
 
-
-/**
- Rounds a new image with a given corner size.
-
- @return The radius of each corner oval. Values larger than half the
- rectangle's width or height are clamped appropriately to half
- the width or height.
- */
-- (nullable UIImage *)circleImage;
-
 @end

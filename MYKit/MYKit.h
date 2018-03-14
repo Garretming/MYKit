@@ -43,6 +43,7 @@
 #import <MYKit/UIButton+Indicator.h>
 #import <MYKit/UIButton+Submitting.h>
 #import <MYKit/UIButton+TouchAreaInsets.h>
+#import <MYKit/UIButton+ImageTitleStyle.h>
 #import <MYKit/UIResponder+Router.h>
 #import <MYKit/UIResponder+Chain.h>
 #import <MYKit/UINavigationItem+Loading.h>
@@ -197,12 +198,6 @@
 #import "UILabel+CountDown.h"
 #import "UILabel+FitLines.h"
 #import "UILabel+AutomaticWriting.h"
-#import "UIButton+CountDown.h"
-#import "UIButton+Badge.h"
-#import "UIButton+ImagePosition.h"
-#import "UIButton+Indicator.h"
-#import "UIButton+Submitting.h"
-#import "UIButton+TouchAreaInsets.h"
 #import "UIResponder+Router.h"
 #import "UIResponder+Chain.h"
 #import "UINavigationItem+Loading.h"
@@ -243,6 +238,7 @@
 #import "UIButton+Indicator.h"
 #import "UIButton+Submitting.h"
 #import "UIButton+TouchAreaInsets.h"
+#import "UIButton+ImageTitleStyle.h"
 #import "UIResponder+Router.h"
 #import "UIResponder+Chain.h"
 #import "UINavigationItem+Loading.h"
