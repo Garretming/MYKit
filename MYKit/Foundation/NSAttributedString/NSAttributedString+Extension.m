@@ -1,15 +1,15 @@
 //
-//  NSAttributedString+AttributedString.m
+//  NSAttributedString+Extension.m
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2018/3/1.
 //  Copyright © 2018年 com.51fanxing. All rights reserved.
 //
 
-#import "NSAttributedString+AttributedString.h"
+#import "NSAttributedString+Extension.h"
 #import <CoreText/CoreText.h>
 
-@implementation NSAttributedString (AttributedString)
+@implementation NSAttributedString (Extension)
 
 - (CGFloat)attributedStringHeightWithContainWidth:(CGFloat)width {
     

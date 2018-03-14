@@ -1,5 +1,5 @@
 //
-//  NSAttributedString+AttributedString.h
+//  NSAttributedString+Extension.h
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2018/3/1.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NSAttributedString (AttributedString)
+@interface NSAttributedString (Extension)
 
 /**
  根据富文本的宽度返回文字的高度
