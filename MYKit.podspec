@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    效率工具类 & 系统文件归类整理；
 		   DESC
 
-  s.homepage     = "https://github.com/sunjinshuai/MYKit"
+  s.homepage     = "https://github.com/iOS-Strikers/MYKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/sunjinshuai/MYKit.git", :tag => "1.0.6" 
+  s.source       = { :git => "https://github.com/iOS-Strikers/MYKit.git", :tag => "1.0.6" 
   }
 
 
