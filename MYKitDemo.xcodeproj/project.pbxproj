@@ -132,6 +132,7 @@
 		327001CD205909C600AD95EB /* UINavigationBar+Translation.m in Sources */ = {isa = PBXBuildFile; fileRef = 327001CC205909C600AD95EB /* UINavigationBar+Translation.m */; };
 		3270021120591BB600AD95EB /* NSFileManager+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3270021020591BB600AD95EB /* NSFileManager+FileManager.m */; };
 		327002182059205100AD95EB /* NSMutableAttributedString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 327002172059205100AD95EB /* NSMutableAttributedString+Extension.m */; };
+		3270021B205926DA00AD95EB /* UIApplication+Authority.m in Sources */ = {isa = PBXBuildFile; fileRef = 3270021A205926DA00AD95EB /* UIApplication+Authority.m */; };
 		328505941F9F51ED0098E2C0 /* UIDevice+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505931F9F51ED0098E2C0 /* UIDevice+Extension.m */; };
 		3285059B1F9F530F0098E2C0 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3285059A1F9F530F0098E2C0 /* UIImage+Extension.m */; };
 		328505A81F9F56300098E2C0 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505A71F9F56300098E2C0 /* NSDate+Extension.m */; };
@@ -417,6 +418,8 @@
 		3270021020591BB600AD95EB /* NSFileManager+FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+FileManager.m"; sourceTree = "<group>"; };
 		327002162059205100AD95EB /* NSMutableAttributedString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Extension.h"; sourceTree = "<group>"; };
 		327002172059205100AD95EB /* NSMutableAttributedString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Extension.m"; sourceTree = "<group>"; };
+		32700219205926DA00AD95EB /* UIApplication+Authority.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Authority.h"; sourceTree = "<group>"; };
+		3270021A205926DA00AD95EB /* UIApplication+Authority.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Authority.m"; sourceTree = "<group>"; };
 		328505921F9F51ED0098E2C0 /* UIDevice+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extension.h"; sourceTree = "<group>"; };
 		328505931F9F51ED0098E2C0 /* UIDevice+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extension.m"; sourceTree = "<group>"; };
 		328505991F9F530F0098E2C0 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
@@ -893,6 +896,8 @@
 				321373401F616B4100E15D0A /* UIApplication+NetworkActivityIndicator.m */,
 				321373421F616B8500E15D0A /* UIApplication+Extension.h */,
 				321373431F616B8500E15D0A /* UIApplication+Extension.m */,
+				32700219205926DA00AD95EB /* UIApplication+Authority.h */,
+				3270021A205926DA00AD95EB /* UIApplication+Authority.m */,
 			);
 			path = UIApplication;
 			sourceTree = "<group>";
@@ -1436,6 +1441,7 @@
 				3213730C1F61660900E15D0A /* UITableView+Extension.m in Sources */,
 				32077C641F600AE8006E4C70 /* UIColor+Hex.m in Sources */,
 				320695A41F600F780009FFDA /* UIResponder+Chain.m in Sources */,
+				3270021B205926DA00AD95EB /* UIApplication+Authority.m in Sources */,
 				321373361F616A1900E15D0A /* UIButton+TouchAreaInsets.m in Sources */,
 				325AFEA51FC0259A009FF8B1 /* NSDate+Addition.m in Sources */,
 				32077C331F5FF0AC006E4C70 /* UIImageView+BetterFace.m in Sources */,

@@ -51,11 +51,27 @@ static const CGFloat DefaultScreenHeight = 1134.0/2;
 #pragma mark - iphone ui design value
 
 + (CGFloat)statusBarHeight {
-    return 20.f;
+    return [[UIApplication sharedApplication] statusBarFrame].size.height;
 }
 
 + (CGFloat)navigationBarHeight {
-    return 64.f;
+    
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarController = (UITabBarController *)rootViewController;
+        UIViewController *tabBarFirstController = tabBarController.viewControllers.firstObject;
+        if ([tabBarFirstController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navigationController = (UINavigationController *)tabBarFirstController;
+            return CGRectGetHeight(navigationController.navigationBar.frame);
+        } else {
+            return 0.f;
+        }
+    } else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navigationController = (UINavigationController *)rootViewController;
+        return CGRectGetHeight(navigationController.navigationBar.frame);
+    } else {
+        return 0.f;
+    }
 }
 
 + (CGFloat)toolBarHeight {
@@ -63,7 +79,13 @@ static const CGFloat DefaultScreenHeight = 1134.0/2;
 }
 
 + (CGFloat)tabBarHeight {
-    return 49;
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarController = (UITabBarController *)rootViewController;
+        return CGRectGetHeight(tabBarController.tabBar.frame);
+    } else {
+        return 0.f;
+    }
 }
 
 + (CGFloat)ceilPixelValue:(CGFloat)pixelValue {

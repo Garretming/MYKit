@@ -28,4 +28,23 @@
 + (UIColor *)colorWithHexString:(NSString *)hexStr;
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alphaValue;
 
+/**
+ 十六进制转UIColor
+ 
+ @param hexValue 十六进制颜色值
+ @return UIColor
+ */
++ (UIColor *)colorWithHex:(NSInteger)hexValue;
+
+/**
+ 十六进制转UIColor
+ 
+ @param hexValue 十六进制颜色值
+ @param alphaValue 透明度
+ @return 返回十六进制转成的UIColor
+ */
++ (UIColor *)colorWithHex:(NSInteger)hexValue
+                    alpha:(CGFloat)alphaValue;
+
+
 @end
