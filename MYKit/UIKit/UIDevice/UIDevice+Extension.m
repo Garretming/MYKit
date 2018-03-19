@@ -60,41 +60,6 @@
     return [UIDevice currentDevice].model;
 }
 
-+ (NSString *)getNetWorkStates
-{
-    UIApplication *app = [UIApplication sharedApplication];
-    NSArray *children = [[[app valueForKeyPath:@"statusBar"] valueForKeyPath:@"foregroundView"] subviews];
-    NSString *state = @"";
-    int netType = 0;
-    
-    for (id child in children) {
-        if ([child isKindOfClass:NSClassFromString(@"UIStatusBarDataNetworkItemView")]) {
-            netType = [[child valueForKeyPath:@"dataNetworkType"]intValue];
-            
-            switch (netType) {
-                case 0:
-                    state = @"Unknown";
-                    break;
-                case 1:
-                    state = @"2G";
-                    break;
-                case 2:
-                    state = @"3G";
-                    break;
-                case 3:
-                    state = @"4G";
-                    break;
-                case 5:
-                    state = @"WIFI";
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-    return state;
-}
-
 + (NSString *)appleIFV
 {
     NSString *appleIdfv = [UIDevice currentDevice].identifierForVendor.UUIDString;

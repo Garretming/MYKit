@@ -25,11 +25,6 @@
 + (NSString *)systemVersion;
 
 /**
- 网络监测
- */
-+ (NSString *)getNetWorkStates;
-
-/**
  IFV/IDFV (Identifier for Vendor)
  */
 + (NSString *)appleIFV;

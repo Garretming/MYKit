@@ -67,14 +67,6 @@
  */
 + (CGFloat)navigationBarHeight;
 
-/**
- *  @brief  工具栏的高度
- *
- *  @return CGFloat
- */
-+ (CGFloat)toolBarHeight;
-
-
 + (CGFloat)scale;
 
 /**

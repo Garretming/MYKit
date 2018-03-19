@@ -74,10 +74,6 @@ static const CGFloat DefaultScreenHeight = 1134.0/2;
     }
 }
 
-+ (CGFloat)toolBarHeight {
-    return 44;
-}
-
 + (CGFloat)tabBarHeight {
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     if ([rootViewController isKindOfClass:[UITabBarController class]]) {
