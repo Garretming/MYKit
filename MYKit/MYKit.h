@@ -102,6 +102,7 @@
 
 #import <MYKit/UIImageView+Fillet.h>
 #import <MYKit/UIImageView+CornerRadius.h>
+#import <MYKit/UIImageView+RoundedAvatar.h>
 #import <MYKit/UIImageView+Reflect.h>
 #import <MYKit/UIImageView+FaceAwareFill.h>
 #import <MYKit/UIImageView+Letters.h>
@@ -360,6 +361,7 @@
 #import "UIImageView+FaceAwareFill.h"
 #import "UIImageView+Reflect.h"
 #import "UIImageView+CornerRadius.h"
+#import "UIImageView+RoundedAvatar.h"
 #import "UIImageView+Addition.h"
 #import "UIImageView+Fillet.h"
 

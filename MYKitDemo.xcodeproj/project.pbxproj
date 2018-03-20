@@ -146,6 +146,7 @@
 		32A7AA791FB3DA8F004B21D1 /* XXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A7AA781FB3DA8F004B21D1 /* XXObject.m */; };
 		32AF57D820410B1100BE9ABA /* NSDictionary+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF57D720410B1100BE9ABA /* NSDictionary+NilSafe.m */; };
 		32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m */; };
+		32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */; };
 		4C3894F31F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3894F21F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m */; };
 		4C3894F71F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3894F61F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.m */; };
 /* End PBXBuildFile section */
@@ -446,6 +447,8 @@
 		32AF57D720410B1100BE9ABA /* NSDictionary+NilSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NilSafe.m"; sourceTree = "<group>"; };
 		32AF57D920410B2B00BE9ABA /* NSMutableDictionary+NilSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+NilSafe.h"; sourceTree = "<group>"; };
 		32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+NilSafe.m"; sourceTree = "<group>"; };
+		32CE8B102060FEC000EC2D68 /* UIImageView+RoundedAvatar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RoundedAvatar.h"; sourceTree = "<group>"; };
+		32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RoundedAvatar.m"; sourceTree = "<group>"; };
 		4C3894F11F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+ChainProgramming.h"; sourceTree = "<group>"; };
 		4C3894F21F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+ChainProgramming.m"; sourceTree = "<group>"; };
 		4C3894F51F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+ChainProgramming.h"; sourceTree = "<group>"; };
@@ -658,6 +661,8 @@
 			children = (
 				32077C251F5FEEF7006E4C70 /* UIImageView+CornerRadius.h */,
 				32077C261F5FEEF7006E4C70 /* UIImageView+CornerRadius.m */,
+				32CE8B102060FEC000EC2D68 /* UIImageView+RoundedAvatar.h */,
+				32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */,
 				326A1EF51FE8AFE800535930 /* UIImageView+Fillet.h */,
 				326A1EF61FE8AFE800535930 /* UIImageView+Fillet.m */,
 				32077C281F5FEF7B006E4C70 /* UIImageView+Reflect.h */,
@@ -1369,6 +1374,7 @@
 				3213736F1F626A9700E15D0A /* NSDate+YYAdd.m in Sources */,
 				321373931F626E8D00E15D0A /* NSURL+Param.m in Sources */,
 				32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m in Sources */,
+				32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */,
 				32077BF21F5FEC6F006E4C70 /* AppDelegate.m in Sources */,
 				321372FE1F61633300E15D0A /* UITextView+Select.m in Sources */,
 				3213733C1F616ADB00E15D0A /* UIBarButtonItem+Badge.m in Sources */,
