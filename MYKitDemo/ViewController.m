@@ -16,6 +16,7 @@
 #import "UIButton+ImageTitleStyle.h"
 #import "UIView+FindSubView.h"
 #import "UIImage+RoundedAvatar.h"
+#import "UINavigationBar+Addition.h"
 
 @interface ViewController ()
 
@@ -32,6 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     self.imageView.image = [self.imageView.image imageByRoundCornerRadius:100 scaleSize:self.imageView.bounds.size];
     

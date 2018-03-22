@@ -12,9 +12,13 @@
 
 /**
  设置Bar偏移
- 
  @param translationY 偏移量
  */
 - (void)setTranslationY:(CGFloat)translationY;
+
+/**
+ 获取当前导航栏在垂直方向上偏移了多少
+ */
+- (CGFloat)getTranslationY;
 
 @end

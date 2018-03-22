@@ -48,6 +48,8 @@
 
 + (BOOL)p55InchDiplay;
 
++ (BOOL)isIphoneX;
+
 + (NSString *)getIPAddress:(BOOL)preferIPv4;
 
 /**

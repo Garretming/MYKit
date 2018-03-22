@@ -43,31 +43,27 @@
     return uuidString;
 }
 
-+ (NSString*)deviceModel {
++ (NSString *)deviceModel {
     struct utsname systemInfo;
     uname(&systemInfo);
     NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
     return deviceString;
 }
 
-+ (NSString *)systemVersion
-{
++ (NSString *)systemVersion {
     return [UIDevice currentDevice].systemVersion;
 }
 
-+ (NSString *)device_brand
-{
++ (NSString *)device_brand {
     return [UIDevice currentDevice].model;
 }
 
-+ (NSString *)appleIFV
-{
++ (NSString *)appleIFV {
     NSString *appleIdfv = [UIDevice currentDevice].identifierForVendor.UUIDString;
     return appleIdfv.md5String;
 }
 
-+ (NSString *)getVersionNumber
-{
++ (NSString *)getVersionNumber {
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     return version;
 }
@@ -80,6 +76,19 @@
     NSString *platform = [NSString stringWithUTF8String:machine];
     free(machine);
     return platform;
+}
+
++ (BOOL)isIphoneX {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
+    if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) {
+        // judgment by height when in simulators
+        return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
+                CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)));
+    }
+    BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
+    return isIPhoneX;
 }
 
 + (BOOL)isSimulator {

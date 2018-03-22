@@ -147,6 +147,7 @@
 		32AF57D820410B1100BE9ABA /* NSDictionary+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF57D720410B1100BE9ABA /* NSDictionary+NilSafe.m */; };
 		32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m */; };
 		32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */; };
+		32E1AB542063AF3C0072A1E4 /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */; };
 		4C3894F31F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3894F21F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m */; };
 		4C3894F71F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3894F61F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.m */; };
 /* End PBXBuildFile section */
@@ -449,6 +450,8 @@
 		32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+NilSafe.m"; sourceTree = "<group>"; };
 		32CE8B102060FEC000EC2D68 /* UIImageView+RoundedAvatar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RoundedAvatar.h"; sourceTree = "<group>"; };
 		32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RoundedAvatar.m"; sourceTree = "<group>"; };
+		32E1AB522063AF3C0072A1E4 /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Addition.h"; sourceTree = "<group>"; };
+		32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Addition.m"; sourceTree = "<group>"; };
 		4C3894F11F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+ChainProgramming.h"; sourceTree = "<group>"; };
 		4C3894F21F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+ChainProgramming.m"; sourceTree = "<group>"; };
 		4C3894F51F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+ChainProgramming.h"; sourceTree = "<group>"; };
@@ -1134,6 +1137,8 @@
 			children = (
 				327001CB205909C600AD95EB /* UINavigationBar+Translation.h */,
 				327001CC205909C600AD95EB /* UINavigationBar+Translation.m */,
+				32E1AB522063AF3C0072A1E4 /* UINavigationBar+Addition.h */,
+				32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */,
 			);
 			path = UINavigationBar;
 			sourceTree = "<group>";
@@ -1355,6 +1360,7 @@
 				3270021120591BB600AD95EB /* NSFileManager+FileManager.m in Sources */,
 				4C3894F71F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.m in Sources */,
 				3270016E2057AE3E00AD95EB /* NSData+Addition.m in Sources */,
+				32E1AB542063AF3C0072A1E4 /* UINavigationBar+Addition.m in Sources */,
 				328505B01F9F57D30098E2C0 /* NSString+Extension.m in Sources */,
 				321373961F626F6C00E15D0A /* NSURL+URLQuery.m in Sources */,
 				3213737D1F626BBD00E15D0A /* NSDictionary+JSONString.m in Sources */,
