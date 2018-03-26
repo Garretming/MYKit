@@ -17,6 +17,8 @@
 #import "UIView+FindSubView.h"
 #import "UIImage+RoundedAvatar.h"
 #import "UINavigationBar+Addition.h"
+#import "UIActionSheet+Block.h"
+#import "UIActionSheet+Addition.h"
 
 @interface ViewController ()
 
@@ -95,6 +97,20 @@
     NSLog(@"判读字典是否可以为空%@",testDict[@"test"]);
     
     
+    UIActionSheet *actionSheet = [UIActionSheet sheetWithTitle:nil];
+    [actionSheet setCancelButtonWithTitle:@"dadf" block:^{
+        NSLog(@"dadf");
+    }];
+    
+    [actionSheet addButtonWithTitle:@"dadf" block:^{
+        NSLog(@"dadf");
+    }];
+    
+    [actionSheet setDestructiveButtonWithTitle:@"取消禁言" block:^{
+        NSLog(@"取消禁言");
+    }];
+
+    [actionSheet showInController:self];
 }
 
 - (void)testFoundationCategory {

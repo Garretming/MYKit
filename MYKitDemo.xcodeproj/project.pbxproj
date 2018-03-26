@@ -28,7 +28,6 @@
 		32077C2D1F5FEFAA006E4C70 /* UIImageView+FaceAwareFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C2C1F5FEFAA006E4C70 /* UIImageView+FaceAwareFill.m */; };
 		32077C301F5FEFF1006E4C70 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C2F1F5FEFF1006E4C70 /* UIImageView+Letters.m */; };
 		32077C331F5FF0AC006E4C70 /* UIImageView+BetterFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C321F5FF0AC006E4C70 /* UIImageView+BetterFace.m */; };
-		32077C371F5FF262006E4C70 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C361F5FF262006E4C70 /* UIAlertView+Block.m */; };
 		32077C3B1F5FF3CD006E4C70 /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C3A1F5FF3CD006E4C70 /* UIView+Position.m */; };
 		32077C3E1F5FF410006E4C70 /* UIView+Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C3D1F5FF410006E4C70 /* UIView+Gesture.m */; };
 		32077C411F5FF4B2006E4C70 /* UIView+SuperController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C401F5FF4B2006E4C70 /* UIView+SuperController.m */; };
@@ -45,6 +44,13 @@
 		32077C6B1F600C7A006E4C70 /* UINavigationItem+Margin.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C6A1F600C7A006E4C70 /* UINavigationItem+Margin.m */; };
 		32077C6E1F600CCC006E4C70 /* UINavigationItem+Target.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C6D1F600CCC006E4C70 /* UINavigationItem+Target.m */; };
 		32077C721F600ED5006E4C70 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C711F600ED5006E4C70 /* UIResponder+Router.m */; };
+		3210F1672064FD6B00000A6E /* UIViewController+ClassName.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F1662064FD6B00000A6E /* UIViewController+ClassName.m */; };
+		3210F16D2068DD5300000A6E /* _UIAlertController+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F16C2068DD5300000A6E /* _UIAlertController+Addition.m */; };
+		3210F5582068F24100000A6E /* _ActionSheetButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5572068F24100000A6E /* _ActionSheetButtonItem.m */; };
+		3210F56A2068F3B100000A6E /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5682068F3B100000A6E /* UIAlertView+Block.m */; };
+		3210F5722068F57D00000A6E /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F56E2068F57D00000A6E /* UIActionSheet+Block.m */; };
+		3210F5732068F57D00000A6E /* UIActionSheet+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5702068F57D00000A6E /* UIActionSheet+Addition.m */; };
+		3210F5772068F63700000A6E /* UIAlertView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5762068F63700000A6E /* UIAlertView+Addition.m */; };
 		321372EA1F615D2900E15D0A /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 321372E91F615D2900E15D0A /* UIWindow+Hierarchy.m */; };
 		321372EE1F615DF600E15D0A /* UIWebView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 321372ED1F615DF600E15D0A /* UIWebView+Block.m */; };
 		321372F11F615F9700E15D0A /* UIWebView+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 321372F01F615F9700E15D0A /* UIWebView+Load.m */; };
@@ -118,7 +124,6 @@
 		325AFEC51FC02B0D009FF8B1 /* UINavigationItem+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEC41FC02B0D009FF8B1 /* UINavigationItem+Addition.m */; };
 		326A1EF71FE8AFE800535930 /* UIImageView+Fillet.m in Sources */ = {isa = PBXBuildFile; fileRef = 326A1EF61FE8AFE800535930 /* UIImageView+Fillet.m */; };
 		326BCD7D2004C08A00585315 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 326BCD7C2004C08A00585315 /* NSArray+Safe.m */; };
-		3270015F2057A84900AD95EB /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 3270015D2057A84900AD95EB /* UIActionSheet+Block.m */; };
 		327001622057AC5D00AD95EB /* NSMutableArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 327001602057AC5D00AD95EB /* NSMutableArray+Extension.m */; };
 		327001672057ACD400AD95EB /* NSNumber+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 327001632057ACD300AD95EB /* NSNumber+Addition.m */; };
 		327001682057ACD400AD95EB /* NSNumber+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 327001662057ACD400AD95EB /* NSNumber+Round.m */; };
@@ -212,8 +217,6 @@
 		32077C2F1F5FEFF1006E4C70 /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
 		32077C311F5FF0AC006E4C70 /* UIImageView+BetterFace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+BetterFace.h"; sourceTree = "<group>"; };
 		32077C321F5FF0AC006E4C70 /* UIImageView+BetterFace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+BetterFace.m"; sourceTree = "<group>"; };
-		32077C351F5FF262006E4C70 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
-		32077C361F5FF262006E4C70 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
 		32077C391F5FF3CD006E4C70 /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
 		32077C3A1F5FF3CD006E4C70 /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		32077C3C1F5FF410006E4C70 /* UIView+Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Gesture.h"; sourceTree = "<group>"; };
@@ -246,6 +249,20 @@
 		32077C6D1F600CCC006E4C70 /* UINavigationItem+Target.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Target.m"; sourceTree = "<group>"; };
 		32077C701F600ED5006E4C70 /* UIResponder+Router.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Router.h"; sourceTree = "<group>"; };
 		32077C711F600ED5006E4C70 /* UIResponder+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Router.m"; sourceTree = "<group>"; };
+		3210F1652064FD6B00000A6E /* UIViewController+ClassName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ClassName.h"; sourceTree = "<group>"; };
+		3210F1662064FD6B00000A6E /* UIViewController+ClassName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ClassName.m"; sourceTree = "<group>"; };
+		3210F16B2068DD5300000A6E /* _UIAlertController+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "_UIAlertController+Addition.h"; sourceTree = "<group>"; };
+		3210F16C2068DD5300000A6E /* _UIAlertController+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_UIAlertController+Addition.m"; sourceTree = "<group>"; };
+		3210F5562068F24100000A6E /* _ActionSheetButtonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ActionSheetButtonItem.h; sourceTree = "<group>"; };
+		3210F5572068F24100000A6E /* _ActionSheetButtonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _ActionSheetButtonItem.m; sourceTree = "<group>"; };
+		3210F5682068F3B100000A6E /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		3210F5692068F3B100000A6E /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
+		3210F56C2068F57D00000A6E /* UIActionSheet+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Addition.h"; sourceTree = "<group>"; };
+		3210F56E2068F57D00000A6E /* UIActionSheet+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Block.m"; sourceTree = "<group>"; };
+		3210F56F2068F57D00000A6E /* UIActionSheet+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Block.h"; sourceTree = "<group>"; };
+		3210F5702068F57D00000A6E /* UIActionSheet+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Addition.m"; sourceTree = "<group>"; };
+		3210F5752068F63700000A6E /* UIAlertView+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Addition.h"; sourceTree = "<group>"; };
+		3210F5762068F63700000A6E /* UIAlertView+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Addition.m"; sourceTree = "<group>"; };
 		321372E81F615D2900E15D0A /* UIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Hierarchy.h"; sourceTree = "<group>"; };
 		321372E91F615D2900E15D0A /* UIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Hierarchy.m"; sourceTree = "<group>"; };
 		321372EC1F615DF600E15D0A /* UIWebView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Block.h"; sourceTree = "<group>"; };
@@ -392,8 +409,6 @@
 		326A1EF61FE8AFE800535930 /* UIImageView+Fillet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Fillet.m"; sourceTree = "<group>"; };
 		326BCD7B2004C08A00585315 /* NSArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
 		326BCD7C2004C08A00585315 /* NSArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
-		3270015D2057A84900AD95EB /* UIActionSheet+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Block.m"; sourceTree = "<group>"; };
-		3270015E2057A84900AD95EB /* UIActionSheet+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Block.h"; sourceTree = "<group>"; };
 		327001602057AC5D00AD95EB /* NSMutableArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extension.m"; sourceTree = "<group>"; };
 		327001612057AC5D00AD95EB /* NSMutableArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Extension.h"; sourceTree = "<group>"; };
 		327001632057ACD300AD95EB /* NSNumber+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Addition.m"; sourceTree = "<group>"; };
@@ -632,10 +647,10 @@
 		32077C231F5FEEA8006E4C70 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3210F5552068F21600000A6E /* UIAlertView&UIActionSheet */,
 				327001CA205909AA00AD95EB /* UINavigationBar */,
 				3270017C2059034000AD95EB /* UIViewController */,
 				325AFEBF1FC02AD4009FF8B1 /* UIScreen */,
-				328505951F9F52010098E2C0 /* UIActionSheet */,
 				328505911F9F51ED0098E2C0 /* UIDevice */,
 				3213733E1F616B2500E15D0A /* UIApplication */,
 				321373371F616ADB00E15D0A /* UIBarButtonItem */,
@@ -653,7 +668,6 @@
 				32077C5E1F600A80006E4C70 /* UIColor */,
 				32077C4E1F5FF9EA006E4C70 /* UIImage */,
 				32077C381F5FF394006E4C70 /* UIView */,
-				32077C341F5FF245006E4C70 /* UIAlertView */,
 				32077C241F5FEEDF006E4C70 /* UIImageView */,
 			);
 			path = UIKit;
@@ -678,15 +692,6 @@
 				32077C321F5FF0AC006E4C70 /* UIImageView+BetterFace.m */,
 			);
 			path = UIImageView;
-			sourceTree = "<group>";
-		};
-		32077C341F5FF245006E4C70 /* UIAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				32077C351F5FF262006E4C70 /* UIAlertView+Block.h */,
-				32077C361F5FF262006E4C70 /* UIAlertView+Block.m */,
-			);
-			path = UIAlertView;
 			sourceTree = "<group>";
 		};
 		32077C381F5FF394006E4C70 /* UIView */ = {
@@ -776,6 +781,41 @@
 				320695A31F600F780009FFDA /* UIResponder+Chain.m */,
 			);
 			path = UIResponder;
+			sourceTree = "<group>";
+		};
+		3210F5552068F21600000A6E /* UIAlertView&UIActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				3210F5562068F24100000A6E /* _ActionSheetButtonItem.h */,
+				3210F5572068F24100000A6E /* _ActionSheetButtonItem.m */,
+				3210F16B2068DD5300000A6E /* _UIAlertController+Addition.h */,
+				3210F16C2068DD5300000A6E /* _UIAlertController+Addition.m */,
+				3210F56B2068F3DA00000A6E /* UIActionSheet */,
+				3210F5672068F3B100000A6E /* UIAlertView */,
+			);
+			path = "UIAlertView&UIActionSheet";
+			sourceTree = "<group>";
+		};
+		3210F5672068F3B100000A6E /* UIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				3210F5682068F3B100000A6E /* UIAlertView+Block.m */,
+				3210F5692068F3B100000A6E /* UIAlertView+Block.h */,
+				3210F5752068F63700000A6E /* UIAlertView+Addition.h */,
+				3210F5762068F63700000A6E /* UIAlertView+Addition.m */,
+			);
+			path = UIAlertView;
+			sourceTree = "<group>";
+		};
+		3210F56B2068F3DA00000A6E /* UIActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				3210F56C2068F57D00000A6E /* UIActionSheet+Addition.h */,
+				3210F5702068F57D00000A6E /* UIActionSheet+Addition.m */,
+				3210F56F2068F57D00000A6E /* UIActionSheet+Block.h */,
+				3210F56E2068F57D00000A6E /* UIActionSheet+Block.m */,
+			);
+			path = UIActionSheet;
 			sourceTree = "<group>";
 		};
 		321372E71F615C7F00E15D0A /* UIWindow */ = {
@@ -1128,6 +1168,8 @@
 				327001812059046C00AD95EB /* UIViewController+PreviousController.m */,
 				32700183205904F900AD95EB /* UIViewController+TopViewController.h */,
 				32700184205904F900AD95EB /* UIViewController+TopViewController.m */,
+				3210F1652064FD6B00000A6E /* UIViewController+ClassName.h */,
+				3210F1662064FD6B00000A6E /* UIViewController+ClassName.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1159,15 +1201,6 @@
 				328505931F9F51ED0098E2C0 /* UIDevice+Extension.m */,
 			);
 			path = UIDevice;
-			sourceTree = "<group>";
-		};
-		328505951F9F52010098E2C0 /* UIActionSheet */ = {
-			isa = PBXGroup;
-			children = (
-				3270015E2057A84900AD95EB /* UIActionSheet+Block.h */,
-				3270015D2057A84900AD95EB /* UIActionSheet+Block.m */,
-			);
-			path = UIActionSheet;
 			sourceTree = "<group>";
 		};
 		4C3894F01F64E1D800BD95ED /* NSMutableDictionary */ = {
@@ -1342,6 +1375,7 @@
 				321372F81F61621C00E15D0A /* UITextView+PlaceHolder.m in Sources */,
 				329AD3741FC030190036CF6D /* UIScreen+Accessor.m in Sources */,
 				327001742058E78F00AD95EB /* UIImage+RoundedAvatar.m in Sources */,
+				3210F16D2068DD5300000A6E /* _UIAlertController+Addition.m in Sources */,
 				32077C6B1F600C7A006E4C70 /* UINavigationItem+Margin.m in Sources */,
 				3213738F1F626E1000E15D0A /* NSUserDefaults+SafeAccess.m in Sources */,
 				321372FB1F6162C800E15D0A /* UITextView+InputLengthCalculate.m in Sources */,
@@ -1352,6 +1386,7 @@
 				325AFEAC1FC02738009FF8B1 /* NSNull+NSNullSafe.m in Sources */,
 				321373341F616A1900E15D0A /* UIButton+Indicator.m in Sources */,
 				32077C511F5FFA19006E4C70 /* UIImage+Color.m in Sources */,
+				3210F5722068F57D00000A6E /* UIActionSheet+Block.m in Sources */,
 				32077C6E1F600CCC006E4C70 /* UINavigationItem+Target.m in Sources */,
 				321373A01F62725D00E15D0A /* NSString+UUID.m in Sources */,
 				326A1EF71FE8AFE800535930 /* UIImageView+Fillet.m in Sources */,
@@ -1369,6 +1404,7 @@
 				321373101F61668700E15D0A /* UIScrollView+Extension.m in Sources */,
 				327001622057AC5D00AD95EB /* NSMutableArray+Extension.m in Sources */,
 				325AFEBE1FC02A75009FF8B1 /* UIView+CornerRadii.m in Sources */,
+				3210F5732068F57D00000A6E /* UIActionSheet+Addition.m in Sources */,
 				32700185205904F900AD95EB /* UIViewController+TopViewController.m in Sources */,
 				3241745C1FF63E40007BB277 /* NSMutableArray+Stack.m in Sources */,
 				32A7AA791FB3DA8F004B21D1 /* XXObject.m in Sources */,
@@ -1417,17 +1453,17 @@
 				321373761F626B7700E15D0A /* NSDateFormatter+Extension.m in Sources */,
 				325AFEA21FC023D1009FF8B1 /* NSArray+Extension.m in Sources */,
 				3270017F2059035200AD95EB /* UIViewController+PageViewLevel.m in Sources */,
-				32077C371F5FF262006E4C70 /* UIAlertView+Block.m in Sources */,
 				321373411F616B4100E15D0A /* UIApplication+NetworkActivityIndicator.m in Sources */,
 				32047E23200F552100A36003 /* UIButton+ImageTitleStyle.m in Sources */,
 				321373161F61676600E15D0A /* UINavigationController+StackManager.m in Sources */,
 				32077C571F600133006E4C70 /* UIImage+CornerRadius.m in Sources */,
 				327001682057ACD400AD95EB /* NSNumber+Round.m in Sources */,
+				3210F5772068F63700000A6E /* UIAlertView+Addition.m in Sources */,
 				4C3894F31F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m in Sources */,
 				327001712058C80400AD95EB /* NSData+ImageContentType.m in Sources */,
 				327001822059046C00AD95EB /* UIViewController+PreviousController.m in Sources */,
 				3213734B1F62647800E15D0A /* NSArray+SafeAccess.m in Sources */,
-				3270015F2057A84900AD95EB /* UIActionSheet+Block.m in Sources */,
+				3210F5582068F24100000A6E /* _ActionSheetButtonItem.m in Sources */,
 				321373201F6167C600E15D0A /* UILabel+AutomaticWriting.m in Sources */,
 				3213733D1F616ADB00E15D0A /* UIBarButtonItem+Extension.m in Sources */,
 				32077C441F5FF52E006E4C70 /* UIView+Screenshot.m in Sources */,
@@ -1440,6 +1476,7 @@
 				321373AC1F627C7500E15D0A /* NSString+Emoji.m in Sources */,
 				3213739D1F62714000E15D0A /* NSString+XML.m in Sources */,
 				3285059B1F9F530F0098E2C0 /* UIImage+Extension.m in Sources */,
+				3210F1672064FD6B00000A6E /* UIViewController+ClassName.m in Sources */,
 				324174501FF63B3A007BB277 /* UIView+Badge.m in Sources */,
 				321373801F626C1B00E15D0A /* NSDictionary+Plist.m in Sources */,
 				3213735F1F6266A500E15D0A /* NSData+Hash.m in Sources */,
@@ -1447,6 +1484,7 @@
 				321373441F616B8500E15D0A /* UIApplication+Extension.m in Sources */,
 				32077C721F600ED5006E4C70 /* UIResponder+Router.m in Sources */,
 				32077C4D1F5FF827006E4C70 /* UIView+CustomBorder.m in Sources */,
+				3210F56A2068F3B100000A6E /* UIAlertView+Block.m in Sources */,
 				3213735B1F62665B00E15D0A /* NSData+DataCache.m in Sources */,
 				324174691FF63F88007BB277 /* UIView+GradientBackgroundColor.m in Sources */,
 				328505B41F9F57FA0098E2C0 /* NSString+Attributed.m in Sources */,

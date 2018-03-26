@@ -22,6 +22,7 @@
 #import <MYKit/UIScreen+Accessor.h>
 
 #import <MYKit/UIActionSheet+Block.h>
+#import <MYKit/UIActionSheet+Addition.h>
 
 #import <MYKit/UIDevice+Extension.h>
 
@@ -99,6 +100,7 @@
 #import <MYKit/UIView+GradientBackgroundColor.h>
 
 #import <MYKit/UIAlertView+Block.h>
+#import <MYKit/UIAlertView+Addition.h>
 
 #import <MYKit/UIImageView+Fillet.h>
 #import <MYKit/UIImageView+CornerRadius.h>
@@ -280,6 +282,7 @@
 #import "UIScreen+Accessor.h"
 
 #import "UIActionSheet+Block.h"
+#import "UIActionSheet+Addition.h"
 
 #import "UIDevice+Extension.h"
 
@@ -366,6 +369,7 @@
 #import "UIImageView+Fillet.h"
 
 #import "UIAlertView+Block.h"
+#import "UIAlertView+Addition.h"
 
 #endif 
 
