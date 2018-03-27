@@ -10,7 +10,8 @@
 #import "_ActionSheetButtonItem.h"
 #import <objc/runtime.h>
 
-static NSString *RI_BUTTON_ASS_KEY = @"RI_BUTTON_ASS_KEY_ALERTVIEW";
+static const NSString *RI_BUTTON_ASS_KEY = @"RI_BUTTON_ASS_KEY_ALERTVIEW";
+static const NSString *AlertUserInfoKey = @"AlertUserInfoKey";
 
 @implementation UIAlertView (Addition)
 
@@ -84,6 +85,15 @@ static NSString *RI_BUTTON_ASS_KEY = @"RI_BUTTON_ASS_KEY_ALERTVIEW";
 
 - (void)willPresentAlertView:(UIAlertView *)alertView {
     
+}
+
+- (void)setUserInfo:(NSDictionary *)userInfo {
+    objc_setAssociatedObject(self, &AlertUserInfoKey, userInfo, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+
+- (NSDictionary *)userInfo {
+    return objc_getAssociatedObject(self, &AlertUserInfoKey);
 }
 
 @end

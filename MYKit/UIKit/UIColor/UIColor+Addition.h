@@ -1,5 +1,5 @@
 //
-//  UIColor+Random.h
+//  UIColor+Addition.h
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2017/9/6.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (Random)
+@interface UIColor (Addition)
 
 + (UIColor *)randomColor;
+
+- (UIImage *)image;
 
 @end

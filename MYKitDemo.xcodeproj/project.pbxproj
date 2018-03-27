@@ -37,7 +37,7 @@
 		32077C511F5FFA19006E4C70 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C501F5FFA19006E4C70 /* UIImage+Color.m */; };
 		32077C541F5FFBFE006E4C70 /* UIImage+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C531F5FFBFE006E4C70 /* UIImage+Screenshot.m */; };
 		32077C571F600133006E4C70 /* UIImage+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C561F600133006E4C70 /* UIImage+CornerRadius.m */; };
-		32077C611F600AA5006E4C70 /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C601F600AA5006E4C70 /* UIColor+Random.m */; };
+		32077C611F600AA5006E4C70 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C601F600AA5006E4C70 /* UIColor+Addition.m */; };
 		32077C641F600AE8006E4C70 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C631F600AE8006E4C70 /* UIColor+Hex.m */; };
 		32077C681F600C3A006E4C70 /* UINavigationItem+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C671F600C3A006E4C70 /* UINavigationItem+Loading.m */; };
 		32077C6B1F600C7A006E4C70 /* UINavigationItem+Margin.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C6A1F600C7A006E4C70 /* UINavigationItem+Margin.m */; };
@@ -236,8 +236,8 @@
 		32077C531F5FFBFE006E4C70 /* UIImage+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Screenshot.m"; sourceTree = "<group>"; };
 		32077C551F600133006E4C70 /* UIImage+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CornerRadius.h"; sourceTree = "<group>"; };
 		32077C561F600133006E4C70 /* UIImage+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CornerRadius.m"; sourceTree = "<group>"; };
-		32077C5F1F600AA5006E4C70 /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
-		32077C601F600AA5006E4C70 /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
+		32077C5F1F600AA5006E4C70 /* UIColor+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
+		32077C601F600AA5006E4C70 /* UIColor+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		32077C621F600AE8006E4C70 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		32077C631F600AE8006E4C70 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		32077C661F600C3A006E4C70 /* UINavigationItem+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Loading.h"; sourceTree = "<group>"; };
@@ -750,8 +750,8 @@
 		32077C5E1F600A80006E4C70 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
-				32077C5F1F600AA5006E4C70 /* UIColor+Random.h */,
-				32077C601F600AA5006E4C70 /* UIColor+Random.m */,
+				32077C5F1F600AA5006E4C70 /* UIColor+Addition.h */,
+				32077C601F600AA5006E4C70 /* UIColor+Addition.m */,
 				32077C621F600AE8006E4C70 /* UIColor+Hex.h */,
 				32077C631F600AE8006E4C70 /* UIColor+Hex.m */,
 				321373251F6169B100E15D0A /* UIColor+Gradient.h */,
@@ -1366,7 +1366,7 @@
 			files = (
 				3270016B2057AD4700AD95EB /* NSObject+KVO.m in Sources */,
 				320695AF1F6010680009FFDA /* UILabel+CountDown.m in Sources */,
-				32077C611F600AA5006E4C70 /* UIColor+Random.m in Sources */,
+				32077C611F600AA5006E4C70 /* UIColor+Addition.m in Sources */,
 				324174531FF63BFD007BB277 /* UIScrollView+Accessor.m in Sources */,
 				328505AB1F9F57C80098E2C0 /* NSString+Regular.m in Sources */,
 				321373B51F627D9700E15D0A /* NSObject+AssociatedObject.m in Sources */,

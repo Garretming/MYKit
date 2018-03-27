@@ -97,20 +97,28 @@
     NSLog(@"判读字典是否可以为空%@",testDict[@"test"]);
     
     
-    UIActionSheet *actionSheet = [UIActionSheet sheetWithTitle:nil];
-    [actionSheet setCancelButtonWithTitle:@"dadf" block:^{
-        NSLog(@"dadf");
-    }];
+//    UIActionSheet *actionSheet = [UIActionSheet sheetWithTitle:nil];
+//    [actionSheet setCancelButtonWithTitle:@"dadf" block:^{
+//        NSLog(@"dadf");
+//    }];
+//
+//    [actionSheet addButtonWithTitle:@"dadf" block:^{
+//        NSLog(@"dadf");
+//    }];
+//
+//    [actionSheet setDestructiveButtonWithTitle:@"取消禁言" block:^{
+//        NSLog(@"取消禁言");
+//    }];
+//
+//    [actionSheet showInController:self];
     
-    [actionSheet addButtonWithTitle:@"dadf" block:^{
-        NSLog(@"dadf");
-    }];
-    
-    [actionSheet setDestructiveButtonWithTitle:@"取消禁言" block:^{
-        NSLog(@"取消禁言");
-    }];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"asdfas" message:@"asdfasd" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
 
-    [actionSheet showInController:self];
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
 }
 
 - (void)testFoundationCategory {

@@ -75,7 +75,7 @@
 #import <MYKit/UINavigationItem+Target.h>
 #import <MYKit/UINavigationItem+Addition.h>
 
-#import <MYKit/UIColor+Random.h>
+#import <MYKit/UIColor+Addition.h>
 #import <MYKit/UIColor+Hex.h>
 #import <MYKit/UIColor+Gradient.h>
 
@@ -337,7 +337,7 @@
 #import "UINavigationItem+Target.h"
 #import "UINavigationItem+Addition.h"
 
-#import "UIColor+Random.h"
+#import "UIColor+Addition.h"
 #import "UIColor+Hex.h"
 #import "UIColor+Gradient.h"
 

@@ -11,6 +11,8 @@
 
 @interface UIAlertView (Addition) <UIAlertViewDelegate, CustomAlertControllerDelegate>
 
+@property (nonatomic, copy) NSDictionary *userInfo;
+
 + (id)alertWithTitle:(NSString *)title message:(NSString *)message;
 
 @end
