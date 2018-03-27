@@ -52,6 +52,7 @@
 		3210F5772068F63700000A6E /* UIAlertView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5762068F63700000A6E /* UIAlertView+Addition.m */; };
 		3210F5A7206A271900000A6E /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5A6206A271900000A6E /* NSData+AES256.m */; };
 		3210F5B1206A2CCF00000A6E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5B0206A2CCF00000A6E /* UIImage+ImageEffects.m */; };
+		3210F5C9206A3F9B00000A6E /* NSData+CRC32.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5C8206A3F9B00000A6E /* NSData+CRC32.m */; };
 		321372EA1F615D2900E15D0A /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 321372E91F615D2900E15D0A /* UIWindow+Hierarchy.m */; };
 		321372EE1F615DF600E15D0A /* UIWebView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 321372ED1F615DF600E15D0A /* UIWebView+Block.m */; };
 		321372F11F615F9700E15D0A /* UIWebView+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 321372F01F615F9700E15D0A /* UIWebView+Load.m */; };
@@ -266,6 +267,8 @@
 		3210F5A6206A271900000A6E /* NSData+AES256.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
 		3210F5AF206A2CCF00000A6E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		3210F5B0206A2CCF00000A6E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		3210F5C7206A3F9B00000A6E /* NSData+CRC32.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC32.h"; sourceTree = "<group>"; };
+		3210F5C8206A3F9B00000A6E /* NSData+CRC32.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC32.m"; sourceTree = "<group>"; };
 		321372E81F615D2900E15D0A /* UIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Hierarchy.h"; sourceTree = "<group>"; };
 		321372E91F615D2900E15D0A /* UIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Hierarchy.m"; sourceTree = "<group>"; };
 		321372EC1F615DF600E15D0A /* UIWebView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Block.h"; sourceTree = "<group>"; };
@@ -990,6 +993,8 @@
 				321373611F62675300E15D0A /* NSData+Encrypt.m */,
 				3210F5A5206A271900000A6E /* NSData+AES256.h */,
 				3210F5A6206A271900000A6E /* NSData+AES256.m */,
+				3210F5C7206A3F9B00000A6E /* NSData+CRC32.h */,
+				3210F5C8206A3F9B00000A6E /* NSData+CRC32.m */,
 				321373631F62680D00E15D0A /* NSData+Encode.h */,
 				321373641F62680D00E15D0A /* NSData+Encode.m */,
 				3270016D2057AE3E00AD95EB /* NSData+Addition.h */,
@@ -1424,6 +1429,7 @@
 				32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+NilSafe.m in Sources */,
 				32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */,
 				32077BF21F5FEC6F006E4C70 /* AppDelegate.m in Sources */,
+				3210F5C9206A3F9B00000A6E /* NSData+CRC32.m in Sources */,
 				321372FE1F61633300E15D0A /* UITextView+Select.m in Sources */,
 				3213733C1F616ADB00E15D0A /* UIBarButtonItem+Badge.m in Sources */,
 				321372F11F615F9700E15D0A /* UIWebView+Load.m in Sources */,

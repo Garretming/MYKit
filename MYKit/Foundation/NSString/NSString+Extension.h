@@ -223,5 +223,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)stringTransformNumberWithString:(NSString *)string;
 
+- (NSString *)convertStrWith:(NSInteger)position;
+
 @end
 NS_ASSUME_NONNULL_END

@@ -518,4 +518,14 @@
     return numberString;
 }
 
+- (NSString *)convertStrWith:(NSInteger)position {
+    NSMutableString *mutableStr = [NSMutableString stringWithString:self];
+    NSInteger strLenth = self.length;
+    while (strLenth > position) {
+        strLenth -= position;
+        [mutableStr insertString:@"," atIndex:strLenth];
+    }
+    return mutableStr;
+}
+
 @end
