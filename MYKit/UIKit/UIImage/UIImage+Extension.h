@@ -31,11 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable UIImage *)imageWithAlpha:(CGFloat)alpha;
 
 /**
- *  @brief 平均的颜色
- */
-- (nullable UIColor *)averageColor;
-
-/**
  Returns a new image which is scaled from this image.
  The image will be stretched as needed.
  
@@ -44,15 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
  @return      The new image with the given size.
  */
 - (nullable UIImage *)imageByResizeToSize:(CGSize)size;
-
-/**
- *  @brief 获取高斯模糊图片
- *
- *  @param blur 模糊度
- *
- *  @return 返回处理后的图片
- */
-- (nullable UIImage *)imageWithBlurNumber:(CGFloat)blur;
 
 /**
  *  @brief 根据name获取GIF图片

@@ -132,30 +132,6 @@ static NSTimeInterval _my_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return newImage;
 }
 
-- (UIColor *)averageColor {
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    unsigned char rgba[4];
-    CGContextRef context = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-    
-    CGContextDrawImage(context, CGRectMake(0, 0, 1, 1), self.CGImage);
-    CGColorSpaceRelease(colorSpace);
-    CGContextRelease(context);
-    
-    if (rgba[3] > 0) {
-        CGFloat alpha = ((CGFloat)rgba[3])/255.0;
-        CGFloat multiplier = alpha/255.0;
-        return [UIColor colorWithRed:((CGFloat)rgba[0])*multiplier
-                               green:((CGFloat)rgba[1])*multiplier
-                                blue:((CGFloat)rgba[2])*multiplier
-                               alpha:alpha];
-    } else {
-        return [UIColor colorWithRed:((CGFloat)rgba[0])/255.0
-                               green:((CGFloat)rgba[1])/255.0
-                                blue:((CGFloat)rgba[2])/255.0
-                               alpha:((CGFloat)rgba[3])/255.0];
-    }
-}
-
 - (UIImage *)imageByResizeToSize:(CGSize)size {
     if (size.width <= 0 || size.height <= 0) return nil;
     UIGraphicsBeginImageContextWithOptions(size, NO, self.scale);
@@ -163,48 +139,6 @@ static NSTimeInterval _my_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
-}
-
-- (UIImage *)imageWithBlurNumber:(CGFloat)blur {
-    if (blur < 0.f || blur > 1.f) {
-        blur = 0.5f;
-    }
-    int boxSize = (int)(blur * 40);
-    boxSize = boxSize - (boxSize % 2) + 1;
-    CGImageRef img = self.CGImage;
-    vImage_Buffer inBuffer, outBuffer;
-    vImage_Error error;
-    void *pixelBuffer;
-    //从CGImage中获取数据
-    CGDataProviderRef inProvider = CGImageGetDataProvider(img);
-    CFDataRef inBitmapData = CGDataProviderCopyData(inProvider);
-    //设置从CGImage获取对象的属性
-    inBuffer.width = CGImageGetWidth(img);
-    inBuffer.height = CGImageGetHeight(img);
-    inBuffer.rowBytes = CGImageGetBytesPerRow(img);
-    inBuffer.data = (void*)CFDataGetBytePtr(inBitmapData);
-    pixelBuffer = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
-    if(pixelBuffer == NULL)
-        NSLog(@"No pixelbuffer");
-    outBuffer.data = pixelBuffer;
-    outBuffer.width = CGImageGetWidth(img);
-    outBuffer.height = CGImageGetHeight(img);
-    outBuffer.rowBytes = CGImageGetBytesPerRow(img);
-    error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
-    if (error) {
-        NSLog(@"error from convolution %ld", error);
-    }
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef ctx = CGBitmapContextCreate( outBuffer.data, outBuffer.width, outBuffer.height, 8, outBuffer.rowBytes, colorSpace, kCGImageAlphaNoneSkipLast);
-    CGImageRef imageRef = CGBitmapContextCreateImage (ctx);
-    UIImage *returnImage = [UIImage imageWithCGImage:imageRef];
-    //clean up CGContextRelease(ctx);
-    CGColorSpaceRelease(colorSpace);
-    free(pixelBuffer);
-    CFRelease(inBitmapData);
-    CGColorSpaceRelease(colorSpace);
-    CGImageRelease(imageRef);
-    return returnImage;
 }
 
 + (UIImage *)animatedGIFWithData:(NSData *)data {

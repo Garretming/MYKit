@@ -37,7 +37,6 @@
 		32077C511F5FFA19006E4C70 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C501F5FFA19006E4C70 /* UIImage+Color.m */; };
 		32077C541F5FFBFE006E4C70 /* UIImage+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C531F5FFBFE006E4C70 /* UIImage+Screenshot.m */; };
 		32077C571F600133006E4C70 /* UIImage+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C561F600133006E4C70 /* UIImage+CornerRadius.m */; };
-		32077C5A1F60038A006E4C70 /* UIImage+Effect.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C591F60038A006E4C70 /* UIImage+Effect.m */; };
 		32077C611F600AA5006E4C70 /* UIColor+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C601F600AA5006E4C70 /* UIColor+Random.m */; };
 		32077C641F600AE8006E4C70 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C631F600AE8006E4C70 /* UIColor+Hex.m */; };
 		32077C681F600C3A006E4C70 /* UINavigationItem+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C671F600C3A006E4C70 /* UINavigationItem+Loading.m */; };
@@ -51,6 +50,8 @@
 		3210F5722068F57D00000A6E /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F56E2068F57D00000A6E /* UIActionSheet+Block.m */; };
 		3210F5732068F57D00000A6E /* UIActionSheet+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5702068F57D00000A6E /* UIActionSheet+Addition.m */; };
 		3210F5772068F63700000A6E /* UIAlertView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5762068F63700000A6E /* UIAlertView+Addition.m */; };
+		3210F5A7206A271900000A6E /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5A6206A271900000A6E /* NSData+AES256.m */; };
+		3210F5B1206A2CCF00000A6E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3210F5B0206A2CCF00000A6E /* UIImage+ImageEffects.m */; };
 		321372EA1F615D2900E15D0A /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 321372E91F615D2900E15D0A /* UIWindow+Hierarchy.m */; };
 		321372EE1F615DF600E15D0A /* UIWebView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 321372ED1F615DF600E15D0A /* UIWebView+Block.m */; };
 		321372F11F615F9700E15D0A /* UIWebView+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 321372F01F615F9700E15D0A /* UIWebView+Load.m */; };
@@ -235,8 +236,6 @@
 		32077C531F5FFBFE006E4C70 /* UIImage+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Screenshot.m"; sourceTree = "<group>"; };
 		32077C551F600133006E4C70 /* UIImage+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CornerRadius.h"; sourceTree = "<group>"; };
 		32077C561F600133006E4C70 /* UIImage+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CornerRadius.m"; sourceTree = "<group>"; };
-		32077C581F60038A006E4C70 /* UIImage+Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Effect.h"; sourceTree = "<group>"; };
-		32077C591F60038A006E4C70 /* UIImage+Effect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Effect.m"; sourceTree = "<group>"; };
 		32077C5F1F600AA5006E4C70 /* UIColor+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random.h"; sourceTree = "<group>"; };
 		32077C601F600AA5006E4C70 /* UIColor+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random.m"; sourceTree = "<group>"; };
 		32077C621F600AE8006E4C70 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
@@ -263,6 +262,10 @@
 		3210F5702068F57D00000A6E /* UIActionSheet+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Addition.m"; sourceTree = "<group>"; };
 		3210F5752068F63700000A6E /* UIAlertView+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Addition.h"; sourceTree = "<group>"; };
 		3210F5762068F63700000A6E /* UIAlertView+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Addition.m"; sourceTree = "<group>"; };
+		3210F5A5206A271900000A6E /* NSData+AES256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
+		3210F5A6206A271900000A6E /* NSData+AES256.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
+		3210F5AF206A2CCF00000A6E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		3210F5B0206A2CCF00000A6E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		321372E81F615D2900E15D0A /* UIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Hierarchy.h"; sourceTree = "<group>"; };
 		321372E91F615D2900E15D0A /* UIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Hierarchy.m"; sourceTree = "<group>"; };
 		321372EC1F615DF600E15D0A /* UIWebView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Block.h"; sourceTree = "<group>"; };
@@ -738,8 +741,8 @@
 				32077C561F600133006E4C70 /* UIImage+CornerRadius.m */,
 				327001722058E78F00AD95EB /* UIImage+RoundedAvatar.h */,
 				327001732058E78F00AD95EB /* UIImage+RoundedAvatar.m */,
-				32077C581F60038A006E4C70 /* UIImage+Effect.h */,
-				32077C591F60038A006E4C70 /* UIImage+Effect.m */,
+				3210F5AF206A2CCF00000A6E /* UIImage+ImageEffects.h */,
+				3210F5B0206A2CCF00000A6E /* UIImage+ImageEffects.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -985,6 +988,8 @@
 				3213735E1F6266A500E15D0A /* NSData+Hash.m */,
 				321373601F62675300E15D0A /* NSData+Encrypt.h */,
 				321373611F62675300E15D0A /* NSData+Encrypt.m */,
+				3210F5A5206A271900000A6E /* NSData+AES256.h */,
+				3210F5A6206A271900000A6E /* NSData+AES256.m */,
 				321373631F62680D00E15D0A /* NSData+Encode.h */,
 				321373641F62680D00E15D0A /* NSData+Encode.m */,
 				3270016D2057AE3E00AD95EB /* NSData+Addition.h */,
@@ -1370,6 +1375,7 @@
 				321373871F626D1F00E15D0A /* NSFileHandle+ReadLine.m in Sources */,
 				321373171F61676600E15D0A /* UINavigationController+Transitions.m in Sources */,
 				327002182059205100AD95EB /* NSMutableAttributedString+Extension.m in Sources */,
+				3210F5A7206A271900000A6E /* NSData+AES256.m in Sources */,
 				3213735A1F62665B00E15D0A /* NSData+Base64.m in Sources */,
 				32077C2A1F5FEF7B006E4C70 /* UIImageView+Reflect.m in Sources */,
 				321372F81F61621C00E15D0A /* UITextView+PlaceHolder.m in Sources */,
@@ -1390,8 +1396,8 @@
 				32077C6E1F600CCC006E4C70 /* UINavigationItem+Target.m in Sources */,
 				321373A01F62725D00E15D0A /* NSString+UUID.m in Sources */,
 				326A1EF71FE8AFE800535930 /* UIImageView+Fillet.m in Sources */,
+				3210F5B1206A2CCF00000A6E /* UIImage+ImageEffects.m in Sources */,
 				321373051F6163FC00E15D0A /* UITextField+Shake.m in Sources */,
-				32077C5A1F60038A006E4C70 /* UIImage+Effect.m in Sources */,
 				3270021120591BB600AD95EB /* NSFileManager+FileManager.m in Sources */,
 				4C3894F71F64E28B00BD95ED /* NSMutableAttributedString+ChainProgramming.m in Sources */,
 				3270016E2057AE3E00AD95EB /* NSData+Addition.m in Sources */,

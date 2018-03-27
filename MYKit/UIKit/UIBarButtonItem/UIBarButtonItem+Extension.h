@@ -21,6 +21,11 @@
 
 + (UIBarButtonItem *)barButtonItemWithTarget:(id)target
                                       action:(SEL)action
+                                       image:(NSString *)image
+                        highlightedImageName:(NSString *)highlightedImageName;
+
++ (UIBarButtonItem *)barButtonItemWithTarget:(id)target
+                                      action:(SEL)action
                                        title:(NSString *)title
                                selectedTitle:(NSString *)selectedTitle;
 

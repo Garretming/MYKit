@@ -83,7 +83,7 @@
 #import <MYKit/UIImage+Color.h>
 #import <MYKit/UIImage+Screenshot.h>
 #import <MYKit/UIImage+CornerRadius.h>
-#import <MYKit/UIImage+Effect.h>
+#import <MYKit/UIImage+ImageEffects.h>
 #import <MYKit/UIImage+RoundedAvatar.h>
 
 #import <MYKit/UIView+CornerRadii.h>
@@ -147,6 +147,7 @@
 #import <MYKit/NSData+Encrypt.h>
 #import <MYKit/NSData+Encode.h>
 #import <MYKit/NSData+ImageContentType.h>
+#import <MYKit/NSData+AES256.h>
 
 #import <MYKit/NSNull+NSNullSafe.h>
 
@@ -230,6 +231,7 @@
 #import "NSData+Base64.h"
 #import "NSData+Addition.h"
 #import "NSData+ImageContentType.h"
+#import "NSData+AES256.h"
 
 #import "NSNull+NSNullSafe.h"
 
@@ -343,7 +345,7 @@
 #import "UIImage+Color.h"
 #import "UIImage+Screenshot.h"
 #import "UIImage+CornerRadius.h"
-#import "UIImage+Effect.h"
+#import "UIImage+ImageEffects.h"
 #import "UIImage+RoundedAvatar.h"
 
 #import "UIView+CornerRadii.h"

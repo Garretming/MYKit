@@ -40,6 +40,20 @@
 
 + (UIBarButtonItem *)barButtonItemWithTarget:(id)target
                                       action:(SEL)action
+                                       image:(NSString *)image
+                        highlightedImageName:(NSString *)highlightedImageName {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    [button setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:highlightedImageName] forState:UIControlStateHighlighted];
+    CGRect frame = button.frame;
+    frame.size = button.currentBackgroundImage.size;
+    button.frame = frame;
+    return [[UIBarButtonItem alloc] initWithCustomView:button];
+}
+
++ (UIBarButtonItem *)barButtonItemWithTarget:(id)target
+                                      action:(SEL)action
                                        title:(NSString *)title
                                selectedTitle:(NSString *)selectedTitle {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

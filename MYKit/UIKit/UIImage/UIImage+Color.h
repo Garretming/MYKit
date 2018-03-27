@@ -18,6 +18,7 @@
  *  @return 纯色图片
  */
 + (UIImage *)imageWithColor:(UIColor *)color;
+- (UIImage *)imageWithColor:(UIColor *)color;
 
 /**
  *  @brief  根据颜色和传入的size生成图片
@@ -28,6 +29,7 @@
  *  @return 返回图片
  */
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+- (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 /**
  *  @brief  取图片某一点的颜色
@@ -62,6 +64,8 @@
  *  @return 获得灰度图片
  */
 + (UIImage *)covertToGrayImageFromImage:(UIImage *)sourceImage;
+
+- (NSArray *)colorRGBAAtPoint:(CGPoint)point;
 
 
 @end
