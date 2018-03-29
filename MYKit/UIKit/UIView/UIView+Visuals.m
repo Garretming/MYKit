@@ -97,5 +97,37 @@
     [self.layer addAnimation: move forKey: @"positionAnimation"];
 }
 
+- (void)startPopAnimationWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay {
+    
+    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.f, 0.f);
+    [UIView animateWithDuration:duration delay:delay usingSpringWithDamping:0.5 initialSpringVelocity:15 options:0 animations:^{
+        
+        self.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)centerExpandAniamtion {
+    self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.f, 0.f);
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:5 options:0 animations:^{
+        
+        self.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+- (void)dissmissCenterExpandAniamtionCompletBlock:(AnimationCompletBlock)block {
+    
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:5 options:0 animations:^{
+        
+        self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.001f, 0.001f);
+    } completion:^(BOOL finished) {
+        if (block) {
+            block();
+        }
+    }];
+}
 
 @end

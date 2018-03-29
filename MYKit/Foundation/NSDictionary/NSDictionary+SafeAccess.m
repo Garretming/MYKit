@@ -205,6 +205,18 @@
     return 0;
 }
 
+- (long)longForKey:(id)key {
+    id value = [self objectForKey:key];
+    
+    if (value == nil || value == [NSNull null]) {
+        return 0;
+    }
+    if ([value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSString class]]) {
+        return [value longValue];
+    }
+    return 0;
+}
+
 - (long long)longLongForKey:(id)key {
     id value = [self objectForKey:key];
     if ([value isKindOfClass:[NSString class]] || [value isKindOfClass:[NSNumber class]]) {
@@ -223,6 +235,13 @@
         return [value unsignedLongLongValue];
     }
     return 0;
+}
+
+- (id)getValueForKey:(NSString *)key {
+#ifdef DEBUG
+    NSAssert([key isKindOfClass:[NSString class]], @"key must be NSString or subClass");
+#endif
+    return [self valueForKey:key];
 }
 
 - (NSDate *)dateForKey:(id)key dateFormat:(NSString *)dateFormat{

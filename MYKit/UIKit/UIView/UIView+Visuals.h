@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^AnimationCompletBlock) ();
+
 @interface UIView (Visuals)
 
 /*
@@ -57,5 +59,13 @@
         autoreverse:(BOOL)autoreverse
         repeatCount:(CGFloat)repeatCount
      timingFunction:(CAMediaTimingFunction *)timingFunction;
+
+
+// animation
+- (void)startPopAnimationWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay;
+
+// 从中心，从小到大放大
+- (void)centerExpandAniamtion;
+- (void)dissmissCenterExpandAniamtionCompletBlock:(AnimationCompletBlock)block;
 
 @end

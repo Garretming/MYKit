@@ -134,7 +134,7 @@
                                                 kCFAllocatorDefault,
                                                 (__bridge CFStringRef)self,
                                                 NULL,
-                                                CFSTR("!#$&'()*+,/:;=?@[]"),
+                                                CFSTR("!*'\"();:@&=+$,/?%#[]% "),
                                                 cfEncoding);
         return encoded;
 #pragma clang diagnostic pop
@@ -241,6 +241,13 @@
         [reversedString appendString:[self substringWithRange:subStrRange]];
     }
     return [reversedString copy];
+}
+
++ (NSString *)replaceStringFormString:(NSString *)replace {
+    if ([NSString isEmpty:replace]) {
+        return @"";
+    }
+    return replace;
 }
 
 /**
@@ -516,6 +523,53 @@
         }
     }
     return numberString;
+}
+
++ (NSString *)showNumber:(NSInteger)number {
+    NSInteger num = number > 0 ? number : 0;
+    NSString * str = @"";
+    if (num < 10000) {
+        str = [NSString stringWithFormat:@"%ld",(long)num];
+    } else {
+        NSInteger last = num%10000;
+        str = [NSString stringWithFormat:@"%ld",(num/10000)];
+        if (last) {
+            str = [str stringByAppendingFormat:@".%ld",last/1000];
+        }
+        str = [str stringByAppendingString:@"万"];
+    }
+    return str;
+}
+
++ (CGFloat)number:(NSInteger)number {
+    NSInteger num = number > 0 ? number : 0;
+    NSString * str = @"";
+    if (num < 10000) {
+        str = [NSString stringWithFormat:@"%ld",(long)num];
+    } else {
+        NSInteger last = num%10000;
+        str = [NSString stringWithFormat:@"%ld",(num/10000)];
+        if (last) {
+            str = [str stringByAppendingFormat:@".%ld",last/1000];
+        }
+    }
+    return [str floatValue];
+}
+
++ (NSString *)kiloNumber:(NSInteger)number {
+    NSInteger num = number > 0 ? number : 0;
+    NSString * str = @"";
+    if (num < 1000) {
+        str = [NSString stringWithFormat:@"%ld",(long)num];
+    } else {
+        NSInteger last = num%1000;
+        str = [NSString stringWithFormat:@"%ld",(num/1000)];
+        if (last) {
+            str = [str stringByAppendingFormat:@".%ld",last/100];
+        }
+        str = [str stringByAppendingString:@"K"];
+    }
+    return str;
 }
 
 - (NSString *)convertStrWith:(NSInteger)position {

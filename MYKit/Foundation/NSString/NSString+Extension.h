@@ -163,6 +163,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)reverse;
 
++ (NSString *)replaceStringFormString:(NSString *)replace;
+
 /**
  将 数字 0、1、2...9 转换成 零、一、二...九
  
@@ -222,6 +224,12 @@ NS_ASSUME_NONNULL_BEGIN
  @return 2.1千，3.4万
  */
 + (NSString *)stringTransformNumberWithString:(NSString *)string;
+
++ (NSString *)showNumber:(NSInteger)num;
+
++ (CGFloat)number:(NSInteger)num;
+
++ (NSString *)kiloNumber:(NSInteger)num;
 
 - (NSString *)convertStrWith:(NSInteger)position;
 

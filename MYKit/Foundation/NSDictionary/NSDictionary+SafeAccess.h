@@ -42,9 +42,13 @@
 
 - (double)doubleForKey:(id)key;
 
+- (long)longForKey:(id)key;
+
 - (long long)longLongForKey:(id)key;
 
 - (unsigned long long)unsignedLongLongForKey:(id)key;
+
+- (id)getValueForKey:(NSString *)key;
 
 - (NSDate *)dateForKey:(id)key dateFormat:(NSString *)dateFormat;
 
