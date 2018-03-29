@@ -29,5 +29,15 @@
                                        title:(NSString *)title
                                selectedTitle:(NSString *)selectedTitle;
 
++ (UIBarButtonItem *)barButtonItemWithTarget:(id)target
+                                      action:(SEL)action
+                                       title:(NSString *)title
+                            highlightedTitle:(NSString *)highlightedTitle;
+
++ (UIBarButtonItem *)barButtonItemWithTarget:(id)target
+                                      action:(SEL)action
+                                       title:(NSString *)title
+                                  titleColor:(UIColor *)titleColor;
+
 @end
 

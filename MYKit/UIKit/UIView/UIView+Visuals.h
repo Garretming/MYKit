@@ -60,7 +60,6 @@ typedef void (^AnimationCompletBlock) ();
         repeatCount:(CGFloat)repeatCount
      timingFunction:(CAMediaTimingFunction *)timingFunction;
 
-
 // animation
 - (void)startPopAnimationWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay;
 

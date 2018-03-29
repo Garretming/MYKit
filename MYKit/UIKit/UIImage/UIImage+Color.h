@@ -67,5 +67,4 @@
 
 - (NSArray *)colorRGBAAtPoint:(CGPoint)point;
 
-
 @end

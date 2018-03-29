@@ -202,5 +202,4 @@
     return @[@(red),@(green),@(blue),@(alpha)];
 }
 
-
 @end

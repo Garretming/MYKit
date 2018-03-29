@@ -148,6 +148,7 @@
 #import <MYKit/NSData+Encode.h>
 #import <MYKit/NSData+ImageContentType.h>
 #import <MYKit/NSData+AES256.h>
+#import <MYKit/NSData+CRC32.h>
 
 #import <MYKit/NSNull+NSNullSafe.h>
 
@@ -232,6 +233,7 @@
 #import "NSData+Addition.h"
 #import "NSData+ImageContentType.h"
 #import "NSData+AES256.h"
+#import "NSData+CRC32.h"
 
 #import "NSNull+NSNullSafe.h"
 
