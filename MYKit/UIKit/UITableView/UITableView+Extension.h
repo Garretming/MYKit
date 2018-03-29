@@ -178,5 +178,7 @@
  */
 - (void)clearSelectedRowsAnimated:(BOOL)animated;
 
+- (void)scrollToBottom:(BOOL)animation;
+
 @end
 

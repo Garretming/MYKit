@@ -233,5 +233,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)convertStrWith:(NSInteger)position;
 
+- (NSString *)stringByDeletingPictureResolution;
+
 @end
 NS_ASSUME_NONNULL_END

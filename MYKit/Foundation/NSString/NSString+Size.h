@@ -18,6 +18,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGSize)textSizeWithFont:(UIFont *)font;
 
 /**
+ *  计算文本占用的宽高
+ *
+ *  @param font    显示的字体
+ *  @param maxSize 最大的显示范围
+ *
+ *  @return 占用的宽高
+ */
+- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize;
+
+/**
  根据字体、行数、行间距和constrainedWidth计算文本占据的size
  @param font 字体
  @param numberOfLines 显示文本行数，值为0不限制行数

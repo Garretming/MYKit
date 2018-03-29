@@ -12,7 +12,12 @@
 
 - (CGSize)textSizeWithFont:(UIFont *)font {
     
-    CGSize textSize = [self sizeWithAttributes:@{NSFontAttributeName:font}];
+    return [self sizeWithFont:font maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+}
+
+- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize {
+    NSDictionary *dict = @{NSFontAttributeName:font};
+    CGSize textSize = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
     textSize = CGSizeMake((int)ceil(textSize.width), (int)ceil(textSize.height));
     return textSize;
 }
