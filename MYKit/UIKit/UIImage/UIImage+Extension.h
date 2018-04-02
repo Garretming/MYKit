@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable UIImage *)animatedImageByScalingAndCroppingToSize:(CGSize)size;
 
++ (nullable UIImage *)imageNoCacheWithName:(NSString *)imageName;
+
 @end
 
 NS_ASSUME_NONNULL_END

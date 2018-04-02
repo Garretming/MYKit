@@ -66,7 +66,6 @@
 		3213730C1F61660900E15D0A /* UITableView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213730B1F61660900E15D0A /* UITableView+Extension.m */; };
 		321373101F61668700E15D0A /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213730F1F61668700E15D0A /* UIScrollView+Extension.m */; };
 		321373161F61676600E15D0A /* UINavigationController+StackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373131F61676600E15D0A /* UINavigationController+StackManager.m */; };
-		321373171F61676600E15D0A /* UINavigationController+Transitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373151F61676600E15D0A /* UINavigationController+Transitions.m */; };
 		3213731E1F6167C600E15D0A /* UILabel+FitLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373191F6167C600E15D0A /* UILabel+FitLines.m */; };
 		321373201F6167C600E15D0A /* UILabel+AutomaticWriting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213731D1F6167C600E15D0A /* UILabel+AutomaticWriting.m */; };
 		321373241F61684F00E15D0A /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373231F61684F00E15D0A /* NSString+Size.m */; };
@@ -295,8 +294,6 @@
 		3213730F1F61668700E15D0A /* UIScrollView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
 		321373121F61676600E15D0A /* UINavigationController+StackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+StackManager.h"; sourceTree = "<group>"; };
 		321373131F61676600E15D0A /* UINavigationController+StackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+StackManager.m"; sourceTree = "<group>"; };
-		321373141F61676600E15D0A /* UINavigationController+Transitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Transitions.h"; sourceTree = "<group>"; };
-		321373151F61676600E15D0A /* UINavigationController+Transitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Transitions.m"; sourceTree = "<group>"; };
 		321373181F6167C600E15D0A /* UILabel+FitLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FitLines.h"; sourceTree = "<group>"; };
 		321373191F6167C600E15D0A /* UILabel+FitLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FitLines.m"; sourceTree = "<group>"; };
 		3213731C1F6167C600E15D0A /* UILabel+AutomaticWriting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutomaticWriting.h"; sourceTree = "<group>"; };
@@ -897,8 +894,6 @@
 			children = (
 				321373121F61676600E15D0A /* UINavigationController+StackManager.h */,
 				321373131F61676600E15D0A /* UINavigationController+StackManager.m */,
-				321373141F61676600E15D0A /* UINavigationController+Transitions.h */,
-				321373151F61676600E15D0A /* UINavigationController+Transitions.m */,
 			);
 			path = UINavigationController;
 			sourceTree = "<group>";
@@ -1378,7 +1373,6 @@
 				325AFEA81FC025F9009FF8B1 /* NSDate+NSDateRFC1123.m in Sources */,
 				32322A1F1FD4E7CC008060D9 /* NSMutableArray+Sort.m in Sources */,
 				321373871F626D1F00E15D0A /* NSFileHandle+ReadLine.m in Sources */,
-				321373171F61676600E15D0A /* UINavigationController+Transitions.m in Sources */,
 				327002182059205100AD95EB /* NSMutableAttributedString+Extension.m in Sources */,
 				3210F5A7206A271900000A6E /* NSData+AES256.m in Sources */,
 				3213735A1F62665B00E15D0A /* NSData+Base64.m in Sources */,

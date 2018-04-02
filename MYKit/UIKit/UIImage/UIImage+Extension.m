@@ -303,4 +303,23 @@ static NSTimeInterval _my_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return [UIImage animatedImageWithImages:scaledImages duration:self.duration];
 }
 
++ (nullable UIImage *)imageNoCacheWithName:(NSString *)imageName {
+    NSString *fullName = nil;
+    if ([UIScreen mainScreen].scale > 2.0) {
+        fullName = [imageName stringByAppendingString:@"@3x"];
+    } else {
+        fullName = [imageName stringByAppendingString:@"@2x"];
+    }
+    NSString *path = [[NSBundle mainBundle] pathForResource:fullName ofType:@"png"];
+    UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
+    if (!image) {
+        if ([UIScreen mainScreen].scale > 2.0) {
+            fullName = [imageName stringByAppendingString:@"@2x"];
+            NSString *path = [[NSBundle mainBundle] pathForResource:fullName ofType:@"png"];
+            image = [[UIImage alloc] initWithContentsOfFile:path];
+        }
+    }
+    return [[UIImage alloc] initWithContentsOfFile:path];
+}
+
 @end

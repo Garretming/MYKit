@@ -8,192 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef MYKit_h
-#define MYKit_h
+//! Project version number for LPDAdditions.
+FOUNDATION_EXPORT double MYAdditionsVersionNumber;
 
-#if __has_include(<MYKit/MYKit.h>)
-
-#import <MYKit/UINavigationBar+Translation.h>
-
-#import <MYKit/UIViewController+PageViewLevel.h>
-#import <MYKit/UIViewController+PreviousController.h>
-#import <MYKit/UIViewController+TopViewController.h>
-
-#import <MYKit/UIScreen+Accessor.h>
-
-#import <MYKit/UIActionSheet+Block.h>
-#import <MYKit/UIActionSheet+Addition.h>
-
-#import <MYKit/UIDevice+Extension.h>
-
-#import <MYKit/UIApplication+NetworkActivityIndicator.h>
-#import <MYKit/UIApplication+Extension.h>
-#import <MYKit/UIApplication+Authority.h>
-
-#import <MYKit/UIBarButtonItem+Badge.h>
-#import <MYKit/UIBarButtonItem+Extension.h>
-
-#import <MYKit/UINavigationController+StackManager.h>
-#import <MYKit/UINavigationController+Transitions.h>
-
-#import <MYKit/UIScrollView+Extension.h>
-#import <MYKit/UIScrollView+Accessor.h>
-
-#import <MYKit/UITableView+Extension.h>
-
-#import <MYKit/UITextField+Select.h>
-#import <MYKit/UITextField+Shake.h>
-#import <MYKit/UITextField+InputLimit.h>
-
-#import <MYKit/UITextView+InputLimit.h>
-#import <MYKit/UITextView+PlaceHolder.h>
-#import <MYKit/UITextView+InputLengthCalculate.h>
-#import <MYKit/UITextView+Select.h>
-
-#import <MYKit/UIWebView+Block.h>
-#import <MYKit/UIWebView+Load.h>
-
-#import <MYKit/UIWindow+Hierarchy.h>
-
-#import <MYKit/UILabel+CountDown.h>
-#import <MYKit/UILabel+FitLines.h>
-#import <MYKit/UILabel+AutomaticWriting.h>
-
-#import <MYKit/UIButton+CountDown.h>
-#import <MYKit/UIButton+Badge.h>
-#import <MYKit/UIButton+ImagePosition.h>
-#import <MYKit/UIButton+Indicator.h>
-#import <MYKit/UIButton+Submitting.h>
-#import <MYKit/UIButton+TouchAreaInsets.h>
-#import <MYKit/UIButton+ImageTitleStyle.h>
-
-#import <MYKit/UIResponder+Router.h>
-#import <MYKit/UIResponder+Chain.h>
-
-#import <MYKit/UINavigationItem+Loading.h>
-#import <MYKit/UINavigationItem+Margin.h>
-#import <MYKit/UINavigationItem+Target.h>
-#import <MYKit/UINavigationItem+Addition.h>
-
-#import <MYKit/UIColor+Addition.h>
-#import <MYKit/UIColor+Hex.h>
-#import <MYKit/UIColor+Gradient.h>
-
-#import <MYKit/UIImage+Extension.h>
-#import <MYKit/UIImage+Color.h>
-#import <MYKit/UIImage+Screenshot.h>
-#import <MYKit/UIImage+CornerRadius.h>
-#import <MYKit/UIImage+ImageEffects.h>
-#import <MYKit/UIImage+RoundedAvatar.h>
-
-#import <MYKit/UIView+CornerRadii.h>
-#import <MYKit/UIView+RedDot.h>
-#import <MYKit/UIView+Badge.h>
-#import <MYKit/UIView+Position.h>
-#import <MYKit/UIView+Gesture.h>
-#import <MYKit/UIView+SuperController.h>
-#import <MYKit/UIView+Screenshot.h>
-#import <MYKit/UIView+Visuals.h>
-#import <MYKit/UIView+CustomBorder.h>
-#import <MYKit/UIView+Line.h>
-#import <MYKit/UIView+FindSubView.h>
-#import <MYKit/UIView+GradientBackgroundColor.h>
-
-#import <MYKit/UIAlertView+Block.h>
-#import <MYKit/UIAlertView+Addition.h>
-
-#import <MYKit/UIImageView+Fillet.h>
-#import <MYKit/UIImageView+CornerRadius.h>
-#import <MYKit/UIImageView+RoundedAvatar.h>
-#import <MYKit/UIImageView+Reflect.h>
-#import <MYKit/UIImageView+FaceAwareFill.h>
-#import <MYKit/UIImageView+Letters.h>
-#import <MYKit/UIImageView+BetterFace.h>
-
-#import <MYKit/NSArray+SafeAccess.h>
-#import <MYKit/NSArray+Extension.h>
-#import <MYKit/NSArray+Collection.h>
-#import <MYKit/NSArray+Safe.h>
-
-#import <MYKit/NSMutableArray+SafeAccess.h>
-#import <MYKit/NSMutableArray+Sort.h>
-#import <MYKit/NSMutableArray+Stack.h>
-#import <MYKit/NSMutableArray+Queue.h>
-#import <MYKit/NSMutableArray+Extension.h>
-
-#import <MYKit/NSString+Contains.h>
-#import <MYKit/NSString+Emoji.h>
-#import <MYKit/NSString+Trims.h>
-#import <MYKit/NSString+UUID.h>
-#import <MYKit/NSString+XML.h>
-#import <MYKit/NSString+Size.h>
-#import <MYKit/NSString+Collection.h>
-#import <MYKit/NSString+Attributed.h>
-#import <MYKit/NSString+Regular.h>
-#import <MYKit/NSString+Extension.h>
-#import <MYKit/NSString+FitLines.h>
-
-#import <MYKit/NSAttributedString+Extension.h>
-
-#import <MYKit/NSMutableAttributedString+ChainProgramming.h>
-#import <MYKit/NSMutableAttributedString+Extension.h>
-
-#import <MYKit/NSCharacterSet+Addition.h>
-
-#import <MYKit/NSData+Addition.h>
-#import <MYKit/NSData+Base64.h>
-#import <MYKit/NSData+DataCache.h>
-#import <MYKit/NSData+Hash.h>
-#import <MYKit/NSData+Encrypt.h>
-#import <MYKit/NSData+Encode.h>
-#import <MYKit/NSData+ImageContentType.h>
-#import <MYKit/NSData+AES256.h>
-#import <MYKit/NSData+CRC32.h>
-
-#import <MYKit/NSNull+NSNullSafe.h>
-
-#import <MYKit/NSDictionary+SafeAccess.h>
-#import <MYKit/NSDictionary+JSONString.h>
-#import <MYKit/NSDictionary+Plist.h>
-#import <MYKit/NSDictionary+Key.h>
-#import <MYKit/NSDictionary+NilSafe.h>
-#import <MYKit/NSDictionary+Collection.h>
-#import <MYKit/NSDictionary+StringAscending.h>
-
-#import <MYKit/NSMutableDictionary+ChainProgramming.h>
-#import <MYKit/NSMutableDictionary+NilSafe.h>
-
-#import <MYKit/NSNumber+Round.h>
-#import <MYKit/NSNumber+Addition.h>
-
-#import <MYKit/NSObject+AssociatedObject.h>
-#import <MYKit/NSObject+Swizzling.h>
-#import <MYKit/NSObject+KVO.h>
-#import <MYKit/NSObject+Dictionary.h>
-
-#import <MYKit/NSTimer+Addition.h>
-
-#import <MYKit/NSURL+Param.h>
-#import <MYKit/NSURL+URLQuery.h>
-
-#import <MYKit/NSUserDefaults+SafeAccess.h>
-
-#import <MYKit/NSFileManager+Paths.h>
-#import <MYKit/NSFileManager+FileManager.h>
-
-#import <MYKit/NSFileHandle+ReadLine.h>
-
-#import <MYKit/NSDateFormatter+Extension.h>
-
-#import <MYKit/NSBundle+AppIcon.h>
-
-#import <MYKit/NSDate+YYAdd.h>
-#import <MYKit/NSDate+NSDateRFC1123.h>
-#import <MYKit/NSDate+Addition.h>
-#import <MYKit/NSDate+YYAdd.h>
-#import <MYKit/NSDate+Extension.h>
-
-#else
+//! Project version string for LPDAdditions.
+FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
 #import "NSArray+SafeAccess.h"
 #import "NSArray+Extension.h"
@@ -298,7 +117,6 @@
 #import "UIBarButtonItem+Extension.h"
 
 #import "UINavigationController+StackManager.h"
-#import "UINavigationController+Transitions.h"
 
 #import "UIScrollView+Extension.h"
 #import "UIScrollView+Accessor.h"
@@ -375,6 +193,3 @@
 #import "UIAlertView+Block.h"
 #import "UIAlertView+Addition.h"
 
-#endif 
-
-#endif /* MYKit_h */
