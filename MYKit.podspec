@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MYKit"
-  s.version      = "1.0.7"
-  s.summary      = "效率工具类 & 系统文件归类整理；"
+  s.version      = "1.0.8"
+  s.summary      = "效率工具类"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                   效率工具类 & 系统文件归类整理；
+                   效率工具类；
 		   DESC
 
   s.homepage     = "https://github.com/iOS-Strikers/MYKit"
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/iOS-Strikers/MYKit.git", :tag => "1.0.7" 
+  s.source       = { :git => "https://github.com/iOS-Strikers/MYKit.git", :tag => "1.0.8" 
   }
 
 
