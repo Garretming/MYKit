@@ -119,6 +119,7 @@ Pod::Spec.new do |s|
   #
 
   s.frameworks = 'UIKit','Foundation'
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/CommonCrypto" }
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
