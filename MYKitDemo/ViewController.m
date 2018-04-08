@@ -54,11 +54,12 @@
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20,CGRectGetMaxY(yellowView.frame),100,100)];
 //    [button setTitle:@"测试文本" forState:UIControlStateNormal];
     
-    UIImage *currentImage = [UIImage imageNamed:@"demo"];
-    currentImage = [currentImage imageByRoundCornerRadius:100];
+    UIImage *currentImage = [UIImage imageNamed:@"btn_kaibo_set_zhuantou_click"];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [button setImage:currentImage forState:UIControlStateNormal];
-    [button setButtonImageTitleStyle:ButtonImageTitleStyleDefault padding:10];
+    [button setButtonImageTitleStyle:ButtonImageTitleStyleLeft padding:30];
+    [button setTitle:@"测试" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [button sizeToFit];
     [self.view addSubview:button];
     

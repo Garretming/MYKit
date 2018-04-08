@@ -15,7 +15,7 @@
     UIGraphicsBeginImageContextWithOptions(sourceView.bounds.size, sourceView.opaque, [UIScreen mainScreen].scale);
     // IOS7及其后续版本
     if ([sourceView respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-        [sourceView drawViewHierarchyInRect:sourceView.bounds afterScreenUpdates:NO];
+        [sourceView drawViewHierarchyInRect:sourceView.bounds afterScreenUpdates:YES];
     } else { // IOS7之前的版本
         [sourceView.layer renderInContext:UIGraphicsGetCurrentContext()];
     }
@@ -70,7 +70,7 @@
                           -actureBounds.size.width * anchorPoint.x,
                           -actureBounds.size.height * anchorPoint.y);
     if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
+        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
     } else {
         [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     }

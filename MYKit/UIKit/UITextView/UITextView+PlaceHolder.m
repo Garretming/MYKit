@@ -34,7 +34,6 @@
     [self swizzledDealloc];
 }
 
-
 #pragma mark - Class Methods
 #pragma mark `defaultPlaceholderColor`
 

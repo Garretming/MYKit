@@ -10,8 +10,7 @@
 
 @implementation UITextView (InputLengthCalculate)
 
-- (NSInteger)getInputLengthWithText:(NSString *)text
-{
+- (NSInteger)getInputLengthWithText:(NSString *)text {
     NSInteger textLength = 0;
     //获取高亮部分
     UITextRange *selectedRange = [self markedTextRange];

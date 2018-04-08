@@ -13,6 +13,17 @@ static const void *TextView_InputLimitMaxLengthKey = &TextView_InputLimitMaxLeng
 
 @implementation UITextView (InputLimit)
 
++ (void)load {
+    // is this the best solution?
+    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")),
+                                   class_getInstanceMethod(self.class, @selector(swizzledDealloc)));
+}
+
+- (void)swizzledDealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self swizzledDealloc];
+}
+
 - (NSInteger)maxLength {
     return [objc_getAssociatedObject(self, TextView_InputLimitMaxLengthKey) integerValue];
 }
@@ -33,7 +44,7 @@ static const void *TextView_InputLimitMaxLengthKey = &TextView_InputLimitMaxLeng
     
     //没有高亮选择的字，则对已输入的文字进行字数统计和限制
     //在iOS7下,position对象总是不为nil
-    if ( (!position ||!selectedRange) && (self.maxLength > 0 && toBeString.length > self.maxLength)) {
+    if ((!position ||!selectedRange) && (self.maxLength > 0 && toBeString.length > self.maxLength)) {
         NSRange rangeIndex = [toBeString rangeOfComposedCharacterSequenceAtIndex:self.maxLength];
         if (rangeIndex.length == 1) {
             self.text = [toBeString substringToIndex:self.maxLength];
@@ -48,10 +59,6 @@ static const void *TextView_InputLimitMaxLengthKey = &TextView_InputLimitMaxLeng
             self.text = [toBeString substringWithRange:NSMakeRange(0, tmpLength)];
         }
     }
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

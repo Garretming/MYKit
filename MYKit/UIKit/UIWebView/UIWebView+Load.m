@@ -39,8 +39,7 @@
 /**
  *  @brief  清空cookie
  */
-- (void)clearCookies
-{
+- (void)clearCookies {
     NSHTTPCookieStorage *storage = NSHTTPCookieStorage.sharedHTTPCookieStorage;
     
     for (NSHTTPCookie *cookie in storage.cookies)

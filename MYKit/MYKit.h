@@ -143,7 +143,6 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
 #import "UIButton+CountDown.h"
 #import "UIButton+Badge.h"
-#import "UIButton+ImagePosition.h"
 #import "UIButton+Indicator.h"
 #import "UIButton+Submitting.h"
 #import "UIButton+TouchAreaInsets.h"
@@ -154,7 +153,6 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
 #import "UINavigationItem+Loading.h"
 #import "UINavigationItem+Margin.h"
-#import "UINavigationItem+Target.h"
 #import "UINavigationItem+Addition.h"
 
 #import "UIColor+Addition.h"

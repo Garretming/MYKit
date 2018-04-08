@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+ClassName.h"
+#import "UIDevice+Extension.h"
 #import <objc/runtime.h>
 
 #define kClassNameTag 20000
@@ -76,7 +77,7 @@ static BOOL displayClassName = NO;
         classNameLabel = (UILabel *)[window viewWithTag:kClassNameTag];
         [window bringSubviewToFront:classNameLabel];
     } else {
-        classNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 15, window.bounds.size.width, 20)];
+        classNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 15 + ([UIDevice isIphoneX] ? 20 : 0), window.bounds.size.width, 20)];
         classNameLabel.textColor = [UIColor redColor];
         classNameLabel.font = [UIFont systemFontOfSize:12];
         classNameLabel.tag = kClassNameTag;

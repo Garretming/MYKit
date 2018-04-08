@@ -15,8 +15,7 @@
  *
  *  @return NSRange
  */
-- (NSRange)selectedRange
-{
+- (NSRange)selectedRange {
     UITextPosition* beginning = self.beginningOfDocument;
     
     UITextRange* selectedRange = self.selectedTextRange;

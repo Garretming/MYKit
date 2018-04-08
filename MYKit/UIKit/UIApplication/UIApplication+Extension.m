@@ -14,9 +14,7 @@
 @implementation UIApplication (Extension)
 
 - (NSURL *)documentsURL {
-    return [[[NSFileManager defaultManager]
-             URLsForDirectory:NSDocumentDirectory
-             inDomains:NSUserDomainMask] lastObject];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 - (NSString *)documentsPath {
@@ -24,9 +22,7 @@
 }
 
 - (NSURL *)cachesURL {
-    return [[[NSFileManager defaultManager]
-             URLsForDirectory:NSCachesDirectory
-             inDomains:NSUserDomainMask] lastObject];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 - (NSString *)cachesPath {
@@ -34,9 +30,7 @@
 }
 
 - (NSURL *)libraryURL {
-    return [[[NSFileManager defaultManager]
-             URLsForDirectory:NSLibraryDirectory
-             inDomains:NSUserDomainMask] lastObject];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 - (NSString *)libraryPath {
