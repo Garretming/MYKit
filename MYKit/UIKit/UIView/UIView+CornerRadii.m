@@ -10,7 +10,6 @@
 
 @implementation UIView (CornerRadii)
 
-// 指定倒角
 - (void)setCornerRadii:(CGFloat)cornerRadii roundingCorners:(UIRectCorner)roundingCorners {
   if (self.layer.mask) {
     self.layer.mask = nil;

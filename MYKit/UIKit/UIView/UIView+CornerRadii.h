@@ -63,7 +63,6 @@ typedef NS_ENUM(NSInteger, MYRectCornerType) {
 
 @interface UIView (CornerRadii)
 
-// 指定倒角
 - (void)setCornerRadii:(CGFloat)cornerRadii roundingCorners:(UIRectCorner)roundingCorners;
 
 /**
