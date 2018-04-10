@@ -47,12 +47,12 @@
     
     UIView *yellowView = [[UIView alloc] init];
     yellowView.backgroundColor = [UIColor yellowColor];
-    yellowView.frame = CGRectMake(100, 300, 50, 100);
-    [yellowView addRedDotWithRadius:5 offsetX:0 offsetY:0];
-    [yellowView setViewRectCornerType:MYRectCornerTypeBottomLeftAndTopLeft viewCornerRadius:25 borderWidth:2.0f borderColor:[UIColor redColor]];
-    yellowView.layer.borderColor = [UIColor redColor].CGColor;
-    yellowView.layer.borderWidth = 0.5;
-    [yellowView showRedDot];
+    yellowView.frame = CGRectMake(100, 300, 250, 24);
+//    [yellowView addRedDotWithRadius:5 offsetX:0 offsetY:0];
+    [yellowView setViewRectCornerType:MYRectCornerTypeBottomLeftAndTopLeft viewCornerRadius:12 borderWidth:1.0f borderColor:[UIColor redColor]];
+//    yellowView.layer.borderColor = [UIColor redColor].CGColor;
+//    yellowView.layer.borderWidth = 0.5;
+//    [yellowView showRedDot];
 
     [self.view addSubview:yellowView];
     
