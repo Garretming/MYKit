@@ -20,6 +20,8 @@
 #import "UIActionSheet+Block.h"
 #import "UIActionSheet+Addition.h"
 #import "NSString+Extension.h"
+#import "UIView+CustomBorder.h"
+#import "UIView+CornerRadii.h"
 
 @interface ViewController ()
 
@@ -47,19 +49,23 @@
     yellowView.backgroundColor = [UIColor yellowColor];
     yellowView.frame = CGRectMake(100, 300, 50, 100);
     [yellowView addRedDotWithRadius:5 offsetX:0 offsetY:0];
+    [yellowView setViewRectCornerType:MYRectCornerTypeBottomLeftAndTopLeft viewCornerRadius:25 borderWidth:2.0f borderColor:[UIColor redColor]];
+    yellowView.layer.borderColor = [UIColor redColor].CGColor;
+    yellowView.layer.borderWidth = 0.5;
     [yellowView showRedDot];
 
     [self.view addSubview:yellowView];
     
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20,CGRectGetMaxY(yellowView.frame),100,100)];
 //    [button setTitle:@"测试文本" forState:UIControlStateNormal];
-    
+    [button setBorder:10.0f borderColor:[UIColor redColor] borderPosition:MYUIViewBorderPositionRight];
     UIImage *currentImage = [UIImage imageNamed:@"btn_kaibo_set_zhuantou_click"];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [button setImage:currentImage forState:UIControlStateNormal];
     [button setButtonImageTitleStyle:ButtonImageTitleStyleLeft padding:30];
     [button setTitle:@"测试" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [button setViewRectCornerType:MYRectCornerTypeBottomLeftAndTopLeft viewCornerRadius:20 borderWidth:2.0f borderColor:[UIColor redColor]];
     [button sizeToFit];
     [self.view addSubview:button];
     
