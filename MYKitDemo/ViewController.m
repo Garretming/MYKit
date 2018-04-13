@@ -22,6 +22,7 @@
 #import "NSString+Extension.h"
 #import "UIView+CustomBorder.h"
 #import "UIView+CornerRadii.h"
+#import "UIView+Style.h"
 
 @interface ViewController ()
 
@@ -126,6 +127,22 @@
     NSString *str = @"asdfkjlasdfkalsdfaslkdfas";
     
     NSLog(@"字符串%@",[str convertStrWith:3]);
+    
+    
+    UILabel * label0 = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    [self.view addSubview:label0];
+    [label0 shareStyle:^(UILabel * _Nullable sourceView) {
+        sourceView.backgroundColor = [UIColor redColor];
+        sourceView.layer.borderWidth = 5;
+        sourceView.layer.borderColor = [UIColor grayColor].CGColor;
+        sourceView.layer.shadowOffset = CGSizeMake(5, 5);
+        sourceView.text = @"akdfjajkdfa;lkfja;jdfk;lasdjfak";
+    } uniqueStyle:nil];
+    
+    
+    UIView * view0 = [[UIView alloc] initWithFrame:CGRectMake(250, 100, 100, 100)];
+    [self.view addSubview:view0];
+    view0.shareStyle = label0.shareStyle;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

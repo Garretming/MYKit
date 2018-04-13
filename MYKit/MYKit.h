@@ -190,4 +190,5 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
 #import "UIAlertView+Block.h"
 #import "UIAlertView+Addition.h"
+#import "UIView+Style.h"
 

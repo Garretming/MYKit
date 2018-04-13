@@ -10,6 +10,8 @@
 		1138074F204FC53D00DAF098 /* NSString+Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1138074E204FC53D00DAF098 /* NSString+Collection.m */; };
 		11380752204FC55A00DAF098 /* NSDictionary+Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 11380751204FC55900DAF098 /* NSDictionary+Collection.m */; };
 		11380755204FC5AF00DAF098 /* NSArray+Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 11380753204FC5AE00DAF098 /* NSArray+Collection.m */; };
+		117ABAB62080995A005A7F5B /* MessageTrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ABAB320809959005A7F5B /* MessageTrash.m */; };
+		117ABAB72080995A005A7F5B /* UIView+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 117ABAB520809959005A7F5B /* UIView+Style.m */; };
 		32047E23200F552100A36003 /* UIButton+ImageTitleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 32047E22200F552100A36003 /* UIButton+ImageTitleStyle.m */; };
 		320695A41F600F780009FFDA /* UIResponder+Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = 320695A31F600F780009FFDA /* UIResponder+Chain.m */; };
 		320695A81F6010070009FFDA /* UIButton+CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 320695A71F6010070009FFDA /* UIButton+CountDown.m */; };
@@ -180,6 +182,10 @@
 		11380751204FC55900DAF098 /* NSDictionary+Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Collection.m"; sourceTree = "<group>"; };
 		11380753204FC5AE00DAF098 /* NSArray+Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Collection.m"; sourceTree = "<group>"; };
 		11380754204FC5AF00DAF098 /* NSArray+Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Collection.h"; sourceTree = "<group>"; };
+		117ABAB220809959005A7F5B /* UIView+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Style.h"; sourceTree = "<group>"; };
+		117ABAB320809959005A7F5B /* MessageTrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTrash.m; sourceTree = "<group>"; };
+		117ABAB420809959005A7F5B /* MessageTrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTrash.h; sourceTree = "<group>"; };
+		117ABAB520809959005A7F5B /* UIView+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Style.m"; sourceTree = "<group>"; };
 		32047E21200F552100A36003 /* UIButton+ImageTitleStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+ImageTitleStyle.h"; sourceTree = "<group>"; };
 		32047E22200F552100A36003 /* UIButton+ImageTitleStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ImageTitleStyle.m"; sourceTree = "<group>"; };
 		320695A21F600F780009FFDA /* UIResponder+Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Chain.h"; sourceTree = "<group>"; };
@@ -496,6 +502,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		117ABAB12080994C005A7F5B /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				117ABAB420809959005A7F5B /* MessageTrash.h */,
+				117ABAB320809959005A7F5B /* MessageTrash.m */,
+				117ABAB220809959005A7F5B /* UIView+Style.h */,
+				117ABAB520809959005A7F5B /* UIView+Style.m */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 		320695A51F600FF80009FFDA /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -642,6 +659,7 @@
 		32077C231F5FEEA8006E4C70 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				117ABAB12080994C005A7F5B /* Style */,
 				3210F5552068F21600000A6E /* UIAlertView&UIActionSheet */,
 				327001CA205909AA00AD95EB /* UINavigationBar */,
 				3270017C2059034000AD95EB /* UIViewController */,
@@ -1282,7 +1300,7 @@
 		32077BE21F5FEC6F006E4C70 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = com.51fanxing;
 				TargetAttributes = {
 					32077BE91F5FEC6F006E4C70 = {
@@ -1452,6 +1470,7 @@
 				32047E23200F552100A36003 /* UIButton+ImageTitleStyle.m in Sources */,
 				321373161F61676600E15D0A /* UINavigationController+StackManager.m in Sources */,
 				32077C571F600133006E4C70 /* UIImage+CornerRadius.m in Sources */,
+				117ABAB72080995A005A7F5B /* UIView+Style.m in Sources */,
 				327001682057ACD400AD95EB /* NSNumber+Round.m in Sources */,
 				3210F5772068F63700000A6E /* UIAlertView+Addition.m in Sources */,
 				4C3894F31F64E23500BD95ED /* NSMutableDictionary+ChainProgramming.m in Sources */,
@@ -1478,6 +1497,7 @@
 				32077C681F600C3A006E4C70 /* UINavigationItem+Loading.m in Sources */,
 				321373441F616B8500E15D0A /* UIApplication+Extension.m in Sources */,
 				32077C721F600ED5006E4C70 /* UIResponder+Router.m in Sources */,
+				117ABAB62080995A005A7F5B /* MessageTrash.m in Sources */,
 				32077C4D1F5FF827006E4C70 /* UIView+CustomBorder.m in Sources */,
 				3210F56A2068F3B100000A6E /* UIAlertView+Block.m in Sources */,
 				3213735B1F62665B00E15D0A /* NSData+DataCache.m in Sources */,
@@ -1559,7 +1579,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1567,7 +1589,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1608,7 +1634,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1616,7 +1644,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
