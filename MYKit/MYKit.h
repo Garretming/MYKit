@@ -185,7 +185,6 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 #import "UIImageView+Reflect.h"
 #import "UIImageView+CornerRadius.h"
 #import "UIImageView+RoundedAvatar.h"
-#import "UIImageView+Addition.h"
 #import "UIImageView+Fillet.h"
 
 #import "UIAlertView+Block.h"
