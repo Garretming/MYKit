@@ -17,25 +17,10 @@
  */
 - (NSString *)makeUnicodeToString;
 
-- (BOOL)containsCharacterSet:(NSCharacterSet *)set;
-/**
- *  @brief 是否包含字符串
- *
- *  @param string 字符串
- *
- *  @return YES, 包含;
- */
-- (BOOL)containsaString:(NSString *)string;
-
 /**
  *  @brief 获取字符数量
  */
 - (int)wordsCount;
-
-/**
- nil, @"", @"  ", @"\n" will Returns NO; otherwise Returns YES.
- */
-- (BOOL)isNotBlank;
 
 /**
  判断URL中是否包含中文

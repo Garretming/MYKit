@@ -123,11 +123,7 @@
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"asdfas" message:@"asdfasd" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alertView show];
-    
-    NSString *str = @"asdfkjlasdfkalsdfaslkdfas";
-    
-    NSLog(@"字符串%@",[str convertStrWith:3]);
-    
+
     
     UILabel * label0 = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     [self.view addSubview:label0];

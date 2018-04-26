@@ -8,7 +8,7 @@
 
 #import "NSFileManager+FileManager.h"
 #import "NSFileManager+Paths.h"
-#import "NSString+Extension.h"
+#import "NSString+YYAdd.h"
 
 @implementation NSFileManager (FileManager)
 

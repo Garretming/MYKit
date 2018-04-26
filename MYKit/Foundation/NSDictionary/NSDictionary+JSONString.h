@@ -19,16 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)JSONString;
 
-/**
- Convert dictionary to json string. return nil if an error occurs.
- */
-- (nullable NSString *)jsonStringEncoded;
-
-/**
- Convert dictionary to json string formatted. return nil if an error occurs.
- */
-- (nullable NSString *)jsonPrettyStringEncoded;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -23,24 +23,6 @@
     return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"];
 }
 
-- (BOOL)containsCharacterSet:(NSCharacterSet *)set {
-    NSRange rang = [self rangeOfCharacterFromSet:set];
-    if (rang.location == NSNotFound) {
-        return NO;
-    } else {
-        return YES;
-    }
-}
-
-- (BOOL)containsaString:(NSString *)string {
-    NSRange rang = [self rangeOfString:string];
-    if (rang.location == NSNotFound) {
-        return NO;
-    } else {
-        return YES;
-    }
-}
-
 - (int)wordsCount {
     NSInteger n = self.length;
     int i;
@@ -60,17 +42,6 @@
         return 0;
     }
     return l + (int)ceilf((float)(a + b) / 2.0);
-}
-
-- (BOOL)isNotBlank {
-    NSCharacterSet *blank = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    for (NSInteger i = 0; i < self.length; ++i) {
-        unichar c = [self characterAtIndex:i];
-        if (![blank characterIsMember:c]) {
-            return YES;
-        }
-    }
-    return NO;
 }
 
 - (BOOL)isContainChinese {

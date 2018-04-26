@@ -12,8 +12,7 @@
 @implementation NSNumber (Round)
 
 #pragma mark - Display
-- (NSString *)toDisplayNumberWithDigit:(NSInteger)digit
-{
+- (NSString *)toDisplayNumberWithDigit:(NSInteger)digit {
     NSString *result = nil;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -26,8 +25,7 @@
     return result;
 }
 
-- (NSString *)toDisplayPercentageWithDigit:(NSInteger)digit
-{
+- (NSString *)toDisplayPercentageWithDigit:(NSInteger)digit {
     NSString *result = nil;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterPercentStyle];
@@ -39,8 +37,7 @@
 }
 
 #pragma mark - ceil , round, floor
-- (NSNumber *)doRoundWithDigit:(NSUInteger)digit
-{
+- (NSNumber *)doRoundWithDigit:(NSUInteger)digit {
     NSNumber *result = nil;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setRoundingMode:NSNumberFormatterRoundHalfUp];
@@ -51,8 +48,7 @@
     return result;
 }
 
-- (NSNumber *)doCeilWithDigit:(NSUInteger)digit
-{
+- (NSNumber *)doCeilWithDigit:(NSUInteger)digit {
     NSNumber *result = nil;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setRoundingMode:NSNumberFormatterRoundCeiling];
@@ -62,8 +58,7 @@
     return result;
 }
 
-- (NSNumber *)doFloorWithDigit:(NSUInteger)digit
-{
+- (NSNumber *)doFloorWithDigit:(NSUInteger)digit {
     NSNumber *result = nil;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setRoundingMode:NSNumberFormatterRoundFloor];

@@ -10,8 +10,7 @@
 
 @implementation NSFileHandle (ReadLine)
 
-- (NSData *)readLineWithDelimiter:(NSString *)theDelimier
-{
+- (NSData *)readLineWithDelimiter:(NSString *)theDelimier {
     NSUInteger bufferSize = 1024; // Set our buffer size
     
     // Read the delimiter string into a C string

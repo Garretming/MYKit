@@ -216,8 +216,7 @@
     self[indexA] = self[indexB];
     self[indexB] = temp;
     
-    if (sortExchangeCallBack)
-    {
+    if (sortExchangeCallBack) {
         sortExchangeCallBack(temp, self[indexA]);
     }
 }

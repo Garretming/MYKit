@@ -14,6 +14,8 @@ FOUNDATION_EXPORT double MYAdditionsVersionNumber;
 //! Project version string for LPDAdditions.
 FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
+#import "MYSafeKit.h"
+
 #import "NSArray+SafeAccess.h"
 #import "NSArray+Extension.h"
 #import "NSArray+Collection.h"
@@ -23,12 +25,10 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 #import "NSMutableArray+Stack.h"
 #import "NSMutableArray+Sort.h"
 #import "NSMutableArray+Queue.h"
-#import "NSMutableArray+Extension.h"
 
 #import "NSString+Contains.h"
 #import "NSString+Emoji.h"
 #import "NSString+Trims.h"
-#import "NSString+UUID.h"
 #import "NSString+XML.h"
 #import "NSString+Size.h"
 #import "NSString+Collection.h"
@@ -56,15 +56,11 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
 #import "NSNull+NSNullSafe.h"
 
-#import "NSDictionary+Key.h"
-#import "NSDictionary+Plist.h"
-#import "NSDictionary+NilSafe.h"
 #import "NSDictionary+JSONString.h"
 #import "NSDictionary+SafeAccess.h"
 #import "NSDictionary+Collection.h"
 #import "NSDictionary+StringAscending.h"
 
-#import "NSMutableDictionary+ChainProgramming.h"
 #import "NSMutableDictionary+NilSafe.h"
 
 #import "NSNumber+Round.h"

@@ -7,215 +7,20 @@
 //
 
 #import "NSString+Extension.h"
-#import "NSData+Hash.h"
-#import "NSData+Base64.h"
-#import "NSData+Encode.h"
 
 @implementation NSString (Extension)
-
-- (NSString *)md2String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] md2String];
-}
-
-- (NSString *)md4String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] md4String];
-}
-
-- (NSString *)md5String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
-}
-
-- (NSString *)sha1String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha1String];
-}
-
-- (NSString *)sha224String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha224String];
-}
-
-- (NSString *)sha256String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha256String];
-}
-
-- (NSString *)sha384String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha384String];
-}
-
-- (NSString *)sha512String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha512String];
-}
-
-- (NSString *)crc32String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] crc32String];
-}
-
-- (NSString *)hmacMD5StringWithKey:(NSString *)key {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacMD5StringWithKey:key];
-}
-
-- (NSString *)hmacSHA1StringWithKey:(NSString *)key {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA1StringWithKey:key];
-}
-
-- (NSString *)hmacSHA224StringWithKey:(NSString *)key {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA224StringWithKey:key];
-}
-
-- (NSString *)hmacSHA256StringWithKey:(NSString *)key {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA256StringWithKey:key];
-}
-
-- (NSString *)hmacSHA384StringWithKey:(NSString *)key {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA384StringWithKey:key];
-}
-
-- (NSString *)hmacSHA512StringWithKey:(NSString *)key {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA512StringWithKey:key];
-}
-
-- (NSString *)base64EncodedString {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] base64EncodedString];
-}
-
-+ (NSString *)stringWithBase64EncodedString:(NSString *)base64EncodedString {
-    NSData *data = [NSData dataWithBase64EncodedString:base64EncodedString];
-    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-}
-
-- (NSString *)stringByURLEncode {
-    if ([self respondsToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)]) {
-        /**
-         AFNetworking/AFURLRequestSerialization.m
-         
-         Returns a percent-escaped string following RFC 3986 for a query string key or value.
-         RFC 3986 states that the following characters are "reserved" characters.
-         - General Delimiters: ":", "#", "[", "]", "@", "?", "/"
-         - Sub-Delimiters: "!", "$", "&", "'", "(", ")", "*", "+", ",", ";", "="
-         In RFC 3986 - Section 3.4, it states that the "?" and "/" characters should not be escaped to allow
-         query strings to include a URL. Therefore, all "reserved" characters with the exception of "?" and "/"
-         should be percent-escaped in the query string.
-         - parameter string: The string to be percent-escaped.
-         - returns: The percent-escaped string.
-         */
-        static NSString * const kAFCharactersGeneralDelimitersToEncode = @":#[]@"; // does not include "?" or "/" due to RFC 3986 - Section 3.4
-        static NSString * const kAFCharactersSubDelimitersToEncode = @"!$&'()*+,;=";
-        
-        NSMutableCharacterSet * allowedCharacterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
-        [allowedCharacterSet removeCharactersInString:[kAFCharactersGeneralDelimitersToEncode stringByAppendingString:kAFCharactersSubDelimitersToEncode]];
-        static NSUInteger const batchSize = 50;
-        
-        NSUInteger index = 0;
-        NSMutableString *escaped = @"".mutableCopy;
-        
-        while (index < self.length) {
-            NSUInteger length = MIN(self.length - index, batchSize);
-            NSRange range = NSMakeRange(index, length);
-            // To avoid breaking up character sequences such as 👴🏻👮🏽
-            range = [self rangeOfComposedCharacterSequencesForRange:range];
-            NSString *substring = [self substringWithRange:range];
-            NSString *encoded = [substring stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
-            [escaped appendString:encoded];
-            
-            index += range.length;
-        }
-        return escaped;
-    } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        CFStringEncoding cfEncoding = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
-        NSString *encoded = (__bridge_transfer NSString *)
-        CFURLCreateStringByAddingPercentEscapes(
-                                                kCFAllocatorDefault,
-                                                (__bridge CFStringRef)self,
-                                                NULL,
-                                                CFSTR("!*'\"();:@&=+$,/?%#[]% "),
-                                                cfEncoding);
-        return encoded;
-#pragma clang diagnostic pop
-    }
-}
-
-- (NSString *)stringByURLDecode {
-    if ([self respondsToSelector:@selector(stringByRemovingPercentEncoding)]) {
-        return [self stringByRemovingPercentEncoding];
-    } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        CFStringEncoding en = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
-        NSString *decoded = [self stringByReplacingOccurrencesOfString:@"+"
-                                                            withString:@" "];
-        decoded = (__bridge_transfer NSString *)
-        CFURLCreateStringByReplacingPercentEscapesUsingEncoding(
-                                                                NULL,
-                                                                (__bridge CFStringRef)decoded,
-                                                                CFSTR(""),
-                                                                en);
-        return decoded;
-#pragma clang diagnostic pop
-    }
-}
-
-- (NSString *)stringByEscapingHTML {
-    NSUInteger len = self.length;
-    if (!len) return self;
-    
-    unichar *buf = malloc(sizeof(unichar) * len);
-    if (!buf) return self;
-    [self getCharacters:buf range:NSMakeRange(0, len)];
-    
-    NSMutableString *result = [NSMutableString string];
-    for (int i = 0; i < len; i++) {
-        unichar c = buf[i];
-        NSString *esc = nil;
-        switch (c) {
-            case 34: esc = @"&quot;"; break;
-            case 38: esc = @"&amp;"; break;
-            case 39: esc = @"&apos;"; break;
-            case 60: esc = @"&lt;"; break;
-            case 62: esc = @"&gt;"; break;
-            default: break;
-        }
-        if (esc) {
-            [result appendString:esc];
-        } else {
-            CFStringAppendCharacters((CFMutableStringRef)result, &c, 1);
-        }
-    }
-    free(buf);
-    return result;
-}
-
-- (NSData *)dataValue {
-    return [self dataUsingEncoding:NSUTF8StringEncoding];
-}
-
-- (NSRange)rangeOfAll {
-    return NSMakeRange(0, self.length);
-}
-
-- (id)jsonValueDecoded {
-    return [[self dataValue] jsonValueDecoded];
-}
 
 + (BOOL)isEmpty:(NSString *)string {
     return string == nil || string.length == 0 || [string isEqualToString:@""];
 }
 
-+ (NSString *)stringWithJSONObject:(id)obj
-{
++ (NSString *)stringWithJSONObject:(id)obj {
     NSData *promotionListJsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:0];
     
     return [[NSString alloc] initWithData:promotionListJsonData encoding:NSUTF8StringEncoding];
 }
 
-+ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString
-{
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
     if (jsonString == nil) {
         return nil;
     }
@@ -306,14 +111,6 @@
     return finalStr;
 }
 
-/**
- 将旧的字符替换成指定的新的字符
- 
- @param newString 替换后的字符
- @param range 替换的 range
- @param oldString 需要替换的旧的字符
- @return 替换后的字符
- */
 + (NSString *)replaceNewString:(NSString *)newString
                          range:(NSRange)range
                      oldString:(NSString *)oldString {
@@ -384,15 +181,13 @@
 }
 
 #pragma mark - ***** 格式化为带小数点的数字，示例：12345678.89 --> 12,345,678.89
-+ (NSString *)stringFormatterWithDecimalStyleWithNumberString:(NSString *)numberString
-{
++ (NSString *)stringFormatterWithDecimalStyleWithNumberString:(NSString *)numberString {
     /*! 输出结果示例：numberFormatter == 12,345,678.89 */
     return [NSString stringFormatterWithStyle:NSNumberFormatterDecimalStyle numberString:numberString];
 }
 
 #pragma mark - ***** 格式化为货币样式，示例：12345678.89 --> $12,345,678.89
-+ (NSString *)stringFormatterWithCurrencyStyleWithNumberString:(NSString *)numberString
-{
++ (NSString *)stringFormatterWithCurrencyStyleWithNumberString:(NSString *)numberString {
     NSString *numString = numberString;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSNumber *number = [formatter numberFromString:numString];
@@ -404,8 +199,7 @@
 }
 
 #pragma mark - ***** 格式化为百分比样式，示例：12345678.89 --> 1,234,567,889%
-+ (NSString *)stringFormatterWithPercentStyleWithNumberString:(NSString *)numberString
-{
++ (NSString *)stringFormatterWithPercentStyleWithNumberString:(NSString *)numberString {
     NSString *numString = numberString;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSNumber *number = [formatter numberFromString:numString];
@@ -417,8 +211,7 @@
 }
 
 #pragma mark - ***** 格式化为科学计数样式，示例：12345678.89 --> 1.234567889E7
-+ (NSString *)stringFormatterWithScientificStyleWithNumberString:(NSString *)numberString
-{
++ (NSString *)stringFormatterWithScientificStyleWithNumberString:(NSString *)numberString {
     NSString *numString = numberString;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSNumber *number = [formatter numberFromString:numString];
@@ -430,8 +223,7 @@
 }
 
 #pragma mark - ***** 格式化为英文输出样式（注：此处根据系统语言输出），示例：12345678.89 --> 一千二百三十四万五千六百七十八点八九
-+ (NSString *)stringFormatterWithSpellOutStyleWithNumberString:(NSString *)numberString
-{
++ (NSString *)stringFormatterWithSpellOutStyleWithNumberString:(NSString *)numberString {
     NSString *numString = numberString;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSNumber *number = [formatter numberFromString:numString];
@@ -443,8 +235,7 @@
 }
 
 #pragma mark - ***** 格式化为序数样式，示例：12345678.89 --> 第1234,5679
-+ (NSString *)stringFormatterWithOrdinalStyleWithNumberString:(NSString *)numberString
-{
++ (NSString *)stringFormatterWithOrdinalStyleWithNumberString:(NSString *)numberString {
     NSString *numString = numberString;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSNumber *number = [formatter numberFromString:numString];
@@ -456,8 +247,7 @@
 }
 
 #pragma mark - ***** 格式化为货币ISO代码样式样式，示例：123456889.86 --> CNY123,456,889.86
-+ (NSString *)stringFormatterWithCurrencyISOCodeStyleWithNumberString:(NSString *)numberString
-{
++ (NSString *)stringFormatterWithCurrencyISOCodeStyleWithNumberString:(NSString *)numberString {
     NSString *numString = numberString;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSNumber *number = [formatter numberFromString:numString];
@@ -469,8 +259,7 @@
 }
 
 #pragma mark - ***** 格式化为货币多样式，示例：12345678.89 --> USD 12,345,678.89
-+ (NSString *)stringFormatterWithCurrencyPluralStyleWithNumberString:(NSString *)numberString
-{
++ (NSString *)stringFormatterWithCurrencyPluralStyleWithNumberString:(NSString *)numberString {
     NSString *numString = numberString;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSNumber *number = [formatter numberFromString:numString];
@@ -482,8 +271,7 @@
 }
 
 #pragma mark - ***** 格式化为货币会计样式，示例：12345678.89 --> 12,345,678.89美元
-+ (NSString *)stringFormatterWithCurrencyAccountingStyleWithNumberString:(NSString *)numberString
-{
++ (NSString *)stringFormatterWithCurrencyAccountingStyleWithNumberString:(NSString *)numberString {
     NSString *numString = numberString;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     NSNumber *number = [formatter numberFromString:numString];
@@ -495,9 +283,8 @@
 }
 
 #pragma mark - 保留纯数字
-- (NSString *)removeStringSaveNumber
-{
-    NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet ];
+- (NSString *)removeStringSaveNumber {
+    NSCharacterSet *setToRemove = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
     return [[self componentsSeparatedByCharactersInSet:setToRemove] componentsJoinedByString:@""];
 }
 
@@ -508,8 +295,7 @@
  @param string 传入的 string 类型的 数字
  @return 2.1千，3.4万
  */
-+ (NSString *)stringTransformNumberWithString:(NSString *)string
-{
++ (NSString *)stringTransformNumberWithString:(NSString *)string {
     float number = [string integerValue];
     
     NSString *numberString = @"";
@@ -523,63 +309,6 @@
         }
     }
     return numberString;
-}
-
-+ (NSString *)showNumber:(NSInteger)number {
-    NSInteger num = number > 0 ? number : 0;
-    NSString * str = @"";
-    if (num < 10000) {
-        str = [NSString stringWithFormat:@"%ld",(long)num];
-    } else {
-        NSInteger last = num%10000;
-        str = [NSString stringWithFormat:@"%ld",(num/10000)];
-        if (last) {
-            str = [str stringByAppendingFormat:@".%ld",last/1000];
-        }
-        str = [str stringByAppendingString:@"万"];
-    }
-    return str;
-}
-
-+ (CGFloat)number:(NSInteger)number {
-    NSInteger num = number > 0 ? number : 0;
-    NSString * str = @"";
-    if (num < 10000) {
-        str = [NSString stringWithFormat:@"%ld",(long)num];
-    } else {
-        NSInteger last = num%10000;
-        str = [NSString stringWithFormat:@"%ld",(num/10000)];
-        if (last) {
-            str = [str stringByAppendingFormat:@".%ld",last/1000];
-        }
-    }
-    return [str floatValue];
-}
-
-+ (NSString *)kiloNumber:(NSInteger)number {
-    NSInteger num = number > 0 ? number : 0;
-    NSString * str = @"";
-    if (num < 1000) {
-        str = [NSString stringWithFormat:@"%ld",(long)num];
-    } else {
-        NSInteger last = num%1000;
-        str = [NSString stringWithFormat:@"%ld",(num/1000)];
-        if (last) {
-            str = [str stringByAppendingFormat:@".%ld",last/100];
-        }
-        str = [str stringByAppendingString:@"K"];
-    }
-    return str;
-}
-
-- (NSString *)convertStrWith:(NSInteger)position {
-    NSMutableString *mutableStr = [NSMutableString stringWithString:self];
-    NSInteger strLenth = self.length;
-    while (strLenth > position) {
-        strLenth -= position;
-        [mutableStr insertString:@"," atIndex:strLenth];
-    }
-    return mutableStr;
 }
 
 - (NSString *)stringByDeletingPictureResolution {

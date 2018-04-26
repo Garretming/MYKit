@@ -22,8 +22,7 @@
 
 @implementation NSString (XML)
 
-- (NSDictionary *)dictionaryFromXML
-{
+- (NSDictionary *)dictionaryFromXML {
     //TURN THE STRING INTO DATA
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -40,40 +39,36 @@
     BOOL success = [parser parse];
     
     //RETURNS
-    if(success)
+    if(success) {
         return [self.currentDictionaries objectAtIndex:0];
-    else
+    } else {
         return nil;
+    }
 }
 
 #pragma mark -
 #pragma mark ASSOCIATIVE OVERRIDES
 
-- (void)setCurrentDictionaries:(NSMutableArray *)currentDictionaries
-{
+- (void)setCurrentDictionaries:(NSMutableArray *)currentDictionaries {
     objc_setAssociatedObject(self, ASSOCIATIVE_CURRENT_DICTIONARY_KEY, currentDictionaries, OBJC_ASSOCIATION_RETAIN);
 }
 
-- (NSMutableArray *)currentDictionaries
-{
+- (NSMutableArray *)currentDictionaries {
     return objc_getAssociatedObject(self, ASSOCIATIVE_CURRENT_DICTIONARY_KEY);
 }
 
-- (void)setCurrentText:(NSMutableString *)currentText
-{
+- (void)setCurrentText:(NSMutableString *)currentText {
     objc_setAssociatedObject(self, ASSOCIATIVE_CURRENT_TEXT_KEY, currentText, OBJC_ASSOCIATION_RETAIN);
 }
 
-- (NSMutableString *)currentText
-{
+- (NSMutableString *)currentText {
     return objc_getAssociatedObject(self, ASSOCIATIVE_CURRENT_TEXT_KEY);
 }
 
 #pragma mark -
 #pragma mark NSXMLPARSER DELEGATE
 
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
-{
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     //GET THE LAST DICTIONARY
     NSMutableDictionary *parent = [self.currentDictionaries lastObject];
     
@@ -106,8 +101,7 @@
     [self.currentDictionaries addObject:child];
 }
 
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-{
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     //UPDATE PARENT INFO
     NSMutableDictionary *dictInProgress = [self.currentDictionaries lastObject];
     
@@ -123,13 +117,11 @@
     [self.currentDictionaries removeLastObject];
 }
 
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
-{
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     [self.currentText appendString:string];
 }
 
-- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError
-{
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
     //WILL RETURN NIL FOR ERROR
 }
 

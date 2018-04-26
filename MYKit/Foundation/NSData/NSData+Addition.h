@@ -19,29 +19,5 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)APNSToken;
 
-/**
- Decompress data from gzip data.
- @return Inflated data.
- */
-- (nullable NSData *)gzipInflate;
-
-/**
- Comperss data to gzip in default compresssion level.
- @return Deflated data.
- */
-- (nullable NSData *)gzipDeflate;
-
-/**
- Decompress data from zlib-compressed data.
- @return Inflated data.
- */
-- (nullable NSData *)zlibInflate;
-
-/**
- Comperss data to zlib-compressed in default compresssion level.
- @return Deflated data.
- */
-- (nullable NSData *)zlibDeflate;
-
 @end
 NS_ASSUME_NONNULL_END
