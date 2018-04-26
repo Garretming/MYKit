@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MYKit"
-  s.version      = "1.0.9"
+  s.version      = "1.1.0"
   s.summary      = "效率工具类"
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/iOS-Strikers/MYKit.git", :tag => "1.0.9" 
+  s.source       = { :git => "https://github.com/iOS-Strikers/MYKit.git", :tag => "1.1.0" 
   }
 
 
@@ -126,6 +126,7 @@ Pod::Spec.new do |s|
   # s.libraries = "iconv", "xml2"
 
   s.requires_arc = true
+
   s.subspec 'UIKit' do |ss|
     ss.source_files = 'MYKit/UIKit/**/*'
     ss.dependency 'MYKit/Foundation'
@@ -133,5 +134,9 @@ Pod::Spec.new do |s|
 
   s.subspec 'Foundation' do |ss|
     ss.source_files = 'MYKit/Foundation/**/*'
+  end
+
+  s.subspec 'SafeKit' do |ss|
+    ss.source_files = 'MYKit/SafeKit/**/*'
   end
 end
