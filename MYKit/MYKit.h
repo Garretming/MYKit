@@ -16,7 +16,6 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
 #import "MYSafeKit.h"
 #import "MYFoundationKit.h"
-#import <YYKit.h>
 
 #import "UINavigationBar+Translation.h"
 

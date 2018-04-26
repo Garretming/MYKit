@@ -135,6 +135,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Foundation' do |ss|
     ss.source_files = 'MYKit/Foundation/**/*'
+    ss.dependency 'MYKit/SafeKit'
   end
 
   s.subspec 'SafeKit' do |ss|
