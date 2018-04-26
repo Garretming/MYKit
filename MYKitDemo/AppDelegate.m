@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "UIViewController+ClassName.h"
+#import "UIApplication+SafeKit.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,8 @@
     // Override point for customization after application launch.
     //显示当前类名
     [UIViewController displayClassName:YES];
+    
+    [UIApplication sharedApplication].safeKit_isTestEnvironment = YES;
     return YES;
 }
 

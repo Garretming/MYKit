@@ -15,82 +15,8 @@ FOUNDATION_EXPORT double MYAdditionsVersionNumber;
 FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
 #import "MYSafeKit.h"
-
-#import "NSArray+SafeAccess.h"
-#import "NSArray+Extension.h"
-#import "NSArray+Collection.h"
-#import "NSArray+Safe.h"
-
-#import "NSMutableArray+SafeAccess.h"
-#import "NSMutableArray+Stack.h"
-#import "NSMutableArray+Sort.h"
-#import "NSMutableArray+Queue.h"
-
-#import "NSString+Contains.h"
-#import "NSString+Emoji.h"
-#import "NSString+Trims.h"
-#import "NSString+XML.h"
-#import "NSString+Size.h"
-#import "NSString+Collection.h"
-#import "NSString+Attributed.h"
-#import "NSString+Regular.h"
-#import "NSString+Extension.h"
-#import "NSString+FitLines.h"
-
-#import "NSAttributedString+Extension.h"
-
-#import "NSMutableAttributedString+ChainProgramming.h"
-#import "NSMutableAttributedString+Extension.h"
-
-#import "NSCharacterSet+Addition.h"
-
-#import "NSData+Encode.h"
-#import "NSData+Encrypt.h"
-#import "NSData+Hash.h"
-#import "NSData+DataCache.h"
-#import "NSData+Base64.h"
-#import "NSData+Addition.h"
-#import "NSData+ImageContentType.h"
-#import "NSData+AES256.h"
-#import "NSData+CRC32.h"
-
-#import "NSNull+NSNullSafe.h"
-
-#import "NSDictionary+JSONString.h"
-#import "NSDictionary+SafeAccess.h"
-#import "NSDictionary+Collection.h"
-#import "NSDictionary+StringAscending.h"
-
-#import "NSMutableDictionary+NilSafe.h"
-
-#import "NSNumber+Round.h"
-#import "NSNumber+Addition.h"
-
-#import "NSObject+Swizzling.h"
-#import "NSObject+AssociatedObject.h"
-#import "NSObject+KVO.h"
-#import "NSObject+Dictionary.h"
-
-#import "NSTimer+Addition.h"
-
-#import "NSURL+URLQuery.h"
-#import "NSURL+Param.h"
-
-#import "NSUserDefaults+SafeAccess.h"
-
-#import "NSFileManager+Paths.h"
-#import "NSFileManager+FileManager.h"
-
-#import "NSFileHandle+ReadLine.h"
-
-#import "NSDateFormatter+Extension.h"
-
-#import "NSDate+YYAdd.h"
-#import "NSDate+NSDateRFC1123.h"
-#import "NSDate+Addition.h"
-#import "NSDate+Extension.h"
-
-#import "NSBundle+AppIcon.h"
+#import "MYFoundationKit.h"
+#import <YYKit.h>
 
 #import "UINavigationBar+Translation.h"
 
