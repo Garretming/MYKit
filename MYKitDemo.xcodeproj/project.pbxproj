@@ -139,6 +139,7 @@
 		8160430420C5464B00625BCB /* MessageTrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 8160430120C5464A00625BCB /* MessageTrash.m */; };
 		8160431520C547E700625BCB /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 8160431420C547E600625BCB /* UIAlertView+Block.m */; };
 		8160431820C547F300625BCB /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 8160431720C547F300625BCB /* UIActionSheet+Block.m */; };
+		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		EF9BD7D6B2F80BF8C38AE594 /* libPods-MYKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9058D9FF16BE886904431B9 /* libPods-MYKitDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -427,6 +428,8 @@
 		8160431420C547E600625BCB /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
 		8160431620C547F200625BCB /* UIActionSheet+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Block.h"; sourceTree = "<group>"; };
 		8160431720C547F300625BCB /* UIActionSheet+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Block.m"; sourceTree = "<group>"; };
+		81F868E820C55C9E00630F3B /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
+		81F868E920C55C9E00630F3B /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		DB05FFDAC83980FD967990FD /* Pods-MYKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MYKitDemo/Pods-MYKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F9058D9FF16BE886904431B9 /* libPods-MYKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MYKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -664,6 +667,8 @@
 		32077C381F5FF394006E4C70 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				81F868E820C55C9E00630F3B /* UIView+Position.h */,
+				81F868E920C55C9E00630F3B /* UIView+Position.m */,
 				325AFEBC1FC02A75009FF8B1 /* UIView+CornerRadii.h */,
 				325AFEBD1FC02A75009FF8B1 /* UIView+CornerRadii.m */,
 				32077C3C1F5FF410006E4C70 /* UIView+Gesture.h */,
@@ -1198,13 +1203,12 @@
 		32077BE21F5FEC6F006E4C70 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = com.51fanxing;
 				TargetAttributes = {
 					32077BE91F5FEC6F006E4C70 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = EFYJC86RP9;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					32077C021F5FEC6F006E4C70 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -1416,6 +1420,7 @@
 				815F4D362091B9E100EA6DFF /* NSData+DataCache.m in Sources */,
 				8160430320C5464B00625BCB /* NSObject+UnknowMessage.m in Sources */,
 				816042F020C5462200625BCB /* NSObject+SafeObserver.m in Sources */,
+				81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */,
 				32077C3E1F5FF410006E4C70 /* UIView+Gesture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1485,6 +1490,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1492,6 +1498,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1540,6 +1547,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1547,6 +1555,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1581,8 +1590,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EFYJC86RP9;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MYKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1599,8 +1608,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EFYJC86RP9;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MYKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

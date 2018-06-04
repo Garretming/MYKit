@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "UIImage+CornerRadius.h"
 #import "UIImage+Color.h"
 #import "UIImage+Extension.h"
 #import "UIImageView+CornerRadius.h"
@@ -18,7 +17,6 @@
 #import "UIImage+RoundedAvatar.h"
 #import "UINavigationBar+Addition.h"
 #import "UIActionSheet+Block.h"
-#import "UIActionSheet+Addition.h"
 #import "NSString+Extension.h"
 #import "UIView+CustomBorder.h"
 #import "UIView+CornerRadii.h"
@@ -87,7 +85,7 @@
     /*
      * overflow !
      */
-    NSLog(@"self.array[5]: %@",self.arrayI[4]);
+//    NSLog(@"self.array[5]: %@",self.arrayI[4]);
     
     NSMutableDictionary *testDict = [NSMutableDictionary dictionary];
     testDict[@"test"] = nil;

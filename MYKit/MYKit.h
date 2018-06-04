@@ -94,6 +94,7 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 #import "UIView+FindSubView.h"
 #import "UIView+GradientBackgroundColor.h"
 #import "UIView+Style.h"
+#import "UIView+Position.h"
 
 #import "UIImageView+BetterFace.h"
 #import "UIImageView+Letters.h"

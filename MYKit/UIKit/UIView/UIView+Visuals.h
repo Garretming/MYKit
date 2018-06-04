@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^AnimationCompletBlock) ();
+typedef void (^AnimationCompletBlock) (void);
 
 @interface UIView (Visuals)
 
