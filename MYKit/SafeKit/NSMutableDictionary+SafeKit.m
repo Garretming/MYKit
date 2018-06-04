@@ -2,7 +2,7 @@
 //  NSMutableDictionary+SafeKit.m
 //  QMSafeKit
 //
-//  Created by David on 2018/3/23.
+//  Created by QMMac on 2018/4/26.
 //  Copyright © 2018年 David. All rights reserved.
 //
 
@@ -42,8 +42,11 @@
     [self safe_setObject:anObject forKey:aKey];
 }
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    return [MessageTrash new];
-}
+/*
+ - (id)forwardingTargetForSelector:(SEL)aSelector {
+ //    [self sf_showUnknowSelectorError];
+ return [MessageTrash new];
+ }
+ */
 
 @end

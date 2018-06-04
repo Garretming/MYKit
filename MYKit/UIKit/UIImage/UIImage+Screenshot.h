@@ -41,15 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIImage *)screenshotWithView:(UIView *)view limitWidth:(CGFloat)maxWidth;
 
-/**
- Returns a new image which is cropped from this image.
- 
- @param rect  Image's inner rect.
- 
- @return      The new image, or nil if an error occurs.
- */
-- (nullable UIImage *)imageByCropToRect:(CGRect)rect;
-
 @end
 
 NS_ASSUME_NONNULL_END

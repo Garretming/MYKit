@@ -82,16 +82,4 @@
     return screenshot;
 }
 
-- (UIImage *)imageByCropToRect:(CGRect)rect {
-    rect.origin.x *= self.scale;
-    rect.origin.y *= self.scale;
-    rect.size.width *= self.scale;
-    rect.size.height *= self.scale;
-    if (rect.size.width <= 0 || rect.size.height <= 0) return nil;
-    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
-    UIImage *image = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
-    CGImageRelease(imageRef);
-    return image;
-}
-
 @end

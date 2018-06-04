@@ -14,6 +14,7 @@
  获取UUID
  */
 + (NSString *)generateUuidString;
+
 /**
  设备版本
  */
@@ -36,8 +37,6 @@
 
 + (NSString *)platform;
 
-+ (BOOL)isSimulator;
-
 + (NSString *)platformString;
 
 + (BOOL)p35InchDisplay;
@@ -48,9 +47,10 @@
 
 + (BOOL)p55InchDiplay;
 
+/**
+ 获取是否是IphoneX
+ */
 + (BOOL)isIphoneX;
-
-+ (NSString *)getIPAddress:(BOOL)preferIPv4;
 
 /**
  获取当前网络运营商的名称
@@ -94,6 +94,5 @@
  @return NSString
  */
 + (NSString *)getCurrentDeviceIPAddresses;
-
 
 @end

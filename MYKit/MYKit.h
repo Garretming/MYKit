@@ -18,20 +18,20 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 #import "MYFoundationKit.h"
 
 #import "UINavigationBar+Translation.h"
+#import "UINavigationBar+Addition.h"
 
 #import "UIViewController+PageViewLevel.h"
 #import "UIViewController+PreviousController.h"
 #import "UIViewController+TopViewController.h"
+#import "UIViewController+ClassName.h"
 
 #import "UIScreen+Accessor.h"
 
 #import "UIActionSheet+Block.h"
-#import "UIActionSheet+Addition.h"
 
 #import "UIDevice+Extension.h"
 
 #import "UIApplication+NetworkActivityIndicator.h"
-#import "UIApplication+Extension.h"
 #import "UIApplication+Authority.h"
 
 #import "UIBarButtonItem+Badge.h"
@@ -39,12 +39,8 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
 #import "UINavigationController+StackManager.h"
 
-#import "UIScrollView+Extension.h"
 #import "UIScrollView+Accessor.h"
 
-#import "UITableView+Extension.h"
-
-#import "UITextField+Select.h"
 #import "UITextField+Shake.h"
 #import "UITextField+InputLimit.h"
 
@@ -83,13 +79,11 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 #import "UIImage+Extension.h"
 #import "UIImage+Color.h"
 #import "UIImage+Screenshot.h"
-#import "UIImage+CornerRadius.h"
 #import "UIImage+ImageEffects.h"
 #import "UIImage+RoundedAvatar.h"
 
 #import "UIView+CornerRadii.h"
 #import "UIView+RedDot.h"
-#import "UIView+Position.h"
 #import "UIView+Gesture.h"
 #import "UIView+SuperController.h"
 #import "UIView+Screenshot.h"
@@ -99,6 +93,7 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 #import "UIView+Line.h"
 #import "UIView+FindSubView.h"
 #import "UIView+GradientBackgroundColor.h"
+#import "UIView+Style.h"
 
 #import "UIImageView+BetterFace.h"
 #import "UIImageView+Letters.h"
@@ -109,6 +104,4 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 #import "UIImageView+Fillet.h"
 
 #import "UIAlertView+Block.h"
-#import "UIAlertView+Addition.h"
-#import "UIView+Style.h"
 

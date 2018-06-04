@@ -32,6 +32,7 @@
 #import "MessageTrash.h"
 #import "UIApplication+SafeKit.h"
 #import "NSObject+SafeKitSetting.h"
+#import "NSObject+UnknowMessage.h"
 #import "NSArray+SafeKit.h"
 #import "NSDictionary+SafeKit.h"
 #import "NSMutableArray+SafeKit.h"

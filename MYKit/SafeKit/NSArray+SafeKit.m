@@ -2,7 +2,7 @@
 //  NSArray+SafeKit.m
 //  QMSafeKit
 //
-//  Created by David on 2018/3/21.
+//  Created by QMMac on 2018/4/26.
 //  Copyright © 2018年 David. All rights reserved.
 //
 
@@ -80,9 +80,13 @@
     return [self safe_arrayByAddingObject:anObject];
 }
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-//    [self sf_showUnknowSelectorError];
+
+/*
+ - (id)forwardingTargetForSelector:(SEL)aSelector {
+ //    [self sf_showUnknowSelectorError];
     return [MessageTrash new];
-}
+ }
+ */
+
 
 @end

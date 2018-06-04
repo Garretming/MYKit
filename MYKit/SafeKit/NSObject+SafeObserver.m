@@ -2,7 +2,7 @@
 //  NSObject+SafeObserver.m
 //  QMSafeKit
 //
-//  Created by David on 2018/3/23.
+//  Created by QMMac on 2018/4/26.
 //  Copyright © 2018年 David. All rights reserved.
 //
 

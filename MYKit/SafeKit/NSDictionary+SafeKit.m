@@ -2,7 +2,7 @@
 //  NSDictionary+SafeKit.m
 //  QMSafeKit
 //
-//  Created by David on 2018/3/23.
+//  Created by QMMac on 2018/4/26.
 //  Copyright © 2018年 David. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @implementation NSDictionary (SafeKit)
 
-+ (void)load {
++ (void) load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self safe_swizzleMethod:@selector(initWithObjects_safe:forKeys:count:) tarClass:@"__NSPlaceholderDictionary" tarSel:@selector(initWithObjects:forKeys:count:)];
@@ -31,8 +31,11 @@
     return self;
 }
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
+/*
+ - (id)forwardingTargetForSelector:(SEL)aSelector {
+ //    [self sf_showUnknowSelectorError];
     return [MessageTrash new];
-}
+ }
+ */
 
 @end

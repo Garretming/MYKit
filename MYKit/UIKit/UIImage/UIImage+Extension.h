@@ -31,16 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable UIImage *)imageWithAlpha:(CGFloat)alpha;
 
 /**
- Returns a new image which is scaled from this image.
- The image will be stretched as needed.
- 
- @param size  The new size to be scaled, values should be positive.
- 
- @return      The new image with the given size.
- */
-- (nullable UIImage *)imageByResizeToSize:(CGSize)size;
-
-/**
  *  @brief 根据name获取GIF图片
  *
  *  @param name 图片名称
