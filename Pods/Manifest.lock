@@ -7,12 +7,12 @@ DEPENDENCIES:
   - YYKit (~> 1.0.9)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - YYKit
 
 SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: d6b7ccf3c859cb33ad3c6e038307b7bb8aecb3f6
+PODFILE CHECKSUM: 072392ffa2febf88738de7eda4bffef376ec92c8
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

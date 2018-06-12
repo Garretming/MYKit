@@ -13,11 +13,12 @@
 
 @implementation NSString (SafeKit)
 
-+ (void) load {
++ (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self safe_swizzleMethod:@selector(safe_characterAtIndex:) tarClass:@"__NSCFString" tarSel:@selector(characterAtIndex:)];
         [self safe_swizzleMethod:@selector(safe_substringWithRange:) tarClass:@"__NSCFString" tarSel:@selector(substringWithRange:)];
+        [self safe_swizzleMethod:@selector(safe_substringToIndex:) tarClass:@"__NSCFString" tarSel:@selector(substringToIndex:)];
     });
 }
 
@@ -37,11 +38,12 @@
     return [self safe_substringWithRange:range];
 }
 
-/*
- - (id)forwardingTargetForSelector:(SEL)aSelector {
- //    [self sf_showUnknowSelectorError];
- return [MessageTrash new];
- }
- */
+- (NSString *)safe_substringToIndex:(NSUInteger)to {
+    if (to >= [self length]) {
+        [self sf_showObjectAtIndexError_String];
+        return @"";
+    }
+    return [self safe_substringToIndex:to];
+}
 
 @end

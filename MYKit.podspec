@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   # s.authors            = { "sunjinshuai" => "s_mike@163.com" }
   # s.social_media_url   = "http://twitter.com/sunjinshuai"
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = "8.0"
   s.platform     = :ios
   s.platform     = :ios, "8.0"
 
@@ -61,7 +61,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  s.frameworks = 'Foundation'
+  s.frameworks = 'UIKit','Foundation'
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/CommonCrypto" }
   # s.frameworks = "SomeFramework", "AnotherFramework"
 

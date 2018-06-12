@@ -21,6 +21,7 @@
 #import "UIView+CustomBorder.h"
 #import "UIView+CornerRadii.h"
 #import "UIView+Style.h"
+#import "NSString+SafeKit.h"
 
 @interface ViewController ()
 
@@ -38,94 +39,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *str = @"asdfaskdljfakl;sdjfa";
+    
+    [str substringToIndex:90];
     
     
-    self.imageView.image = [self.imageView.image imageByRoundCornerRadius:100 scaleSize:self.imageView.bounds.size];
-    
-//    XXObject *object1 = [[XXObject alloc] init];
-    
-    UIView *yellowView = [[UIView alloc] init];
-    yellowView.backgroundColor = [UIColor yellowColor];
-    yellowView.frame = CGRectMake(100, 300, 250, 24);
-//    [yellowView addRedDotWithRadius:5 offsetX:0 offsetY:0];
-    [yellowView setViewRectCornerType:MYRectCornerTypeBottomLeftAndTopLeft viewCornerRadius:12 borderWidth:1.0f borderColor:[UIColor redColor]];
-//    yellowView.layer.borderColor = [UIColor redColor].CGColor;
-//    yellowView.layer.borderWidth = 0.5;
-//    [yellowView showRedDot];
-
-    [self.view addSubview:yellowView];
-    
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(20,CGRectGetMaxY(yellowView.frame),100,100)];
-//    [button setTitle:@"测试文本" forState:UIControlStateNormal];
-    [button setBorder:10.0f borderColor:[UIColor redColor] borderPosition:MYUIViewBorderPositionRight];
-    UIImage *currentImage = [UIImage imageNamed:@"btn_kaibo_set_zhuantou_click"];
-    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [button setImage:currentImage forState:UIControlStateNormal];
-    [button setButtonImageTitleStyle:ButtonImageTitleStyleLeft padding:30];
-    [button setTitle:@"测试" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [button setViewRectCornerType:MYRectCornerTypeBottomLeftAndTopLeft viewCornerRadius:20 borderWidth:2.0f borderColor:[UIColor redColor]];
-    [button sizeToFit];
-    [self.view addSubview:button];
-    
-    NSLog(@"判断UIView是否重叠-->%d",[self.view intersectsWithView:button]);
-    
-    /*
-     * init array
-     */
-    self.arrayI = @[@"a", @"b", @"c", @"d"];
-    
-    self.arrayM = [self.arrayI mutableCopy];
-    
-    self.array0 = @[];
-    
-    self.singleObjectArrayI = @[@"a"];
-    
-    
-    /*
-     * overflow !
-     */
-//    NSLog(@"self.array[5]: %@",self.arrayI[4]);
-    
-    NSMutableDictionary *testDict = [NSMutableDictionary dictionary];
-    testDict[@"test"] = nil;
-    
-    NSLog(@"判读字典是否可以为空%@",testDict[@"test"]);
-    
-    
-//    UIActionSheet *actionSheet = [UIActionSheet sheetWithTitle:nil];
-//    [actionSheet setCancelButtonWithTitle:@"dadf" block:^{
-//        NSLog(@"dadf");
-//    }];
-//
-//    [actionSheet addButtonWithTitle:@"dadf" block:^{
-//        NSLog(@"dadf");
-//    }];
-//
-//    [actionSheet setDestructiveButtonWithTitle:@"取消禁言" block:^{
-//        NSLog(@"取消禁言");
-//    }];
-//
-//    [actionSheet showInController:self];
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"asdfas" message:@"asdfasd" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alertView show];
-
-    
-    UILabel * label0 = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    [self.view addSubview:label0];
-    [label0 shareStyle:^(UILabel * _Nullable sourceView) {
-        sourceView.backgroundColor = [UIColor redColor];
-        sourceView.layer.borderWidth = 5;
-        sourceView.layer.borderColor = [UIColor grayColor].CGColor;
-        sourceView.layer.shadowOffset = CGSizeMake(5, 5);
-        sourceView.text = @"akdfjajkdfa;lkfja;jdfk;lasdjfak";
-    } uniqueStyle:nil];
-    
-    
-    UIView * view0 = [[UIView alloc] initWithFrame:CGRectMake(250, 100, 100, 100)];
-    [self.view addSubview:view0];
-    view0.shareStyle = label0.shareStyle;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

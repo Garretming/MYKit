@@ -26,6 +26,7 @@
 }
 
 + (void)safe_swizzleMethod:(Class)srcClass srcSel:(SEL)srcSel tarClass:(Class)tarClass tarSel:(SEL)tarSel{
+    
     if (!srcClass) {
         return;
     }
@@ -38,9 +39,23 @@
     if (!tarSel) {
         return;
     }
-    Method srcMethod = class_getInstanceMethod(srcClass,srcSel);
-    Method tarMethod = class_getInstanceMethod(tarClass,tarSel);
-    method_exchangeImplementations(srcMethod, tarMethod);
+    
+    Method originalMethod = class_getInstanceMethod(srcClass, srcSel);
+    Method swizzledMethod = class_getInstanceMethod(tarClass, tarSel);
+    BOOL didAddMethod =
+    class_addMethod(srcClass,
+                    srcSel,
+                    method_getImplementation(swizzledMethod),
+                    method_getTypeEncoding(swizzledMethod));
+    
+    if (didAddMethod) {
+        class_replaceMethod(tarClass,
+                            tarSel,
+                            method_getImplementation(originalMethod),
+                            method_getTypeEncoding(originalMethod));
+    } else {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
 }
 
 @end
