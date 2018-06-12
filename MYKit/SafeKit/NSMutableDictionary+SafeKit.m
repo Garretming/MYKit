@@ -42,11 +42,4 @@
     [self safe_setObject:anObject forKey:aKey];
 }
 
-/*
- - (id)forwardingTargetForSelector:(SEL)aSelector {
- //    [self sf_showUnknowSelectorError];
- return [MessageTrash new];
- }
- */
-
 @end

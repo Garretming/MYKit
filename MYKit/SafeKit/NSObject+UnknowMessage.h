@@ -10,4 +10,6 @@
 
 @interface NSObject (UnknowMessage)
 
++ (void)safeGuardUnrecognizedSelector;
+
 @end

@@ -22,6 +22,7 @@
 #import "UIView+CornerRadii.h"
 #import "UIView+Style.h"
 #import "NSString+SafeKit.h"
+#import "NSObject+UnknowMessage.h"
 
 @interface ViewController ()
 
@@ -39,9 +40,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *str = @"asdfaskdljfakl;sdjfa";
+    XXObject *object = [[XXObject alloc] init];
+    [XXObject performSelector:@selector(asdklfasd)];
     
-    [str substringToIndex:90];
     
     
 }

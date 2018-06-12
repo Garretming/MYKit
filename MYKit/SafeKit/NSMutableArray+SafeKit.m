@@ -78,11 +78,4 @@
     [self safe_replaceObjectAtIndex:index withObject:anObject];
 }
 
-/*
- - (id)forwardingTargetForSelector:(SEL)aSelector {
- //    [self sf_showUnknowSelectorError];
- return [MessageTrash new];
- }
- */
-
 @end

@@ -8,34 +8,21 @@
 
 #import "NSObject+UnknowMessage.h"
 #import "MessageTrash.h"
-#import <objc/message.h>
+#import "NSObject+Swizzle.h"
 
 @implementation NSObject (UnknowMessage)
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    NSString * selString = NSStringFromSelector(anInvocation.selector);
-    NSString * clsString = NSStringFromClass([self class]);
-    MessageTrash * mt = [MessageTrash new];
-    [anInvocation setTarget:mt];
-    [anInvocation setSelector:@selector(messageSource:unknowSelectorName:)];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wincompatible-pointer-types-discards-qualifiers"
-    [anInvocation setArgument:&clsString atIndex:2];
-    [anInvocation setArgument:&selString atIndex:3];
-    [anInvocation invokeWithTarget:mt];
-#pragma clang diagnostic pop
++ (void)safeGuardUnrecognizedSelector {
+    
+    [self safe_swizzleMethod:@selector(exchange_forwardingTargetForSelector:) tarClass:NSStringFromClass([self class]) tarSel:@selector(forwardingTargetForSelector:)];
 }
 
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSLog(@"%@--%@", self, NSStringFromSelector(aSelector));
-    return [NSMethodSignature signatureWithObjCTypes:"v@:@@"];
+- (id)exchange_forwardingTargetForSelector:(SEL)aSelector {
+    NSMethodSignature * signature = [self methodSignatureForSelector:aSelector];
+    if ([self respondsToSelector:aSelector] || signature) {
+        return [self exchange_forwardingTargetForSelector:aSelector];
+    }
+    return [MessageTrash source:[self class] selector:aSelector];
 }
-#pragma clang diagnostic pop
-
-//- (void)doesNotRecognizeSelector:(SEL)aSelector {
-//    
-//}
 
 @end

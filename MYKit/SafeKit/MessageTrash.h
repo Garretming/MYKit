@@ -10,6 +10,6 @@
 
 @interface MessageTrash : NSObject
 
-- (void)messageSource:(id)source unknowSelectorName:(NSString *)selector;
++ (instancetype)source:(Class)source selector:(SEL)selector;
 
 @end

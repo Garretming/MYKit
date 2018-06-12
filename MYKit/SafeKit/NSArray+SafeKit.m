@@ -80,13 +80,4 @@
     return [self safe_arrayByAddingObject:anObject];
 }
 
-
-/*
- - (id)forwardingTargetForSelector:(SEL)aSelector {
- //    [self sf_showUnknowSelectorError];
-    return [MessageTrash new];
- }
- */
-
-
 @end

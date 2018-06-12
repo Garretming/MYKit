@@ -37,11 +37,4 @@
     return [self safe_compare:number];
 }
 
-/*
- - (id)forwardingTargetForSelector:(SEL)aSelector {
- //    [self sf_showUnknowSelectorError];
- return [MessageTrash new];
- }
- */
-
 @end
