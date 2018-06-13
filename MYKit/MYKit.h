@@ -14,7 +14,8 @@ FOUNDATION_EXPORT double MYAdditionsVersionNumber;
 //! Project version string for LPDAdditions.
 FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
-#import "MYSafeKit.h"
+#import "XXShieldSDK.h"
+
 #import "MYFoundationKit.h"
 
 #import "UINavigationBar+Translation.h"

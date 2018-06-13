@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 #import "UIViewController+ClassName.h"
-#import "UIApplication+SafeKit.h"
-#import "NSObject+UnknowMessage.h"
 
 @interface AppDelegate ()
 
@@ -20,12 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [NSObject safeGuardUnrecognizedSelector];
-    
     //显示当前类名
     [UIViewController displayClassName:YES];
     
-    [UIApplication sharedApplication].safeKit_isTestEnvironment = YES;
     return YES;
 }
 

@@ -9,7 +9,6 @@
 #import "UIView+Style.h"
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
-#import "MessageTrash.h"
 
 #pragma - mark
 #pragma - mark StyleFormat
@@ -33,10 +32,6 @@
     if (unique) {
         unique(self);
     }
-}
-
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    return [MessageTrash new];
 }
 
 @end
