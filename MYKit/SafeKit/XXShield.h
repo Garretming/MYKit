@@ -13,4 +13,12 @@ FOUNDATION_EXPORT double XXShieldVersionNumber;
 //! Project version string for Expecta.
 FOUNDATION_EXPORT const unsigned char XXShieldVersionString[];
 
-#import <SafeKit/XXShieldSDK.h>
+#import "NSArray+Safe.h"
+#import "NSMutableArray+Safe.h"
+#import "NSPointerArray+Safe.h"
+#import "NSDictionary+Safe.h"
+#import "NSMutableDictionary+Safe.h"
+#import "NSSet+Safe.h"
+#import "NSMutableSet+Safe.h"
+#import "NSHashTable+Safe.h"
+#import "NSMapTable+Safe.h"
