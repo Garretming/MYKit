@@ -39,14 +39,14 @@
     return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
 }
 
-void *safeCharacterAtIndex(id self, SEL _cmd, NSUInteger index) {
+static NSUInteger safeCharacterAtIndex(id self, SEL _cmd, NSUInteger index) {
     struct objc_super superClass = {
         .receiver    = self,
         .super_class = class_getSuperclass(object_getClass(self))
     };
-    void * (*objc_msgSendToSuper)(const void *, SEL, unsigned long) = (void *)objc_msgSendSuper;
+    NSUInteger (*objc_msgSendToSuper)(const void *, SEL, unsigned long) = (void *)objc_msgSendSuper;
     if (index >= [self length]) {
-        NSLog(@"\"%@\"-key:(%lu) can not be nil", NSStringFromSelector(_cmd), (unsigned long)index);
+        NSLog(@"\"%@\" -index:(%lu) should less than %lu", NSStringFromSelector(_cmd), index, (unsigned long)[self length]);
         return 0;
     }
     return objc_msgSendToSuper(&superClass, _cmd, index);

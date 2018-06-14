@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "XXShield.h"
+#import "NSString+SafeKit.h"
 
 @interface ViewController ()
 
@@ -25,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+     /*
         NSArray * array = @[@"A", @"B", @"C"].safe;
     
         [array objectAtIndex:0];
@@ -35,7 +37,7 @@
         [array objectsAtIndexes:[NSIndexSet indexSetWithIndex:10]];
         [array objectAtIndexedSubscript:1000];
     
-    /*
+   
      [array arrayByAddingObjectsFromArray:nil];
      [array componentsJoinedByString:nil];
      [array containsObject:nil];
@@ -94,6 +96,10 @@
     //    id a = [mapTable objectForKey:nil];
     //    [mapTable removeObjectForKey:nil];
     //    [mapTable setObject:nil forKey:nil];
+    
+    NSString *str = @"akdaldllad".safe;
+
+    [str characterAtIndex:213];
 }
 
 
