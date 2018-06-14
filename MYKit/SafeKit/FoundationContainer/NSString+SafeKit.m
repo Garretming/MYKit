@@ -7,39 +7,63 @@
 //
 
 #import "NSString+SafeKit.h"
-#import "NSObject+Swizzle.h"
-#import "NSObject+SafeKitSetting.h"
+#import <objc/message.h>
 
 @implementation NSString (SafeKit)
 
-+ (void) load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+- (id)safe {
+    if (!self.isSafe) {
+        NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
+        Class kClass        = objc_getClass([className UTF8String]);
+        if (!kClass) {
+            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
+        }
+        object_setClass(self, kClass);
         
-        Class __NSCFString = NSClassFromString(@"__NSCFString");
+        class_addMethod(kClass, @selector(characterAtIndex:), (IMP)safeCharacterAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(characterAtIndex:))));
         
-        //characterAtIndex:
-        [self instanceSwizzleMethodWithClass:__NSCFString orginalMethod:@selector(characterAtIndex:) replaceMethod:@selector(safe_characterAtIndex:)];
+        class_addMethod(kClass, @selector(substringWithRange:), (IMP)safeSubstringWithRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(substringWithRange:))));
         
-        //substringWithRange:
-        [self instanceSwizzleMethodWithClass:__NSCFString orginalMethod:@selector(substringWithRange:) replaceMethod:@selector(safe_substringWithRange:)];
-    });
+        objc_registerClassPair(kClass);
+        self.isSafe = YES;
+    }
+    
+    return self;
 }
 
-- (unichar)safe_characterAtIndex:(NSUInteger)index {
+- (void)setIsSafe:(BOOL)isSafe {
+    objc_setAssociatedObject(self, @selector(isSafe), @(isSafe), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)isSafe {
+    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
+}
+
+void *safeCharacterAtIndex(id self, SEL _cmd, NSUInteger index) {
+    struct objc_super superClass = {
+        .receiver    = self,
+        .super_class = class_getSuperclass(object_getClass(self))
+    };
+    void * (*objc_msgSendToSuper)(const void *, SEL, unsigned long) = (void *)objc_msgSendSuper;
     if (index >= [self length]) {
-        [self sf_showObjectAtIndexError_String];
+        NSLog(@"\"%@\"-key:(%lu) can not be nil", NSStringFromSelector(_cmd), (unsigned long)index);
         return 0;
     }
-    return [self safe_characterAtIndex:index];
+    return objc_msgSendToSuper(&superClass, _cmd, index);
 }
 
-- (NSString *)safe_substringWithRange:(NSRange)range {
-    if (range.location + range.length > self.length) {
-        [self sf_showObjectAtIndexError_String];
+void *safeSubstringWithRange(id self, SEL _cmd, NSRange range) {
+    struct objc_super superClass = {
+        .receiver    = self,
+        .super_class = class_getSuperclass(object_getClass(self))
+    };
+    void * (*objc_msgSendToSuper)(const void *, SEL, NSRange) = (void *)objc_msgSendSuper;
+    
+    if (range.location + range.length > [self length]) {
+        
         return @"";
     }
-    return [self safe_substringWithRange:range];
+    return objc_msgSendToSuper(&superClass, _cmd, range);
 }
 
 @end
