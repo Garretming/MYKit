@@ -20,11 +20,14 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    XXNotificationObserver *_observer = [XXNotificationObserver new];
-    [[NSNotificationCenter defaultCenter] addObserver:_observer selector:@selector(noti:) name:@"noti" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noti:) name:@"noti" object:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"noti" object:nil];
+}
+
+- (void)noti:(NSNotification *)noti {
+    NSLog(@"hello");
 }
 
 - (void)didReceiveMemoryWarning {
