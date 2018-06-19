@@ -111,6 +111,7 @@
 		32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+SafeAccess.m */; };
 		32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */; };
 		32E1AB542063AF3C0072A1E4 /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */; };
+		811CA2E920D8FBAE00C7807C /* NSObject+UnknowSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2E820D8FBAE00C7807C /* NSObject+UnknowSelector.m */; };
 		8124AC3020D124F300BAFE9F /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8124AC2F20D124F300BAFE9F /* NSObject+Swizzle.m */; };
 		8124AC4820D127BE00BAFE9F /* NSMutableString+SafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8124AC3C20D127BD00BAFE9F /* NSMutableString+SafeKit.m */; };
 		8124AC4A20D127BE00BAFE9F /* NSString+SafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8124AC3F20D127BE00BAFE9F /* NSString+SafeKit.m */; };
@@ -373,6 +374,8 @@
 		32E1AB522063AF3C0072A1E4 /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Addition.h"; sourceTree = "<group>"; };
 		32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Addition.m"; sourceTree = "<group>"; };
 		44976F5419D7BC59D055392A /* Pods-MYKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MYKitDemo/Pods-MYKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		811CA2E720D8FBAE00C7807C /* NSObject+UnknowSelector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+UnknowSelector.h"; sourceTree = "<group>"; };
+		811CA2E820D8FBAE00C7807C /* NSObject+UnknowSelector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UnknowSelector.m"; sourceTree = "<group>"; };
 		8124AC2E20D124F300BAFE9F /* NSObject+Swizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
 		8124AC2F20D124F300BAFE9F /* NSObject+Swizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
 		8124AC3520D127BC00BAFE9F /* NSString+SafeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SafeKit.h"; sourceTree = "<group>"; };
@@ -1093,9 +1096,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		811CA2E620D8EDD000C7807C /* UnknowSelector */ = {
+			isa = PBXGroup;
+			children = (
+				811CA2E720D8FBAE00C7807C /* NSObject+UnknowSelector.h */,
+				811CA2E820D8FBAE00C7807C /* NSObject+UnknowSelector.m */,
+			);
+			path = UnknowSelector;
+			sourceTree = "<group>";
+		};
 		815F4CF12091AA9A00EA6DFF /* SafeKit */ = {
 			isa = PBXGroup;
 			children = (
+				811CA2E620D8EDD000C7807C /* UnknowSelector */,
 				81CB196820D0E64A00AE2E44 /* DanglingPointerShield */,
 				81CB197920D0E64B00AE2E44 /* FoundationContainer */,
 				81CB198420D0E64C00AE2E44 /* KVO */,
@@ -1166,8 +1179,8 @@
 		81CB197520D0E64B00AE2E44 /* SmartKit */ = {
 			isa = PBXGroup;
 			children = (
-				81CB197620D0E64B00AE2E44 /* XXShieldStubObject.m */,
 				81CB197820D0E64B00AE2E44 /* XXShieldStubObject.h */,
+				81CB197620D0E64B00AE2E44 /* XXShieldStubObject.m */,
 			);
 			path = SmartKit;
 			sourceTree = "<group>";
@@ -1489,6 +1502,7 @@
 				8160431820C547F300625BCB /* UIActionSheet+Block.m in Sources */,
 				32077C541F5FFBFE006E4C70 /* UIImage+Screenshot.m in Sources */,
 				32077C301F5FEFF1006E4C70 /* UIImageView+Letters.m in Sources */,
+				811CA2E920D8FBAE00C7807C /* NSObject+UnknowSelector.m in Sources */,
 				324174591FF63E1C007BB277 /* NSObject+Dictionary.m in Sources */,
 				321372F71F61621C00E15D0A /* UITextView+InputLimit.m in Sources */,
 				321373AC1F627C7500E15D0A /* NSString+Emoji.m in Sources */,

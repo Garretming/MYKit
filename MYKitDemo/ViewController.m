@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "XXShield.h"
 #import "NSString+SafeKit.h"
+#import "XXObject.h"
+#import "NSObject+Safe.h"
+#import "NSObject+UnknowSelector.h"
 
 @interface ViewController ()
 
@@ -91,12 +94,18 @@
 //    [mapTable setObject:nil forKey:nil];
 //
     
-    NSString *str = @"akdaldllad".safe;
-
-    [str substringFromIndex:200];
-    [str substringToIndex:200];
-    [str characterAtIndex:213];
-    [str substringWithRange:NSMakeRange(0, 200)];
+//    NSString *str = @"akdaldllad".safe;
+//
+//    [str substringFromIndex:200];
+//    [str substringToIndex:200];
+//    [str characterAtIndex:213];
+//    [str substringWithRange:NSMakeRange(0, 200)];
+    
+    [NSObject safeGuardUnrecognizedSelector];
+    
+    XXObject *object = [[XXObject alloc] init];
+    [object performSelector:@selector(addads) withObject:nil];
+    [XXObject performSelector:@selector(addads) withObject:nil];
 }
 
 
