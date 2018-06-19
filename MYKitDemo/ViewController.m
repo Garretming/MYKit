@@ -8,10 +8,13 @@
 
 #import "ViewController.h"
 #import "XXShield.h"
+#import "TestViewController.h"
 #import "NSString+SafeKit.h"
 #import "XXObject.h"
 #import "NSObject+Safe.h"
 #import "NSObject+UnknowSelector.h"
+#import "XXNotificationObserver.h"
+#import "NSNotificationCenter+SafeKit.h"
 
 @interface ViewController ()
 
@@ -21,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
 //    NSArray * array = @[@"A", @"B", @"C"].safe;
 //
@@ -101,13 +103,20 @@
 //    [str characterAtIndex:213];
 //    [str substringWithRange:NSMakeRange(0, 200)];
     
-    [NSObject safeGuardUnrecognizedSelector];
+//    [NSObject safeGuardUnrecognizedSelector];
+//
+//    XXObject *object = [[XXObject alloc] init];
+//    [object performSelector:@selector(addads) withObject:nil];
+//    [XXObject performSelector:@selector(addads) withObject:nil];
     
-    XXObject *object = [[XXObject alloc] init];
-    [object performSelector:@selector(addads) withObject:nil];
-    [XXObject performSelector:@selector(addads) withObject:nil];
+    [NSNotificationCenter safeGuardNotificationSelector];
 }
 
+- (IBAction)testNotification {
+    
+    TestViewController *test = [[TestViewController alloc] init];
+    [self.navigationController pushViewController:test animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
