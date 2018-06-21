@@ -113,10 +113,20 @@
 //    [NSNotificationCenter safeGuardNotificationSelector];
     
     [NSNull safeGuardNullSelector];
-    NSString *null = (NSString *)[NSNull null];
-    NSString *result = [null stringByAppendingString:@"fafa"];
+//    NSString *null = (NSString *)[NSNull null];
+//    NSString *result = [null stringByAppendingString:@"fafa"];
     
-    NSLog(@"%@", result);
+//    NSNumber *null = (NSNumber *)[NSNull null];
+//    BOOL result = [null boolValue];
+    
+//    NSArray<NSString *> *null = (NSArray *)[NSNull null];
+//    NSArray *result = [null arrayByAddingObjectsFromArray:@[@"xx"]];
+    
+    NSDictionary<NSString *, NSString *> *null = (NSDictionary *)[NSNull null];
+    NSArray *allKeys = [null allKeys];
+    NSArray *allValues = [null allValues];
+    
+    NSLog(@"%d---%d", [allKeys isEqual:@[]], [allValues isEqual:@[]]);
 }
 
 - (IBAction)testNotification {
