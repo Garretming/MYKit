@@ -15,6 +15,7 @@
 #import "NSObject+UnknowSelector.h"
 #import "XXNotificationObserver.h"
 #import "NSNotificationCenter+SafeKit.h"
+#import "NSNull+SafeKit.h"
 
 @interface ViewController ()
 
@@ -109,7 +110,13 @@
 //    [object performSelector:@selector(addads) withObject:nil];
 //    [XXObject performSelector:@selector(addads) withObject:nil];
     
-    [NSNotificationCenter safeGuardNotificationSelector];
+//    [NSNotificationCenter safeGuardNotificationSelector];
+    
+    [NSNull safeGuardNullSelector];
+    NSString *null = (NSString *)[NSNull null];
+    NSString *result = [null stringByAppendingString:@"fafa"];
+    
+    NSLog(@"%@", result);
 }
 
 - (IBAction)testNotification {

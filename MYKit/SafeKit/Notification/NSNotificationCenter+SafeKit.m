@@ -26,7 +26,7 @@
     return self;
 }
 
-- (void)addCenter:(NSNotificationCenter*)center {
+- (void)addCenter:(NSNotificationCenter *)center {
     if (center) {
         [_centers addObject:center];
     }
