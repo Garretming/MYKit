@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface NSMutableDictionary <K, V> (Safe)
 
-@property (nonatomic, weak, readonly) NSMutableDictionary <K, V> * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
++ (void)registerClassPairMethodsInMutableDictionary;
 
 @end

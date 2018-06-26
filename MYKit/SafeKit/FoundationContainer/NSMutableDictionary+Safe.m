@@ -9,68 +9,20 @@
 #import "NSDictionary+Safe.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
-#import "XXShieldStubObject.h"
+#import "NSObject+Swizzle.h"
 
 @implementation NSMutableDictionary (Safe)
 
-- (NSMutableDictionary <id, id> *)safe {
-    if (!self.isSafe) {
-        if (!objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle))) {
-            objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [XXShieldStubObject new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        }
-        
-        NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
-        Class kClass        = objc_getClass([className UTF8String]);
-        if (!kClass) {
-            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-        }
-        object_setClass(self, kClass);
-
-        class_addMethod(kClass, @selector(removeObjectForKey:), (IMP)safeRemoveObjectForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectForKey:))));
-        class_addMethod(kClass, @selector(setObject:forKey:), (IMP)safeSetObjectForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setObject:forKey:))));
-
-        objc_registerClassPair(kClass);
-
-        self.isSafe = YES;
-    }
-    return self;
++ (void)registerClassPairMethodsInMutableDictionary {
+    
+    Class dictionaryM = NSClassFromString(@"__NSDictionaryM");
+    
+    [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(setObject:forKey:) replaceMethod:@selector(safe_setObject:forKey:)];
+    
+    [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(removeObjectForKey:) replaceMethod:@selector(safe_removeObjectForKey:)];
 }
 
-- (void)setIsSafe:(BOOL)isSafe {
-    objc_setAssociatedObject(self, @selector(isSafe), @(isSafe), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)isSafe {
-    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
-}
-
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [XXShieldStubObject new];
-}
-
-- (void)associatedObjectLifeCycle {
-
-}
-
-static void safeRemoveObjectForKey(id self, SEL _cmd, id key) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, id) = (void *)objc_msgSendSuper;
-    if (!key) {
-        NSLog(@"\"%@\"-parameter0:(%@) cannot be nil", NSStringFromSelector(_cmd), key);
-        return;
-    }
-    objc_msgSendToSuper(&superClass, _cmd, key);
-}
-
-static void safeSetObjectForKey(id self, SEL _cmd, id anObject, id aKey) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, id, id) = (void *)objc_msgSendSuper;
+- (void)safe_setObject:(id)anObject forKey:(id<NSCopying>)aKey {
     if (!anObject) {
         NSLog(@"\"%@\"-parameter0:(%@) cannot be nil", NSStringFromSelector(_cmd), anObject);
         return;
@@ -79,9 +31,16 @@ static void safeSetObjectForKey(id self, SEL _cmd, id anObject, id aKey) {
         NSLog(@"\"%@\"-parameter1:(%@) cannot be nil", NSStringFromSelector(_cmd), aKey);
         return;
     }
-    objc_msgSendToSuper(&superClass, _cmd, anObject, aKey);
+    [self safe_setObject:anObject forKey:aKey];
 }
 
+- (void)safe_removeObjectForKey:(id)aKey {
+    if (!aKey) {
+        NSLog(@"\"%@\"-parameter0:(%@) cannot be nil", NSStringFromSelector(_cmd), aKey);
+        return;
+    }
+    [self safe_removeObjectForKey:aKey];
+}
 
 @end
 

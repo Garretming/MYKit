@@ -12,6 +12,7 @@
 #import "MYSafeKit.h"
 #import "NSArray+Safe.h"
 #import "NSMutableArray+Safe.h"
+#import "NSMutableDictionary+Safe.h"
 
 @interface ViewController ()
 
@@ -43,15 +44,15 @@
 //    [array indexOfObjectIdenticalTo:nil];
 
     
-    NSMutableArray * mutableArray = [NSMutableArray new];
-    [mutableArray addObject:nil];
-    [mutableArray removeObjectAtIndex:5];
-    [mutableArray addObjectsFromArray:nil];
-    [mutableArray removeObject:nil inRange:NSMakeRange(0, 1)];
-    [mutableArray removeObject:nil];
-    [mutableArray removeObjectIdenticalTo:nil inRange:NSMakeRange(0, 1)];
-    [mutableArray removeObjectsInArray:nil];
-    [mutableArray setObject:nil atIndexedSubscript:0];
+//    NSMutableArray * mutableArray = [NSMutableArray new];
+//    [mutableArray addObject:nil];
+//    [mutableArray removeObjectAtIndex:5];
+//    [mutableArray addObjectsFromArray:nil];
+//    [mutableArray removeObject:nil inRange:NSMakeRange(0, 1)];
+//    [mutableArray removeObject:nil];
+//    [mutableArray removeObjectIdenticalTo:nil inRange:NSMakeRange(0, 1)];
+//    [mutableArray removeObjectsInArray:nil];
+//    [mutableArray setObject:nil atIndexedSubscript:0];
     
     
 //    NSSet * set = [NSSet set].safe;
@@ -117,6 +118,8 @@
     
 //    NSArray<NSString *> *null = (NSArray *)[NSNull null];
 //    NSArray *result = [null arrayByAddingObjectsFromArray:@[@"xx"]];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:nil forKey:nil];
     
 //    NSDictionary<NSString *, NSString *> *null = (NSDictionary *)[NSNull null];
 //    NSArray *allKeys = [null allKeys];
