@@ -9,13 +9,8 @@
 #import "ViewController.h"
 #import "XXShield.h"
 #import "TestViewController.h"
-#import "NSString+SafeKit.h"
-#import "XXObject.h"
-#import "NSObject+Safe.h"
-#import "NSObject+UnknowSelector.h"
-#import "XXNotificationObserver.h"
-#import "NSNotificationCenter+SafeKit.h"
-#import "NSNull+SafeKit.h"
+#import "MYSafeKit.h"
+#import "NSArray+Safe.h"
 
 @interface ViewController ()
 
@@ -26,17 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    NSArray * array = @[@"A", @"B", @"C"].safe;
-//
+    [MYSafeKit registerSafeKitShieldWithAbility:MYSafeKitShieldTypeContainer];
+//    NSArray * array = @[@"A",@"B"];
+
 //    [array objectAtIndex:0];
 //    [array arrayByAddingObject:nil];
-//    [array indexOfObject:@"B" inRange:NSMakeRange(0, 2)];
+//    [array indexOfObject:nil inRange:NSMakeRange(0, 2)];
 //    [array indexOfObjectIdenticalTo:@"B" inRange:NSMakeRange(0, 2)];
 //    [array subarrayWithRange:NSMakeRange(0, 1)];
 //    [array objectsAtIndexes:[NSIndexSet indexSetWithIndex:10]];
-//    [array objectAtIndexedSubscript:1000];
-//
-//
+//    [array objectAtIndexedSubscript:100];
 //    [array arrayByAddingObjectsFromArray:nil];
 //    [array componentsJoinedByString:nil];
 //    [array containsObject:nil];
@@ -46,10 +40,10 @@
 //    [array indexOfObject:nil];
 //    [array isEqualToArray:nil];
 //    [array indexOfObjectIdenticalTo:nil];
-//
+
     
-//    NSMutableArray * mutableArray = [NSMutableArray new].safe;
-//    [mutableArray addObject:@"AA"];
+//    NSMutableArray * mutableArray = [NSMutableArray new];
+//    [mutableArray addObject:nil];
 //    [mutableArray removeObjectAtIndex:5];
 //    [mutableArray addObjectsFromArray:nil];
 //    [mutableArray removeObject:nil inRange:NSMakeRange(0, 1)];
@@ -112,7 +106,7 @@
     
 //    [NSNotificationCenter safeGuardNotificationSelector];
     
-    [NSNull safeGuardNullSelector];
+//    [NSNull safeGuardNullSelector];
 //    NSString *null = (NSString *)[NSNull null];
 //    NSString *result = [null stringByAppendingString:@"fafa"];
     
@@ -122,11 +116,11 @@
 //    NSArray<NSString *> *null = (NSArray *)[NSNull null];
 //    NSArray *result = [null arrayByAddingObjectsFromArray:@[@"xx"]];
     
-    NSDictionary<NSString *, NSString *> *null = (NSDictionary *)[NSNull null];
-    NSArray *allKeys = [null allKeys];
-    NSArray *allValues = [null allValues];
-    
-    NSLog(@"%d---%d", [allKeys isEqual:@[]], [allValues isEqual:@[]]);
+//    NSDictionary<NSString *, NSString *> *null = (NSDictionary *)[NSNull null];
+//    NSArray *allKeys = [null allKeys];
+//    NSArray *allValues = [null allValues];
+//
+//    NSLog(@"%d---%d", [allKeys isEqual:@[]], [allValues isEqual:@[]]);
 }
 
 - (IBAction)testNotification {

@@ -6,204 +6,104 @@
 //  Copyright © 2018 BetrayalPromise. All rights reserved.
 //
 
-#import "NSArray+Safe.h"
+#import "NSMutableArray+Safe.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
-#import "XXShieldStubObject.h"
+#import "NSObject+Swizzle.h"
 
 @implementation NSMutableArray (Safe)
 
-- (NSMutableArray <id> *)safe {
-    if (!self.isSafe) {
-        if (!objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle))) {
-            objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [XXShieldStubObject new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        }
-        
-        NSString * className = [NSString stringWithFormat:@"Safe%@",self.class];
-        Class kClass = objc_getClass([className UTF8String]);
-        if (!kClass) {
-            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-        }
-        object_setClass(self, kClass);
-
-        class_addMethod(kClass, @selector(insertObject:atIndex:), (IMP)safeInsertObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(insertObject:atIndex:))));
-        class_addMethod(kClass, @selector(removeObjectAtIndex:), (IMP)safeRemoveObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectAtIndex:))));
-        class_addMethod(kClass, @selector(replaceObjectAtIndex:withObject:), (IMP)safeReplaceObjectAtIndexWithObject, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectAtIndex:withObject:))));
-        class_addMethod(kClass, @selector(exchangeObjectAtIndex:withObjectAtIndex:), (IMP)safeExchangeObjectAtIndexWithObjectAtIndex, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(exchangeObjectAtIndex:withObjectAtIndex:))));
-        class_addMethod(kClass, @selector(removeObject:inRange:), (IMP)safeRemoveObjectInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(exchangeObjectAtIndex:withObjectAtIndex:))));
-        class_addMethod(kClass, @selector(removeObjectIdenticalTo:inRange:), (IMP)safeRemoveObjectIdenticalToInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectIdenticalTo:inRange:))));
-        class_addMethod(kClass, @selector(removeObjectsInRange:), (IMP)safeRemoveObjectsInRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectsInRange:))));
-        class_addMethod(kClass, @selector(replaceObjectsInRange:withObjectsFromArray:range:), (IMP)safeReplaceObjectsInRangeWithObjectsFromArrayRange, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectsInRange:withObjectsFromArray:range:))));
-        class_addMethod(kClass, @selector(replaceObjectsInRange:withObjectsFromArray:), (IMP)safeReplaceObjectsInRangeWithObjectsFromArray, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectsInRange:withObjectsFromArray:))));
-        class_addMethod(kClass, @selector(insertObjects:atIndexes:), (IMP)safeInsertObjectsAtIndexes, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(insertObjects:atIndexes:))));
-        class_addMethod(kClass, @selector(removeObjectsAtIndexes:), (IMP)safeRemoveObjectsAtIndexes, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(removeObjectsAtIndexes:))));
-        class_addMethod(kClass, @selector(replaceObjectsAtIndexes:withObjects:), (IMP)safeReplaceObjectsAtIndexesWithObjects, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(replaceObjectsAtIndexes:withObjects:))));
-        class_addMethod(kClass, @selector(setObject:atIndexedSubscript:), (IMP)safeSetObjectAtIndexedSubscript, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setObject:atIndexedSubscript:))));
-
-        objc_registerClassPair(kClass);
-        self.isSafe = YES;
-    }
-    return self;
++ (void)registerClassPairMethodsInNSMutableArray {
+    
+    Class __NSArrayM = NSClassFromString(@"__NSArrayM");
+    
+    //FOR __NSArrayI
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObject:atIndex:) replaceMethod:@selector(safe_insertObject:atIndex:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObjects:atIndexes:) replaceMethod:@selector(safe_insertObjects:atIndexes:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectAtIndex:) replaceMethod:@selector(safe_removeObjectAtIndex:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsInRange:) replaceMethod:@selector(safe_removeObjectsInRange:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsAtIndexes:) replaceMethod:@selector(safe_removeObjectsAtIndexes:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectAtIndex:withObject:) replaceMethod:@selector(safe_replaceObjectAtIndex:withObject:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsAtIndexes:withObjects:) replaceMethod:@selector(safe_replaceObjectsAtIndexes:withObjects:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(exchangeObjectAtIndex:withObjectAtIndex:) replaceMethod:@selector(safe_exchangeObjectAtIndex:withObjectAtIndex:)];
+    
+#if TARGET_IPHONE_SIMULATOR  //模拟器
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
+#endif
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(setObject:atIndexedSubscript:) replaceMethod:@selector(safe_atIndexedSubscript:atIndexedSubscript:)];
 }
 
-- (void)setIsSafe:(BOOL)isSafe {
-    objc_setAssociatedObject(self, @selector(isSafe), @(isSafe), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)isSafe {
-    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
-}
-
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [XXShieldStubObject new];
-}
-
-- (void)associatedObjectLifeCycle {
-
-}
-
-static void safeInsertObjectAtIndex(id self, SEL _cmd, id object, unsigned long index) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-
-    void (*objc_msgSendToSuper)(const void *, SEL, id, unsigned long) = (void *)objc_msgSendSuper;
-    if (!object) {
-        NSLog(@"\"%@\"-object:(%@) is nil", NSStringFromSelector(_cmd), object);
+- (void)safe_insertObject:(id)anObject atIndex:(NSUInteger)index {
+    
+    if (!anObject) {
+        NSLog(@"\"%@\"-object:(%@) is nil", NSStringFromSelector(_cmd), anObject);
         return;
     }
-    if (index > [(NSArray*)self count]) {
-        NSLog(@"\"%@\"-index:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray*)self count]);
+    if (index > [(NSArray *)self count]) {
+        NSLog(@"\"%@\"-index:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]);
         return;
     }
-    objc_msgSendToSuper(&superClass, _cmd, object, index);
+    [self safe_insertObject:anObject atIndex:index];
 }
 
-static void safeRemoveObjectAtIndex(id self, SEL _cmd, unsigned long index) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, unsigned long) = (void *)objc_msgSendSuper;
-    if (index < [(NSArray*)self count]) {
-        objc_msgSendToSuper(&superClass, _cmd, index);
+- (void)safe_removeObjectAtIndex:(NSUInteger)index {
+    
+    if (index < [(NSArray *)self count]) {
+        [self safe_removeObjectAtIndex:index];
     } else {
         NSLog(@"\"%@\"-index:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]);
     }
 }
 
-static void safeReplaceObjectAtIndexWithObject(id self, SEL _cmd, unsigned long index, id object) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, unsigned long, id) = (void *)objc_msgSendSuper;
-    if (!object) {
-        NSLog(@"\"%@\"-object%@ must be not equal to nil", NSStringFromSelector(_cmd), object);
+- (void)safe_replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject {
+    if (!anObject) {
+        NSLog(@"\"%@\"-object%@ must be not equal to nil", NSStringFromSelector(_cmd), anObject);
         return;
     }
-    if (index > [(NSArray*)self count]) {
+    if (index > [(NSArray *)self count]) {
         NSLog(@"\"%@\"-index:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]);
         return;
     }
-    objc_msgSendToSuper(&superClass, _cmd, index, object);
+    [self safe_replaceObjectAtIndex:index withObject:anObject];
 }
 
-static void safeExchangeObjectAtIndexWithObjectAtIndex(id self, SEL _cmd, unsigned long index1, unsigned long index2) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, unsigned long, unsigned long) = (void *)objc_msgSendSuper;
-    if (index1 >= [(NSArray *)self count]) {
-        NSLog(@"\"%@\"-index1:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), index1, (unsigned long)[(NSArray *)self count]);
+- (void)safe_exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2 {
+    if (idx1 >= [(NSArray *)self count]) {
+        NSLog(@"\"%@\"-idx1:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), idx1, (unsigned long)[(NSArray *)self count]);
         return;
     }
-    if (index2 >= [(NSArray *)self count]) {
-        NSLog(@"\"%@\"-index2:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), index2, (unsigned long)[(NSArray *)self count]);
+    if (idx2 >= [(NSArray *)self count]) {
+        NSLog(@"\"%@\"-idx2:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), idx2, (unsigned long)[(NSArray *)self count]);
         return;
     }
-    objc_msgSendToSuper(&superClass, _cmd, index1, index2);
+    [self safe_exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
 }
 
-static void safeRemoveObjectInRange(id self, SEL _cmd, id object, NSRange range) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, id, NSRange) = (void *)objc_msgSendSuper;
-
-    if (range.location + range.length > [(NSArray *)self count]) {
-        NSLog(@"\"%@\"-range:%@ must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
-        return;
+- (id)safe_objectAtIndexedSubscript:(NSUInteger)idx {
+    if (idx >= self.count) {
+        NSLog(@"*** -[__NSArrayM objectAtIndexedSubscript:]: index %ld beyond bounds [0 .. %ld]'",(unsigned long)idx,(unsigned long)self.count);
+        return nil;
     }
-    objc_msgSendToSuper(&superClass, _cmd, object, range);
+    return [self safe_objectAtIndexedSubscript:idx];
 }
 
-static void safeRemoveObjectIdenticalToInRange(id self, SEL _cmd, id object, NSRange range) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, id, NSRange) = (void *)objc_msgSendSuper;
-
-    if (range.location + range.length > [(NSArray *)self count]) {
-        NSLog(@"\"%@\"-range:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
-        return;
-    }
-    objc_msgSendToSuper(&superClass, _cmd, object, range);
-}
-
-static void safeRemoveObjectsInRange(id self, SEL _cmd, NSRange range) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, NSRange) = (void *)objc_msgSendSuper;
+- (void)safe_removeObjectsInRange:(NSRange)range {
     if (range.location + range.length > [(NSArray *)self count]) {
         NSLog(@"\"%@\"-range:(%@) should be at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
         return;
     }
-    objc_msgSendToSuper(&superClass, _cmd, range);
+    [self safe_removeObjectsInRange:range];
 }
 
-static void safeReplaceObjectsInRangeWithObjectsFromArrayRange(id self, SEL _cmd, NSRange range, NSArray <id> * otherArray, NSRange otherRange) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, NSRange, NSArray <id> *, NSRange) = (void *)objc_msgSendSuper;
-    if (range.location + range.length > [(NSArray *)self count]) {
-        NSLog(@"\"%@\"-parameter0:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
-        return;
-    }
-    if (otherRange.location + otherRange.length > [otherArray count]) {
-        NSLog(@"\"%@\"-parameter3:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(otherRange), (unsigned long)[(NSArray *)self count]);
-        return;
-    }
-    objc_msgSendToSuper(&superClass, _cmd, range, otherArray, otherRange);
-}
-
-static void safeReplaceObjectsInRangeWithObjectsFromArray(id self, SEL _cmd, NSRange range, NSArray <id> *otherArray) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, NSRange, NSArray <id> *) = (void *)objc_msgSendSuper;
-    if (range.location + range.length > [(NSArray *)self count]) {
-        NSLog(@"\"%@\"-parameter0:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
-        return;
-    }
-    objc_msgSendToSuper(&superClass, _cmd, range, otherArray);
-}
-
-static void safeInsertObjectsAtIndexes(id self, SEL _cmd, NSArray <id> * objects, NSIndexSet * indexes) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, NSArray <id> *, NSIndexSet *) = (void *)objc_msgSendSuper;
+- (void)safe_removeObjectsAtIndexes:(NSIndexSet *)indexes {
     __block BOOL isPassed = YES;
     [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL*stop) {
         NSLog(@"%lu", (unsigned long)idx);
@@ -219,15 +119,10 @@ static void safeInsertObjectsAtIndexes(id self, SEL _cmd, NSArray <id> * objects
         NSLog(@"\"%@\"-parameter0:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), indexes, (unsigned long)[(NSArray *)self count]);
         return;
     }
-    objc_msgSendToSuper(&superClass, _cmd, objects, indexes);
+    [self safe_removeObjectsAtIndexes:indexes];
 }
 
-static void safeRemoveObjectsAtIndexes(id self, SEL _cmd, NSIndexSet *indexes) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, NSIndexSet *) = (void *)objc_msgSendSuper;
+- (void)safe_insertObjects:(NSArray<id> *)objects atIndexes:(NSIndexSet *)indexes {
     __block BOOL isPassed = YES;
     [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL*stop) {
         NSLog(@"%lu", (unsigned long)idx);
@@ -243,15 +138,11 @@ static void safeRemoveObjectsAtIndexes(id self, SEL _cmd, NSIndexSet *indexes) {
         NSLog(@"\"%@\"-parameter0:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), indexes, (unsigned long)[(NSArray *)self count]);
         return;
     }
-    objc_msgSendToSuper(&superClass, _cmd, indexes);
+    [self safe_insertObjects:objects atIndexes:indexes];
 }
 
-static void safeReplaceObjectsAtIndexesWithObjects(id self, SEL _cmd, NSIndexSet *indexes, NSArray<id> *objects) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, NSIndexSet * indexes, NSArray<id> * objects) = (void *)objc_msgSendSuper;
+- (void)safe_replaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(NSArray<id> *)objects {
+    
     __block BOOL isPassed = YES;
     [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL*stop) {
         NSLog(@"%lu", (unsigned long)idx);
@@ -267,15 +158,10 @@ static void safeReplaceObjectsAtIndexesWithObjects(id self, SEL _cmd, NSIndexSet
         NSLog(@"\"%@\"-parameter0:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), indexes, (unsigned long)[(NSArray *)self count]);
         return;
     }
-    objc_msgSendToSuper(&superClass, _cmd, indexes, objects);
+    [self safe_replaceObjectsAtIndexes:indexes withObjects:objects];
 }
 
-static void safeSetObjectAtIndexedSubscript(id self, SEL _cmd, id obj, NSUInteger idx) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void (*objc_msgSendToSuper)(const void *, SEL, id, NSUInteger) = (void *)objc_msgSendSuper;
+- (void)safe_atIndexedSubscript:(id)obj atIndexedSubscript:(NSUInteger)idx {
     if (idx > [(NSMutableArray *)self count]) {
         NSLog(@"\"%@\"-idx:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), idx, (unsigned long)[(NSArray *)self count]);
         return;
@@ -284,11 +170,9 @@ static void safeSetObjectAtIndexedSubscript(id self, SEL _cmd, id obj, NSUIntege
         NSLog(@"\"%@\"-obj:%@ cannot be set nil", NSStringFromSelector(_cmd), obj);
         return;
     }
-    objc_msgSendToSuper(&superClass, _cmd, obj, idx);
+    [self safe_atIndexedSubscript:obj atIndexedSubscript:idx];
 }
 
 @end
-
-
 
 

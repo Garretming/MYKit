@@ -13,8 +13,7 @@
  */
 @interface NSArray <T> (Safe)
 
-@property (nonatomic, weak, readonly) NSArray <T> * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
++ (void)registerClassPairMethodsInNSArray;
 
 @end
 

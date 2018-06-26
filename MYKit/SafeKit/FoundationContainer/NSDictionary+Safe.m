@@ -9,59 +9,69 @@
 #import "NSDictionary+Safe.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
-#import "XXShieldStubObject.h"
+#import "NSObject+Swizzle.h"
 
 @implementation NSDictionary (Safe)
 
-- (NSDictionary <id, id> *)safe {
-    if (!self.isSafe) {
-        if (!objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle))) {
-            objc_setAssociatedObject(self, @selector(associatedObjectLifeCycle), [XXShieldStubObject new], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        }
-        
-        NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
-        Class kClass        = objc_getClass([className UTF8String]);
-        if (!kClass) {
-            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-        }
-        object_setClass(self, kClass);
++ (void)registerClassPairMethodsInDictionary {
+    
+    Class dictionaryClass = NSClassFromString(@"NSDictionary");
+    Class __NSPlaceholderDictionaryClass = NSClassFromString(@"__NSPlaceholderDictionary");
+    
+    [self classSwizzleMethodWithClass:dictionaryClass orginalMethod:@selector(dictionaryWithObjects:forKeys:count:) replaceMethod:@selector(safe_dictionaryWithObjects:forKeys:count:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSPlaceholderDictionaryClass orginalMethod:@selector(initWithObjects:forKeys:count:) replaceMethod:@selector(safe_initWithObjects:forKeys:count:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSPlaceholderDictionaryClass orginalMethod:@selector(objectsForKeys:notFoundMarker:) replaceMethod:@selector(safe_objectsForKeys:notFoundMarker:)];
+}
 
-        class_addMethod(kClass, @selector(objectsForKeys:notFoundMarker:), (IMP)safeObjectsForKeysNotFoundMarker, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(objectsForKeys:notFoundMarker:))));
++ (instancetype)safe_dictionaryWithObjects:(id  _Nonnull const [])objects forKeys:(id<NSCopying>  _Nonnull const [])keys count:(NSUInteger)cnt{
+    return [self safe_dictionaryWithObjects:objects forKeys:keys count:cnt];
+}
 
-        objc_registerClassPair(kClass);
-
-        self.isSafe = YES;
++ (instancetype)safe_dictionaryWithObjects:(NSArray *)objects forKeys:(NSArray<id<NSCopying>> *)keys{
+    if (objects.count != keys.count) {
+        NSLog(@"*** -[NSDictionary initWithObjects:forKeys:]: count of objects (%ld) differs from count of keys (%ld)",(unsigned long)objects.count,(unsigned long)keys.count);
+        return nil;
     }
-    return self;
+    NSUInteger index = 0;
+    id _Nonnull objectsNew[objects.count];
+    id <NSCopying> _Nonnull keysNew[keys.count];
+    for (int i = 0; i<keys.count; i++) {
+        if (objects[i] && keys[i]) {
+            objectsNew[index] = objects[i];
+            keysNew[index] = keys[i];
+            index ++;
+        } else {
+            NSLog(@"*** -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[%d]",i);
+        }
+    }
+    return [self safe_dictionaryWithObjects:[NSArray arrayWithObjects:objectsNew count:index] forKeys: [NSArray arrayWithObjects:keysNew count:index]];
 }
 
-- (void)setIsSafe:(BOOL)isSafe {
-    objc_setAssociatedObject(self, @selector(isSafe), @(isSafe), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (instancetype)safe_initWithObjects:(id  _Nonnull const [])objects forKeys:(id<NSCopying>  _Nonnull const [])keys count:(NSUInteger)cnt{
+    NSUInteger index = 0;
+    id _Nonnull objectsNew[cnt];
+    id <NSCopying> _Nonnull keysNew[cnt];
+    //'*** -[NSDictionary initWithObjects:forKeys:]: count of objects (1) differs from count of keys (0)'
+    for (int i = 0; i<cnt; i++) {
+        if (objects[i] && keys[i]) {//可能存在nil的情况
+            objectsNew[index] = objects[i];
+            keysNew[index] = keys[i];
+            index ++;
+        } else {
+            NSLog(@"*** -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[%d]",i);
+        }
+    }
+    return [self safe_initWithObjects:objectsNew forKeys:keysNew count:index];
 }
 
-- (BOOL)isSafe {
-    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
-}
-
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    return objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) != nil ? objc_getAssociatedObject(self, @selector(associatedObjectLifeCycle)) : [XXShieldStubObject new];
-}
-
-- (void)associatedObjectLifeCycle {
-
-}
-
-static NSArray <id> * safeObjectsForKeysNotFoundMarker(id self, SEL _cmd, NSArray<id> *keys, id marker) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void * (*objc_msgSendToSuper)(const void *, SEL, NSArray<id> *,  id) = (void *)objc_msgSendSuper;
+- (NSArray<id> *)safe_objectsForKeys:(NSArray *)keys notFoundMarker:(id)marker {
     if (!marker) {
         NSLog(@"\"%@\"-parameter1:(%@) cannot be nil", NSStringFromSelector(_cmd), marker);
         return nil;
     }
-    return (__bridge NSArray<id> *)(objc_msgSendToSuper(&superClass, _cmd, keys, marker));
+    return [self safe_objectsForKeys:keys notFoundMarker:marker];
 }
 
 @end

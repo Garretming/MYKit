@@ -10,7 +10,6 @@
 
 @interface NSMutableArray <T> (Safe)
 
-@property (nonatomic, weak, readonly) NSMutableArray <T> * safe;
-@property (nonatomic, assign, readonly) BOOL isSafe;
++ (void)registerClassPairMethodsInNSMutableArray;
 
 @end
