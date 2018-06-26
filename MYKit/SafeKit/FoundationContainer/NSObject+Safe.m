@@ -8,37 +8,63 @@
 
 #import "NSObject+Safe.h"
 #import <objc/message.h>
+#import "NSObject+Swizzle.h"
 
 @implementation NSObject (Aspect)
 
-- (id)safe {
-    if (!self.isSafe) {
-        NSString *className = [NSString stringWithFormat:@"Safe%@", [self class]];
-        Class kClass        = objc_getClass([className UTF8String]);
-        if (!kClass) {
-            kClass = objc_allocateClassPair([self class], [className UTF8String], 0);
-        }
-        object_setClass(self, kClass);
++ (void)registerClassPairMethodsInObject {
+    
+    Class objectClass = NSClassFromString(@"NSObject");
+    
+    [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(setValue:forKey:) replaceMethod:@selector(safe_setValue:forKey:)];
+    
+    [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(setValue:forKeyPath:) replaceMethod:@selector(safe_setValue:forKeyPath:)];
+    
+    [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(valueForKey:) replaceMethod:@selector(safe_valueForKey:)];
+    
+    [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(valueForKeyPath:) replaceMethod:@selector(safe_valueForKeyPath:)];
+    
+}
 
-        class_addMethod(kClass, @selector(setValue:forKey:), (IMP)safeSetValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(setValue:forKey:))));
-
-        class_addMethod(kClass, @selector(valueForKey:), (IMP)safeValueForKey, method_getTypeEncoding(class_getInstanceMethod([self class], @selector(valueForKey:))));
-
-        objc_registerClassPair(kClass);
-        self.isSafe = YES;
+- (void)safe_setValue:(nullable id)value forKey:(NSString *)key {
+    if (!value) {
+        NSLog(@"\"%@\"-value:(%@) can not be nil", NSStringFromSelector(_cmd), value);
+        return;
     }
-
-    return self;
+    if (!key) {
+        NSLog(@"\"%@\"-key:(%@) can not be nil", NSStringFromSelector(_cmd), key);
+        return;
+    }
+    [self safe_setValue:value forKey:key];
 }
 
-- (void)setIsSafe:(BOOL)isSafe {
-    objc_setAssociatedObject(self, @selector(isSafe), @(isSafe), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)safe_setValue:(nullable id)value forKeyPath:(NSString *)keyPath {
+    if (!value) {
+        NSLog(@"\"%@\"-value:(%@) can not be nil", NSStringFromSelector(_cmd), value);
+        return;
+    }
+    if (!keyPath) {
+        NSLog(@"\"%@\"-keyPath:(%@) can not be nil", NSStringFromSelector(_cmd), keyPath);
+        return;
+    }
+    [self safe_setValue:value forKeyPath:keyPath];
 }
 
-- (BOOL)isSafe {
-    return objc_getAssociatedObject(self, _cmd) != nil ? [objc_getAssociatedObject(self, _cmd) boolValue] : NO;
+- (id)safe_valueForKey:(NSString *)key {
+    if (!key) {
+        NSLog(@"\"%@\"-key:(%@) can not be nil", NSStringFromSelector(_cmd), key);
+        return nil;
+    }
+    return [self safe_valueForKey:key];
 }
 
+- (nullable id)safe_valueForKeyPath:(NSString *)keyPath {
+    if (!keyPath) {
+        NSLog(@"\"%@\"-keyPath:(%@) can not be nil", NSStringFromSelector(_cmd), keyPath);
+        return nil;
+    }
+    return [self safe_valueForKeyPath:keyPath];
+}
 
 - (nullable id)valueForUndefinedKey:(NSString *)key {
     NSLog(@"\"%@\"-parameter0:(%@) not found", NSStringFromSelector(_cmd), key);
@@ -51,38 +77,6 @@
 
 - (void)setNilValueForKey:(NSString *)key {
     NSLog(@"\"%@\"-parameter0:(%@) set nil for key %@", NSStringFromSelector(_cmd), key, key);
-}
-
-/// 处理 键值都为nil
-void safeSetValueForKey(id self, SEL _cmd, id value, id key) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void * (*objc_msgSendToSuper)(const void *, SEL, id,  id) = (void *)objc_msgSendSuper;
-
-    if (!value) {
-        NSLog(@"\"%@\"-value:(%@) can not be nil", NSStringFromSelector(_cmd), value);
-        return;
-    }
-    if (!key) {
-        NSLog(@"\"%@\"-key:(%@) can not be nil", NSStringFromSelector(_cmd), key);
-        return;
-    }
-    objc_msgSendToSuper(&superClass, _cmd, value, key);
-}
-
-void * safeValueForKey(id self, SEL _cmd, id key) {
-    struct objc_super superClass = {
-        .receiver    = self,
-        .super_class = class_getSuperclass(object_getClass(self))
-    };
-    void * (*objc_msgSendToSuper)(const void *, SEL, id) = (void *)objc_msgSendSuper;
-    if (!key) {
-        NSLog(@"\"%@\"-key:(%@) can not be nil", NSStringFromSelector(_cmd), key);
-        return nil;
-    }
-    return objc_msgSendToSuper(&superClass, _cmd, key);
 }
 
 @end

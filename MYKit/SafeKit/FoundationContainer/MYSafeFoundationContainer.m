@@ -11,6 +11,7 @@
 #import "NSMutableArray+Safe.h"
 #import "NSDictionary+Safe.h"
 #import "NSMutableDictionary+Safe.h"
+#import "NSObject+Safe.h"
 
 @interface MYSafeFoundationContainer ()
 
@@ -27,6 +28,8 @@
     
     [NSDictionary registerClassPairMethodsInDictionary];
     [NSMutableDictionary registerClassPairMethodsInMutableDictionary];
+    
+    [NSObject registerClassPairMethodsInObject];
 }
 
 @end

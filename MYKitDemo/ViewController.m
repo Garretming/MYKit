@@ -13,6 +13,7 @@
 #import "NSArray+Safe.h"
 #import "NSMutableArray+Safe.h"
 #import "NSMutableDictionary+Safe.h"
+//#import "NSObject+Safe.h"
 
 @interface ViewController ()
 
@@ -118,8 +119,14 @@
     
 //    NSArray<NSString *> *null = (NSArray *)[NSNull null];
 //    NSArray *result = [null arrayByAddingObjectsFromArray:@[@"xx"]];
+//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//    [dict setValue:nil forKey:nil];
+    
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:nil forKey:nil];
+    
+    NSObject *obj = [NSObject new];
+    [obj setValue:nil forKeyPath:nil];
     
 //    NSDictionary<NSString *, NSString *> *null = (NSDictionary *)[NSNull null];
 //    NSArray *allKeys = [null allKeys];
