@@ -22,6 +22,12 @@
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObjects:atIndexes:) replaceMethod:@selector(safe_insertObjects:atIndexes:)];
     
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObject:) replaceMethod:@selector(safe_removeObject:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObject:inRange:) replaceMethod:@selector(safe_removeObject:inRange:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectIdenticalTo:inRange:) replaceMethod:@selector(safe_removeObjectIdenticalTo:inRange:)];
+    
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectAtIndex:) replaceMethod:@selector(safe_removeObjectAtIndex:)];
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsInRange:) replaceMethod:@selector(safe_removeObjectsInRange:)];
@@ -39,6 +45,10 @@
 #endif
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(setObject:atIndexedSubscript:) replaceMethod:@selector(safe_atIndexedSubscript:atIndexedSubscript:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsInRange:withObjectsFromArray:) replaceMethod:@selector(safe_replaceObjectsInRange:withObjectsFromArray:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsInRange:withObjectsFromArray:range:) replaceMethod:@selector(safe_replaceObjectsInRange:withObjectsFromArray:range:)];
 }
 
 - (void)safe_insertObject:(id)anObject atIndex:(NSUInteger)index {
@@ -52,6 +62,28 @@
         return;
     }
     [self safe_insertObject:anObject atIndex:index];
+}
+
+- (void)safe_removeObject:(id)anObject inRange:(NSRange)range {
+    
+    if (range.location + range.length > [(NSArray *)self count]) {
+        NSLog(@"\"%@\"-range:%@ must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
+        return;
+    }
+    [self safe_removeObject:anObject inRange:range];
+}
+
+- (void)safe_removeObjectIdenticalTo:(id)anObject inRange:(NSRange)range {
+    if (range.location + range.length > [(NSArray *)self count]) {
+        NSLog(@"\"%@\"-range:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
+        return;
+    }
+    [self safe_removeObjectIdenticalTo:anObject inRange:range];
+}
+
+- (void)safe_removeObject:(id)anObject {
+    
+    [self safe_removeObject:anObject];
 }
 
 - (void)safe_removeObjectAtIndex:(NSUInteger)index {
@@ -171,6 +203,28 @@
         return;
     }
     [self safe_atIndexedSubscript:obj atIndexedSubscript:idx];
+}
+
+- (void)safe_replaceObjectsInRange:(NSRange)range withObjectsFromArray:(NSArray<id> *)otherArray {
+    
+    if (range.location + range.length > [(NSArray *)self count]) {
+        NSLog(@"\"%@\"-parameter0:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
+        return;
+    }
+    [self safe_replaceObjectsInRange:range withObjectsFromArray:otherArray];
+}
+
+- (void)safe_replaceObjectsInRange:(NSRange)range withObjectsFromArray:(NSArray<id> *)otherArray range:(NSRange)otherRange {
+    
+    if (range.location + range.length > [(NSArray *)self count]) {
+        NSLog(@"\"%@\"-parameter0:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
+        return;
+    }
+    if (otherRange.location + otherRange.length > [otherArray count]) {
+        NSLog(@"\"%@\"-parameter3:(%@) must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(otherRange), (unsigned long)[(NSArray *)self count]);
+        return;
+    }
+    [self safe_replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 }
 
 @end

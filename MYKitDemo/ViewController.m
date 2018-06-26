@@ -11,6 +11,7 @@
 #import "TestViewController.h"
 #import "MYSafeKit.h"
 #import "NSArray+Safe.h"
+#import "NSMutableArray+Safe.h"
 
 @interface ViewController ()
 
@@ -42,15 +43,16 @@
 //    [array indexOfObjectIdenticalTo:nil];
 
     
-//    NSMutableArray * mutableArray = [NSMutableArray new];
-//    [mutableArray addObject:nil];
-//    [mutableArray removeObjectAtIndex:5];
-//    [mutableArray addObjectsFromArray:nil];
-//    [mutableArray removeObject:nil inRange:NSMakeRange(0, 1)];
-//    [mutableArray removeObject:nil];
-//    [mutableArray removeObjectIdenticalTo:nil inRange:NSMakeRange(0, 1)];
-//    [mutableArray removeObjectsInArray:nil];
-//    [mutableArray setObject:nil atIndexedSubscript:0];
+    NSMutableArray * mutableArray = [NSMutableArray new];
+    [mutableArray addObject:nil];
+    [mutableArray removeObjectAtIndex:5];
+    [mutableArray addObjectsFromArray:nil];
+    [mutableArray removeObject:nil inRange:NSMakeRange(0, 1)];
+    [mutableArray removeObject:nil];
+    [mutableArray removeObjectIdenticalTo:nil inRange:NSMakeRange(0, 1)];
+    [mutableArray removeObjectsInArray:nil];
+    [mutableArray setObject:nil atIndexedSubscript:0];
+    
     
 //    NSSet * set = [NSSet set].safe;
 //    [set anyObject];
