@@ -10,16 +10,17 @@
 
 @implementation NSBundle (AppIcon)
 
-- (NSString *)appIconPath {
-    NSString *iconFilename = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"] ;
-    NSString *iconBasename = [iconFilename stringByDeletingPathExtension] ;
-    NSString *iconExtension = [iconFilename pathExtension] ;
-    return [[NSBundle mainBundle] pathForResource:iconBasename
-                                           ofType:iconExtension] ;
++ (UIImage *)appIcon {
+    NSDictionary *infoPlist = [[self mainBundle] infoDictionary];
+    NSString *appIcon = [[infoPlist valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
+    return [UIImage imageNamed:appIcon];
 }
 
-- (UIImage *)appIcon {
-    return [[UIImage alloc] initWithContentsOfFile:[self appIconPath]];
++ (NSArray *)getAllLaunchImageInfo {
+    NSDictionary *infoDict = [[self mainBundle] infoDictionary];
+    // 获取所有启动图片信息数组
+    NSArray *launchImagesArray = infoDict[@"UILaunchImages"];
+    return launchImagesArray;
 }
 
 @end

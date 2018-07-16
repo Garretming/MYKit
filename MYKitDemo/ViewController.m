@@ -13,9 +13,10 @@
 #import "NSArray+Safe.h"
 #import "NSMutableArray+Safe.h"
 #import "NSMutableDictionary+Safe.h"
-//#import "NSObject+Safe.h"
+#import "NSBundle+AppIcon.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *appIconImageView;
 
 @end
 
@@ -133,6 +134,9 @@
 //    NSArray *allValues = [null allValues];
 //
 //    NSLog(@"%d---%d", [allKeys isEqual:@[]], [allValues isEqual:@[]]);
+    
+    self.appIconImageView.image = [NSBundle appIcon];
+   
 }
 
 - (IBAction)testNotification {

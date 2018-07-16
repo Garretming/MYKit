@@ -10,7 +10,18 @@
 
 @interface NSBundle (AppIcon)
 
-- (NSString *)appIconPath;
-- (UIImage *)appIcon;
+/**
+ 获取app的icon图标
+
+ @return icon图标
+ */
++ (UIImage *)appIcon;
+
+/**
+ 打印app里面所有启动图片名称信息
+
+ @return 启动图片名称信息数组
+ */
++ (NSArray *)getAllLaunchImageInfo;
 
 @end
