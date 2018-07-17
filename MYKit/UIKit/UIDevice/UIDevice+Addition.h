@@ -1,5 +1,5 @@
 //
-//  UIDevice+Extension.h
+//  UIDevice+Addition.h
 //  FXKitExampleDemo
 //
 //  Created by sunjinshuai on 2017/7/21.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIDevice (Extension)
+@interface UIDevice (Addition)
 
 /**
  获取UUID
@@ -18,7 +18,7 @@
 /**
  设备版本
  */
-+ (NSString*)deviceModel;
++ (NSString *)deviceModel;
 
 /**
  手机系统版本
@@ -36,16 +36,6 @@
 + (NSString *)getVersionNumber;
 
 + (NSString *)platform;
-
-+ (NSString *)platformString;
-
-+ (BOOL)p35InchDisplay;
-
-+ (BOOL)p4InchDisplay;
-
-+ (BOOL)p47InchDisplay;
-
-+ (BOOL)p55InchDiplay;
 
 /**
  获取是否是IphoneX

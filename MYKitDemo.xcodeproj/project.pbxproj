@@ -97,7 +97,7 @@
 		32700185205904F900AD95EB /* UIViewController+TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32700184205904F900AD95EB /* UIViewController+TopViewController.m */; };
 		3270021120591BB600AD95EB /* NSFileManager+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3270021020591BB600AD95EB /* NSFileManager+FileManager.m */; };
 		3270021B205926DA00AD95EB /* UIApplication+Authority.m in Sources */ = {isa = PBXBuildFile; fileRef = 3270021A205926DA00AD95EB /* UIApplication+Authority.m */; };
-		328505941F9F51ED0098E2C0 /* UIDevice+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505931F9F51ED0098E2C0 /* UIDevice+Extension.m */; };
+		328505941F9F51ED0098E2C0 /* UIDevice+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505931F9F51ED0098E2C0 /* UIDevice+Addition.m */; };
 		3285059B1F9F530F0098E2C0 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3285059A1F9F530F0098E2C0 /* UIImage+Extension.m */; };
 		328505AB1F9F57C80098E2C0 /* NSString+Regular.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505AA1F9F57C80098E2C0 /* NSString+Regular.m */; };
 		328505B41F9F57FA0098E2C0 /* NSString+Attributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505B31F9F57FA0098E2C0 /* NSString+Attributed.m */; };
@@ -344,8 +344,8 @@
 		3270021020591BB600AD95EB /* NSFileManager+FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+FileManager.m"; sourceTree = "<group>"; };
 		32700219205926DA00AD95EB /* UIApplication+Authority.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Authority.h"; sourceTree = "<group>"; };
 		3270021A205926DA00AD95EB /* UIApplication+Authority.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Authority.m"; sourceTree = "<group>"; };
-		328505921F9F51ED0098E2C0 /* UIDevice+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extension.h"; sourceTree = "<group>"; };
-		328505931F9F51ED0098E2C0 /* UIDevice+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extension.m"; sourceTree = "<group>"; };
+		328505921F9F51ED0098E2C0 /* UIDevice+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Addition.h"; sourceTree = "<group>"; };
+		328505931F9F51ED0098E2C0 /* UIDevice+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Addition.m"; sourceTree = "<group>"; };
 		328505991F9F530F0098E2C0 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		3285059A1F9F530F0098E2C0 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		328505A91F9F57C80098E2C0 /* NSString+Regular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regular.h"; sourceTree = "<group>"; };
@@ -1064,8 +1064,8 @@
 		328505911F9F51ED0098E2C0 /* UIDevice */ = {
 			isa = PBXGroup;
 			children = (
-				328505921F9F51ED0098E2C0 /* UIDevice+Extension.h */,
-				328505931F9F51ED0098E2C0 /* UIDevice+Extension.m */,
+				328505921F9F51ED0098E2C0 /* UIDevice+Addition.h */,
+				328505931F9F51ED0098E2C0 /* UIDevice+Addition.m */,
 			);
 			path = UIDevice;
 			sourceTree = "<group>";
@@ -1443,7 +1443,7 @@
 				815F4D222091B8C400EA6DFF /* NSString+Size.m in Sources */,
 				324174661FF63F29007BB277 /* NSCharacterSet+Addition.m in Sources */,
 				3213731E1F6167C600E15D0A /* UILabel+FitLines.m in Sources */,
-				328505941F9F51ED0098E2C0 /* UIDevice+Extension.m in Sources */,
+				328505941F9F51ED0098E2C0 /* UIDevice+Addition.m in Sources */,
 				8124AC3020D124F300BAFE9F /* NSObject+Swizzle.m in Sources */,
 				3213734F1F6265CD00E15D0A /* NSBundle+AppIcon.m in Sources */,
 				32077C4A1F5FF6FC006E4C70 /* UIView+Visuals.m in Sources */,
