@@ -28,8 +28,6 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 
 #import "UIScreen+Accessor.h"
 
-#import "UIActionSheet+Block.h"
-
 #import "UIDevice+Extension.h"
 
 #import "UIApplication+NetworkActivityIndicator.h"
@@ -105,5 +103,5 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 #import "UIImageView+RoundedAvatar.h"
 #import "UIImageView+Fillet.h"
 
-#import "UIAlertView+Block.h"
+#import "UIAlertController+Blocks.h"
 

@@ -7,16 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "XXShield.h"
-#import "TestViewController.h"
-#import "MYSafeKit.h"
-#import "NSArray+Safe.h"
-#import "NSMutableArray+Safe.h"
-#import "NSMutableDictionary+Safe.h"
-#import "NSBundle+AppIcon.h"
+#import "MYKitMacroHeader.h"
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *appIconImageView;
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
 
@@ -25,129 +21,100 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [MYSafeKit registerSafeKitShieldWithAbility:MYSafeKitShieldTypeContainer];
-//    NSArray * array = @[@"A",@"B"];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.dataSource addObject:@"*UIKit之UIAlertController*-MYAlertViewController"];
+    [self.dataSource addObject:@"UILabel设置行间距、指定显示行数-MYShowTextViewController"];
+    [self.dataSource addObject:@"*UIImageView设置圆角*-MYImageCornerRadiusViewController"];
+    [self.dataSource addObject:@"自定义UISlider-MYSliderViewController"];
+    [self.dataSource addObject:@"*倒计时演练*-MYCountDownViewController"];
+    [self.dataSource addObject:@"*自定义UITextField*-MYTextFieldViewController"];
+    [self.dataSource addObject:@"*UICollectionView布局*-MYCollectionLayoutViewController"];
+    [self.dataSource addObject:@"*TableViewCell倒计时*-MYTableCountDownViewController"];
+    [self.dataSource addObject:@"*UIWebView实战*-MYWebViewController"];
+    [self.dataSource addObject:@"自定义UISwitch-MYAMViralSwitchViewController"];
+    [self.dataSource addObject:@"CollectionDynamicCell-MYAutomaticallyCollectionViewCellViewController"];
+    [self.dataSource addObject:@"自定义导航栏-MYCustomNavigationBarViewController"];
 
-//    [array objectAtIndex:0];
-//    [array arrayByAddingObject:nil];
-//    [array indexOfObject:nil inRange:NSMakeRange(0, 2)];
-//    [array indexOfObjectIdenticalTo:@"B" inRange:NSMakeRange(0, 2)];
-//    [array subarrayWithRange:NSMakeRange(0, 1)];
-//    [array objectsAtIndexes:[NSIndexSet indexSetWithIndex:10]];
-//    [array objectAtIndexedSubscript:100];
-//    [array arrayByAddingObjectsFromArray:nil];
-//    [array componentsJoinedByString:nil];
-//    [array containsObject:nil];
-//    [array descriptionWithLocale:nil];
-//    [array descriptionWithLocale:nil indent:1000];
-//    [array firstObjectCommonWithArray:nil];
-//    [array indexOfObject:nil];
-//    [array isEqualToArray:nil];
-//    [array indexOfObjectIdenticalTo:nil];
-
-    
-//    NSMutableArray * mutableArray = [NSMutableArray new];
-//    [mutableArray addObject:nil];
-//    [mutableArray removeObjectAtIndex:5];
-//    [mutableArray addObjectsFromArray:nil];
-//    [mutableArray removeObject:nil inRange:NSMakeRange(0, 1)];
-//    [mutableArray removeObject:nil];
-//    [mutableArray removeObjectIdenticalTo:nil inRange:NSMakeRange(0, 1)];
-//    [mutableArray removeObjectsInArray:nil];
-//    [mutableArray setObject:nil atIndexedSubscript:0];
-    
-    
-//    NSSet * set = [NSSet set].safe;
-//    [set anyObject];
-//    [set containsObject:nil];
-//    [set descriptionWithLocale:nil];
-//    [set intersectsSet:nil];
-//    [set isEqualToSet:nil];
-//    [set isSubsetOfSet:nil];
-//    [set setByAddingObject:nil];
-//    id a = [set setByAddingObjectsFromSet:nil];
-//    id b = [set setByAddingObjectsFromArray:nil];
-
-//    NSMutableSet * mutableSet = [NSMutableSet set].safe;
-//    [mutableSet addObject:nil];
-//    [mutableSet addObjectsFromArray:nil];
-//    [mutableSet intersectSet:nil];
-//    [mutableSet minusSet:nil];
-//
-    
-//    NSPointerArray * pointerArray = [NSPointerArray weakObjectsPointerArray].safe;
-//    [pointerArray pointerAtIndex:1000];
-//    [pointerArray removePointerAtIndex:10000];
-    
-    
-//    NSHashTable * hashTable = [NSHashTable hashTableWithOptions:(NSPointerFunctionsWeakMemory)];
-//    NSLog(@"%@", hashTable);
-//    [hashTable addObject:nil];
-//    NSLog(@"%@", hashTable);
-//    NSObject *obj = [NSObject new];
-//    __weak NSObject *obj1 =obj;
-//    [hashTable addObject:obj1];
-//    NSLog(@"%@", hashTable);
-//    [hashTable removeObject:[UIViewController new]];
-//    
-//    NSMapTable * mapTable = [NSMapTable weakToWeakObjectsMapTable];
-//    id a = [mapTable objectForKey:nil];
-//    [mapTable removeObjectForKey:nil];
-//    [mapTable setObject:nil forKey:nil];
-//
-    
-//    NSString *str = @"akdaldllad".safe;
-//
-//    [str substringFromIndex:200];
-//    [str substringToIndex:200];
-//    [str characterAtIndex:213];
-//    [str substringWithRange:NSMakeRange(0, 200)];
-    
-//    [NSObject safeGuardUnrecognizedSelector];
-//
-//    XXObject *object = [[XXObject alloc] init];
-//    [object performSelector:@selector(addads) withObject:nil];
-//    [XXObject performSelector:@selector(addads) withObject:nil];
-    
-//    [NSNotificationCenter safeGuardNotificationSelector];
-    
-//    [NSNull safeGuardNullSelector];
-//    NSString *null = (NSString *)[NSNull null];
-//    NSString *result = [null stringByAppendingString:@"fafa"];
-    
-//    NSNumber *null = (NSNumber *)[NSNull null];
-//    BOOL result = [null boolValue];
-    
-//    NSArray<NSString *> *null = (NSArray *)[NSNull null];
-//    NSArray *result = [null arrayByAddingObjectsFromArray:@[@"xx"]];
-//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//    [dict setValue:nil forKey:nil];
-    
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setValue:nil forKey:nil];
-    
-    NSObject *obj = [NSObject new];
-    [obj setValue:nil forKeyPath:nil];
-    
-//    NSDictionary<NSString *, NSString *> *null = (NSDictionary *)[NSNull null];
-//    NSArray *allKeys = [null allKeys];
-//    NSArray *allValues = [null allValues];
-//
-//    NSLog(@"%d---%d", [allKeys isEqual:@[]], [allValues isEqual:@[]]);
-    
-    self.appIconImageView.image = [NSBundle appIcon];
-   
+    [self.view addSubview:self.tableView];
 }
 
-- (IBAction)testNotification {
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    TestViewController *test = [[TestViewController alloc] init];
-    [self.navigationController pushViewController:test animated:YES];
+    return self.dataSource.count;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 44.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 0.01f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return 0.01f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return nil;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    cell.textLabel.text = self.dataSource[indexPath.row];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *title = [self.dataSource objectAtIndex:indexPath.row];
+    NSString *className = [[title componentsSeparatedByString:@"-"] lastObject];
+    
+    UIViewController *viewController = [[NSClassFromString(className) alloc] init];
+    viewController.title = [[title componentsSeparatedByString:@"-"] firstObject];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (NSMutableArray *)dataSource {
+    
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+    }
+    return _dataSource;
+}
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, MYScreenWidth, MYScreenHeight) style:UITableViewStyleGrouped];
+        _tableView.delegate = self;
+        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.dataSource = self;
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAutomatic;
+        }
+        [self.view addSubview:_tableView];
+    }
+    return _tableView;
 }
 
 @end
