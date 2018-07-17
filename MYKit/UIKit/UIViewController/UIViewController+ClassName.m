@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+ClassName.h"
-#import "UIDevice+Extension.h"
+#import "UIDevice+Addition.h"
 #import "NSObject+Swizzle.h"
 #import "UIView+Position.h"
 

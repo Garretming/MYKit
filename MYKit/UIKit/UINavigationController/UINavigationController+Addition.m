@@ -1,16 +1,16 @@
 //
-//  UINavigationController+StackManager.m
+//  UINavigationController+Addition.m
 //  MYUtils
 //
 //  Created by sunjinshuai on 2017/8/28.
 //  Copyright © 2017年 com.51fanxing. All rights reserved.
 //
 
-#import "UINavigationController+StackManager.h"
+#import "UINavigationController+Addition.h"
 
-@implementation UINavigationController (StackManager)
+@implementation UINavigationController (Addition)
 
-- (id)findViewController:(NSString*)className {
+- (id)findViewController:(NSString *)className {
     for (UIViewController *viewController in self.viewControllers) {
         if ([viewController isKindOfClass:NSClassFromString(className)]) {
             return viewController;

@@ -1,5 +1,5 @@
 //
-//  UINavigationController+StackManager.h
+//  UINavigationController+Addition.h
 //  MYUtils
 //
 //  Created by sunjinshuai on 2017/8/28.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UINavigationController (StackManager)
+@interface UINavigationController (Addition)
 
 /**
  *  @brief  寻找Navigation中的某个viewcontroler对象

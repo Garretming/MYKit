@@ -25,7 +25,7 @@
     
     [self.dataSource addObject:@"*UIKit之AlertController*-MYAlertViewController"];
     [self.dataSource addObject:@"*UIKit之NavigationBar*-MYNavigationBarViewController"];
-    [self.dataSource addObject:@"*UIImageView设置圆角*-MYImageCornerRadiusViewController"];
+    [self.dataSource addObject:@"*UIKit之TextField*-MYTextFieldViewController"];
     [self.dataSource addObject:@"自定义UISlider-MYSliderViewController"];
     [self.dataSource addObject:@"*倒计时演练*-MYCountDownViewController"];
     [self.dataSource addObject:@"*自定义UITextField*-MYTextFieldViewController"];

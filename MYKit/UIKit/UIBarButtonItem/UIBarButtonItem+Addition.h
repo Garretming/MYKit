@@ -1,5 +1,5 @@
 //
-//  UIBarButtonItem+Extension.h
+//  UIBarButtonItem+Addition.h
 //  FXKitExampleDemo
 //
 //  Created by sunjinshuai on 2017/7/20.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIBarButtonItem (Extension)
+@interface UIBarButtonItem (Addition)
 
 + (UIBarButtonItem *)barButtonItemWithTarget:(id)target
                                       action:(SEL)action

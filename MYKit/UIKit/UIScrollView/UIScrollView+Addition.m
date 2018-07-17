@@ -1,14 +1,14 @@
 //
-//  UIScrollView+Accessor.m
+//  UIScrollView+Addition.m
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2017/12/29.
 //  Copyright © 2017年 com.51fanxing. All rights reserved.
 //
 
-#import "UIScrollView+Accessor.h"
+#import "UIScrollView+Addition.h"
 
-@implementation UIScrollView (Accessor)
+@implementation UIScrollView (Addition)
 
 #pragma mark - Content Offset
 

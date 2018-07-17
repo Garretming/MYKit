@@ -1,5 +1,5 @@
 //
-//  UIScrollView+Accessor.h
+//  UIScrollView+Addition.h
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2017/12/29.
@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface UIScrollView (Accessor)
+@interface UIScrollView (Addition)
 
 /**
  *  @brief  get contentOffset.x
@@ -53,4 +51,3 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat contentInsetRight;
 
 @end
-NS_ASSUME_NONNULL_END
