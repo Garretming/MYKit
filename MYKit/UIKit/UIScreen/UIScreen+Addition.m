@@ -1,18 +1,18 @@
 //
-//  UIScreen+Accessor.m
+//  UIScreen+Addition.m
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2017/11/18.
 //  Copyright © 2017年 com.51fanxing. All rights reserved.
 //
 
-#import "UIScreen+Accessor.h"
+#import "UIScreen+Addition.h"
 
 static const CGFloat DefaultScreenWidth = 750.0/2;
 
 static const CGFloat DefaultScreenHeight = 1134.0/2;
 
-@implementation UIScreen (Accessor)
+@implementation UIScreen (Addition)
 
 #pragma mark - Size
 
@@ -51,24 +51,29 @@ static const CGFloat DefaultScreenHeight = 1134.0/2;
 #pragma mark - iphone ui design value
 
 + (CGFloat)statusBarHeight {
-    return [[UIApplication sharedApplication] statusBarFrame].size.height;
+    CGRect statusRect = [[UIApplication sharedApplication] statusBarFrame];
+    return statusRect.size.height;
 }
 
 + (CGFloat)navigationBarHeight {
     
+    CGFloat statusBarHeight = [UIScreen statusBarHeight];
+    CGFloat navigationBarHeight = 0.0;
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     if ([rootViewController isKindOfClass:[UITabBarController class]]) {
         UITabBarController *tabBarController = (UITabBarController *)rootViewController;
         UIViewController *tabBarFirstController = tabBarController.viewControllers.firstObject;
         if ([tabBarFirstController isKindOfClass:[UINavigationController class]]) {
             UINavigationController *navigationController = (UINavigationController *)tabBarFirstController;
-            return CGRectGetHeight(navigationController.navigationBar.frame);
+            navigationBarHeight = CGRectGetHeight(navigationController.navigationBar.frame);
+            return navigationBarHeight + statusBarHeight;
         } else {
             return 0.f;
         }
     } else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navigationController = (UINavigationController *)rootViewController;
-        return CGRectGetHeight(navigationController.navigationBar.frame);
+        navigationBarHeight = CGRectGetHeight(navigationController.navigationBar.frame);
+        return navigationBarHeight + statusBarHeight;
     } else {
         return 0.f;
     }

@@ -1,5 +1,5 @@
 //
-//  UIScreen+Accessor.h
+//  UIScreen+Addition.h
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2017/11/18.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIScreen (Accessor)
+@interface UIScreen (Addition)
 
 /**
  *  @brief  主屏幕的bounds
@@ -39,6 +39,13 @@
 + (CGFloat)height;
 
 /**
+ *  @brief  比例
+ *
+ *  @return scale
+ */
++ (CGFloat)scale;
+
+/**
  *  @brief  当前屏幕的size
  */
 @property (nonatomic, readonly) CGSize size;
@@ -66,8 +73,6 @@
  *  @return CGFloat
  */
 + (CGFloat)navigationBarHeight;
-
-+ (CGFloat)scale;
 
 /**
  *  @brief  tab菜单的高度
