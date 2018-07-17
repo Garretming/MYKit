@@ -298,4 +298,38 @@
     
     return deviceIP;
 }
+
+
+
++ (NSUInteger)getSysInfo:(uint)typeSpecifier
+{
+    size_t size = sizeof(int);
+    int result;
+    int mib[2] = {CTL_HW, typeSpecifier};
+    sysctl(mib, 2, &result, &size, NULL, 0);
+    return (NSUInteger)result;
+}
+
+#pragma mark - memory information
++ (NSUInteger)cpuFrequency {
+    return [self getSysInfo:HW_CPU_FREQ];
+}
+
++ (NSUInteger)busFrequency {
+    return [self getSysInfo:HW_BUS_FREQ];
+}
+
++ (NSUInteger)ramSize {
+    return [self getSysInfo:HW_MEMSIZE];
+}
+
++ (NSUInteger)cpuNumber {
+    return [self getSysInfo:HW_NCPU];
+}
+
++ (NSUInteger)totalMemoryBytes
+{
+    return [self getSysInfo:HW_PHYSMEM];
+}
+
 @end

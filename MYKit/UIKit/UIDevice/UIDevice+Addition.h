@@ -85,4 +85,15 @@
  */
 + (NSString *)getCurrentDeviceIPAddresses;
 
+//Return the current device CPU frequency
++ (NSUInteger)cpuFrequency;
+// Return the current device BUS frequency
++ (NSUInteger)busFrequency;
+//current device RAM size
++ (NSUInteger)ramSize;
+//Return the current device CPU number
++ (NSUInteger)cpuNumber;
+//Return the current device total memory
++ (NSUInteger)totalMemoryBytes;
+
 @end
