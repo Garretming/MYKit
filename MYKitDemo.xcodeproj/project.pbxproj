@@ -97,7 +97,6 @@
 		3270017F2059035200AD95EB /* UIViewController+PageViewLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3270017E2059035200AD95EB /* UIViewController+PageViewLevel.m */; };
 		327001822059046C00AD95EB /* UIViewController+PreviousController.m in Sources */ = {isa = PBXBuildFile; fileRef = 327001812059046C00AD95EB /* UIViewController+PreviousController.m */; };
 		32700185205904F900AD95EB /* UIViewController+TopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32700184205904F900AD95EB /* UIViewController+TopViewController.m */; };
-		327001CD205909C600AD95EB /* UINavigationBar+Translation.m in Sources */ = {isa = PBXBuildFile; fileRef = 327001CC205909C600AD95EB /* UINavigationBar+Translation.m */; };
 		3270021120591BB600AD95EB /* NSFileManager+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3270021020591BB600AD95EB /* NSFileManager+FileManager.m */; };
 		3270021B205926DA00AD95EB /* UIApplication+Authority.m in Sources */ = {isa = PBXBuildFile; fileRef = 3270021A205926DA00AD95EB /* UIApplication+Authority.m */; };
 		328505941F9F51ED0098E2C0 /* UIDevice+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505931F9F51ED0098E2C0 /* UIDevice+Extension.m */; };
@@ -137,6 +136,7 @@
 		815F4D402091BA5500EA6DFF /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D3D2091BA5500EA6DFF /* NSDate+Extension.m */; };
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
 		8195078820FDDADC00D43E89 /* MYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078720FDDADB00D43E89 /* MYAlertViewController.m */; };
+		8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */; };
 		81CB199420D0E64D00AE2E44 /* XXShieldStubObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB197620D0E64B00AE2E44 /* XXShieldStubObject.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81FA3A6E20D1834B00AC90EF /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FA3A5B20D1834600AC90EF /* NSMutableArray+Safe.m */; };
@@ -345,8 +345,6 @@
 		327001812059046C00AD95EB /* UIViewController+PreviousController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PreviousController.m"; sourceTree = "<group>"; };
 		32700183205904F900AD95EB /* UIViewController+TopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TopViewController.h"; sourceTree = "<group>"; };
 		32700184205904F900AD95EB /* UIViewController+TopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TopViewController.m"; sourceTree = "<group>"; };
-		327001CB205909C600AD95EB /* UINavigationBar+Translation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Translation.h"; sourceTree = "<group>"; };
-		327001CC205909C600AD95EB /* UINavigationBar+Translation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Translation.m"; sourceTree = "<group>"; };
 		3270020F20591BB600AD95EB /* NSFileManager+FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+FileManager.h"; sourceTree = "<group>"; };
 		3270021020591BB600AD95EB /* NSFileManager+FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+FileManager.m"; sourceTree = "<group>"; };
 		32700219205926DA00AD95EB /* UIApplication+Authority.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Authority.h"; sourceTree = "<group>"; };
@@ -428,6 +426,8 @@
 		8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKitMacroHeader.h; sourceTree = "<group>"; };
 		8195078620FDDADB00D43E89 /* MYAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYAlertViewController.h; sourceTree = "<group>"; };
 		8195078720FDDADB00D43E89 /* MYAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYAlertViewController.m; sourceTree = "<group>"; };
+		8195078920FDE13800D43E89 /* MYNavigationBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYNavigationBarViewController.h; sourceTree = "<group>"; };
+		8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYNavigationBarViewController.m; sourceTree = "<group>"; };
 		81CB197620D0E64B00AE2E44 /* XXShieldStubObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXShieldStubObject.m; sourceTree = "<group>"; };
 		81CB197820D0E64B00AE2E44 /* XXShieldStubObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXShieldStubObject.h; sourceTree = "<group>"; };
 		81CB198720D0E64C00AE2E44 /* XXShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXShield.h; sourceTree = "<group>"; };
@@ -547,6 +547,8 @@
 				32077BF41F5FEC6F006E4C70 /* ViewController.m */,
 				8195078620FDDADB00D43E89 /* MYAlertViewController.h */,
 				8195078720FDDADB00D43E89 /* MYAlertViewController.m */,
+				8195078920FDE13800D43E89 /* MYNavigationBarViewController.h */,
+				8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */,
 				8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */,
 				811CA2F120D90E2C00C7807C /* TestViewController.h */,
 				811CA2F220D90E2C00C7807C /* TestViewController.m */,
@@ -1058,8 +1060,6 @@
 		327001CA205909AA00AD95EB /* UINavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				327001CB205909C600AD95EB /* UINavigationBar+Translation.h */,
-				327001CC205909C600AD95EB /* UINavigationBar+Translation.m */,
 				32E1AB522063AF3C0072A1E4 /* UINavigationBar+Addition.h */,
 				32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */,
 			);
@@ -1444,6 +1444,7 @@
 				321373B61F627D9700E15D0A /* NSObject+Swizzling.m in Sources */,
 				8195078820FDDADC00D43E89 /* MYAlertViewController.m in Sources */,
 				81FA3A6E20D1834B00AC90EF /* NSMutableArray+Safe.m in Sources */,
+				8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */,
 				815F4D222091B8C400EA6DFF /* NSString+Size.m in Sources */,
 				324174661FF63F29007BB277 /* NSCharacterSet+Addition.m in Sources */,
 				3213731E1F6167C600E15D0A /* UILabel+FitLines.m in Sources */,
@@ -1452,7 +1453,6 @@
 				3213734F1F6265CD00E15D0A /* NSBundle+AppIcon.m in Sources */,
 				32077C4A1F5FF6FC006E4C70 /* UIView+Visuals.m in Sources */,
 				329DB9B82047BD2500D933DD /* NSMutableArray+SafeAccess.m in Sources */,
-				327001CD205909C600AD95EB /* UINavigationBar+Translation.m in Sources */,
 				8136817C20DB7B4500FA8373 /* NSNull+SafeKit.m in Sources */,
 				321372EE1F615DF600E15D0A /* UIWebView+Block.m in Sources */,
 				324174621FF63ECC007BB277 /* NSDictionary+StringAscending.m in Sources */,

@@ -23,8 +23,8 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.dataSource addObject:@"*UIKit之UIAlertController*-MYAlertViewController"];
-    [self.dataSource addObject:@"UILabel设置行间距、指定显示行数-MYShowTextViewController"];
+    [self.dataSource addObject:@"*UIKit之AlertController*-MYAlertViewController"];
+    [self.dataSource addObject:@"*UIKit之NavigationBar*-MYNavigationBarViewController"];
     [self.dataSource addObject:@"*UIImageView设置圆角*-MYImageCornerRadiusViewController"];
     [self.dataSource addObject:@"自定义UISlider-MYSliderViewController"];
     [self.dataSource addObject:@"*倒计时演练*-MYCountDownViewController"];
