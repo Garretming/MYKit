@@ -74,7 +74,6 @@
 		321373A91F62752E00E15D0A /* NSString+Trims.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373A81F62752E00E15D0A /* NSString+Trims.m */; };
 		321373AC1F627C7500E15D0A /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373AB1F627C7500E15D0A /* NSString+Emoji.m */; };
 		321373B51F627D9700E15D0A /* NSObject+AssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373B21F627D9700E15D0A /* NSObject+AssociatedObject.m */; };
-		321373B61F627D9700E15D0A /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373B41F627D9700E15D0A /* NSObject+Swizzling.m */; };
 		32322A1F1FD4E7CC008060D9 /* NSMutableArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 32322A1E1FD4E7CC008060D9 /* NSMutableArray+Sort.m */; };
 		324174501FF63B3A007BB277 /* UIView+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3241744F1FF63B3A007BB277 /* UIView+Badge.m */; };
 		324174531FF63BFD007BB277 /* UIScrollView+Accessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 324174521FF63BFD007BB277 /* UIScrollView+Accessor.m */; };
@@ -89,7 +88,6 @@
 		325AFEB21FC029AC009FF8B1 /* UIView+Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEB11FC029AC009FF8B1 /* UIView+Line.m */; };
 		325AFEB51FC029E5009FF8B1 /* UIView+FindSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEB41FC029E5009FF8B1 /* UIView+FindSubView.m */; };
 		325AFEBE1FC02A75009FF8B1 /* UIView+CornerRadii.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEBD1FC02A75009FF8B1 /* UIView+CornerRadii.m */; };
-		325AFEC51FC02B0D009FF8B1 /* UINavigationItem+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEC41FC02B0D009FF8B1 /* UINavigationItem+Addition.m */; };
 		326A1EF71FE8AFE800535930 /* UIImageView+Fillet.m in Sources */ = {isa = PBXBuildFile; fileRef = 326A1EF61FE8AFE800535930 /* UIImageView+Fillet.m */; };
 		327001672057ACD400AD95EB /* NSNumber+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 327001632057ACD300AD95EB /* NSNumber+Addition.m */; };
 		327001682057ACD400AD95EB /* NSNumber+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 327001662057ACD400AD95EB /* NSNumber+Round.m */; };
@@ -137,6 +135,7 @@
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
 		8195078820FDDADC00D43E89 /* MYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078720FDDADB00D43E89 /* MYAlertViewController.m */; };
 		8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */; };
+		8195078E20FDF38C00D43E89 /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078C20FDF38A00D43E89 /* NSObject+Swizzle.m */; };
 		81CB199420D0E64D00AE2E44 /* XXShieldStubObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB197620D0E64B00AE2E44 /* XXShieldStubObject.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81FA3A6E20D1834B00AC90EF /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FA3A5B20D1834600AC90EF /* NSMutableArray+Safe.m */; };
@@ -299,8 +298,6 @@
 		321373AB1F627C7500E15D0A /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		321373B11F627D9700E15D0A /* NSObject+AssociatedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AssociatedObject.h"; sourceTree = "<group>"; };
 		321373B21F627D9700E15D0A /* NSObject+AssociatedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AssociatedObject.m"; sourceTree = "<group>"; };
-		321373B31F627D9700E15D0A /* NSObject+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
-		321373B41F627D9700E15D0A /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
 		32322A1D1FD4E7CC008060D9 /* NSMutableArray+Sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Sort.h"; sourceTree = "<group>"; };
 		32322A1E1FD4E7CC008060D9 /* NSMutableArray+Sort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Sort.m"; sourceTree = "<group>"; };
 		3241744E1FF63B3A007BB277 /* UIView+Badge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Badge.h"; sourceTree = "<group>"; };
@@ -329,8 +326,6 @@
 		325AFEB41FC029E5009FF8B1 /* UIView+FindSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FindSubView.m"; sourceTree = "<group>"; };
 		325AFEBC1FC02A75009FF8B1 /* UIView+CornerRadii.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadii.h"; sourceTree = "<group>"; };
 		325AFEBD1FC02A75009FF8B1 /* UIView+CornerRadii.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadii.m"; sourceTree = "<group>"; };
-		325AFEC31FC02B0D009FF8B1 /* UINavigationItem+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Addition.h"; sourceTree = "<group>"; };
-		325AFEC41FC02B0D009FF8B1 /* UINavigationItem+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Addition.m"; sourceTree = "<group>"; };
 		326A1EF51FE8AFE800535930 /* UIImageView+Fillet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Fillet.h"; sourceTree = "<group>"; };
 		326A1EF61FE8AFE800535930 /* UIImageView+Fillet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Fillet.m"; sourceTree = "<group>"; };
 		327001632057ACD300AD95EB /* NSNumber+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Addition.m"; sourceTree = "<group>"; };
@@ -428,6 +423,8 @@
 		8195078720FDDADB00D43E89 /* MYAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYAlertViewController.m; sourceTree = "<group>"; };
 		8195078920FDE13800D43E89 /* MYNavigationBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYNavigationBarViewController.h; sourceTree = "<group>"; };
 		8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYNavigationBarViewController.m; sourceTree = "<group>"; };
+		8195078C20FDF38A00D43E89 /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Swizzle.m"; path = "MYKit/SafeKit/Swizzle/NSObject+Swizzle.m"; sourceTree = SOURCE_ROOT; };
+		8195078D20FDF38B00D43E89 /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Swizzle.h"; path = "MYKit/SafeKit/Swizzle/NSObject+Swizzle.h"; sourceTree = SOURCE_ROOT; };
 		81CB197620D0E64B00AE2E44 /* XXShieldStubObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXShieldStubObject.m; sourceTree = "<group>"; };
 		81CB197820D0E64B00AE2E44 /* XXShieldStubObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXShieldStubObject.h; sourceTree = "<group>"; };
 		81CB198720D0E64C00AE2E44 /* XXShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXShield.h; sourceTree = "<group>"; };
@@ -743,8 +740,6 @@
 				32077C671F600C3A006E4C70 /* UINavigationItem+Loading.m */,
 				32077C691F600C7A006E4C70 /* UINavigationItem+Margin.h */,
 				32077C6A1F600C7A006E4C70 /* UINavigationItem+Margin.m */,
-				325AFEC31FC02B0D009FF8B1 /* UINavigationItem+Addition.h */,
-				325AFEC41FC02B0D009FF8B1 /* UINavigationItem+Addition.m */,
 			);
 			path = UINavigationItem;
 			sourceTree = "<group>";
@@ -990,8 +985,8 @@
 			children = (
 				321373B11F627D9700E15D0A /* NSObject+AssociatedObject.h */,
 				321373B21F627D9700E15D0A /* NSObject+AssociatedObject.m */,
-				321373B31F627D9700E15D0A /* NSObject+Swizzling.h */,
-				321373B41F627D9700E15D0A /* NSObject+Swizzling.m */,
+				8195078D20FDF38B00D43E89 /* NSObject+Swizzle.h */,
+				8195078C20FDF38A00D43E89 /* NSObject+Swizzle.m */,
 				324174571FF63E1B007BB277 /* NSObject+Dictionary.h */,
 				324174581FF63E1C007BB277 /* NSObject+Dictionary.m */,
 			);
@@ -1436,12 +1431,12 @@
 				3213733C1F616ADB00E15D0A /* UIBarButtonItem+Badge.m in Sources */,
 				321372F11F615F9700E15D0A /* UIWebView+Load.m in Sources */,
 				32077C411F5FF4B2006E4C70 /* UIView+SuperController.m in Sources */,
+				8195078E20FDF38C00D43E89 /* NSObject+Swizzle.m in Sources */,
 				81FA3A7320D1834B00AC90EF /* NSObject+Safe.m in Sources */,
 				320695A81F6010070009FFDA /* UIButton+CountDown.m in Sources */,
 				32077BEF1F5FEC6F006E4C70 /* main.m in Sources */,
 				3241745F1FF63E6D007BB277 /* NSMutableArray+Queue.m in Sources */,
 				325AFEB21FC029AC009FF8B1 /* UIView+Line.m in Sources */,
-				321373B61F627D9700E15D0A /* NSObject+Swizzling.m in Sources */,
 				8195078820FDDADC00D43E89 /* MYAlertViewController.m in Sources */,
 				81FA3A6E20D1834B00AC90EF /* NSMutableArray+Safe.m in Sources */,
 				8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */,
@@ -1510,7 +1505,6 @@
 				815F4D282091B95800EA6DFF /* NSString+Extension.m in Sources */,
 				321373361F616A1900E15D0A /* UIButton+TouchAreaInsets.m in Sources */,
 				32077C331F5FF0AC006E4C70 /* UIImageView+BetterFace.m in Sources */,
-				325AFEC51FC02B0D009FF8B1 /* UINavigationItem+Addition.m in Sources */,
 				811CA2F320D90E2C00C7807C /* TestViewController.m in Sources */,
 				11380755204FC5AF00DAF098 /* NSArray+Collection.m in Sources */,
 				8124AC4B20D127BE00BAFE9F /* NSMutableAttributedString+SafeKit.m in Sources */,

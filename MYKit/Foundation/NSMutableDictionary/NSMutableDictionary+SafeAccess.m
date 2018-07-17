@@ -7,7 +7,7 @@
 //
 
 #import "NSMutableDictionary+SafeAccess.h"
-#import "NSObject+Swizzling.h"
+#import "NSObject+Swizzle.h"
 
 @implementation NSMutableDictionary (SafeAccess)
 
@@ -16,9 +16,9 @@
     dispatch_once(&onceToken, ^{
         Class class = NSClassFromString(@"__NSDictionaryM");
         
-        [class swizzleInstanceMethod:@selector(setObject:forKey:) with:@selector(my_setObject:forKey:)];
+        [self classSwizzleMethodWithClass:class orginalMethod:@selector(setObject:forKey:) replaceMethod:@selector(my_setObject:forKey:)];
         
-        [class swizzleInstanceMethod:@selector(setObject:forKeyedSubscript:) with:@selector(my_setObject:forKeyedSubscript:)];
+        [self classSwizzleMethodWithClass:class orginalMethod:@selector(setObject:forKeyedSubscript:) replaceMethod:@selector(my_setObject:forKeyedSubscript:)];
     });
 }
 
