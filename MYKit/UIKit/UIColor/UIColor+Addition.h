@@ -27,6 +27,4 @@
 + (UIColor *)colorWithHexString:(NSString *)hexStr;
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alphaValue;
 
-- (UIImage *)image;
-
 @end

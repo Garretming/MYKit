@@ -8,7 +8,7 @@
 
 #import "UIView+Badge.h"
 #import "NSObject+AssociatedObject.h"
-#import "UIColor+Hex.h"
+#import "UIColor+Addition.h"
 #import <objc/runtime.h>
 
 @interface UIView ()

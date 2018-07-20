@@ -7,7 +7,6 @@
 //
 
 #import "UIView+RedDot.h"
-#import "UIColor+Hex.h"
 #import "NSObject+AssociatedObject.h"
 #import <objc/runtime.h>
 

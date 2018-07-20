@@ -101,6 +101,7 @@
 		32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */; };
 		32CEB92120FE4647005E603F /* MYTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB92020FE4647005E603F /* MYTextFieldViewController.m */; };
 		32CEB924210231C1005E603F /* MYColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB923210231C1005E603F /* MYColorViewController.m */; };
+		32CEB92721023729005E603F /* MYImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB92621023729005E603F /* MYImageViewController.m */; };
 		32E1AB542063AF3C0072A1E4 /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */; };
 		811CA2E920D8FBAE00C7807C /* NSObject+UnknowSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2E820D8FBAE00C7807C /* NSObject+UnknowSelector.m */; };
 		811CA2ED20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2EC20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m */; };
@@ -350,6 +351,8 @@
 		32CEB92020FE4647005E603F /* MYTextFieldViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYTextFieldViewController.m; sourceTree = "<group>"; };
 		32CEB922210231C1005E603F /* MYColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYColorViewController.h; sourceTree = "<group>"; };
 		32CEB923210231C1005E603F /* MYColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYColorViewController.m; sourceTree = "<group>"; };
+		32CEB92521023729005E603F /* MYImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYImageViewController.h; sourceTree = "<group>"; };
+		32CEB92621023729005E603F /* MYImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYImageViewController.m; sourceTree = "<group>"; };
 		32E1AB522063AF3C0072A1E4 /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Addition.h"; sourceTree = "<group>"; };
 		32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Addition.m"; sourceTree = "<group>"; };
 		44976F5419D7BC59D055392A /* Pods-MYKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MYKitDemo/Pods-MYKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -550,6 +553,8 @@
 				8174BBFE2101F1A000ACC1F3 /* MYButtonViewController.m */,
 				32CEB922210231C1005E603F /* MYColorViewController.h */,
 				32CEB923210231C1005E603F /* MYColorViewController.m */,
+				32CEB92521023729005E603F /* MYImageViewController.h */,
+				32CEB92621023729005E603F /* MYImageViewController.m */,
 				8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */,
 				811CA2F120D90E2C00C7807C /* TestViewController.h */,
 				811CA2F220D90E2C00C7807C /* TestViewController.m */,
@@ -1413,6 +1418,7 @@
 				321373931F626E8D00E15D0A /* NSURL+Param.m in Sources */,
 				32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+SafeAccess.m in Sources */,
 				32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */,
+				32CEB92721023729005E603F /* MYImageViewController.m in Sources */,
 				32077BF21F5FEC6F006E4C70 /* AppDelegate.m in Sources */,
 				8174BBFC2101C92E00ACC1F3 /* UILabel+LineSpacing.m in Sources */,
 				321372FE1F61633300E15D0A /* UITextView+Select.m in Sources */,

@@ -29,7 +29,7 @@
     [self.dataSource addObject:@"*UIKit之Label*-MYLabelViewController"];
     [self.dataSource addObject:@"*UIKit之Button*-MYButtonViewController"];
     [self.dataSource addObject:@"*UIKit之Color*-MYColorViewController"];
-    [self.dataSource addObject:@"*UICollectionView布局*-MYCollectionLayoutViewController"];
+    [self.dataSource addObject:@"*UIKit之Image*-MYImageViewController"];
     [self.dataSource addObject:@"*TableViewCell倒计时*-MYTableCountDownViewController"];
     [self.dataSource addObject:@"*UIWebView实战*-MYWebViewController"];
     [self.dataSource addObject:@"自定义UISwitch-MYAMViralSwitchViewController"];
