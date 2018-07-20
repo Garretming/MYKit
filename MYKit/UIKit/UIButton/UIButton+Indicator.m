@@ -29,8 +29,6 @@ static NSString *const UIButton_ButtonTextObjectKey = @"UIButton_ButtonTextObjec
     [self setTitle:@"" forState:UIControlStateNormal];
     self.enabled = NO;
     [self addSubview:indicator];
-    
-    
 }
 
 - (void)hideIndicator {
@@ -43,6 +41,5 @@ static NSString *const UIButton_ButtonTextObjectKey = @"UIButton_ButtonTextObjec
     self.enabled = YES;
     
 }
-
 
 @end

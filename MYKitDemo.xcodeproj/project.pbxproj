@@ -135,6 +135,7 @@
 		815F4D402091BA5500EA6DFF /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D3D2091BA5500EA6DFF /* NSDate+Extension.m */; };
 		8174BBF92101905700ACC1F3 /* MYLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BBF82101905700ACC1F3 /* MYLabelViewController.m */; };
 		8174BBFC2101C92E00ACC1F3 /* UILabel+LineSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BBFB2101C92E00ACC1F3 /* UILabel+LineSpacing.m */; };
+		8174BBFF2101F1A000ACC1F3 /* MYButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BBFE2101F1A000ACC1F3 /* MYButtonViewController.m */; };
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
 		8195078820FDDADC00D43E89 /* MYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078720FDDADB00D43E89 /* MYAlertViewController.m */; };
 		8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */; };
@@ -425,6 +426,8 @@
 		8174BBF82101905700ACC1F3 /* MYLabelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYLabelViewController.m; sourceTree = "<group>"; };
 		8174BBFA2101C92E00ACC1F3 /* UILabel+LineSpacing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+LineSpacing.h"; sourceTree = "<group>"; };
 		8174BBFB2101C92E00ACC1F3 /* UILabel+LineSpacing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LineSpacing.m"; sourceTree = "<group>"; };
+		8174BBFD2101F1A000ACC1F3 /* MYButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYButtonViewController.h; sourceTree = "<group>"; };
+		8174BBFE2101F1A000ACC1F3 /* MYButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYButtonViewController.m; sourceTree = "<group>"; };
 		8195078220FDD48000D43E89 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKitMacroHeader.h; sourceTree = "<group>"; };
@@ -561,6 +564,8 @@
 				32CEB92020FE4647005E603F /* MYTextFieldViewController.m */,
 				8174BBF72101905700ACC1F3 /* MYLabelViewController.h */,
 				8174BBF82101905700ACC1F3 /* MYLabelViewController.m */,
+				8174BBFD2101F1A000ACC1F3 /* MYButtonViewController.h */,
+				8174BBFE2101F1A000ACC1F3 /* MYButtonViewController.m */,
 				8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */,
 				811CA2F120D90E2C00C7807C /* TestViewController.h */,
 				811CA2F220D90E2C00C7807C /* TestViewController.m */,
@@ -1408,6 +1413,7 @@
 				321373871F626D1F00E15D0A /* NSFileHandle+ReadLine.m in Sources */,
 				32077C2A1F5FEF7B006E4C70 /* UIImageView+Reflect.m in Sources */,
 				321372F81F61621C00E15D0A /* UITextView+PlaceHolder.m in Sources */,
+				8174BBFF2101F1A000ACC1F3 /* MYButtonViewController.m in Sources */,
 				329AD3741FC030190036CF6D /* UIScreen+Addition.m in Sources */,
 				81FA3A6F20D1834B00AC90EF /* NSArray+Safe.m in Sources */,
 				811CA2ED20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m in Sources */,

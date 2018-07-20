@@ -27,7 +27,7 @@
     [self.dataSource addObject:@"*UIKit之NavigationBar*-MYNavigationBarViewController"];
     [self.dataSource addObject:@"*UIKit之TextField*-MYTextFieldViewController"];
     [self.dataSource addObject:@"*UIKit之Label*-MYLabelViewController"];
-    [self.dataSource addObject:@"*倒计时演练*-MYCountDownViewController"];
+    [self.dataSource addObject:@"*UIKit之Button*-MYButtonViewController"];
     [self.dataSource addObject:@"*自定义UITextField*-MYTextFieldViewController"];
     [self.dataSource addObject:@"*UICollectionView布局*-MYCollectionLayoutViewController"];
     [self.dataSource addObject:@"*TableViewCell倒计时*-MYTableCountDownViewController"];
