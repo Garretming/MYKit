@@ -134,6 +134,7 @@
 		815F4D3F2091BA5500EA6DFF /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D3A2091BA5500EA6DFF /* NSDate+Addition.m */; };
 		815F4D402091BA5500EA6DFF /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D3D2091BA5500EA6DFF /* NSDate+Extension.m */; };
 		8174BBF92101905700ACC1F3 /* MYLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BBF82101905700ACC1F3 /* MYLabelViewController.m */; };
+		8174BBFC2101C92E00ACC1F3 /* UILabel+LineSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BBFB2101C92E00ACC1F3 /* UILabel+LineSpacing.m */; };
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
 		8195078820FDDADC00D43E89 /* MYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078720FDDADB00D43E89 /* MYAlertViewController.m */; };
 		8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */; };
@@ -422,6 +423,8 @@
 		815F4D422091BB5200EA6DFF /* MYFoundationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFoundationKit.h; sourceTree = "<group>"; };
 		8174BBF72101905700ACC1F3 /* MYLabelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYLabelViewController.h; sourceTree = "<group>"; };
 		8174BBF82101905700ACC1F3 /* MYLabelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYLabelViewController.m; sourceTree = "<group>"; };
+		8174BBFA2101C92E00ACC1F3 /* UILabel+LineSpacing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+LineSpacing.h"; sourceTree = "<group>"; };
+		8174BBFB2101C92E00ACC1F3 /* UILabel+LineSpacing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LineSpacing.m"; sourceTree = "<group>"; };
 		8195078220FDD48000D43E89 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKitMacroHeader.h; sourceTree = "<group>"; };
@@ -501,6 +504,8 @@
 			children = (
 				320695AD1F6010680009FFDA /* UILabel+CountDown.h */,
 				320695AE1F6010680009FFDA /* UILabel+CountDown.m */,
+				8174BBFA2101C92E00ACC1F3 /* UILabel+LineSpacing.h */,
+				8174BBFB2101C92E00ACC1F3 /* UILabel+LineSpacing.m */,
 				321373181F6167C600E15D0A /* UILabel+LimitLines.h */,
 				321373191F6167C600E15D0A /* UILabel+LimitLines.m */,
 				3213731C1F6167C600E15D0A /* UILabel+AutomaticWriting.h */,
@@ -1437,6 +1442,7 @@
 				32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+SafeAccess.m in Sources */,
 				32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */,
 				32077BF21F5FEC6F006E4C70 /* AppDelegate.m in Sources */,
+				8174BBFC2101C92E00ACC1F3 /* UILabel+LineSpacing.m in Sources */,
 				321372FE1F61633300E15D0A /* UITextView+Select.m in Sources */,
 				815F4D3E2091BA5500EA6DFF /* NSDate+NSDateRFC1123.m in Sources */,
 				3213733C1F616ADB00E15D0A /* UIBarButtonItem+Badge.m in Sources */,

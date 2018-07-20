@@ -9,10 +9,13 @@
 #import "MYLabelViewController.h"
 #import "MYKitMacroHeader.h"
 #import "UILabel+LimitLines.h"
+#import "UILabel+AutomaticWriting.h"
+#import "UILabel+LineSpacing.h"
 
 @interface MYLabelViewController ()
 
 @property (nonatomic, strong) UILabel *testLabel;
+@property (nonatomic, strong) UILabel *writingLabel;
 
 @end
 
@@ -23,31 +26,43 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [UILabel registerLineSpacingSelector];
+
     UILabel *testLabel = [[UILabel alloc] init];
-    testLabel.frame = CGRectMake(10, 64, MYScreenWidth - 20, 200);
+    testLabel.frame = CGRectMake(10, 84, MYScreenWidth - 20, 100);
     testLabel.font = [UIFont systemFontOfSize:14.0f];
     testLabel.text = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试";
-//    testLabel.myLineSpacing = 10.0f;
-//    [testLabel my_adjustTextToFitLines:3.0f];
     testLabel.numberOfLines = 0.0f;
-    [testLabel adjustSizeAlignment:MYAdjustAlignmentCenter];
-    
+    testLabel.lineSpace = 10.0f;
     [self.view addSubview:testLabel];
+    _testLabel = testLabel;
+    
+    // 自动书写
+    [self automaticWriting];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)automaticWriting {
+    
+    UILabel *writingLabel = [[UILabel alloc] init];
+    writingLabel.frame = CGRectMake(10, CGRectGetMaxY(self.testLabel.frame) + 50, MYScreenWidth - 20, 100);
+    writingLabel.backgroundColor = [UIColor redColor];
+    writingLabel.font = [UIFont systemFontOfSize:14.0f];
+    writingLabel.textAlignment = NSTextAlignmentCenter;
+    writingLabel.textColor = [UIColor blueColor];
+    [self.view addSubview:writingLabel];
+    _writingLabel = writingLabel;
+    
+    UIButton *automaticWritingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    automaticWritingButton.frame = CGRectMake((MYScreenWidth - 150)/2, CGRectGetMaxY(writingLabel.frame) + 50, 150, 50);
+    [automaticWritingButton setTitle:@"automaticWriting" forState:UIControlStateNormal];
+    [automaticWritingButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [automaticWritingButton addTarget:self action:@selector(automaticWriting:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:automaticWritingButton];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)automaticWriting:(UIButton *)sender {
+    
+    [self.writingLabel setText:@"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试" automaticWritingAnimationWithBlinkingMode:UILabelAWBlinkingModeWhenFinishShowing];
 }
-*/
 
 @end
