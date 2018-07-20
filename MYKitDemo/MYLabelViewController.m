@@ -11,11 +11,13 @@
 #import "UILabel+LimitLines.h"
 #import "UILabel+AutomaticWriting.h"
 #import "UILabel+LineSpacing.h"
+#import "UILabel+CountDown.h"
 
 @interface MYLabelViewController ()
 
 @property (nonatomic, strong) UILabel *testLabel;
 @property (nonatomic, strong) UILabel *writingLabel;
+@property (nonatomic, strong) UIButton *automaticWritingButton;
 
 @end
 
@@ -28,6 +30,16 @@
     
     [UILabel registerLineSpacingSelector];
 
+    // 设置行间距
+    [self setupLineSpace];
+    
+    // 自动书写
+    [self automaticWriting];
+    // 倒计时
+    [self countDown];
+}
+
+- (void)setupLineSpace {
     UILabel *testLabel = [[UILabel alloc] init];
     testLabel.frame = CGRectMake(10, 84, MYScreenWidth - 20, 100);
     testLabel.font = [UIFont systemFontOfSize:14.0f];
@@ -36,9 +48,6 @@
     testLabel.lineSpace = 10.0f;
     [self.view addSubview:testLabel];
     _testLabel = testLabel;
-    
-    // 自动书写
-    [self automaticWriting];
 }
 
 - (void)automaticWriting {
@@ -58,11 +67,28 @@
     [automaticWritingButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [automaticWritingButton addTarget:self action:@selector(automaticWriting:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:automaticWritingButton];
+    _automaticWritingButton = automaticWritingButton;
 }
 
 - (void)automaticWriting:(UIButton *)sender {
     
     [self.writingLabel setText:@"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试" automaticWritingAnimationWithBlinkingMode:UILabelAWBlinkingModeWhenFinishShowing];
+}
+
+/**
+ 倒计时
+ */
+- (void)countDown {
+    
+    UILabel *countDownLabel = [[UILabel alloc] init];
+    countDownLabel.frame = CGRectMake((MYScreenWidth - 100)/2, CGRectGetMaxY(self.automaticWritingButton.frame) + 50, 100, 50);
+    countDownLabel.backgroundColor = [UIColor orangeColor];
+    countDownLabel.font = [UIFont systemFontOfSize:14.0f];
+    countDownLabel.textAlignment = NSTextAlignmentCenter;
+    [countDownLabel scheduledTimerWithTimeInterval:10 countDownText:@"开始倒计时" completion:^(UILabel *countDownLabel) {
+        countDownLabel.text = @"倒计时结束";
+    }];
+    [self.view addSubview:countDownLabel];
 }
 
 @end
