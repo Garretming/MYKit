@@ -52,7 +52,7 @@
 		321373051F6163FC00E15D0A /* UITextField+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373041F6163FC00E15D0A /* UITextField+Shake.m */; };
 		321373081F61645800E15D0A /* UITextField+InputLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373071F61645800E15D0A /* UITextField+InputLimit.m */; };
 		321373161F61676600E15D0A /* UINavigationController+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373131F61676600E15D0A /* UINavigationController+Addition.m */; };
-		3213731E1F6167C600E15D0A /* UILabel+FitLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373191F6167C600E15D0A /* UILabel+FitLines.m */; };
+		3213731E1F6167C600E15D0A /* UILabel+LimitLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373191F6167C600E15D0A /* UILabel+LimitLines.m */; };
 		321373201F6167C600E15D0A /* UILabel+AutomaticWriting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213731D1F6167C600E15D0A /* UILabel+AutomaticWriting.m */; };
 		321373271F6169B100E15D0A /* UIColor+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373261F6169B100E15D0A /* UIColor+Gradient.m */; };
 		321373321F616A1900E15D0A /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373291F616A1900E15D0A /* UIButton+Badge.m */; };
@@ -133,6 +133,7 @@
 		815F4D3E2091BA5500EA6DFF /* NSDate+NSDateRFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D392091BA5500EA6DFF /* NSDate+NSDateRFC1123.m */; };
 		815F4D3F2091BA5500EA6DFF /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D3A2091BA5500EA6DFF /* NSDate+Addition.m */; };
 		815F4D402091BA5500EA6DFF /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D3D2091BA5500EA6DFF /* NSDate+Extension.m */; };
+		8174BBF92101905700ACC1F3 /* MYLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BBF82101905700ACC1F3 /* MYLabelViewController.m */; };
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
 		8195078820FDDADC00D43E89 /* MYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078720FDDADB00D43E89 /* MYAlertViewController.m */; };
 		8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */; };
@@ -255,8 +256,8 @@
 		321373071F61645800E15D0A /* UITextField+InputLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+InputLimit.m"; sourceTree = "<group>"; };
 		321373121F61676600E15D0A /* UINavigationController+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Addition.h"; sourceTree = "<group>"; };
 		321373131F61676600E15D0A /* UINavigationController+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Addition.m"; sourceTree = "<group>"; };
-		321373181F6167C600E15D0A /* UILabel+FitLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FitLines.h"; sourceTree = "<group>"; };
-		321373191F6167C600E15D0A /* UILabel+FitLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FitLines.m"; sourceTree = "<group>"; };
+		321373181F6167C600E15D0A /* UILabel+LimitLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LimitLines.h"; sourceTree = "<group>"; };
+		321373191F6167C600E15D0A /* UILabel+LimitLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LimitLines.m"; sourceTree = "<group>"; };
 		3213731C1F6167C600E15D0A /* UILabel+AutomaticWriting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutomaticWriting.h"; sourceTree = "<group>"; };
 		3213731D1F6167C600E15D0A /* UILabel+AutomaticWriting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutomaticWriting.m"; sourceTree = "<group>"; };
 		321373251F6169B100E15D0A /* UIColor+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Gradient.h"; sourceTree = "<group>"; };
@@ -419,6 +420,8 @@
 		815F4D3C2091BA5500EA6DFF /* NSDate+NSDateRFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NSDateRFC1123.h"; sourceTree = "<group>"; };
 		815F4D3D2091BA5500EA6DFF /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		815F4D422091BB5200EA6DFF /* MYFoundationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFoundationKit.h; sourceTree = "<group>"; };
+		8174BBF72101905700ACC1F3 /* MYLabelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYLabelViewController.h; sourceTree = "<group>"; };
+		8174BBF82101905700ACC1F3 /* MYLabelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYLabelViewController.m; sourceTree = "<group>"; };
 		8195078220FDD48000D43E89 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKitMacroHeader.h; sourceTree = "<group>"; };
@@ -498,8 +501,8 @@
 			children = (
 				320695AD1F6010680009FFDA /* UILabel+CountDown.h */,
 				320695AE1F6010680009FFDA /* UILabel+CountDown.m */,
-				321373181F6167C600E15D0A /* UILabel+FitLines.h */,
-				321373191F6167C600E15D0A /* UILabel+FitLines.m */,
+				321373181F6167C600E15D0A /* UILabel+LimitLines.h */,
+				321373191F6167C600E15D0A /* UILabel+LimitLines.m */,
 				3213731C1F6167C600E15D0A /* UILabel+AutomaticWriting.h */,
 				3213731D1F6167C600E15D0A /* UILabel+AutomaticWriting.m */,
 			);
@@ -551,6 +554,8 @@
 				8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */,
 				32CEB91F20FE4647005E603F /* MYTextFieldViewController.h */,
 				32CEB92020FE4647005E603F /* MYTextFieldViewController.m */,
+				8174BBF72101905700ACC1F3 /* MYLabelViewController.h */,
+				8174BBF82101905700ACC1F3 /* MYLabelViewController.m */,
 				8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */,
 				811CA2F120D90E2C00C7807C /* TestViewController.h */,
 				811CA2F220D90E2C00C7807C /* TestViewController.m */,
@@ -1448,7 +1453,7 @@
 				8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */,
 				815F4D222091B8C400EA6DFF /* NSString+Size.m in Sources */,
 				324174661FF63F29007BB277 /* NSCharacterSet+Addition.m in Sources */,
-				3213731E1F6167C600E15D0A /* UILabel+FitLines.m in Sources */,
+				3213731E1F6167C600E15D0A /* UILabel+LimitLines.m in Sources */,
 				328505941F9F51ED0098E2C0 /* UIDevice+Addition.m in Sources */,
 				8124AC3020D124F300BAFE9F /* NSObject+Swizzle.m in Sources */,
 				3213734F1F6265CD00E15D0A /* NSBundle+AppIcon.m in Sources */,
@@ -1475,6 +1480,7 @@
 				8124AC4A20D127BE00BAFE9F /* NSString+SafeKit.m in Sources */,
 				321373161F61676600E15D0A /* UINavigationController+Addition.m in Sources */,
 				8124AC4E20D127EF00BAFE9F /* NSObject+SafeKitSetting.m in Sources */,
+				8174BBF92101905700ACC1F3 /* MYLabelViewController.m in Sources */,
 				327001682057ACD400AD95EB /* NSNumber+Round.m in Sources */,
 				327001822059046C00AD95EB /* UIViewController+PreviousController.m in Sources */,
 				3213734B1F62647800E15D0A /* NSArray+SafeAccess.m in Sources */,
