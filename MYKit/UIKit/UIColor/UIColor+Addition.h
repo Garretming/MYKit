@@ -10,7 +10,22 @@
 
 @interface UIColor (Addition)
 
+/**
+ Return a randomColor (just for test UI)
+ 
+ @return randomColor
+ */
 + (UIColor *)randomColor;
+
+/**
+ *  @brief get color from hex string
+ *
+ *  @param hexString #RGB #ARGB #RRGGBB #AARRGGBB
+ *
+ *  @return color
+ */
++ (UIColor *)colorWithHexString:(NSString *)hexStr;
++ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alphaValue;
 
 - (UIImage *)image;
 
