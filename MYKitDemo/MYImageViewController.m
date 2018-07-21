@@ -11,7 +11,6 @@
 #import "UIImageView+CornerRadius.h"
 #import "UIImageView+RectCorner.h"
 #import "UIImage+CornerRadius.h"
-#import "UIImage+Screenshot.h"
 #import "UIImage+Color.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 

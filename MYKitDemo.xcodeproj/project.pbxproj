@@ -30,7 +30,6 @@
 		32077C4A1F5FF6FC006E4C70 /* UIView+Visuals.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C491F5FF6FC006E4C70 /* UIView+Visuals.m */; };
 		32077C4D1F5FF827006E4C70 /* UIView+CustomBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C4C1F5FF827006E4C70 /* UIView+CustomBorder.m */; };
 		32077C511F5FFA19006E4C70 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C501F5FFA19006E4C70 /* UIImage+Color.m */; };
-		32077C541F5FFBFE006E4C70 /* UIImage+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C531F5FFBFE006E4C70 /* UIImage+Screenshot.m */; };
 		32077C611F600AA5006E4C70 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C601F600AA5006E4C70 /* UIColor+Addition.m */; };
 		32077C681F600C3A006E4C70 /* UINavigationItem+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C671F600C3A006E4C70 /* UINavigationItem+Loading.m */; };
 		32077C6B1F600C7A006E4C70 /* UINavigationItem+Margin.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077C6A1F600C7A006E4C70 /* UINavigationItem+Margin.m */; };
@@ -102,6 +101,7 @@
 		32CEB92120FE4647005E603F /* MYTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB92020FE4647005E603F /* MYTextFieldViewController.m */; };
 		32CEB924210231C1005E603F /* MYColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB923210231C1005E603F /* MYColorViewController.m */; };
 		32CEB92721023729005E603F /* MYImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB92621023729005E603F /* MYImageViewController.m */; };
+		32CEB92A2103540C005E603F /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB9292103540C005E603F /* MYViewController.m */; };
 		32E1AB542063AF3C0072A1E4 /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */; };
 		811CA2E920D8FBAE00C7807C /* NSObject+UnknowSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2E820D8FBAE00C7807C /* NSObject+UnknowSelector.m */; };
 		811CA2ED20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2EC20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m */; };
@@ -209,8 +209,6 @@
 		32077C4C1F5FF827006E4C70 /* UIView+CustomBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomBorder.m"; sourceTree = "<group>"; };
 		32077C4F1F5FFA19006E4C70 /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		32077C501F5FFA19006E4C70 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
-		32077C521F5FFBFE006E4C70 /* UIImage+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Screenshot.h"; sourceTree = "<group>"; };
-		32077C531F5FFBFE006E4C70 /* UIImage+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Screenshot.m"; sourceTree = "<group>"; };
 		32077C5F1F600AA5006E4C70 /* UIColor+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
 		32077C601F600AA5006E4C70 /* UIColor+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		32077C661F600C3A006E4C70 /* UINavigationItem+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Loading.h"; sourceTree = "<group>"; };
@@ -353,6 +351,8 @@
 		32CEB923210231C1005E603F /* MYColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYColorViewController.m; sourceTree = "<group>"; };
 		32CEB92521023729005E603F /* MYImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYImageViewController.h; sourceTree = "<group>"; };
 		32CEB92621023729005E603F /* MYImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYImageViewController.m; sourceTree = "<group>"; };
+		32CEB9282103540C005E603F /* MYViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewController.h; sourceTree = "<group>"; };
+		32CEB9292103540C005E603F /* MYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
 		32E1AB522063AF3C0072A1E4 /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Addition.h"; sourceTree = "<group>"; };
 		32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Addition.m"; sourceTree = "<group>"; };
 		44976F5419D7BC59D055392A /* Pods-MYKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MYKitDemo/Pods-MYKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -555,6 +555,8 @@
 				32CEB923210231C1005E603F /* MYColorViewController.m */,
 				32CEB92521023729005E603F /* MYImageViewController.h */,
 				32CEB92621023729005E603F /* MYImageViewController.m */,
+				32CEB9282103540C005E603F /* MYViewController.h */,
+				32CEB9292103540C005E603F /* MYViewController.m */,
 				8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */,
 				811CA2F120D90E2C00C7807C /* TestViewController.h */,
 				811CA2F220D90E2C00C7807C /* TestViewController.m */,
@@ -709,8 +711,6 @@
 				3285059A1F9F530F0098E2C0 /* UIImage+Addition.m */,
 				32077C4F1F5FFA19006E4C70 /* UIImage+Color.h */,
 				32077C501F5FFA19006E4C70 /* UIImage+Color.m */,
-				32077C521F5FFBFE006E4C70 /* UIImage+Screenshot.h */,
-				32077C531F5FFBFE006E4C70 /* UIImage+Screenshot.m */,
 				327001722058E78F00AD95EB /* UIImage+CornerRadius.h */,
 				327001732058E78F00AD95EB /* UIImage+CornerRadius.m */,
 				3210F5AF206A2CCF00000A6E /* UIImage+ImageEffects.h */,
@@ -1408,6 +1408,7 @@
 				325AFEBE1FC02A75009FF8B1 /* UIView+CornerRadii.m in Sources */,
 				32700185205904F900AD95EB /* UIViewController+TopViewController.m in Sources */,
 				3241745C1FF63E40007BB277 /* NSMutableArray+Stack.m in Sources */,
+				32CEB92A2103540C005E603F /* MYViewController.m in Sources */,
 				32A7AA791FB3DA8F004B21D1 /* XXObject.m in Sources */,
 				8124AC5120D1348D00BAFE9F /* UIApplication+SafeKit.m in Sources */,
 				325AFEB51FC029E5009FF8B1 /* UIView+FindSubView.m in Sources */,
@@ -1474,7 +1475,6 @@
 				81FA3A7220D1834B00AC90EF /* NSMutableDictionary+Safe.m in Sources */,
 				1138074F204FC53D00DAF098 /* NSString+Collection.m in Sources */,
 				321373351F616A1900E15D0A /* UIButton+Submitting.m in Sources */,
-				32077C541F5FFBFE006E4C70 /* UIImage+Screenshot.m in Sources */,
 				811CA2E920D8FBAE00C7807C /* NSObject+UnknowSelector.m in Sources */,
 				324174591FF63E1C007BB277 /* NSObject+Dictionary.m in Sources */,
 				321372F71F61621C00E15D0A /* UITextView+InputLimit.m in Sources */,

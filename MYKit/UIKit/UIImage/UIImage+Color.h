@@ -44,4 +44,24 @@
  */
 + (UIImage *)covertToGrayImageFromImage:(UIImage *)sourceImage;
 
+/**
+ *  @brief  根据颜色生成图片，默认size为{1.f, 1.f}
+ *  @param color 传入颜色
+ *  @return 返回图片
+ */
++ (UIImage *)createImageWithColor:(UIColor *)color;
+
+/**
+ *  @brief 设置图片的透明度
+ *  @param alpha 透明度
+ *  @return 返回处理后的图片
+ */
+- (UIImage *)imageWithAlpha:(CGFloat)alpha;
+
+/**
+ *  @brief 设置图片的size
+ *  @return 返回改变size之后的图片
+ */
+- (UIImage *)resizeTo:(CGSize)size;
+
 @end
