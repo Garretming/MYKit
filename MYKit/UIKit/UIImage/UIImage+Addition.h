@@ -1,5 +1,5 @@
 //
-//  UIImage+Extension.h
+//  UIImage+Addition.h
 //  FXKitExampleDemo
 //
 //  Created by sunjinshuai on 2017/7/19.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIImage (Extension)
+@interface UIImage (Addition)
 
 /**
 *  @brief 根据URL生成图片
@@ -20,15 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 *  @return 返回处理后的图片
 */
 + (nullable UIImage *)imageWithURL:(NSURL *)imageURL;
-
-/**
- *  @brief 设置图片的透明度
- *
- *  @param alpha 透明度
- *
- *  @return 返回处理后的图片
- */
-- (nullable UIImage *)imageWithAlpha:(CGFloat)alpha;
 
 /**
  *  @brief 根据name获取GIF图片
@@ -48,8 +39,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (nullable UIImage *)animatedGIFWithData:(NSData *)data;
 
-- (nullable UIImage *)animatedImageByScalingAndCroppingToSize:(CGSize)size;
-
+/**
+ *  @brief 根据图片路径获取图片
+ *
+ *  @param imageName 图片路径名称
+ *
+ *  @return 返回处理后的图片
+ */
 + (nullable UIImage *)imageNoCacheWithName:(NSString *)imageName;
 
 @end

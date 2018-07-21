@@ -1,12 +1,12 @@
 //
-//  UIImage+Extension.m
+//  UIImage+Addition.m
 //  FXKitExampleDemo
 //
 //  Created by sunjinshuai on 2017/7/19.
 //  Copyright © 2017年 com.51fanxing. All rights reserved.
 //
 
-#import "UIImage+Extension.h"
+#import "UIImage+Addition.h"
 #import "NSData+ImageContentType.h"
 #import <Accelerate/Accelerate.h>
 
@@ -30,7 +30,7 @@ static NSTimeInterval _my_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return delay;
 }
 
-@implementation UIImage (Extension)
+@implementation UIImage (Addition)
 
 + (UIImage *)imageWithURL:(NSURL *)imageURL {
     NSData *data = [NSData dataWithContentsOfURL:imageURL];
@@ -115,21 +115,6 @@ static NSTimeInterval _my_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
             break;
     }
     return orientation;
-}
-
-- (UIImage *)imageWithAlpha:(CGFloat)alpha {
-    
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGRect area = CGRectMake(0, 0, self.size.width, self.size.height);
-    CGContextScaleCTM(ctx, 1, -1);
-    CGContextTranslateCTM(ctx, 0, -area.size.height);
-    CGContextSetBlendMode(ctx, kCGBlendModeMultiply);
-    CGContextSetAlpha(ctx, alpha);
-    CGContextDrawImage(ctx, area, self.CGImage);
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
 }
 
 + (UIImage *)animatedGIFWithData:(NSData *)data {
@@ -255,43 +240,6 @@ static NSTimeInterval _my_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
         }
         return [UIImage imageNamed:name];
     }
-}
-
-- (UIImage *)animatedImageByScalingAndCroppingToSize:(CGSize)size {
-    if (CGSizeEqualToSize(self.size, size) || CGSizeEqualToSize(size, CGSizeZero)) {
-        return self;
-    }
-    
-    CGSize scaledSize = size;
-    CGPoint thumbnailPoint = CGPointZero;
-    
-    CGFloat widthFactor = size.width / self.size.width;
-    CGFloat heightFactor = size.height / self.size.height;
-    CGFloat scaleFactor = (widthFactor > heightFactor) ? widthFactor : heightFactor;
-    scaledSize.width = self.size.width * scaleFactor;
-    scaledSize.height = self.size.height * scaleFactor;
-    
-    if (widthFactor > heightFactor) {
-        thumbnailPoint.y = (size.height - scaledSize.height) * 0.5;
-    }
-    else if (widthFactor < heightFactor) {
-        thumbnailPoint.x = (size.width - scaledSize.width) * 0.5;
-    }
-    
-    NSMutableArray *scaledImages = [NSMutableArray array];
-    
-    for (UIImage *image in self.images) {
-        UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
-        
-        [image drawInRect:CGRectMake(thumbnailPoint.x, thumbnailPoint.y, scaledSize.width, scaledSize.height)];
-        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-        
-        [scaledImages addObject:newImage];
-        
-        UIGraphicsEndImageContext();
-    }
-    
-    return [UIImage animatedImageWithImages:scaledImages duration:self.duration];
 }
 
 + (nullable UIImage *)imageNoCacheWithName:(NSString *)imageName {

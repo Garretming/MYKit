@@ -1,5 +1,5 @@
 //
-//  UIImage+RoundedAvatar.h
+//  UIImage+CornerRadius.h
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2018/3/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (RoundedAvatar)
+@interface UIImage (CornerRadius)
 
 /**
  将图片进行圆角处理，默认无边框(此操作是线程安全的)。

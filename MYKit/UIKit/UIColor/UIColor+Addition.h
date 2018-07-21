@@ -20,7 +20,7 @@
 /**
  *  @brief get color from hex string
  *
- *  @param hexString #RGB #ARGB #RRGGBB #AARRGGBB
+ *  @param hexStr #RGB #ARGB #RRGGBB #AARRGGBB
  *
  *  @return color
  */

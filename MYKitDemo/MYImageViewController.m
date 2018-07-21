@@ -10,6 +10,9 @@
 #import "MYKitMacroHeader.h"
 #import "UIImageView+CornerRadius.h"
 #import "UIImageView+RectCorner.h"
+#import "UIImage+CornerRadius.h"
+#import "UIImage+Screenshot.h"
+#import "UIImage+Color.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MYImageViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -24,8 +27,15 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.frame = CGRectMake(20, 84, MYScreenWidth - 20*2, 200);
+    UIImage *image = [UIImage createImageWithColor:[UIColor blueColor]];
+    imageView.image = [UIImage covertToGrayImageFromImage:image];
     
-    [self.view addSubview:self.tableView];
+    [self.view addSubview:imageView];
+    
+//    [self.view addSubview:self.tableView];
 }
 
 #pragma mark - UITableViewDataSource
@@ -68,14 +78,12 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
-        cell.imageView.myCornerRadius = 15.0f;
-        cell.imageView.image = [UIImage imageNamed:@"avatar1"];
+//        cell.imageView.image = [UIImage createImageFromView:self.view];
         
         UIImageView *imageView1 = [[UIImageView alloc] initWithCornerRadiusAdvance:25.0f rectCornerType:UIRectCornerTopLeft];
         imageView1.frame = CGRectMake(100, 5, 50, 50);
         imageView1.backgroundColor = [UIColor orangeColor];
         imageView1.contentMode = UIViewContentModeScaleAspectFill;
-//        imageView1.myCornerRadius = 25.0f;
         cell.accessoryView = imageView1;
     }
     

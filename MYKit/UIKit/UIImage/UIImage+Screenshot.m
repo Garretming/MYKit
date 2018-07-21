@@ -10,76 +10,56 @@
 
 @implementation UIImage (Screenshot)
 
-+ (UIImage *)captureWithView:(UIView *)sourceView {
-    NSParameterAssert(sourceView);
-    UIGraphicsBeginImageContextWithOptions(sourceView.bounds.size, sourceView.opaque, [UIScreen mainScreen].scale);
-    // IOS7及其后续版本
-    if ([sourceView respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-        [sourceView drawViewHierarchyInRect:sourceView.bounds afterScreenUpdates:YES];
-    } else { // IOS7之前的版本
-        [sourceView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    }
-    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return screenshot;
++ (UIImage *)createImageWithColor:(UIColor *)color {
+    return [UIImage createImageWithColor:color size:CGSizeMake(1.f, 1.f)];
 }
 
-+ (UIImage *)captureImageWithRect:(CGRect)imageRect originalImage:(UIImage *)originalImage {
++ (UIImage *)createImageWithColor:(UIColor *)color size:(CGSize)size {
+    NSParameterAssert(color);
     
-    CGImageRef imageRef = originalImage.CGImage;
-    CGImageRef subImageRef = CGImageCreateWithImageInRect(imageRef, imageRect);
-    CGSize size;
-    size.width = CGRectGetWidth(imageRect);
-    size.height = CGRectGetHeight(imageRect);
-    UIGraphicsBeginImageContext(size);
+    CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextDrawImage(context, imageRect, subImageRef);
-    UIImage* smallImage = [UIImage imageWithCGImage:subImageRef];
-    CGImageRelease(subImageRef);
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return smallImage;
+    
+    return image;
 }
 
-+ (UIImage *)screenshotWithView:(UIView *)view limitWidth:(CGFloat)maxWidth {
+- (UIImage *)imageWithAlpha:(CGFloat)alpha {
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
     
-    CGAffineTransform oldTransform = view.transform;
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGRect area = CGRectMake(0, 0, self.size.width, self.size.height);
     
-    CGAffineTransform scaleTransform = CGAffineTransformIdentity;
-    if (!isnan(maxWidth) && maxWidth>0) {
-        CGFloat maxScale = maxWidth/CGRectGetWidth(view.frame);
-        CGAffineTransform transformScale = CGAffineTransformMakeScale(maxScale, maxScale);
-        scaleTransform = CGAffineTransformConcat(oldTransform, transformScale);
-        
-    }
-    if(!CGAffineTransformEqualToTransform(scaleTransform, CGAffineTransformIdentity)){
-        view.transform = scaleTransform;
-    }
+    CGContextScaleCTM(ctx, 1, -1);
+    CGContextTranslateCTM(ctx, 0, -area.size.height);
     
-    CGRect actureFrame = view.frame; //已经变换过后的frame
-    CGRect actureBounds= view.bounds;//CGRectApplyAffineTransform();
+    CGContextSetBlendMode(ctx, kCGBlendModeMultiply);
     
-    //begin
-    UIGraphicsBeginImageContextWithOptions(actureFrame.size, NO, 0.0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSaveGState(context);
-    //    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1, -1);
-    CGContextTranslateCTM(context,actureFrame.size.width/2, actureFrame.size.height/2);
-    CGContextConcatCTM(context, view.transform);
-    CGPoint anchorPoint = view.layer.anchorPoint;
-    CGContextTranslateCTM(context,
-                          -actureBounds.size.width * anchorPoint.x,
-                          -actureBounds.size.height * anchorPoint.y);
-    if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
-    } else {
-        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    }
-    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+    CGContextSetAlpha(ctx, alpha);
+    
+    CGContextDrawImage(ctx, area, self.CGImage);
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
     UIGraphicsEndImageContext();
-    //end
-    view.transform = oldTransform;
     
-    return screenshot;
+    return newImage;
+}
+
+- (UIImage *)resizeTo:(CGSize)size {
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    [self drawInRect:rect];
+    UIImage *imageContext = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSData *imageData = UIImagePNGRepresentation(imageContext);
+    return [UIImage imageWithData:imageData];
 }
 
 @end

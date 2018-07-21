@@ -13,33 +13,24 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (Screenshot)
 
 /**
- *  @brief  以传入的视图为源，根据主窗口压缩比例截图
- *
- *  @param sourceView 源视图
- *
- *  @return 如果源视图为nil，则返回nil
+ *  @brief  根据颜色生成图片，默认size为{1.f, 1.f}
+ *  @param color 传入颜色
+ *  @return 返回图片
  */
-+ (UIImage *)captureWithView:(UIView *)sourceView;
++ (UIImage *)createImageWithColor:(UIColor *)color;
 
 /**
- *  @brief  从原来图片截取图片
- *
- *  @param imageRect 尺寸
- *
- *  @return 图片
+ *  @brief 设置图片的透明度
+ *  @param alpha 透明度
+ *  @return 返回处理后的图片
  */
-+ (UIImage *)captureImageWithRect:(CGRect)imageRect originalImage:(UIImage *)originalImage;
+- (UIImage *)imageWithAlpha:(CGFloat)alpha;
 
 /**
- *
- *  @brief  截图一个view中所有视图 包括旋转缩放效果
- *
- *  @param view    指定的view
- *  @param maxWidth 宽的大小 0为view默认大小
- *
- *  @return 截图
+ *  @brief 设置图片的size
+ *  @return 返回改变size之后的图片
  */
-+ (UIImage *)screenshotWithView:(UIView *)view limitWidth:(CGFloat)maxWidth;
+- (UIImage *)resizeTo:(CGSize)size;
 
 @end
 

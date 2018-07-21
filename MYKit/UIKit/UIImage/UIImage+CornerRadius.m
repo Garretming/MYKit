@@ -1,14 +1,14 @@
 //
-//  UIImage+RoundedAvatar.m
+//  UIImage+CornerRadius.m
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2018/3/14.
 //  Copyright © 2018年 com.51fanxing. All rights reserved.
 //
 
-#import "UIImage+RoundedAvatar.h"
+#import "UIImage+CornerRadius.h"
 
-@implementation UIImage (RoundedAvatar)
+@implementation UIImage (CornerRadius)
 
 - (UIImage *)imageByRoundCornerRadius:(CGFloat)radius
                             scaleSize:(CGSize)newSize {
