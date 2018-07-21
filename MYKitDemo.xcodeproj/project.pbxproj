@@ -98,7 +98,7 @@
 		329DB9B82047BD2500D933DD /* NSMutableArray+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 329DB9B72047BD2500D933DD /* NSMutableArray+SafeAccess.m */; };
 		32A7AA791FB3DA8F004B21D1 /* XXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A7AA781FB3DA8F004B21D1 /* XXObject.m */; };
 		32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+SafeAccess.m */; };
-		32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */; };
+		32CE8B122060FEC000EC2D68 /* UIImageView+RectCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE8B112060FEC000EC2D68 /* UIImageView+RectCorner.m */; };
 		32CEB92120FE4647005E603F /* MYTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB92020FE4647005E603F /* MYTextFieldViewController.m */; };
 		32CEB924210231C1005E603F /* MYColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB923210231C1005E603F /* MYColorViewController.m */; };
 		32CEB92721023729005E603F /* MYImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB92621023729005E603F /* MYImageViewController.m */; };
@@ -345,8 +345,8 @@
 		32A7AA781FB3DA8F004B21D1 /* XXObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXObject.m; sourceTree = "<group>"; };
 		32AF57D920410B2B00BE9ABA /* NSMutableDictionary+SafeAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SafeAccess.h"; sourceTree = "<group>"; };
 		32AF57DA20410B2B00BE9ABA /* NSMutableDictionary+SafeAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SafeAccess.m"; sourceTree = "<group>"; };
-		32CE8B102060FEC000EC2D68 /* UIImageView+RoundedAvatar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RoundedAvatar.h"; sourceTree = "<group>"; };
-		32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RoundedAvatar.m"; sourceTree = "<group>"; };
+		32CE8B102060FEC000EC2D68 /* UIImageView+RectCorner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RectCorner.h"; sourceTree = "<group>"; };
+		32CE8B112060FEC000EC2D68 /* UIImageView+RectCorner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RectCorner.m"; sourceTree = "<group>"; };
 		32CEB91F20FE4647005E603F /* MYTextFieldViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYTextFieldViewController.h; sourceTree = "<group>"; };
 		32CEB92020FE4647005E603F /* MYTextFieldViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYTextFieldViewController.m; sourceTree = "<group>"; };
 		32CEB922210231C1005E603F /* MYColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYColorViewController.h; sourceTree = "<group>"; };
@@ -665,8 +665,8 @@
 			children = (
 				32077C251F5FEEF7006E4C70 /* UIImageView+CornerRadius.h */,
 				32077C261F5FEEF7006E4C70 /* UIImageView+CornerRadius.m */,
-				32CE8B102060FEC000EC2D68 /* UIImageView+RoundedAvatar.h */,
-				32CE8B112060FEC000EC2D68 /* UIImageView+RoundedAvatar.m */,
+				32CE8B102060FEC000EC2D68 /* UIImageView+RectCorner.h */,
+				32CE8B112060FEC000EC2D68 /* UIImageView+RectCorner.m */,
 			);
 			path = UIImageView;
 			sourceTree = "<group>";
@@ -1417,7 +1417,7 @@
 				811CA2F020D90D9400C7807C /* XXNotificationObserver.m in Sources */,
 				321373931F626E8D00E15D0A /* NSURL+Param.m in Sources */,
 				32AF57DB20410B2B00BE9ABA /* NSMutableDictionary+SafeAccess.m in Sources */,
-				32CE8B122060FEC000EC2D68 /* UIImageView+RoundedAvatar.m in Sources */,
+				32CE8B122060FEC000EC2D68 /* UIImageView+RectCorner.m in Sources */,
 				32CEB92721023729005E603F /* MYImageViewController.m in Sources */,
 				32077BF21F5FEC6F006E4C70 /* AppDelegate.m in Sources */,
 				8174BBFC2101C92E00ACC1F3 /* UILabel+LineSpacing.m in Sources */,

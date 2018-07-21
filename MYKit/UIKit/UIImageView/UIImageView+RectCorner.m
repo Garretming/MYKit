@@ -1,12 +1,12 @@
 //
-//  UIImageView+RoundedAvatar.m
+//  UIImageView+RectCorner.m
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2018/3/20.
 //  Copyright © 2018年 com.51fanxing. All rights reserved.
 //
 
-#import "UIImageView+RoundedAvatar.h"
+#import "UIImageView+RectCorner.h"
 #import <objc/runtime.h>
 
 const char kRoundedAvatarImage;
@@ -22,7 +22,7 @@ const char kRoundedAvatarImage;
 
 @end
 
-@implementation UIImageView (RoundedAvatar)
+@implementation UIImageView (RectCorner)
 
 /**
  * @brief init the Rounding UIImageView, no off-screen-rendered

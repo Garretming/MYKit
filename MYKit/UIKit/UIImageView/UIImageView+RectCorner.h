@@ -1,5 +1,5 @@
 //
-//  UIImageView+RoundedAvatar.h
+//  UIImageView+RectCorner.h
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2018/3/20.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (RoundedAvatar)
+@interface UIImageView (RectCorner)
 
 - (instancetype)initWithCornerRadiusAdvance:(CGFloat)cornerRadius
                              rectCornerType:(UIRectCorner)rectCornerType;

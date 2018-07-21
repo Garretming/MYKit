@@ -9,6 +9,7 @@
 #import "MYImageViewController.h"
 #import "MYKitMacroHeader.h"
 #import "UIImageView+CornerRadius.h"
+#import "UIImageView+RectCorner.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MYImageViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -70,10 +71,11 @@
         cell.imageView.myCornerRadius = 15.0f;
         cell.imageView.image = [UIImage imageNamed:@"avatar1"];
         
-        UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(100, 5, 50, 50)];
+        UIImageView *imageView1 = [[UIImageView alloc] initWithCornerRadiusAdvance:25.0f rectCornerType:UIRectCornerTopLeft];
+        imageView1.frame = CGRectMake(100, 5, 50, 50);
         imageView1.backgroundColor = [UIColor orangeColor];
         imageView1.contentMode = UIViewContentModeScaleAspectFill;
-        imageView1.myCornerRadius = 25.0f;
+//        imageView1.myCornerRadius = 25.0f;
         cell.accessoryView = imageView1;
     }
     
