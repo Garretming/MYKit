@@ -1,33 +1,24 @@
 //
-//  TestViewController.m
+//  SafeKitViewController.m
 //  MYKitDemo
 //
-//  Created by QMMac on 2018/6/19.
+//  Created by QMMac on 2018/7/23.
 //  Copyright © 2018 com.51fanxing. All rights reserved.
 //
 
-#import "TestViewController.h"
-#import "XXNotificationObserver.h"
-#import "NSNotificationCenter+SafeKit.h"
+#import "SafeKitViewController.h"
 
-@interface TestViewController ()
+@interface SafeKitViewController ()
 
 @end
 
-@implementation TestViewController
+@implementation SafeKitViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"SafeKit";
     self.view.backgroundColor = [UIColor whiteColor];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noti:) name:@"noti" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"noti" object:nil];
-}
-
-- (void)noti:(NSNotification *)noti {
-    NSLog(@"hello");
 }
 
 - (void)didReceiveMemoryWarning {

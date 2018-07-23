@@ -1,26 +1,27 @@
 //
-//  ViewController.m
+//  UIKitViewController.m
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2017/9/6.
 //  Copyright © 2017年 com.51fanxing. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "UIKitViewController.h"
 #import "MYKitMacroHeader.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface UIKitViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
 
-@implementation ViewController
+@implementation UIKitViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"UIKit";
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.dataSource addObject:@"*UIKit之AlertController*-MYAlertViewController"];

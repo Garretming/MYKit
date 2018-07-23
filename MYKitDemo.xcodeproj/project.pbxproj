@@ -17,7 +17,7 @@
 		3207745E1FACA36700A56F88 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3207745D1FACA36700A56F88 /* libz.tbd */; };
 		32077BEF1F5FEC6F006E4C70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077BEE1F5FEC6F006E4C70 /* main.m */; };
 		32077BF21F5FEC6F006E4C70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077BF11F5FEC6F006E4C70 /* AppDelegate.m */; };
-		32077BF51F5FEC6F006E4C70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077BF41F5FEC6F006E4C70 /* ViewController.m */; };
+		32077BF51F5FEC6F006E4C70 /* UIKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32077BF41F5FEC6F006E4C70 /* UIKitViewController.m */; };
 		32077BF81F5FEC6F006E4C70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32077BF61F5FEC6F006E4C70 /* Main.storyboard */; };
 		32077BFA1F5FEC6F006E4C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32077BF91F5FEC6F006E4C70 /* Assets.xcassets */; };
 		32077BFD1F5FEC6F006E4C70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32077BFB1F5FEC6F006E4C70 /* LaunchScreen.storyboard */; };
@@ -93,17 +93,10 @@
 		328505B41F9F57FA0098E2C0 /* NSString+Attributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 328505B31F9F57FA0098E2C0 /* NSString+Attributed.m */; };
 		329AD3741FC030190036CF6D /* UIScreen+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AD3731FC030190036CF6D /* UIScreen+Addition.m */; };
 		329DB9B82047BD2500D933DD /* NSMutableArray+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 329DB9B72047BD2500D933DD /* NSMutableArray+SafeAccess.m */; };
-		32A7AA791FB3DA8F004B21D1 /* XXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A7AA781FB3DA8F004B21D1 /* XXObject.m */; };
 		32CE8B122060FEC000EC2D68 /* UIImageView+RectCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE8B112060FEC000EC2D68 /* UIImageView+RectCorner.m */; };
-		32CEB92120FE4647005E603F /* MYTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB92020FE4647005E603F /* MYTextFieldViewController.m */; };
-		32CEB924210231C1005E603F /* MYColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB923210231C1005E603F /* MYColorViewController.m */; };
-		32CEB92721023729005E603F /* MYImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB92621023729005E603F /* MYImageViewController.m */; };
-		32CEB92A2103540C005E603F /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CEB9292103540C005E603F /* MYViewController.m */; };
 		32E1AB542063AF3C0072A1E4 /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */; };
 		811CA2E920D8FBAE00C7807C /* NSObject+UnknowSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2E820D8FBAE00C7807C /* NSObject+UnknowSelector.m */; };
 		811CA2ED20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2EC20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m */; };
-		811CA2F020D90D9400C7807C /* XXNotificationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2EF20D90D9400C7807C /* XXNotificationObserver.m */; };
-		811CA2F320D90E2C00C7807C /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2F220D90E2C00C7807C /* TestViewController.m */; };
 		8124AC4E20D127EF00BAFE9F /* NSObject+SafeKitSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 8124AC4C20D127EF00BAFE9F /* NSObject+SafeKitSetting.m */; };
 		8124AC5120D1348D00BAFE9F /* UIApplication+SafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8124AC5020D1348D00BAFE9F /* UIApplication+SafeKit.m */; };
 		812B36B820E1E214007E8F54 /* MYSafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 812B36B720E1E214007E8F54 /* MYSafeKit.m */; };
@@ -121,13 +114,18 @@
 		815F4D3E2091BA5500EA6DFF /* NSDate+NSDateRFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D392091BA5500EA6DFF /* NSDate+NSDateRFC1123.m */; };
 		815F4D3F2091BA5500EA6DFF /* NSDate+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D3A2091BA5500EA6DFF /* NSDate+Addition.m */; };
 		815F4D402091BA5500EA6DFF /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 815F4D3D2091BA5500EA6DFF /* NSDate+Extension.m */; };
-		8174BBF92101905700ACC1F3 /* MYLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BBF82101905700ACC1F3 /* MYLabelViewController.m */; };
 		8174BBFC2101C92E00ACC1F3 /* UILabel+LineSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BBFB2101C92E00ACC1F3 /* UILabel+LineSpacing.m */; };
-		8174BBFF2101F1A000ACC1F3 /* MYButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BBFE2101F1A000ACC1F3 /* MYButtonViewController.m */; };
 		8174BC022105791D00ACC1F3 /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC012105791D00ACC1F3 /* NSObject+Swizzle.m */; };
+		8174BC14210580B000ACC1F3 /* MYColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC04210580B000ACC1F3 /* MYColorViewController.m */; };
+		8174BC15210580B000ACC1F3 /* MYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC06210580B000ACC1F3 /* MYAlertViewController.m */; };
+		8174BC16210580B000ACC1F3 /* MYLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC07210580B000ACC1F3 /* MYLabelViewController.m */; };
+		8174BC17210580B000ACC1F3 /* MYImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC09210580B000ACC1F3 /* MYImageViewController.m */; };
+		8174BC18210580B000ACC1F3 /* MYNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC0A210580B000ACC1F3 /* MYNavigationBarViewController.m */; };
+		8174BC19210580B000ACC1F3 /* MYButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC0D210580B000ACC1F3 /* MYButtonViewController.m */; };
+		8174BC1A210580B000ACC1F3 /* MYTextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC0F210580B000ACC1F3 /* MYTextFieldViewController.m */; };
+		8174BC1B210580B000ACC1F3 /* MYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC13210580B000ACC1F3 /* MYViewController.m */; };
+		8174BC1F210585EE00ACC1F3 /* SafeKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC1E210585EE00ACC1F3 /* SafeKitViewController.m */; };
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
-		8195078820FDDADC00D43E89 /* MYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078720FDDADB00D43E89 /* MYAlertViewController.m */; };
-		8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */; };
 		81CB199420D0E64D00AE2E44 /* MYShieldStubObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB197620D0E64B00AE2E44 /* MYShieldStubObject.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81FA3A6E20D1834B00AC90EF /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FA3A5B20D1834600AC90EF /* NSMutableArray+Safe.m */; };
@@ -175,8 +173,8 @@
 		32077BEE1F5FEC6F006E4C70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32077BF01F5FEC6F006E4C70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		32077BF11F5FEC6F006E4C70 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		32077BF31F5FEC6F006E4C70 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		32077BF41F5FEC6F006E4C70 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		32077BF31F5FEC6F006E4C70 /* UIKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitViewController.h; sourceTree = "<group>"; };
+		32077BF41F5FEC6F006E4C70 /* UIKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIKitViewController.m; sourceTree = "<group>"; };
 		32077BF71F5FEC6F006E4C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32077BF91F5FEC6F006E4C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32077BFC1F5FEC6F006E4C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -328,18 +326,8 @@
 		329AD3731FC030190036CF6D /* UIScreen+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+Addition.m"; sourceTree = "<group>"; };
 		329DB9B62047BD2500D933DD /* NSMutableArray+SafeAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SafeAccess.h"; sourceTree = "<group>"; };
 		329DB9B72047BD2500D933DD /* NSMutableArray+SafeAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SafeAccess.m"; sourceTree = "<group>"; };
-		32A7AA771FB3DA8F004B21D1 /* XXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXObject.h; sourceTree = "<group>"; };
-		32A7AA781FB3DA8F004B21D1 /* XXObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXObject.m; sourceTree = "<group>"; };
 		32CE8B102060FEC000EC2D68 /* UIImageView+RectCorner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RectCorner.h"; sourceTree = "<group>"; };
 		32CE8B112060FEC000EC2D68 /* UIImageView+RectCorner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RectCorner.m"; sourceTree = "<group>"; };
-		32CEB91F20FE4647005E603F /* MYTextFieldViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYTextFieldViewController.h; sourceTree = "<group>"; };
-		32CEB92020FE4647005E603F /* MYTextFieldViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYTextFieldViewController.m; sourceTree = "<group>"; };
-		32CEB922210231C1005E603F /* MYColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYColorViewController.h; sourceTree = "<group>"; };
-		32CEB923210231C1005E603F /* MYColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYColorViewController.m; sourceTree = "<group>"; };
-		32CEB92521023729005E603F /* MYImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYImageViewController.h; sourceTree = "<group>"; };
-		32CEB92621023729005E603F /* MYImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYImageViewController.m; sourceTree = "<group>"; };
-		32CEB9282103540C005E603F /* MYViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYViewController.h; sourceTree = "<group>"; };
-		32CEB9292103540C005E603F /* MYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
 		32E1AB522063AF3C0072A1E4 /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Addition.h"; sourceTree = "<group>"; };
 		32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Addition.m"; sourceTree = "<group>"; };
 		44976F5419D7BC59D055392A /* Pods-MYKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MYKitDemo/Pods-MYKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -347,10 +335,6 @@
 		811CA2E820D8FBAE00C7807C /* NSObject+UnknowSelector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UnknowSelector.m"; sourceTree = "<group>"; };
 		811CA2EB20D90A8C00C7807C /* NSNotificationCenter+SafeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+SafeKit.h"; sourceTree = "<group>"; };
 		811CA2EC20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+SafeKit.m"; sourceTree = "<group>"; };
-		811CA2EE20D90D9400C7807C /* XXNotificationObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXNotificationObserver.h; sourceTree = "<group>"; };
-		811CA2EF20D90D9400C7807C /* XXNotificationObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXNotificationObserver.m; sourceTree = "<group>"; };
-		811CA2F120D90E2C00C7807C /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		811CA2F220D90E2C00C7807C /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		8124AC4C20D127EF00BAFE9F /* NSObject+SafeKitSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SafeKitSetting.m"; sourceTree = "<group>"; };
 		8124AC4D20D127EF00BAFE9F /* NSObject+SafeKitSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SafeKitSetting.h"; sourceTree = "<group>"; };
 		8124AC4F20D1348C00BAFE9F /* UIApplication+SafeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+SafeKit.h"; sourceTree = "<group>"; };
@@ -386,21 +370,31 @@
 		815F4D3C2091BA5500EA6DFF /* NSDate+NSDateRFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NSDateRFC1123.h"; sourceTree = "<group>"; };
 		815F4D3D2091BA5500EA6DFF /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		815F4D422091BB5200EA6DFF /* MYFoundationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYFoundationKit.h; sourceTree = "<group>"; };
-		8174BBF72101905700ACC1F3 /* MYLabelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYLabelViewController.h; sourceTree = "<group>"; };
-		8174BBF82101905700ACC1F3 /* MYLabelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYLabelViewController.m; sourceTree = "<group>"; };
 		8174BBFA2101C92E00ACC1F3 /* UILabel+LineSpacing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+LineSpacing.h"; sourceTree = "<group>"; };
 		8174BBFB2101C92E00ACC1F3 /* UILabel+LineSpacing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LineSpacing.m"; sourceTree = "<group>"; };
-		8174BBFD2101F1A000ACC1F3 /* MYButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYButtonViewController.h; sourceTree = "<group>"; };
-		8174BBFE2101F1A000ACC1F3 /* MYButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYButtonViewController.m; sourceTree = "<group>"; };
 		8174BC002105791D00ACC1F3 /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
 		8174BC012105791D00ACC1F3 /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
+		8174BC04210580B000ACC1F3 /* MYColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYColorViewController.m; sourceTree = "<group>"; };
+		8174BC05210580B000ACC1F3 /* MYButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYButtonViewController.h; sourceTree = "<group>"; };
+		8174BC06210580B000ACC1F3 /* MYAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYAlertViewController.m; sourceTree = "<group>"; };
+		8174BC07210580B000ACC1F3 /* MYLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYLabelViewController.m; sourceTree = "<group>"; };
+		8174BC08210580B000ACC1F3 /* MYTextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTextFieldViewController.h; sourceTree = "<group>"; };
+		8174BC09210580B000ACC1F3 /* MYImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYImageViewController.m; sourceTree = "<group>"; };
+		8174BC0A210580B000ACC1F3 /* MYNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYNavigationBarViewController.m; sourceTree = "<group>"; };
+		8174BC0B210580B000ACC1F3 /* MYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYViewController.h; sourceTree = "<group>"; };
+		8174BC0C210580B000ACC1F3 /* MYAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYAlertViewController.h; sourceTree = "<group>"; };
+		8174BC0D210580B000ACC1F3 /* MYButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYButtonViewController.m; sourceTree = "<group>"; };
+		8174BC0E210580B000ACC1F3 /* MYColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYColorViewController.h; sourceTree = "<group>"; };
+		8174BC0F210580B000ACC1F3 /* MYTextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYTextFieldViewController.m; sourceTree = "<group>"; };
+		8174BC10210580B000ACC1F3 /* MYLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYLabelViewController.h; sourceTree = "<group>"; };
+		8174BC11210580B000ACC1F3 /* MYNavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYNavigationBarViewController.h; sourceTree = "<group>"; };
+		8174BC12210580B000ACC1F3 /* MYImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYImageViewController.h; sourceTree = "<group>"; };
+		8174BC13210580B000ACC1F3 /* MYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYViewController.m; sourceTree = "<group>"; };
+		8174BC1D210585EE00ACC1F3 /* SafeKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafeKitViewController.h; sourceTree = "<group>"; };
+		8174BC1E210585EE00ACC1F3 /* SafeKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SafeKitViewController.m; sourceTree = "<group>"; };
 		8195078220FDD48000D43E89 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKitMacroHeader.h; sourceTree = "<group>"; };
-		8195078620FDDADB00D43E89 /* MYAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYAlertViewController.h; sourceTree = "<group>"; };
-		8195078720FDDADB00D43E89 /* MYAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYAlertViewController.m; sourceTree = "<group>"; };
-		8195078920FDE13800D43E89 /* MYNavigationBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYNavigationBarViewController.h; sourceTree = "<group>"; };
-		8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYNavigationBarViewController.m; sourceTree = "<group>"; };
 		81CB197620D0E64B00AE2E44 /* MYShieldStubObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYShieldStubObject.m; sourceTree = "<group>"; };
 		81CB197820D0E64B00AE2E44 /* MYShieldStubObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYShieldStubObject.h; sourceTree = "<group>"; };
 		81CB198720D0E64C00AE2E44 /* XXShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXShield.h; sourceTree = "<group>"; };
@@ -518,31 +512,13 @@
 			children = (
 				32077BF01F5FEC6F006E4C70 /* AppDelegate.h */,
 				32077BF11F5FEC6F006E4C70 /* AppDelegate.m */,
-				32077BF31F5FEC6F006E4C70 /* ViewController.h */,
-				32077BF41F5FEC6F006E4C70 /* ViewController.m */,
-				8195078620FDDADB00D43E89 /* MYAlertViewController.h */,
-				8195078720FDDADB00D43E89 /* MYAlertViewController.m */,
-				8195078920FDE13800D43E89 /* MYNavigationBarViewController.h */,
-				8195078A20FDE13800D43E89 /* MYNavigationBarViewController.m */,
-				32CEB91F20FE4647005E603F /* MYTextFieldViewController.h */,
-				32CEB92020FE4647005E603F /* MYTextFieldViewController.m */,
-				8174BBF72101905700ACC1F3 /* MYLabelViewController.h */,
-				8174BBF82101905700ACC1F3 /* MYLabelViewController.m */,
-				8174BBFD2101F1A000ACC1F3 /* MYButtonViewController.h */,
-				8174BBFE2101F1A000ACC1F3 /* MYButtonViewController.m */,
-				32CEB922210231C1005E603F /* MYColorViewController.h */,
-				32CEB923210231C1005E603F /* MYColorViewController.m */,
-				32CEB92521023729005E603F /* MYImageViewController.h */,
-				32CEB92621023729005E603F /* MYImageViewController.m */,
-				32CEB9282103540C005E603F /* MYViewController.h */,
-				32CEB9292103540C005E603F /* MYViewController.m */,
+				32077BF31F5FEC6F006E4C70 /* UIKitViewController.h */,
+				32077BF41F5FEC6F006E4C70 /* UIKitViewController.m */,
+				8174BC1D210585EE00ACC1F3 /* SafeKitViewController.h */,
+				8174BC1E210585EE00ACC1F3 /* SafeKitViewController.m */,
 				8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */,
-				811CA2F120D90E2C00C7807C /* TestViewController.h */,
-				811CA2F220D90E2C00C7807C /* TestViewController.m */,
-				811CA2EE20D90D9400C7807C /* XXNotificationObserver.h */,
-				811CA2EF20D90D9400C7807C /* XXNotificationObserver.m */,
-				32A7AA771FB3DA8F004B21D1 /* XXObject.h */,
-				32A7AA781FB3DA8F004B21D1 /* XXObject.m */,
+				8174BC1C210580BE00ACC1F3 /* SafeKit */,
+				8174BC03210580B000ACC1F3 /* UIKit */,
 				32077BF61F5FEC6F006E4C70 /* Main.storyboard */,
 				32077BF91F5FEC6F006E4C70 /* Assets.xcassets */,
 				32077BFB1F5FEC6F006E4C70 /* LaunchScreen.storyboard */,
@@ -1081,13 +1057,8 @@
 				8136817920DB7AFB00FA8373 /* NSNull */,
 				811CA2EA20D9097F00C7807C /* Notification */,
 				811CA2E620D8EDD000C7807C /* UnknowSelector */,
-				81CB196820D0E64A00AE2E44 /* DanglingPointerShield */,
 				81CB197920D0E64B00AE2E44 /* FoundationContainer */,
-				81CB198420D0E64C00AE2E44 /* KVO */,
-				81CB196F20D0E64A00AE2E44 /* NSTimer */,
-				81CB198820D0E64C00AE2E44 /* Record */,
 				81CB197520D0E64B00AE2E44 /* SmartKit */,
-				81CB198B20D0E64C00AE2E44 /* template */,
 				81CB198720D0E64C00AE2E44 /* XXShield.h */,
 				812B36B620E1E214007E8F54 /* MYSafeKit.h */,
 				812B36B720E1E214007E8F54 /* MYSafeKit.m */,
@@ -1099,6 +1070,36 @@
 			path = SafeKit;
 			sourceTree = "<group>";
 		};
+		8174BC03210580B000ACC1F3 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8174BC04210580B000ACC1F3 /* MYColorViewController.m */,
+				8174BC05210580B000ACC1F3 /* MYButtonViewController.h */,
+				8174BC06210580B000ACC1F3 /* MYAlertViewController.m */,
+				8174BC07210580B000ACC1F3 /* MYLabelViewController.m */,
+				8174BC08210580B000ACC1F3 /* MYTextFieldViewController.h */,
+				8174BC09210580B000ACC1F3 /* MYImageViewController.m */,
+				8174BC0A210580B000ACC1F3 /* MYNavigationBarViewController.m */,
+				8174BC0B210580B000ACC1F3 /* MYViewController.h */,
+				8174BC0C210580B000ACC1F3 /* MYAlertViewController.h */,
+				8174BC0D210580B000ACC1F3 /* MYButtonViewController.m */,
+				8174BC0E210580B000ACC1F3 /* MYColorViewController.h */,
+				8174BC0F210580B000ACC1F3 /* MYTextFieldViewController.m */,
+				8174BC10210580B000ACC1F3 /* MYLabelViewController.h */,
+				8174BC11210580B000ACC1F3 /* MYNavigationBarViewController.h */,
+				8174BC12210580B000ACC1F3 /* MYImageViewController.h */,
+				8174BC13210580B000ACC1F3 /* MYViewController.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		8174BC1C210580BE00ACC1F3 /* SafeKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SafeKit;
+			sourceTree = "<group>";
+		};
 		8195078120FDD3FE00D43E89 /* UIAlertController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1106,20 +1107,6 @@
 				8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */,
 			);
 			path = UIAlertController;
-			sourceTree = "<group>";
-		};
-		81CB196820D0E64A00AE2E44 /* DanglingPointerShield */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DanglingPointerShield;
-			sourceTree = "<group>";
-		};
-		81CB196F20D0E64A00AE2E44 /* NSTimer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NSTimer;
 			sourceTree = "<group>";
 		};
 		81CB197520D0E64B00AE2E44 /* SmartKit */ = {
@@ -1148,27 +1135,6 @@
 				812B36BA20E1E859007E8F54 /* MYSafeFoundationContainer.m */,
 			);
 			path = FoundationContainer;
-			sourceTree = "<group>";
-		};
-		81CB198420D0E64C00AE2E44 /* KVO */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = KVO;
-			sourceTree = "<group>";
-		};
-		81CB198820D0E64C00AE2E44 /* Record */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Record;
-			sourceTree = "<group>";
-		};
-		81CB198B20D0E64C00AE2E44 /* template */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = template;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1327,19 +1293,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8174BC1B210580B000ACC1F3 /* MYViewController.m in Sources */,
 				320695AF1F6010680009FFDA /* UILabel+CountDown.m in Sources */,
 				32077C611F600AA5006E4C70 /* UIColor+Addition.m in Sources */,
 				324174531FF63BFD007BB277 /* UIScrollView+Addition.m in Sources */,
-				32CEB92120FE4647005E603F /* MYTextFieldViewController.m in Sources */,
 				328505AB1F9F57C80098E2C0 /* NSString+Regular.m in Sources */,
 				321373B51F627D9700E15D0A /* NSObject+AssociatedObject.m in Sources */,
 				32322A1F1FD4E7CC008060D9 /* NSMutableArray+Sort.m in Sources */,
 				321373871F626D1F00E15D0A /* NSFileHandle+ReadLine.m in Sources */,
 				321372F81F61621C00E15D0A /* UITextView+PlaceHolder.m in Sources */,
-				8174BBFF2101F1A000ACC1F3 /* MYButtonViewController.m in Sources */,
+				8174BC1A210580B000ACC1F3 /* MYTextFieldViewController.m in Sources */,
 				329AD3741FC030190036CF6D /* UIScreen+Addition.m in Sources */,
 				81FA3A6F20D1834B00AC90EF /* NSArray+Safe.m in Sources */,
 				811CA2ED20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m in Sources */,
+				8174BC18210580B000ACC1F3 /* MYNavigationBarViewController.m in Sources */,
 				327001742058E78F00AD95EB /* UIImage+CornerRadius.m in Sources */,
 				32077C6B1F600C7A006E4C70 /* UINavigationItem+Margin.m in Sources */,
 				3213738F1F626E1000E15D0A /* NSUserDefaults+SafeAccess.m in Sources */,
@@ -1353,21 +1320,17 @@
 				3270021120591BB600AD95EB /* NSFileManager+FileManager.m in Sources */,
 				32E1AB542063AF3C0072A1E4 /* UINavigationBar+Addition.m in Sources */,
 				327001672057ACD400AD95EB /* NSNumber+Addition.m in Sources */,
-				32077BF51F5FEC6F006E4C70 /* ViewController.m in Sources */,
+				32077BF51F5FEC6F006E4C70 /* UIKitViewController.m in Sources */,
 				325AFEBE1FC02A75009FF8B1 /* UIView+CornerRadii.m in Sources */,
 				32700185205904F900AD95EB /* UIViewController+TopViewController.m in Sources */,
 				3241745C1FF63E40007BB277 /* NSMutableArray+Stack.m in Sources */,
-				32CEB92A2103540C005E603F /* MYViewController.m in Sources */,
-				32A7AA791FB3DA8F004B21D1 /* XXObject.m in Sources */,
 				8124AC5120D1348D00BAFE9F /* UIApplication+SafeKit.m in Sources */,
 				325AFEB51FC029E5009FF8B1 /* UIView+FindSubView.m in Sources */,
 				32077C271F5FEEF7006E4C70 /* UIImageView+CornerRadius.m in Sources */,
 				815F4D342091B9E100EA6DFF /* NSData+AES256.m in Sources */,
 				815F4D402091BA5500EA6DFF /* NSDate+Extension.m in Sources */,
-				811CA2F020D90D9400C7807C /* XXNotificationObserver.m in Sources */,
 				321373931F626E8D00E15D0A /* NSURL+Param.m in Sources */,
 				32CE8B122060FEC000EC2D68 /* UIImageView+RectCorner.m in Sources */,
-				32CEB92721023729005E603F /* MYImageViewController.m in Sources */,
 				32077BF21F5FEC6F006E4C70 /* AppDelegate.m in Sources */,
 				8174BBFC2101C92E00ACC1F3 /* UILabel+LineSpacing.m in Sources */,
 				321372FE1F61633300E15D0A /* UITextView+Select.m in Sources */,
@@ -1376,13 +1339,12 @@
 				321372F11F615F9700E15D0A /* UIWebView+Load.m in Sources */,
 				32077C411F5FF4B2006E4C70 /* UIView+SuperController.m in Sources */,
 				81FA3A7320D1834B00AC90EF /* NSObject+Safe.m in Sources */,
+				8174BC16210580B000ACC1F3 /* MYLabelViewController.m in Sources */,
 				320695A81F6010070009FFDA /* UIButton+CountDown.m in Sources */,
 				32077BEF1F5FEC6F006E4C70 /* main.m in Sources */,
 				3241745F1FF63E6D007BB277 /* NSMutableArray+Queue.m in Sources */,
 				325AFEB21FC029AC009FF8B1 /* UIView+Line.m in Sources */,
-				8195078820FDDADC00D43E89 /* MYAlertViewController.m in Sources */,
 				81FA3A6E20D1834B00AC90EF /* NSMutableArray+Safe.m in Sources */,
-				8195078B20FDE13800D43E89 /* MYNavigationBarViewController.m in Sources */,
 				815F4D222091B8C400EA6DFF /* NSString+Size.m in Sources */,
 				324174661FF63F29007BB277 /* NSCharacterSet+Addition.m in Sources */,
 				3213731E1F6167C600E15D0A /* UILabel+LimitLines.m in Sources */,
@@ -1400,6 +1362,7 @@
 				325AFEAF1FC02951009FF8B1 /* UIView+RedDot.m in Sources */,
 				321373A91F62752E00E15D0A /* NSString+Trims.m in Sources */,
 				815F4D1F2091B88D00EA6DFF /* NSDictionary+JSONString.m in Sources */,
+				8174BC15210580B000ACC1F3 /* MYAlertViewController.m in Sources */,
 				815F4D252091B91200EA6DFF /* NSString+Contains.m in Sources */,
 				815F4D372091B9E100EA6DFF /* NSData+ImageContentType.m in Sources */,
 				321373761F626B7700E15D0A /* NSDateFormatter+Extension.m in Sources */,
@@ -1409,7 +1372,6 @@
 				32047E23200F552100A36003 /* UIButton+ImageTitleStyle.m in Sources */,
 				321373161F61676600E15D0A /* UINavigationController+Addition.m in Sources */,
 				8124AC4E20D127EF00BAFE9F /* NSObject+SafeKitSetting.m in Sources */,
-				8174BBF92101905700ACC1F3 /* MYLabelViewController.m in Sources */,
 				327001682057ACD400AD95EB /* NSNumber+Round.m in Sources */,
 				327001822059046C00AD95EB /* UIViewController+PreviousController.m in Sources */,
 				3213734B1F62647800E15D0A /* NSArray+SafeAccess.m in Sources */,
@@ -1426,6 +1388,7 @@
 				812B36BB20E1E859007E8F54 /* MYSafeFoundationContainer.m in Sources */,
 				3213739D1F62714000E15D0A /* NSString+XML.m in Sources */,
 				3285059B1F9F530F0098E2C0 /* UIImage+Addition.m in Sources */,
+				8174BC14210580B000ACC1F3 /* MYColorViewController.m in Sources */,
 				3210F1672064FD6B00000A6E /* UIViewController+ClassName.m in Sources */,
 				324174501FF63B3A007BB277 /* UIView+Badge.m in Sources */,
 				32077C681F600C3A006E4C70 /* UINavigationItem+Loading.m in Sources */,
@@ -1438,17 +1401,18 @@
 				328505B41F9F57FA0098E2C0 /* NSString+Attributed.m in Sources */,
 				815F4D3F2091BA5500EA6DFF /* NSDate+Addition.m in Sources */,
 				320695A41F600F780009FFDA /* UIResponder+Chain.m in Sources */,
+				8174BC19210580B000ACC1F3 /* MYButtonViewController.m in Sources */,
 				3270021B205926DA00AD95EB /* UIApplication+Authority.m in Sources */,
 				812B36B820E1E214007E8F54 /* MYSafeKit.m in Sources */,
 				815F4D282091B95800EA6DFF /* NSString+Extension.m in Sources */,
 				321373361F616A1900E15D0A /* UIButton+TouchAreaInsets.m in Sources */,
-				811CA2F320D90E2C00C7807C /* TestViewController.m in Sources */,
-				32CEB924210231C1005E603F /* MYColorViewController.m in Sources */,
 				11380755204FC5AF00DAF098 /* NSArray+Collection.m in Sources */,
 				815F4D362091B9E100EA6DFF /* NSData+DataCache.m in Sources */,
+				8174BC17210580B000ACC1F3 /* MYImageViewController.m in Sources */,
 				81CB199420D0E64D00AE2E44 /* MYShieldStubObject.m in Sources */,
 				81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */,
 				32077C3E1F5FF410006E4C70 /* UIView+Gesture.m in Sources */,
+				8174BC1F210585EE00ACC1F3 /* SafeKitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
