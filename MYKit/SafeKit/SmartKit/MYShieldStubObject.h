@@ -1,5 +1,5 @@
 //
-//  XXShieldStubObject.h
+//  MYShieldStubObject.h
 //  XXShield
 //
 //  Created by nero on 2017/1/19.
@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XXShieldStubObject : NSObject
+@interface MYShieldStubObject : NSObject
 
 - (instancetype)init __unavailable;
 
-+ (XXShieldStubObject *)shareInstance;
++ (MYShieldStubObject *)shareInstance;
 
 - (BOOL)addFunc:(SEL)sel;
 

@@ -8,7 +8,7 @@
 
 #import "NSObject+UnknowSelector.h"
 #import "NSObject+Swizzle.h"
-#import "XXShieldStubObject.h"
+#import "MYShieldStubObject.h"
 
 @implementation NSObject (UnknowSelector)
 
@@ -26,7 +26,7 @@
     if ([self respondsToSelector:aSelector] || signature) {
         return [self exchange_instanceMethod_forwardingTargetForSelector:aSelector];
     } else {
-        XXShieldStubObject *stub = [XXShieldStubObject shareInstance];
+        MYShieldStubObject *stub = [MYShieldStubObject shareInstance];
         [stub addFunc:aSelector];
         
         NSLog(@"*****Warning***** logic error.target is %@ method is %@, reason : method forword to SmartFunction Object default implement like send message to nil.",
@@ -40,7 +40,7 @@
     if ([self respondsToSelector:aSelector] || signature) {
         return [self exchange_classMethod_forwardingTargetForSelector:aSelector];
     } else {
-        XXShieldStubObject *stub = [XXShieldStubObject shareInstance];
+        MYShieldStubObject *stub = [MYShieldStubObject shareInstance];
         [stub addFunc:aSelector];
         
         NSLog(@"*****Warning***** logic error.target is %@ method is %@, reason : method forword to SmartFunction Object default implement like send message to nil.",

@@ -22,5 +22,7 @@
 @property (nonatomic, assign) CGFloat top;
 @property (nonatomic, assign) CGFloat right;
 @property (nonatomic, assign) CGFloat bottom;
+@property (nonatomic, assign) CGFloat maxX;
+@property (nonatomic, assign) CGFloat maxY;
 
 @end
