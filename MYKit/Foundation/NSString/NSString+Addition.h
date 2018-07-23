@@ -13,6 +13,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Extension)
 
 /**
+ *  @brief 获取字符数量
+ */
+- (int)wordsCount;
+
+/**
+ 判断URL中是否包含中文
+ */
+- (BOOL)isContainChinese;
+
+/**
  判断字符串是否为空
  */
 + (BOOL)isEmpty:(NSString *)string;
