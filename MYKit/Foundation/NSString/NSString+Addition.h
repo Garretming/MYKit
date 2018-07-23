@@ -1,5 +1,5 @@
 //
-//  NSString+Extension.h
+//  NSString+Addition.h
 //  FXKitExample
 //
 //  Created by sunjinshuai on 2017/7/17.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSString (Extension)
+@interface NSString (Addition)
 
 /**
  *  @brief 获取字符数量

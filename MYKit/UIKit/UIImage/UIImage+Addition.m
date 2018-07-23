@@ -32,51 +32,6 @@ static NSTimeInterval _my_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
 
 @implementation UIImage (Addition)
 
-+ (UIImage *)imageWithURL:(NSURL *)imageURL {
-    NSData *data = [NSData dataWithContentsOfURL:imageURL];
-    
-    if (!data) {
-        return nil;
-    }
-    
-    UIImage *image;
-    NSString *imageContentType = [NSData contentTypeForImageData:data];
-    if ([imageContentType isEqualToString:@"image/gif"]) {
-        image = [UIImage animatedGIFWithData:data];
-    } else {
-        image = [[UIImage alloc] initWithData:data];
-        UIImageOrientation orientation = [self imageOrientationFromImageData:data];
-        if (orientation != UIImageOrientationUp) {
-            image = [UIImage imageWithCGImage:image.CGImage
-                                        scale:image.scale
-                                  orientation:orientation];
-        }
-    }
-    return image;
-}
-
-+ (UIImageOrientation)imageOrientationFromImageData:(NSData *)imageData {
-    UIImageOrientation result = UIImageOrientationUp;
-    CGImageSourceRef imageSource = CGImageSourceCreateWithData((__bridge CFDataRef)imageData, NULL);
-    if (imageSource) {
-        CFDictionaryRef properties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, NULL);
-        if (properties) {
-            CFTypeRef val;
-            int exifOrientation;
-            val = CFDictionaryGetValue(properties, kCGImagePropertyOrientation);
-            if (val) {
-                CFNumberGetValue(val, kCFNumberIntType, &exifOrientation);
-                result = [self exifOrientationToiOSOrientation:exifOrientation];
-            } // else - if it's not set it remains at up
-            CFRelease((CFTypeRef) properties);
-        } else {
-            //NSLog(@"NO PROPERTIES, FAIL");
-        }
-        CFRelease(imageSource);
-    }
-    return result;
-}
-
 + (UIImageOrientation)exifOrientationToiOSOrientation:(int)exifOrientation {
     UIImageOrientation orientation = UIImageOrientationUp;
     switch (exifOrientation) {

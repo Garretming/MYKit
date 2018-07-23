@@ -13,15 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (Addition)
 
 /**
-*  @brief 根据URL生成图片
-*
-*  @param imageURL 图片URL
-*
-*  @return 返回处理后的图片
-*/
-+ (nullable UIImage *)imageWithURL:(NSURL *)imageURL;
-
-/**
  *  @brief 根据name获取GIF图片
  *
  *  @param name 图片名称

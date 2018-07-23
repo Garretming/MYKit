@@ -7,7 +7,7 @@
 //
 
 #import "NSNumber+Round.h"
-#import "NSString+Extension.h"
+#import "NSString+Addition.h"
 
 @implementation NSNumber (Round)
 

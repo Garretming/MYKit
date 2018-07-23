@@ -7,7 +7,7 @@
 //
 
 #import "NSString+Size.h"
-#import "NSString+Contains.h"
+#import "NSString+Addition.h"
 
 @implementation NSString (Size)
 

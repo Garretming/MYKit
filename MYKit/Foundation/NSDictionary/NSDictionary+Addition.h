@@ -1,5 +1,5 @@
 //
-//  NSDictionary+JSONString.h
+//  NSDictionary+Addition.h
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2017/9/8.
@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface NSDictionary (JSONString)
+@interface NSDictionary (Addition)
 
 /**
  NSDictionary转换成JSON字符串
@@ -19,6 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)JSONString;
 
-@end
+- (NSArray<NSString *> *)arrayStringAscending;
 
-NS_ASSUME_NONNULL_END
+@end

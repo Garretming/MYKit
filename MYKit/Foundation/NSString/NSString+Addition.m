@@ -1,14 +1,14 @@
 //
-//  NSString+Extension.m
+//  NSString+Addition.m
 //  FXKitExample
 //
 //  Created by sunjinshuai on 2017/7/17.
 //  Copyright © 2017年 com.51fanxing. All rights reserved.
 //
 
-#import "NSString+Extension.h"
+#import "NSString+Addition.h"
 
-@implementation NSString (Extension)
+@implementation NSString (Addition)
 
 - (int)wordsCount {
     NSInteger n = self.length;

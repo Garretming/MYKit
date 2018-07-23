@@ -11,7 +11,6 @@
 @interface NSString (Collection)
 
 + (NSString *)repeat:(NSString *)text times:(int)times;
-+ (BOOL)isEmptyString:(NSString *)string;
 
 - (NSArray *)explode:(NSString *)delimiter;
 - (NSString *)initials;
