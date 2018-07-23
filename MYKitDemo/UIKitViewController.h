@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  UIKitViewController.h
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2017/9/6.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface UIKitViewController : UIViewController
 
 
 @end

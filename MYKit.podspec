@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MYKit"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = "效率工具类"
 
   s.description  = <<-DESC
@@ -83,5 +83,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'SafeKit' do |ss|
     ss.source_files = 'MYKit/SafeKit/**/*'
+    ss.dependency 'MYKit/Foundation'
   end
 end

@@ -1,12 +1,12 @@
 //
-//  XXShieldStubObject.m
+//  MYShieldStubObject.m
 //  XXShield
 //
 //  Created by nero on 2017/1/19.
 //  Copyright © 2017年 XXShield. All rights reserved.
 //
 
-#import "XXShieldStubObject.h"
+#import "MYShieldStubObject.h"
 #import <objc/runtime.h>
 
 /**
@@ -40,25 +40,25 @@ static BOOL __addMethod(Class clazz, SEL sel) {
     return class_addMethod(clazz, sel, (IMP)smartFunction, funcTypeEncoding);
 }
 
-@implementation XXShieldStubObject
+@implementation MYShieldStubObject
 
-+ (XXShieldStubObject *)shareInstance {
-    static XXShieldStubObject *singleton;
++ (MYShieldStubObject *)shareInstance {
+    static MYShieldStubObject *singleton;
     if (!singleton) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            singleton = [XXShieldStubObject new];
+            singleton = [MYShieldStubObject new];
         });
     }
     return singleton;
 }
 
 - (BOOL)addFunc:(SEL)sel {
-    return __addMethod([XXShieldStubObject class], sel);
+    return __addMethod([MYShieldStubObject class], sel);
 }
 
 + (BOOL)addClassFunc:(SEL)sel {
-    Class metaClass = objc_getMetaClass(class_getName([XXShieldStubObject class]));
+    Class metaClass = objc_getMetaClass(class_getName([MYShieldStubObject class]));
     return __addMethod(metaClass, sel);
 }
 
