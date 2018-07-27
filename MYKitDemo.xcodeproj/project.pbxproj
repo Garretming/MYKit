@@ -87,6 +87,7 @@
 		329DB9B82047BD2500D933DD /* NSMutableArray+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 329DB9B72047BD2500D933DD /* NSMutableArray+SafeAccess.m */; };
 		32CE8B122060FEC000EC2D68 /* UIImageView+RectCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CE8B112060FEC000EC2D68 /* UIImageView+RectCorner.m */; };
 		32E1AB542063AF3C0072A1E4 /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */; };
+		81150FDF210AF70800A8B32D /* UITableView+PlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 81150FDE210AF70800A8B32D /* UITableView+PlaceHolder.m */; };
 		811CA2E920D8FBAE00C7807C /* NSObject+UnknowSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2E820D8FBAE00C7807C /* NSObject+UnknowSelector.m */; };
 		811CA2ED20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 811CA2EC20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m */; };
 		8124AC4E20D127EF00BAFE9F /* NSObject+SafeKitSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 8124AC4C20D127EF00BAFE9F /* NSObject+SafeKitSetting.m */; };
@@ -298,6 +299,9 @@
 		32E1AB522063AF3C0072A1E4 /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Addition.h"; sourceTree = "<group>"; };
 		32E1AB532063AF3C0072A1E4 /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Addition.m"; sourceTree = "<group>"; };
 		44976F5419D7BC59D055392A /* Pods-MYKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MYKitDemo/Pods-MYKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		81150FDD210AF70800A8B32D /* UITableView+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+PlaceHolder.h"; sourceTree = "<group>"; };
+		81150FDE210AF70800A8B32D /* UITableView+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PlaceHolder.m"; sourceTree = "<group>"; };
+		81150FE0210AF7E100A8B32D /* TableViewPlaceHolderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewPlaceHolderDelegate.h; sourceTree = "<group>"; };
 		811CA2E720D8FBAE00C7807C /* NSObject+UnknowSelector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+UnknowSelector.h"; sourceTree = "<group>"; };
 		811CA2E820D8FBAE00C7807C /* NSObject+UnknowSelector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UnknowSelector.m"; sourceTree = "<group>"; };
 		811CA2EB20D90A8C00C7807C /* NSNotificationCenter+SafeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+SafeKit.h"; sourceTree = "<group>"; };
@@ -542,6 +546,7 @@
 		32077C231F5FEEA8006E4C70 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				81150FDC210AF6E800A8B32D /* UITableView */,
 				8195078120FDD3FE00D43E89 /* UIAlertController */,
 				327001CA205909AA00AD95EB /* UINavigationBar */,
 				3270017C2059034000AD95EB /* UIViewController */,
@@ -925,6 +930,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		81150FDC210AF6E800A8B32D /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				81150FE0210AF7E100A8B32D /* TableViewPlaceHolderDelegate.h */,
+				81150FDD210AF70800A8B32D /* UITableView+PlaceHolder.h */,
+				81150FDE210AF70800A8B32D /* UITableView+PlaceHolder.m */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
 		811CA2E620D8EDD000C7807C /* UnknowSelector */ = {
 			isa = PBXGroup;
 			children = (
@@ -1229,6 +1244,7 @@
 				815F4D402091BA5500EA6DFF /* NSDate+Extension.m in Sources */,
 				321373931F626E8D00E15D0A /* NSURL+Param.m in Sources */,
 				32CE8B122060FEC000EC2D68 /* UIImageView+RectCorner.m in Sources */,
+				81150FDF210AF70800A8B32D /* UITableView+PlaceHolder.m in Sources */,
 				32077BF21F5FEC6F006E4C70 /* AppDelegate.m in Sources */,
 				8174BBFC2101C92E00ACC1F3 /* UILabel+LineSpacing.m in Sources */,
 				321372FE1F61633300E15D0A /* UITextView+Select.m in Sources */,

@@ -10,7 +10,7 @@
 
 @interface UITextView (PlaceHolder)
 
-@property (nonatomic, readonly) UILabel *placeholderLabel;
+@property (nonatomic, readonly) UITextView *placeholderTextView;
 
 @property (nonatomic, strong) IBInspectable NSString *placeholder;
 @property (nonatomic, strong) NSAttributedString *attributedPlaceholder;
