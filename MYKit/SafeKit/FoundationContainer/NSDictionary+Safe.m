@@ -7,8 +7,6 @@
 //
 
 #import "NSDictionary+Safe.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
 #import "NSObject+Swizzle.h"
 
 @implementation NSDictionary (Safe)

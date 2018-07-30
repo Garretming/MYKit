@@ -7,8 +7,6 @@
 //
 
 #import "NSArray+Safe.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
 #import "NSObject+Swizzle.h"
 
 @implementation NSArray (Safe)
@@ -21,13 +19,17 @@
     Class __NSArray0 = NSClassFromString(@"__NSArray0");
     
     // 防御对象实例方法
+    // insertNil
     [self classSwizzleMethodWithClass:__NSArray orginalMethod:@selector(arrayWithObjects:count:) replaceMethod:@selector(safeArrayWithObjects:count:)];
     
+    // objectAtIndex:
     //FOR __NSArrayI
     [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForArrayI:)];
     
     //FOR __NSArray0
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForNSArray0:)];
+    
+    [self instanceSwizzleMethodWithClass:__NSSingleObjectArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_NSSingleObjectArrayIObjectAtIndex)];
     
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(arrayByAddingObject:) replaceMethod:@selector(safe_arrayByAddingObjectForNSArray0:)];
     
@@ -37,10 +39,37 @@
     
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(subarrayWithRange:) replaceMethod:@selector(safe_subarrayWithRange:)];
     
+    // objectsAtIndexes:
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(objectsAtIndexes:) replaceMethod:@selector(safe_objectsAtIndexes:)];
     
     //FOR __NSSingleObjectArrayI
     [self instanceSwizzleMethodWithClass:__NSSingleObjectArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForSingleObjectArrayI:)];
+    
+    
+#if TARGET_IPHONE_SIMULATOR  //模拟器
+    [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
+#elif TARGET_OS_IPHONE      //真机
+    
+#endif
+}
+
+- (id)safe_NSSingleObjectArrayIObjectAtIndex:(NSUInteger)index{
+    if (index >= self.count) {
+        NSLog(@"\"%@\" -index:(%lu) should less than %lu", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]);
+        return nil;
+    }
+    return [self safe_NSSingleObjectArrayIObjectAtIndex:index];
+}
+
+//objectAtIndexedSubscript
+- (id)safe_objectAtIndexedSubscript:(NSUInteger)idx{
+    if (idx >= self.count) {
+        //记录错误
+        NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSArrayI objectAtIndexedSubscript:]: index %ld beyond bounds [0 .. %ld]'",(unsigned long)idx,(unsigned long)self.count];
+        NSLog(@"%@", errorInfo);
+        return nil;
+    }
+    return [self safe_objectAtIndexedSubscript:idx];
 }
 
 + (instancetype)safeArrayWithObjects:(id  _Nonnull const [])objects count:(NSUInteger)cnt{
@@ -51,7 +80,9 @@
             objectsNew[index] = objects[i];
             index++;
         } else {
-            NSLog(@"*** -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[%d]",i);
+            // 记录错误
+            NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[%d]",i];
+            NSLog(@"%@", errorInfo);
         }
     }
     return [self safeArrayWithObjects:objectsNew count:index];

@@ -7,8 +7,6 @@
 //
 
 #import "NSMutableArray+Safe.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
 #import "NSObject+Swizzle.h"
 
 @implementation NSMutableArray (Safe)
@@ -17,11 +15,13 @@
     
     Class __NSArrayM = NSClassFromString(@"__NSArrayM");
     
+    // insert
     //FOR __NSArrayI
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObject:atIndex:) replaceMethod:@selector(safe_insertObject:atIndex:)];
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObjects:atIndexes:) replaceMethod:@selector(safe_insertObjects:atIndexes:)];
     
+    // remove
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObject:) replaceMethod:@selector(safe_removeObject:)];
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObject:inRange:) replaceMethod:@selector(safe_removeObject:inRange:)];
@@ -34,6 +34,7 @@
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsAtIndexes:) replaceMethod:@selector(safe_removeObjectsAtIndexes:)];
     
+    // replace
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectAtIndex:withObject:) replaceMethod:@selector(safe_replaceObjectAtIndex:withObject:)];
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsAtIndexes:withObjects:) replaceMethod:@selector(safe_replaceObjectsAtIndexes:withObjects:)];

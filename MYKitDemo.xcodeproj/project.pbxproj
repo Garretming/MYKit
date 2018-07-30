@@ -113,6 +113,8 @@
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
 		81CB199420D0E64D00AE2E44 /* MYShieldStubObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB197620D0E64B00AE2E44 /* MYShieldStubObject.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
+		81F9D6E3210EE89100CD14DF /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E2210EE89100CD14DF /* NSString+Safe.m */; };
+		81F9D6E6210EEAAF00CD14DF /* NSMutableString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E5210EEAAF00CD14DF /* NSMutableString+Safe.m */; };
 		81FA3A6E20D1834B00AC90EF /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FA3A5B20D1834600AC90EF /* NSMutableArray+Safe.m */; };
 		81FA3A6F20D1834B00AC90EF /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FA3A5C20D1834600AC90EF /* NSArray+Safe.m */; };
 		81FA3A7220D1834B00AC90EF /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FA3A6020D1834700AC90EF /* NSMutableDictionary+Safe.m */; };
@@ -362,6 +364,10 @@
 		81CB198720D0E64C00AE2E44 /* XXShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXShield.h; sourceTree = "<group>"; };
 		81F868E820C55C9E00630F3B /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
 		81F868E920C55C9E00630F3B /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
+		81F9D6E1210EE89100CD14DF /* NSString+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
+		81F9D6E2210EE89100CD14DF /* NSString+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
+		81F9D6E4210EEAAF00CD14DF /* NSMutableString+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Safe.h"; sourceTree = "<group>"; };
+		81F9D6E5210EEAAF00CD14DF /* NSMutableString+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Safe.m"; sourceTree = "<group>"; };
 		81FA3A5B20D1834600AC90EF /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
 		81FA3A5C20D1834600AC90EF /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
 		81FA3A6020D1834700AC90EF /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
@@ -1060,6 +1066,10 @@
 				81FA3A6B20D1834B00AC90EF /* NSDictionary+Safe.m */,
 				81FA3A6920D1834A00AC90EF /* NSMutableDictionary+Safe.h */,
 				81FA3A6020D1834700AC90EF /* NSMutableDictionary+Safe.m */,
+				81F9D6E1210EE89100CD14DF /* NSString+Safe.h */,
+				81F9D6E2210EE89100CD14DF /* NSString+Safe.m */,
+				81F9D6E4210EEAAF00CD14DF /* NSMutableString+Safe.h */,
+				81F9D6E5210EEAAF00CD14DF /* NSMutableString+Safe.m */,
 				81FA3A6120D1834800AC90EF /* NSObject+Safe.h */,
 				81FA3A6320D1834800AC90EF /* NSObject+Safe.m */,
 				812B36B920E1E859007E8F54 /* MYSafeFoundationContainer.h */,
@@ -1224,6 +1234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F9D6E3210EE89100CD14DF /* NSString+Safe.m in Sources */,
 				8174BC1B210580B000ACC1F3 /* MYViewController.m in Sources */,
 				320695AF1F6010680009FFDA /* UILabel+CountDown.m in Sources */,
 				32077C611F600AA5006E4C70 /* UIColor+Addition.m in Sources */,
@@ -1235,6 +1246,7 @@
 				8174BC1A210580B000ACC1F3 /* MYTextFieldViewController.m in Sources */,
 				329AD3741FC030190036CF6D /* UIScreen+Addition.m in Sources */,
 				81FA3A6F20D1834B00AC90EF /* NSArray+Safe.m in Sources */,
+				81F9D6E6210EEAAF00CD14DF /* NSMutableString+Safe.m in Sources */,
 				811CA2ED20D90A8C00C7807C /* NSNotificationCenter+SafeKit.m in Sources */,
 				8174BC18210580B000ACC1F3 /* MYNavigationBarViewController.m in Sources */,
 				327001742058E78F00AD95EB /* UIImage+CornerRadius.m in Sources */,
