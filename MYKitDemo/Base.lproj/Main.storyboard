@@ -27,11 +27,11 @@
             </objects>
             <point key="canvasLocation" x="-2404" y="-772"/>
         </scene>
-        <!--Item-->
+        <!--UIKit-->
         <scene sceneID="vC1-Jb-bH2">
             <objects>
                 <navigationController id="OAp-n9-1IK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="k6I-hc-aNW"/>
+                    <tabBarItem key="tabBarItem" title="UIKit" id="k6I-hc-aNW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="izd-qI-oWY">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -44,11 +44,11 @@
             </objects>
             <point key="canvasLocation" x="-1583" y="-1021"/>
         </scene>
-        <!--Item-->
+        <!--SafeKit-->
         <scene sceneID="zvy-8j-Ldf">
             <objects>
                 <navigationController id="arZ-xI-PiI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gd5-qE-rDm"/>
+                    <tabBarItem key="tabBarItem" title="SafeKit" id="gd5-qE-rDm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jzk-wQ-fM1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

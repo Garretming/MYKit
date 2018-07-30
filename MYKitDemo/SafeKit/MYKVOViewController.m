@@ -1,0 +1,50 @@
+//
+//  MYKVOViewController.m
+//  MYKitDemo
+//
+//  Created by QMMac on 2018/7/30.
+//  Copyright © 2018 com.51fanxing. All rights reserved.
+//
+
+#import "MYKVOViewController.h"
+#import "Person.h"
+#import "NSObject+SafeKVO.h"
+
+@interface MYKVOViewController ()
+
+@end
+
+@implementation MYKVOViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    [NSObject registerClassPairMethodsInKVO];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+  
+    [self testKVO1];
+}
+
+- (void)testKVO1 {
+    [self addObserver:[Person new ] forKeyPath:@"view" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
+    
+    self.view = [UIView new]; // Crash
+    // 被观察者是局部变量  触发KVOCrash
+}
+
+- (void)testKVO2 {
+    [self addObserver:self forKeyPath:@"view" options:(NSKeyValueObservingOptionNew) context:NULL];
+    
+    self.view = [UIView new];
+    // 会触发多次响应事件
+    
+    // for test 多余的移除会导致Crash  because it is not registered as an observer.'
+    [self removeObserver:self forKeyPath:@"view"];
+    [self removeObserver:self forKeyPath:@"view"];
+}
+
+@end

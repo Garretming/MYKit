@@ -112,9 +112,12 @@
 		8174BC1F210585EE00ACC1F3 /* SafeKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC1E210585EE00ACC1F3 /* SafeKitViewController.m */; };
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
 		81CB199420D0E64D00AE2E44 /* MYShieldStubObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB197620D0E64B00AE2E44 /* MYShieldStubObject.m */; };
+		81F41DE7210F0FA7005460E7 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DE6210F0FA7005460E7 /* Person.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81F9D6E3210EE89100CD14DF /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E2210EE89100CD14DF /* NSString+Safe.m */; };
 		81F9D6E6210EEAAF00CD14DF /* NSMutableString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E5210EEAAF00CD14DF /* NSMutableString+Safe.m */; };
+		81F9D6EA210EEFB300CD14DF /* NSObject+SafeKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E9210EEFB300CD14DF /* NSObject+SafeKVO.m */; };
+		81F9D6ED210EF0BF00CD14DF /* MYKVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6EC210EF0BF00CD14DF /* MYKVOViewController.m */; };
 		81FA3A6E20D1834B00AC90EF /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FA3A5B20D1834600AC90EF /* NSMutableArray+Safe.m */; };
 		81FA3A6F20D1834B00AC90EF /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FA3A5C20D1834600AC90EF /* NSArray+Safe.m */; };
 		81FA3A7220D1834B00AC90EF /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FA3A6020D1834700AC90EF /* NSMutableDictionary+Safe.m */; };
@@ -362,12 +365,18 @@
 		81CB197620D0E64B00AE2E44 /* MYShieldStubObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYShieldStubObject.m; sourceTree = "<group>"; };
 		81CB197820D0E64B00AE2E44 /* MYShieldStubObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYShieldStubObject.h; sourceTree = "<group>"; };
 		81CB198720D0E64C00AE2E44 /* XXShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXShield.h; sourceTree = "<group>"; };
+		81F41DE5210F0FA7005460E7 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		81F41DE6210F0FA7005460E7 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		81F868E820C55C9E00630F3B /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
 		81F868E920C55C9E00630F3B /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		81F9D6E1210EE89100CD14DF /* NSString+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
 		81F9D6E2210EE89100CD14DF /* NSString+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
 		81F9D6E4210EEAAF00CD14DF /* NSMutableString+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Safe.h"; sourceTree = "<group>"; };
 		81F9D6E5210EEAAF00CD14DF /* NSMutableString+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Safe.m"; sourceTree = "<group>"; };
+		81F9D6E8210EEFB300CD14DF /* NSObject+SafeKVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SafeKVO.h"; sourceTree = "<group>"; };
+		81F9D6E9210EEFB300CD14DF /* NSObject+SafeKVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SafeKVO.m"; sourceTree = "<group>"; };
+		81F9D6EB210EF0BF00CD14DF /* MYKVOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKVOViewController.h; sourceTree = "<group>"; };
+		81F9D6EC210EF0BF00CD14DF /* MYKVOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYKVOViewController.m; sourceTree = "<group>"; };
 		81FA3A5B20D1834600AC90EF /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
 		81FA3A5C20D1834600AC90EF /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
 		81FA3A6020D1834700AC90EF /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
@@ -991,6 +1000,7 @@
 		815F4CF12091AA9A00EA6DFF /* SafeKit */ = {
 			isa = PBXGroup;
 			children = (
+				81F9D6E7210EEF6800CD14DF /* KVO */,
 				8136817920DB7AFB00FA8373 /* NSNull */,
 				811CA2EA20D9097F00C7807C /* Notification */,
 				811CA2E620D8EDD000C7807C /* UnknowSelector */,
@@ -1010,21 +1020,21 @@
 		8174BC03210580B000ACC1F3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				8174BC0E210580B000ACC1F3 /* MYColorViewController.h */,
 				8174BC04210580B000ACC1F3 /* MYColorViewController.m */,
 				8174BC05210580B000ACC1F3 /* MYButtonViewController.h */,
+				8174BC0D210580B000ACC1F3 /* MYButtonViewController.m */,
+				8174BC0C210580B000ACC1F3 /* MYAlertViewController.h */,
 				8174BC06210580B000ACC1F3 /* MYAlertViewController.m */,
+				8174BC10210580B000ACC1F3 /* MYLabelViewController.h */,
 				8174BC07210580B000ACC1F3 /* MYLabelViewController.m */,
 				8174BC08210580B000ACC1F3 /* MYTextFieldViewController.h */,
+				8174BC0F210580B000ACC1F3 /* MYTextFieldViewController.m */,
+				8174BC12210580B000ACC1F3 /* MYImageViewController.h */,
 				8174BC09210580B000ACC1F3 /* MYImageViewController.m */,
+				8174BC11210580B000ACC1F3 /* MYNavigationBarViewController.h */,
 				8174BC0A210580B000ACC1F3 /* MYNavigationBarViewController.m */,
 				8174BC0B210580B000ACC1F3 /* MYViewController.h */,
-				8174BC0C210580B000ACC1F3 /* MYAlertViewController.h */,
-				8174BC0D210580B000ACC1F3 /* MYButtonViewController.m */,
-				8174BC0E210580B000ACC1F3 /* MYColorViewController.h */,
-				8174BC0F210580B000ACC1F3 /* MYTextFieldViewController.m */,
-				8174BC10210580B000ACC1F3 /* MYLabelViewController.h */,
-				8174BC11210580B000ACC1F3 /* MYNavigationBarViewController.h */,
-				8174BC12210580B000ACC1F3 /* MYImageViewController.h */,
 				8174BC13210580B000ACC1F3 /* MYViewController.m */,
 			);
 			path = UIKit;
@@ -1033,6 +1043,10 @@
 		8174BC1C210580BE00ACC1F3 /* SafeKit */ = {
 			isa = PBXGroup;
 			children = (
+				81F9D6EB210EF0BF00CD14DF /* MYKVOViewController.h */,
+				81F9D6EC210EF0BF00CD14DF /* MYKVOViewController.m */,
+				81F41DE5210F0FA7005460E7 /* Person.h */,
+				81F41DE6210F0FA7005460E7 /* Person.m */,
 			);
 			path = SafeKit;
 			sourceTree = "<group>";
@@ -1076,6 +1090,15 @@
 				812B36BA20E1E859007E8F54 /* MYSafeFoundationContainer.m */,
 			);
 			path = FoundationContainer;
+			sourceTree = "<group>";
+		};
+		81F9D6E7210EEF6800CD14DF /* KVO */ = {
+			isa = PBXGroup;
+			children = (
+				81F9D6E8210EEFB300CD14DF /* NSObject+SafeKVO.h */,
+				81F9D6E9210EEFB300CD14DF /* NSObject+SafeKVO.m */,
+			);
+			path = KVO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1236,12 +1259,14 @@
 			files = (
 				81F9D6E3210EE89100CD14DF /* NSString+Safe.m in Sources */,
 				8174BC1B210580B000ACC1F3 /* MYViewController.m in Sources */,
+				81F41DE7210F0FA7005460E7 /* Person.m in Sources */,
 				320695AF1F6010680009FFDA /* UILabel+CountDown.m in Sources */,
 				32077C611F600AA5006E4C70 /* UIColor+Addition.m in Sources */,
 				324174531FF63BFD007BB277 /* UIScrollView+Addition.m in Sources */,
 				328505AB1F9F57C80098E2C0 /* NSString+Regular.m in Sources */,
 				321373B51F627D9700E15D0A /* NSObject+AssociatedObject.m in Sources */,
 				32322A1F1FD4E7CC008060D9 /* NSMutableArray+Sort.m in Sources */,
+				81F9D6ED210EF0BF00CD14DF /* MYKVOViewController.m in Sources */,
 				321372F81F61621C00E15D0A /* UITextView+PlaceHolder.m in Sources */,
 				8174BC1A210580B000ACC1F3 /* MYTextFieldViewController.m in Sources */,
 				329AD3741FC030190036CF6D /* UIScreen+Addition.m in Sources */,
@@ -1289,6 +1314,7 @@
 				81FA3A6E20D1834B00AC90EF /* NSMutableArray+Safe.m in Sources */,
 				815F4D222091B8C400EA6DFF /* NSString+Size.m in Sources */,
 				3213731E1F6167C600E15D0A /* UILabel+LimitLines.m in Sources */,
+				81F9D6EA210EEFB300CD14DF /* NSObject+SafeKVO.m in Sources */,
 				328505941F9F51ED0098E2C0 /* UIDevice+Addition.m in Sources */,
 				3213734F1F6265CD00E15D0A /* NSBundle+AppIcon.m in Sources */,
 				329DB9B82047BD2500D933DD /* NSMutableArray+SafeAccess.m in Sources */,
