@@ -25,17 +25,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.dataSource addObject:@"*SafeKit之KVO*-MYKVOViewController"];
-    [self.dataSource addObject:@"*UIKit之NavigationBar*-MYNavigationBarViewController"];
-    [self.dataSource addObject:@"*UIKit之TextField*-MYTextFieldViewController"];
-    [self.dataSource addObject:@"*UIKit之Label*-MYLabelViewController"];
-    [self.dataSource addObject:@"*UIKit之Button*-MYButtonViewController"];
-    [self.dataSource addObject:@"*UIKit之Color*-MYColorViewController"];
-    [self.dataSource addObject:@"*UIKit之Image*-MYImageViewController"];
-    [self.dataSource addObject:@"*UIKit之View*-MYViewController"];
-    [self.dataSource addObject:@"*UIWebView实战*-MYWebViewController"];
-    [self.dataSource addObject:@"自定义UISwitch-MYAMViralSwitchViewController"];
-    [self.dataSource addObject:@"CollectionDynamicCell-MYAutomaticallyCollectionViewCellViewController"];
-    [self.dataSource addObject:@"自定义导航栏-MYCustomNavigationBarViewController"];
+    [self.dataSource addObject:@"*SafeKit之Timer*-MYTimerViewController"];
     
     [self.view addSubview:self.tableView];
 }

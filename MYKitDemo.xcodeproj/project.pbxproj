@@ -113,6 +113,8 @@
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
 		81CB199420D0E64D00AE2E44 /* MYShieldStubObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB197620D0E64B00AE2E44 /* MYShieldStubObject.m */; };
 		81F41DE7210F0FA7005460E7 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DE6210F0FA7005460E7 /* Person.m */; };
+		81F41DEE210F15A8005460E7 /* NSTimer+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DED210F15A8005460E7 /* NSTimer+Safe.m */; };
+		81F41DF1210F18E3005460E7 /* MYTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DF0210F18E3005460E7 /* MYTimerViewController.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81F9D6E3210EE89100CD14DF /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E2210EE89100CD14DF /* NSString+Safe.m */; };
 		81F9D6E6210EEAAF00CD14DF /* NSMutableString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E5210EEAAF00CD14DF /* NSMutableString+Safe.m */; };
@@ -367,6 +369,10 @@
 		81CB198720D0E64C00AE2E44 /* XXShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXShield.h; sourceTree = "<group>"; };
 		81F41DE5210F0FA7005460E7 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		81F41DE6210F0FA7005460E7 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		81F41DEC210F15A8005460E7 /* NSTimer+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Safe.h"; sourceTree = "<group>"; };
+		81F41DED210F15A8005460E7 /* NSTimer+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Safe.m"; sourceTree = "<group>"; };
+		81F41DEF210F18E3005460E7 /* MYTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYTimerViewController.h; sourceTree = "<group>"; };
+		81F41DF0210F18E3005460E7 /* MYTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYTimerViewController.m; sourceTree = "<group>"; };
 		81F868E820C55C9E00630F3B /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
 		81F868E920C55C9E00630F3B /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		81F9D6E1210EE89100CD14DF /* NSString+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
@@ -1000,6 +1006,7 @@
 		815F4CF12091AA9A00EA6DFF /* SafeKit */ = {
 			isa = PBXGroup;
 			children = (
+				81F41DEB210F150E005460E7 /* NSTimer */,
 				81F9D6E7210EEF6800CD14DF /* KVO */,
 				8136817920DB7AFB00FA8373 /* NSNull */,
 				811CA2EA20D9097F00C7807C /* Notification */,
@@ -1045,6 +1052,8 @@
 			children = (
 				81F9D6EB210EF0BF00CD14DF /* MYKVOViewController.h */,
 				81F9D6EC210EF0BF00CD14DF /* MYKVOViewController.m */,
+				81F41DEF210F18E3005460E7 /* MYTimerViewController.h */,
+				81F41DF0210F18E3005460E7 /* MYTimerViewController.m */,
 				81F41DE5210F0FA7005460E7 /* Person.h */,
 				81F41DE6210F0FA7005460E7 /* Person.m */,
 			);
@@ -1090,6 +1099,15 @@
 				812B36BA20E1E859007E8F54 /* MYSafeFoundationContainer.m */,
 			);
 			path = FoundationContainer;
+			sourceTree = "<group>";
+		};
+		81F41DEB210F150E005460E7 /* NSTimer */ = {
+			isa = PBXGroup;
+			children = (
+				81F41DEC210F15A8005460E7 /* NSTimer+Safe.h */,
+				81F41DED210F15A8005460E7 /* NSTimer+Safe.m */,
+			);
+			path = NSTimer;
 			sourceTree = "<group>";
 		};
 		81F9D6E7210EEF6800CD14DF /* KVO */ = {
@@ -1294,6 +1312,7 @@
 				325AFEB51FC029E5009FF8B1 /* UIView+FindSubView.m in Sources */,
 				32077C271F5FEEF7006E4C70 /* UIImageView+CornerRadius.m in Sources */,
 				815F4D402091BA5500EA6DFF /* NSDate+Extension.m in Sources */,
+				81F41DEE210F15A8005460E7 /* NSTimer+Safe.m in Sources */,
 				321373931F626E8D00E15D0A /* NSURL+Param.m in Sources */,
 				32CE8B122060FEC000EC2D68 /* UIImageView+RectCorner.m in Sources */,
 				81150FDF210AF70800A8B32D /* UITableView+PlaceHolder.m in Sources */,
@@ -1328,6 +1347,7 @@
 				321373A91F62752E00E15D0A /* NSString+Trims.m in Sources */,
 				815F4D1F2091B88D00EA6DFF /* NSDictionary+Addition.m in Sources */,
 				321373761F626B7700E15D0A /* NSDateFormatter+Extension.m in Sources */,
+				81F41DF1210F18E3005460E7 /* MYTimerViewController.m in Sources */,
 				81150FE5210AF8FF00A8B32D /* UICollectionView+PlaceHolder.m in Sources */,
 				325AFEA21FC023D1009FF8B1 /* NSArray+Addition.m in Sources */,
 				3270017F2059035200AD95EB /* UIViewController+PageViewLevel.m in Sources */,
