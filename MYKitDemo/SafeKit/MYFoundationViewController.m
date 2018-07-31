@@ -35,26 +35,24 @@
     NSArray *objectsAtIndexes = [array3 objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(2, 2)]];
     NSLog(@"objectsAtIndexes:%@",objectsAtIndexes);
     
-//    [array0 objectAtIndex:0];
-    //    [array arrayByAddingObject:nil];
-    //    [array indexOfObject:@"B" inRange:NSMakeRange(0, 2)];
-    //    [array indexOfObjectIdenticalTo:@"B" inRange:NSMakeRange(0, 2)];
-    //    [array subarrayWithRange:NSMakeRange(0, 1)];
-    //    [array objectsAtIndexes:[NSIndexSet indexSetWithIndex:10]];
-    //    [array objectAtIndexedSubscript:1000];
+    //4、arrayByAddingObject
+    [array3 arrayByAddingObject:nil];
     
-    /*
-     [array arrayByAddingObjectsFromArray:nil];
-     [array componentsJoinedByString:nil];
-     [array containsObject:nil];
-     [array descriptionWithLocale:nil];
-     [array descriptionWithLocale:nil indent:1000];
-     [array firstObjectCommonWithArray:nil];
-     [array indexOfObject:nil];
-     [array isEqualToArray:nil];
-     [array indexOfObjectIdenticalTo:nil];
-     */
+    //5、indexOfObject
+    NSArray *temp = [NSArray array];
+    [array3 indexOfObject:@"B" inRange:NSMakeRange(0, 5)];
     
+    //6、indexOfObjectIdenticalTo
+    [array3 indexOfObjectIdenticalTo:@"B" inRange:NSMakeRange(0, 5)];
+    
+    //7、subarrayWithRange
+    [array3 subarrayWithRange:NSMakeRange(0, 6)];
+    
+    //8、objectsAtIndexes
+    [temp objectsAtIndexes:[NSIndexSet indexSetWithIndex:100]];
+    
+    [array3 objectAtIndexedSubscript:1000];
+  
     //    NSMutableArray * mutableArray = [NSMutableArray new].safe;
     //    [mutableArray addObject:@"AA"];
     //    [mutableArray removeObjectAtIndex:5];

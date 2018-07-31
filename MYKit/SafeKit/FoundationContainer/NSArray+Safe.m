@@ -24,28 +24,28 @@
     [self classSwizzleMethodWithClass:__NSArray orginalMethod:@selector(arrayWithObjects:count:) replaceMethod:@selector(safeArrayWithObjects:count:)];
     
     // objectAtIndex:
-    [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForArrayI:)];
+    [self instanceSwizzleMethodWithClass:__NSSingleObjectArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndex:)];
     
-    [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForNSArray0:)];
+    [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexWithArrayI:)];
     
-    [self instanceSwizzleMethodWithClass:__NSSingleObjectArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForSingleObjectArrayI:)];
+    [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexWithArray0:)];
     
     // objectAtIndexedSubscript
     [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
     
     // arrayByAddingObject
-    [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(arrayByAddingObject:) replaceMethod:@selector(safe_arrayByAddingObjectForNSArray0:)];
+    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(arrayByAddingObject:) replaceMethod:@selector(safe_arrayByAddingObjectForNSArray:)];
     
     // indexOfObject
-    [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(indexOfObject:inRange:) replaceMethod:@selector(safe_indexOfObject:inRange:)];
+    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(indexOfObject:inRange:) replaceMethod:@selector(safe_indexOfObjectWithArray:inRange:)];
     
     // indexOfObjectIdenticalTo
-    [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(indexOfObjectIdenticalTo:inRange:) replaceMethod:@selector(safe_indexOfObjectIdenticalTo:inRange:)];
+    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(indexOfObjectIdenticalTo:inRange:) replaceMethod:@selector(safe_indexOfObjectIdenticalToWithArray:inRange:)];
     
     // subarrayWithRange
-    [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(subarrayWithRange:) replaceMethod:@selector(safe_subarrayWithRange:)];
+    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(subarrayWithRange:) replaceMethod:@selector(safe_subarrayWithRange:)];
     
-    // objectsAtIndexes:
+    // objectsAtIndexes: NSArray、__NSArrayI、__NSSingleObjectArrayI、__NSArray0
     [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(objectsAtIndexes:) replaceMethod:@selector(safe_objectsAtIndexesWithNSArray:)];
 }
 
@@ -69,7 +69,7 @@
 
 - (id)safe_objectAtIndexedSubscript:(NSUInteger)idx {
     if (idx < [(NSArray *)self count]) {
-        return [self safe_objectAtIndexForArrayI:idx];
+        return [self safe_objectAtIndexedSubscript:idx];
     } else {
         NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
                             [self class], NSStringFromSelector(@selector(objectAtIndexedSubscript:)), @(idx), @(self.count)];
@@ -78,10 +78,10 @@
     }
 }
 
-- (id)safe_objectAtIndexForArrayI:(NSUInteger)index {
+- (id)safe_objectAtIndex:(NSUInteger)index {
     
     if (index < [(NSArray *)self count]) {
-        return [self safe_objectAtIndexForArrayI:index];
+        return [self safe_objectAtIndex:index];
     } else {
         NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
                             [self class], NSStringFromSelector(@selector(objectAtIndex:)), @(index), @(self.count)];
@@ -90,9 +90,10 @@
     }
 }
 
-- (id)safe_objectAtIndexForNSArray0:(NSUInteger)index {
+- (id)safe_objectAtIndexWithArrayI:(NSUInteger)index {
+    
     if (index < [(NSArray *)self count]) {
-        return [self safe_objectAtIndexForNSArray0:index];
+        return [self safe_objectAtIndexWithArrayI:index];
     } else {
         NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
                             [self class], NSStringFromSelector(@selector(objectAtIndex:)), @(index), @(self.count)];
@@ -101,9 +102,10 @@
     }
 }
 
-- (id)safe_objectAtIndexForSingleObjectArrayI:(NSUInteger)index {
+- (id)safe_objectAtIndexWithArray0:(NSUInteger)index {
+    
     if (index < [(NSArray *)self count]) {
-        return [self safe_objectAtIndexForSingleObjectArrayI:index];
+        return [self safe_objectAtIndexWithArray0:index];
     } else {
         NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
                             [self class], NSStringFromSelector(@selector(objectAtIndex:)), @(index), @(self.count)];
@@ -112,35 +114,39 @@
     }
 }
 
-- (NSArray<id> *)safe_arrayByAddingObjectForNSArray0:(id)anObject {
+- (NSArray<id> *)safe_arrayByAddingObjectForNSArray:(id)anObject {
     if (anObject != nil) {
-        return [self safe_arrayByAddingObjectForNSArray0:anObject];
+        return [self safe_arrayByAddingObjectForNSArray:anObject];
     } else {
-        NSLog(@"\"%@\" -object:%@ cannot be set nil", NSStringFromSelector(_cmd), anObject);
+        NSString *reason = [NSString stringWithFormat:@"\"%@\" -object:%@ cannot be set nil", NSStringFromSelector(_cmd), anObject];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
         return nil;
     }
 }
 
-- (NSUInteger)safe_indexOfObject:(id)anObject inRange:(NSRange)range {
+- (NSUInteger)safe_indexOfObjectWithArray:(id)anObject inRange:(NSRange)range {
     
     if (!anObject) {
-        NSLog(@"\"%@\" -object:%@ cannot be set nil", NSStringFromSelector(_cmd), anObject);
+        NSString *reason = [NSString stringWithFormat:@"%@\"%@\" -object:%@ cannot be set nil", NSStringFromClass([self class]), NSStringFromSelector(_cmd), anObject];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
         return LONG_MAX;
     }
     
     if (range.location + range.length <= ((NSArray *)self).count)  {
-        return [self safe_indexOfObject:anObject inRange:range];
+        return [self safe_indexOfObjectWithArray:anObject inRange:range];
     } else {
-        NSLog(@"\"%@\"-range:%@ should be at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
+        NSString *reason = [NSString stringWithFormat:@"%@\"%@\"-range:%@ should be at range [0, %lu)", NSStringFromClass([self class]), NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
         return LONG_MAX;
     }
 }
 
-- (NSUInteger)safe_indexOfObjectIdenticalTo:(id)anObject inRange:(NSRange)range {
+- (NSUInteger)safe_indexOfObjectIdenticalToWithArray:(id)anObject inRange:(NSRange)range {
     if (range.location + range.length <= ((NSArray *)self).count)  {
-        return [self safe_indexOfObjectIdenticalTo:anObject inRange:range];
+        return [self safe_indexOfObjectIdenticalToWithArray:anObject inRange:range];
     } else {
-        NSLog(@"\"%@\"-range:%@ must at range [0, %lu)", NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]);
+        NSString *reason = [NSString stringWithFormat:@"%@\"%@\"-range:%@ must at range [0, %lu)",[self class], NSStringFromSelector(_cmd), NSStringFromRange(range), (unsigned long)[(NSArray *)self count]];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
         return LONG_MAX;
     }
 }
