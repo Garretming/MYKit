@@ -21,8 +21,6 @@
     
     self.title = @"";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    [NSTimer registerClassPairMethodsInTimer];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

@@ -11,7 +11,7 @@
 
 @implementation NSMutableArray (Safe)
 
-+ (void)registerClassPairMethodsInNSMutableArray {
++ (void)registerClassPairMethodsInMutableArray {
     
     Class __NSArrayM = NSClassFromString(@"__NSArrayM");
     

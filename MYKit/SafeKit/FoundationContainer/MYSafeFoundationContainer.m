@@ -12,6 +12,8 @@
 #import "NSDictionary+Safe.h"
 #import "NSMutableDictionary+Safe.h"
 #import "NSObject+Safe.h"
+#import "NSMutableString+Safe.h"
+#import "NSString+Safe.h"
 
 @interface MYSafeFoundationContainer ()
 
@@ -23,13 +25,16 @@
 
 + (void)safeGuardContainersSelector {
     
-    [NSArray registerClassPairMethodsInNSArray];
-    [NSMutableArray registerClassPairMethodsInNSMutableArray];
+    [NSArray registerClassPairMethodsInArray];
+    [NSMutableArray registerClassPairMethodsInMutableArray];
     
     [NSDictionary registerClassPairMethodsInDictionary];
     [NSMutableDictionary registerClassPairMethodsInMutableDictionary];
     
     [NSObject registerClassPairMethodsInObject];
+    
+    [NSString registerClassPairMethodsInString];
+    [NSMutableString registerClassPairMethodsInMutableString];
 }
 
 @end

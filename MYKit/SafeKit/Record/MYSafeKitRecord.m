@@ -28,4 +28,27 @@ static id<MYSafeKitRecordProtocol> __record;
     [__record recordWithReason:error];
 }
 
++ (NSString *)getErrorMessageWithTipString:(NSString *)tipString {
+    NSString *contentString = tipString;
+    //堆栈数据
+    NSArray *callStackSymbolsArr = [NSThread callStackSymbols];
+    if (callStackSymbolsArr != nil) {
+        NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:callStackSymbolsArr];
+        NSString *ErrorString = [mutableArray componentsJoinedByString:@"\n"];//分隔符逗号
+        contentString = [NSString stringWithFormat:@"%@\n%@", tipString, ErrorString];
+    }
+    
+    return contentString;
+}
+
++ (void)safeKit_showAlterWithMessage:(NSString *)messsage {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                       message:messsage
+                                                      delegate:self
+                                             cancelButtonTitle:nil
+                                             otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+
+
 @end

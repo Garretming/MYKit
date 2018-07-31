@@ -7,6 +7,7 @@
 //
 
 #import "MYSafeKit.h"
+#import "MYSafeKitRecord.h"
 #import "NSNull+SafeKit.h"
 #import "MYSafeFoundationContainer.h"
 #import "NSObject+UnknowSelector.h"
@@ -81,6 +82,10 @@
     dispatch_once(&onceToken, ^{
         [NSTimer registerClassPairMethodsInTimer];
     });
+}
+
++ (void)registerRecordHandler:(nonnull id<MYSafeKitRecordProtocol>)record {
+    [MYSafeKitRecord registerRecordHandler:record];
 }
 
 @end

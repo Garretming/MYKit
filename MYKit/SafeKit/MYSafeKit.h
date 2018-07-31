@@ -27,6 +27,13 @@ typedef NS_OPTIONS(NSUInteger, MYSafeKitShieldType) {
 @interface MYSafeKit : NSObject
 
 /**
+ 注册汇报中心
+ 
+ @param record 汇报中心
+ */
++ (void)registerRecordHandler:(id<MYSafeKitRecordProtocol>)record;
+
+/**
  注册 SDK，默认只要开启就打开防 Crash
  */
 + (void)registerSafeKitShield;

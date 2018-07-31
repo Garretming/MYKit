@@ -12,7 +12,7 @@
 
 @implementation NSArray (Safe)
 
-+ (void)registerClassPairMethodsInNSArray {
++ (void)registerClassPairMethodsInArray {
     
     Class __NSArray = NSClassFromString(@"NSArray");
     Class __NSArrayI = NSClassFromString(@"__NSArrayI");
@@ -53,7 +53,7 @@
 }
 
 //objectAtIndexedSubscript
-- (id)safe_objectAtIndexedSubscript:(NSUInteger)idx{
+- (id)safe_objectAtIndexedSubscript:(NSUInteger)idx {
     if (idx >= self.count) {
         //记录错误
         NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSArrayI objectAtIndexedSubscript:]: index %ld beyond bounds [0 .. %ld]'",(unsigned long)idx,(unsigned long)self.count];

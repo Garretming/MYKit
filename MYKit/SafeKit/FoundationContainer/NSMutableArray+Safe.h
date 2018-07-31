@@ -10,6 +10,9 @@
 
 @interface NSMutableArray <T> (Safe)
 
-+ (void)registerClassPairMethodsInNSMutableArray;
+/**
+ 可变数组 crash 防护
+ */
++ (void)registerClassPairMethodsInMutableArray;
 
 @end

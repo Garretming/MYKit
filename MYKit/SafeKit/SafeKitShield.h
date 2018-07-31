@@ -14,7 +14,4 @@ FOUNDATION_EXPORT double SafeKitShieldVersionNumber;
 //! Project version string for Expecta.
 FOUNDATION_EXPORT const unsigned char SafeKitShieldVersionString[];
 
-#import "NSArray+Safe.h"
-#import "NSMutableArray+Safe.h"
-#import "NSDictionary+Safe.h"
-#import "NSMutableDictionary+Safe.h"
+#import "MYSafeKit.h"

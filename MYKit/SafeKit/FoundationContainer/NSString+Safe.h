@@ -10,6 +10,9 @@
 
 @interface NSString (Safe)
 
-+ (void)registerClassPairMethodsInNSString;
+/**
+ String 防护 Crash
+ */
++ (void)registerClassPairMethodsInString;
 
 @end

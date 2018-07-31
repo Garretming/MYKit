@@ -13,7 +13,7 @@
  */
 @interface NSArray <T> (Safe)
 
-+ (void)registerClassPairMethodsInNSArray;
++ (void)registerClassPairMethodsInArray;
 
 @end
 

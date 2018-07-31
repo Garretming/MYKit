@@ -11,7 +11,7 @@
 
 @implementation NSString (Safe)
 
-+ (void)registerClassPairMethodsInNSString {
++ (void)registerClassPairMethodsInString {
     Class NSCFConstantString = NSClassFromString(@"__NSCFConstantString");
     
     [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(characterAtIndex:) replaceMethod:@selector(safe_characterAtIndex:)];

@@ -10,6 +10,9 @@
 
 @interface NSDictionary <K, V> (Safe)
 
+/**
+ 字典 crash 防护
+ */
 + (void)registerClassPairMethodsInDictionary;
 
 @end

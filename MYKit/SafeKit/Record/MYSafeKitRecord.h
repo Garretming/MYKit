@@ -6,6 +6,7 @@
 //  Copyright © 2018 com.51fanxing. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "MYSafeKit.h"
 
 @interface MYSafeKitRecord : NSObject
@@ -24,5 +25,17 @@
  */
 + (void)recordFatalWithReason:(nullable NSString *)reason
                     errorType:(MYSafeKitShieldType)type;
+
+/**
+ 获取调用堆栈信息
+
+ @param tipString 错误信息
+ */
++ (NSString *)getErrorMessageWithTipString:(NSString *)tipString;
+
+/**
+ alter 错误堆栈信息
+ */
++ (void)safeKit_showAlterWithMessage:(NSString *)messsage;
 
 @end

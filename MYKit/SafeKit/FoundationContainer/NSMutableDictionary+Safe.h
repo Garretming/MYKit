@@ -10,6 +10,9 @@
 
 @interface NSMutableDictionary <K, V> (Safe)
 
+/**
+ 可变字典 crash 防护
+ */
 + (void)registerClassPairMethodsInMutableDictionary;
 
 @end

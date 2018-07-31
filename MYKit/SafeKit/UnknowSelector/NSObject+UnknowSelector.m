@@ -8,9 +8,75 @@
 
 #import "NSObject+UnknowSelector.h"
 #import "NSObject+Swizzle.h"
-#import "MYShieldStubObject.h"
 #import "MYSafeKitRecord.h"
 #import <dlfcn.h>
+
+/**
+ default Implement
+ 
+ @param target trarget
+ @param cmd cmd
+ @param ... other param
+ @return default Implement is zero
+ */
+int smartFunction(id target, SEL cmd, ...) {
+    return 0;
+}
+
+static BOOL __addMethod(Class clazz, SEL sel) {
+    NSString *selName = NSStringFromSelector(sel);
+    
+    NSMutableString *tmpString = [[NSMutableString alloc] initWithFormat:@"%@", selName];
+    
+    int count = (int)[tmpString replaceOccurrencesOfString:@":"
+                                                withString:@"_"
+                                                   options:NSCaseInsensitiveSearch
+                                                     range:NSMakeRange(0, selName.length)];
+    
+    NSMutableString *val = [[NSMutableString alloc] initWithString:@"i@:"];
+    
+    for (int i = 0; i < count; i++) {
+        [val appendString:@"@"];
+    }
+    const char *funcTypeEncoding = [val UTF8String];
+    return class_addMethod(clazz, sel, (IMP)smartFunction, funcTypeEncoding);
+}
+
+@interface MYShieldStubObject : NSObject
+
+- (instancetype)init __unavailable;
+
++ (MYShieldStubObject *)shareInstance;
+
+- (BOOL)addFunc:(SEL)sel;
+
++ (BOOL)addClassFunc:(SEL)sel;
+
+@end
+
+@implementation MYShieldStubObject
+
++ (MYShieldStubObject *)shareInstance {
+    static MYShieldStubObject *singleton;
+    if (!singleton) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            singleton = [MYShieldStubObject new];
+        });
+    }
+    return singleton;
+}
+
+- (BOOL)addFunc:(SEL)sel {
+    return __addMethod([MYShieldStubObject class], sel);
+}
+
++ (BOOL)addClassFunc:(SEL)sel {
+    Class metaClass = objc_getMetaClass(class_getName([MYShieldStubObject class]));
+    return __addMethod(metaClass, sel);
+}
+
+@end
 
 @implementation NSObject (UnknowSelector)
 

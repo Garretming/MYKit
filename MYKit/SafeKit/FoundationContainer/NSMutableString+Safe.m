@@ -11,7 +11,7 @@
 
 @implementation NSMutableString (Safe)
 
-+ (void)registerClassPairMethodsInNSMutableString {
++ (void)registerClassPairMethodsInMutableString {
     
     Class NSCFString = NSClassFromString(@"__NSCFString");
     

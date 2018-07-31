@@ -10,6 +10,9 @@
 
 @interface NSMutableString (Safe)
 
-+ (void)registerClassPairMethodsInNSMutableString;
+/**
+ 防护 MutableString crash
+ */
++ (void)registerClassPairMethodsInMutableString;
 
 @end
