@@ -20,70 +20,72 @@
     Class __NSArray0 = NSClassFromString(@"__NSArray0");
     
     // 防御对象实例方法
-    // insertNil
+    // arrayWithObjects
     [self classSwizzleMethodWithClass:__NSArray orginalMethod:@selector(arrayWithObjects:count:) replaceMethod:@selector(safeArrayWithObjects:count:)];
     
     // objectAtIndex:
-    //FOR __NSArrayI
     [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForArrayI:)];
     
-    //FOR __NSArray0
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForNSArray0:)];
-  
+    
+    [self instanceSwizzleMethodWithClass:__NSSingleObjectArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForSingleObjectArrayI:)];
+    
+    // objectAtIndexedSubscript
+    [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
+    
+    // arrayByAddingObject
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(arrayByAddingObject:) replaceMethod:@selector(safe_arrayByAddingObjectForNSArray0:)];
     
+    // indexOfObject
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(indexOfObject:inRange:) replaceMethod:@selector(safe_indexOfObject:inRange:)];
     
+    // indexOfObjectIdenticalTo
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(indexOfObjectIdenticalTo:inRange:) replaceMethod:@selector(safe_indexOfObjectIdenticalTo:inRange:)];
     
+    // subarrayWithRange
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(subarrayWithRange:) replaceMethod:@selector(safe_subarrayWithRange:)];
     
     // objectsAtIndexes:
-    [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(objectsAtIndexes:) replaceMethod:@selector(safe_objectsAtIndexes:)];
-    
-    //FOR __NSSingleObjectArrayI
-    [self instanceSwizzleMethodWithClass:__NSSingleObjectArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForSingleObjectArrayI:)];
-    
-    
-#if TARGET_IPHONE_SIMULATOR  //模拟器
-    [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
-#elif TARGET_OS_IPHONE      //真机
-    
-#endif
+    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(objectsAtIndexes:) replaceMethod:@selector(safe_objectsAtIndexesWithNSArray:)];
 }
 
-//objectAtIndexedSubscript
++ (instancetype)safeArrayWithObjects:(id _Nonnull const [])objects count:(NSUInteger)cnt {
+    
+    NSInteger newObjsIndex = 0;
+    id  _Nonnull __unsafe_unretained newObjects[cnt];
+    for (int i = 0; i < cnt; i++) {
+        id objc = objects[i];
+        if (objc == nil) {
+            NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : Array constructor appear nil ",
+                                [self class], NSStringFromSelector(@selector(arrayWithObjects:count:))];
+            [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
+            continue;
+        }
+        newObjects[newObjsIndex++] = objc;
+        
+    }
+    return [self safeArrayWithObjects:newObjects count:newObjsIndex];
+}
+
 - (id)safe_objectAtIndexedSubscript:(NSUInteger)idx {
-    if (idx >= self.count) {
-        //记录错误
-        NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSArrayI objectAtIndexedSubscript:]: index %ld beyond bounds [0 .. %ld]'",(unsigned long)idx,(unsigned long)self.count];
-        NSLog(@"%@", errorInfo);
+    if (idx < [(NSArray *)self count]) {
+        return [self safe_objectAtIndexForArrayI:idx];
+    } else {
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
+                            [self class], NSStringFromSelector(@selector(objectAtIndexedSubscript:)), @(idx), @(self.count)];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
         return nil;
     }
-    return [self safe_objectAtIndexedSubscript:idx];
-}
-
-+ (instancetype)safeArrayWithObjects:(id  _Nonnull const [])objects count:(NSUInteger)cnt{
-    NSUInteger index = 0;
-    id _Nonnull objectsNew[cnt];
-    for (int i = 0; i<cnt; i++) {
-        if (objects[i]) {
-            objectsNew[index] = objects[i];
-            index++;
-        } else {
-            // 记录错误
-            NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil object from objects[%d]",i];
-            NSLog(@"%@", errorInfo);
-        }
-    }
-    return [self safeArrayWithObjects:objectsNew count:index];
 }
 
 - (id)safe_objectAtIndexForArrayI:(NSUInteger)index {
+    
     if (index < [(NSArray *)self count]) {
         return [self safe_objectAtIndexForArrayI:index];
     } else {
-        NSLog(@"\"%@\" -index:(%lu) should less than %lu", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
+                            [self class], NSStringFromSelector(@selector(objectAtIndex:)), @(index), @(self.count)];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
         return nil;
     }
 }
@@ -92,7 +94,9 @@
     if (index < [(NSArray *)self count]) {
         return [self safe_objectAtIndexForNSArray0:index];
     } else {
-        NSLog(@"\"%@\" -index:(%lu) should less than %lu", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
+                            [self class], NSStringFromSelector(@selector(objectAtIndex:)), @(index), @(self.count)];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
         return nil;
     }
 }
@@ -101,7 +105,9 @@
     if (index < [(NSArray *)self count]) {
         return [self safe_objectAtIndexForSingleObjectArrayI:index];
     } else {
-        NSLog(@"\"%@\" -index:(%lu) should less than %lu", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
+                            [self class], NSStringFromSelector(@selector(objectAtIndex:)), @(index), @(self.count)];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
         return nil;
     }
 }
@@ -149,9 +155,10 @@
     }
 }
 
-- (NSArray<id> *)safe_objectsAtIndexes:(NSIndexSet *)indexes {
+- (NSArray<id> *)safe_objectsAtIndexesWithNSArray:(NSIndexSet *)indexes {
     if (!indexes) {
-        NSLog(@"\"%@\"-indexes:%@ cannot be set nil", NSStringFromSelector(_cmd), indexes);
+        NSString *reason = [NSString stringWithFormat:@"\"%@\"-indexes:%@ cannot be set nil", NSStringFromSelector(_cmd), indexes];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
         return nil;
     } else {
         __block BOOL isPass = YES;
@@ -165,10 +172,11 @@
             }
         }];
         if (!isPass) {
-            NSLog(@"\"%@\"-indexes:%@ should be set at range [0, %lu)", NSStringFromSelector(_cmd), indexes, [(NSArray *)self count]);
+            NSString *reason = [NSString stringWithFormat:@"\"%@\"-indexes:%@ should be set at range [0, %lu)", NSStringFromSelector(_cmd), indexes, [(NSArray *)self count]];
+            [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
             return nil;
         }
-        return [self safe_objectsAtIndexes:indexes];
+        return [self safe_objectsAtIndexesWithNSArray:indexes];
     }
 }
 

@@ -8,6 +8,7 @@
 
 #import "NSMutableArray+Safe.h"
 #import "NSObject+Swizzle.h"
+#import "MYSafeKitRecord.h"
 
 @implementation NSMutableArray (Safe)
 
@@ -55,11 +56,13 @@
 - (void)safe_insertObject:(id)anObject atIndex:(NSUInteger)index {
     
     if (!anObject) {
-        NSLog(@"\"%@\"-object:(%@) is nil", NSStringFromSelector(_cmd), anObject);
+        NSString *reason = [NSString stringWithFormat:@"\"%@\"-object:(%@) is nil", NSStringFromSelector(_cmd), anObject];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         return;
     }
     if (index > [(NSArray *)self count]) {
-        NSLog(@"\"%@\"-index:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]);
+        NSString *reason = [NSString stringWithFormat:@"\"%@\"-index:(%lu) must at range [0, %lu)", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         return;
     }
     [self safe_insertObject:anObject atIndex:index];

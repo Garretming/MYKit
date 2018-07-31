@@ -40,6 +40,14 @@
     if (ability & MYSafeKitShieldTypeTimer) {
         [self registerTimer];
     }
+    if (ability & MYSafeKitShieldTypeAll) {
+        [self registerUnrecognizedSelector];
+        [self registerContainer];
+        [self registerNSNull];
+        [self registerKVO];
+        [self registerNotification];
+        [self registerTimer];
+    }
 }
 
 + (void)registerNSNull {

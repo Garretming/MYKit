@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "UIViewController+ClassName.h"
-#import "UIApplication+SafeKit.h"
 #import "MYSafeKit.h"
 #import "MYSafeKitRecord.h"
 
@@ -21,18 +20,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //显示当前类名
+    // 显示当前类名
     [UIViewController displayClassName:YES];
 
     [MYSafeKit registerRecordHandler:self];
     [MYSafeKit registerSafeKitShield];
+    
     return YES;
 }
 
 
 - (void)recordWithReason:(NSError *)reason {
     
-    [MYSafeKitRecord safeKit_showAlterWithMessage:[MYSafeKitRecord getErrorMessageWithTipString:reason.description]];
+    NSString *crashReason = [MYSafeKitRecord getErrorMessageWithTipString:reason.description];
+    [MYSafeKitRecord safeKit_showAlterWithMessage:crashReason];
 }
 
 
