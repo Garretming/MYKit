@@ -8,6 +8,7 @@
 
 #import "NSNull+SafeKit.h"
 #import "NSObject+Swizzle.h"
+#import "MYSafeKitRecord.h"
 
 @implementation NSNull (SafeKit)
 
@@ -26,8 +27,8 @@
     
     for (id tmpObj in sTmpOutput) {
         if ([tmpObj respondsToSelector:aSelector]) {
-            NSLog(@"*****Warning***** logic error.target is %@ method is %@, reason : method forword to SmartFunction Object default implement like send message to nil.",
-                  [self class], NSStringFromSelector(aSelector));
+            NSString *reason = [NSString stringWithFormat:@"*****Warning***** logic error.target is %@ method is %@, reason : method forword to SmartFunction Object default implement like send message to nil.",[self class], NSStringFromSelector(aSelector)];
+            [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeNSNull)];
             return tmpObj;
         }
     }

@@ -8,6 +8,7 @@
 
 #import "NSObject+SafeKVO.h"
 #import "NSObject+Swizzle.h"
+#import "MYSafeKitRecord.h"
 
 static void(*__xx_hook_orgin_function_removeObserver)(NSObject* self, SEL _cmd ,NSObject *observer ,NSString *keyPath) = ((void*)0);
 
@@ -45,7 +46,7 @@ static void(*__xx_hook_orgin_function_removeObserver)(NSObject* self, SEL _cmd ,
     if (!_kvoInfoMap) {
         _kvoInfoMap = @{}.mutableCopy;
     }
-    return  _kvoInfoMap;
+    return _kvoInfoMap;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -56,7 +57,7 @@ static void(*__xx_hook_orgin_function_removeObserver)(NSObject* self, SEL _cmd ,
             [observer observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         } @catch (NSException *exception) {
             NSString *reason = [NSString stringWithFormat:@"non fatal Error%@",[exception description]];
-            NSLog(@"%@", reason);
+            [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeKVO)];
         }
     }
 }
@@ -93,7 +94,7 @@ static void(*__xx_hook_orgin_function_removeObserver)(NSObject* self, SEL _cmd ,
         NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : KVO add Observer to many timers.",
                             [self class], NSStringFromSelector(@selector(addObserver:forKeyPath:options:context:))];
         
-        NSLog(@"%@", reason);
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeKVO)];
     } else {
         [os addObject:observer];
     }
@@ -106,7 +107,7 @@ static void(*__xx_hook_orgin_function_removeObserver)(NSObject* self, SEL _cmd ,
     if (os.count == 0) {
         NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : KVO remove Observer to many times.",
                             [self class], NSStringFromSelector(@selector(removeObserver:forKeyPath:))];
-        NSLog(@"%@", reason);
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeKVO)];
         return;
     }
     

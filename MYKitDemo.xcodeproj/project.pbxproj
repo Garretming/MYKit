@@ -116,6 +116,7 @@
 		81F41DEE210F15A8005460E7 /* NSTimer+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DED210F15A8005460E7 /* NSTimer+Safe.m */; };
 		81F41DF1210F18E3005460E7 /* MYTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DF0210F18E3005460E7 /* MYTimerViewController.m */; };
 		81F41DF4210FFD1E005460E7 /* NSObject+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DF3210FFD1E005460E7 /* NSObject+Addition.m */; };
+		81F41DF921100849005460E7 /* MYSafeKitRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DF821100849005460E7 /* MYSafeKitRecord.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81F9D6E3210EE89100CD14DF /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E2210EE89100CD14DF /* NSString+Safe.m */; };
 		81F9D6E6210EEAAF00CD14DF /* NSMutableString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E5210EEAAF00CD14DF /* NSMutableString+Safe.m */; };
@@ -367,7 +368,6 @@
 		8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKitMacroHeader.h; sourceTree = "<group>"; };
 		81CB197620D0E64B00AE2E44 /* MYShieldStubObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYShieldStubObject.m; sourceTree = "<group>"; };
 		81CB197820D0E64B00AE2E44 /* MYShieldStubObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYShieldStubObject.h; sourceTree = "<group>"; };
-		81CB198720D0E64C00AE2E44 /* XXShield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXShield.h; sourceTree = "<group>"; };
 		81F41DE5210F0FA7005460E7 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		81F41DE6210F0FA7005460E7 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		81F41DEC210F15A8005460E7 /* NSTimer+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Safe.h"; sourceTree = "<group>"; };
@@ -376,6 +376,9 @@
 		81F41DF0210F18E3005460E7 /* MYTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYTimerViewController.m; sourceTree = "<group>"; };
 		81F41DF2210FFD1E005460E7 /* NSObject+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Addition.h"; sourceTree = "<group>"; };
 		81F41DF3210FFD1E005460E7 /* NSObject+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Addition.m"; sourceTree = "<group>"; };
+		81F41DF5211005F5005460E7 /* SafeKitShield.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafeKitShield.h; sourceTree = "<group>"; };
+		81F41DF721100849005460E7 /* MYSafeKitRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYSafeKitRecord.h; sourceTree = "<group>"; };
+		81F41DF821100849005460E7 /* MYSafeKitRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYSafeKitRecord.m; sourceTree = "<group>"; };
 		81F868E820C55C9E00630F3B /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
 		81F868E920C55C9E00630F3B /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		81F9D6E1210EE89100CD14DF /* NSString+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
@@ -1011,6 +1014,10 @@
 		815F4CF12091AA9A00EA6DFF /* SafeKit */ = {
 			isa = PBXGroup;
 			children = (
+				81F41DF5211005F5005460E7 /* SafeKitShield.h */,
+				812B36B620E1E214007E8F54 /* MYSafeKit.h */,
+				812B36B720E1E214007E8F54 /* MYSafeKit.m */,
+				81F41DF62110080B005460E7 /* Record */,
 				81F41DEB210F150E005460E7 /* NSTimer */,
 				81F9D6E7210EEF6800CD14DF /* KVO */,
 				8136817920DB7AFB00FA8373 /* NSNull */,
@@ -1018,9 +1025,6 @@
 				811CA2E620D8EDD000C7807C /* UnknowSelector */,
 				81CB197920D0E64B00AE2E44 /* FoundationContainer */,
 				81CB197520D0E64B00AE2E44 /* SmartKit */,
-				81CB198720D0E64C00AE2E44 /* XXShield.h */,
-				812B36B620E1E214007E8F54 /* MYSafeKit.h */,
-				812B36B720E1E214007E8F54 /* MYSafeKit.m */,
 				8124AC4D20D127EF00BAFE9F /* NSObject+SafeKitSetting.h */,
 				8124AC4C20D127EF00BAFE9F /* NSObject+SafeKitSetting.m */,
 				8124AC4F20D1348C00BAFE9F /* UIApplication+SafeKit.h */,
@@ -1113,6 +1117,15 @@
 				81F41DED210F15A8005460E7 /* NSTimer+Safe.m */,
 			);
 			path = NSTimer;
+			sourceTree = "<group>";
+		};
+		81F41DF62110080B005460E7 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				81F41DF721100849005460E7 /* MYSafeKitRecord.h */,
+				81F41DF821100849005460E7 /* MYSafeKitRecord.m */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		81F9D6E7210EEF6800CD14DF /* KVO */ = {
@@ -1282,6 +1295,7 @@
 			files = (
 				81F9D6E3210EE89100CD14DF /* NSString+Safe.m in Sources */,
 				8174BC1B210580B000ACC1F3 /* MYViewController.m in Sources */,
+				81F41DF921100849005460E7 /* MYSafeKitRecord.m in Sources */,
 				81F41DE7210F0FA7005460E7 /* Person.m in Sources */,
 				320695AF1F6010680009FFDA /* UILabel+CountDown.m in Sources */,
 				32077C611F600AA5006E4C70 /* UIColor+Addition.m in Sources */,

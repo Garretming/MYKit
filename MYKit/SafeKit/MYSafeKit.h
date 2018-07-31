@@ -15,9 +15,14 @@ typedef NS_OPTIONS(NSUInteger, MYSafeKitShieldType) {
     MYSafeKitShieldTypeKVO = 1 << 4,
     MYSafeKitShieldTypeNotification = 1 << 5,
     MYSafeKitShieldTypeTimer = 1 << 6,
-    MYSafeKitShieldTypeDangLingPointer = 1 << 7,
     MYSafeKitShieldTypeAll,
 };
+
+@protocol MYSafeKitRecordProtocol <NSObject>
+
+- (void)recordWithReason:(NSError *)reason;
+
+@end
 
 @interface MYSafeKit : NSObject
 

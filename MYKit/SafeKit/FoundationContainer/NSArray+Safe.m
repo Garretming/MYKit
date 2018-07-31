@@ -8,6 +8,7 @@
 
 #import "NSArray+Safe.h"
 #import "NSObject+Swizzle.h"
+#import "MYSafeKitRecord.h"
 
 @implementation NSArray (Safe)
 
@@ -28,9 +29,7 @@
     
     //FOR __NSArray0
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexForNSArray0:)];
-    
-    [self instanceSwizzleMethodWithClass:__NSSingleObjectArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_NSSingleObjectArrayIObjectAtIndex)];
-    
+  
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(arrayByAddingObject:) replaceMethod:@selector(safe_arrayByAddingObjectForNSArray0:)];
     
     [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(indexOfObject:inRange:) replaceMethod:@selector(safe_indexOfObject:inRange:)];
@@ -51,14 +50,6 @@
 #elif TARGET_OS_IPHONE      //真机
     
 #endif
-}
-
-- (id)safe_NSSingleObjectArrayIObjectAtIndex:(NSUInteger)index{
-    if (index >= self.count) {
-        NSLog(@"\"%@\" -index:(%lu) should less than %lu", NSStringFromSelector(_cmd), index, (unsigned long)[(NSArray *)self count]);
-        return nil;
-    }
-    return [self safe_NSSingleObjectArrayIObjectAtIndex:index];
 }
 
 //objectAtIndexedSubscript

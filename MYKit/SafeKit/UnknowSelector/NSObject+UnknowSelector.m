@@ -9,6 +9,8 @@
 #import "NSObject+UnknowSelector.h"
 #import "NSObject+Swizzle.h"
 #import "MYShieldStubObject.h"
+#import "MYSafeKitRecord.h"
+#import <dlfcn.h>
 
 @implementation NSObject (UnknowSelector)
 
@@ -22,6 +24,18 @@
 }
 
 - (id)exchange_instanceMethod_forwardingTargetForSelector:(SEL)aSelector {
+    
+    static struct dl_info app_info;
+    if (app_info.dli_saddr == NULL) {
+        dladdr((__bridge void *)[UIApplication.sharedApplication.delegate class], &app_info);
+    }
+    struct dl_info self_info = {0};
+    dladdr((__bridge void *)[self class], &self_info);
+    
+    //    ignore system class
+    if (self_info.dli_fname == NULL || strcmp(app_info.dli_fname, self_info.dli_fname)) {
+        return [self exchange_instanceMethod_forwardingTargetForSelector:aSelector];
+    }
     
     // 1 如果是NSSNumber 和NSString没找到就是类型不对  切换下类型就好了
     if ([self isKindOfClass:[NSNumber class]] && [NSString instancesRespondToSelector:aSelector]) {
@@ -44,8 +58,8 @@
         MYShieldStubObject *stub = [MYShieldStubObject shareInstance];
         [stub addFunc:aSelector];
         
-        NSLog(@"*****Warning***** logic error.target is %@ method is %@, reason : method forword to SmartFunction Object default implement like send message to nil.",
-              [self class], NSStringFromSelector(aSelector));
+        NSString *reason = [NSString stringWithFormat:@"*****Warning***** logic error.target is %@ method is %@, reason : method forword to Object default implement like send message to nil.",[self class], NSStringFromSelector(aSelector)];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeUnrecognizedSelector)];
         return stub;
     }
 }
@@ -73,8 +87,8 @@
         MYShieldStubObject *stub = [MYShieldStubObject shareInstance];
         [stub addFunc:aSelector];
         
-        NSLog(@"*****Warning***** logic error.target is %@ method is %@, reason : method forword to SmartFunction Object default implement like send message to nil.",
-              [self class], NSStringFromSelector(aSelector));
+        NSString *reason = [NSString stringWithFormat:@"*****Warning***** logic error.target is %@ method is %@, reason : method forword to Object default implement like send message to nil.",[self class], NSStringFromSelector(aSelector)];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeUnrecognizedSelector)];
         return stub;
     }
 }

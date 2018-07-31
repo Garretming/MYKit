@@ -6,11 +6,13 @@
 //  Copyright © 2018 com.51fanxing. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSObject (UnknowSelector)
 
-/// 防御 发送到未知的选择子到实例
+/**
+ 防护发送到未知的选择子到实例
+ */
 + (void)safeGuardUnrecognizedSelector;
 
 @end

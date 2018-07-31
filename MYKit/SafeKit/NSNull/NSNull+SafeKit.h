@@ -10,7 +10,9 @@
 
 @interface NSNull (SafeKit)
 
-/// 防御 发送到未知的选择子到实例
+/**
+ 防护发送到未知的选择子到实例
+ */
 + (void)safeGuardNullSelector;
 
 @end

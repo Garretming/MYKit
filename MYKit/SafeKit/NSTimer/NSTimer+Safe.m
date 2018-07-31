@@ -7,6 +7,7 @@
 //
 
 #import "NSTimer+Safe.h"
+#import "MYSafeKitRecord.h"
 #import "NSObject+Swizzle.h"
 
 @interface XXTimerProxy : NSObject
@@ -33,7 +34,7 @@
         }
         NSString *reason = [NSString stringWithFormat:@"*****Warning***** logic error target is %@ method is %@, reason : an object dealloc not invalidate Timer.",[self class], NSStringFromSelector(self.aSelector)];
         
-        NSLog(@"%@", reason);
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeTimer)];
     }
 }
 

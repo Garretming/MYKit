@@ -10,6 +10,9 @@
 
 @interface NSTimer (Safe)
 
+/**
+ 防护 Timer crash
+ */
 + (void)registerClassPairMethodsInTimer;
 
 @end

@@ -10,6 +10,9 @@
 
 @interface NSObject (SafeKVO)
 
+/**
+ 防护 KVO Crash
+ */
 + (void)registerClassPairMethodsInKVO;
 
 @end

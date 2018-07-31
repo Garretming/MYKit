@@ -10,6 +10,9 @@
 #import "NSNull+SafeKit.h"
 #import "MYSafeFoundationContainer.h"
 #import "NSObject+UnknowSelector.h"
+#import "NSTimer+Safe.h"
+#import "NSObject+SafeKVO.h"
+#import "NSNotificationCenter+SafeKit.h"
 
 @implementation MYSafeKit
 
@@ -62,33 +65,22 @@
 + (void)registerKVO {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
+        [NSObject registerClassPairMethodsInKVO];
     });
 }
 
 + (void)registerNotification {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
+        [NSNotificationCenter safeGuardNotificationSelector];
     });
 }
 
 + (void)registerTimer {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
+        [NSTimer registerClassPairMethodsInTimer];
     });
 }
-
-+ (void)registerDanglingPointer:(NSArray *)arr {
-    NSMutableArray *avaibleList = arr.mutableCopy;
-    for (NSString *className in arr) {
-        NSBundle *classBundle = [NSBundle bundleForClass:NSClassFromString(className)];
-        if (classBundle != [NSBundle mainBundle]) {
-            [avaibleList removeObject:className];
-        }
-    }
-}
-
 
 @end
