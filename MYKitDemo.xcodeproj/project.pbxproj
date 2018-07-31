@@ -115,6 +115,7 @@
 		81F41DE7210F0FA7005460E7 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DE6210F0FA7005460E7 /* Person.m */; };
 		81F41DEE210F15A8005460E7 /* NSTimer+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DED210F15A8005460E7 /* NSTimer+Safe.m */; };
 		81F41DF1210F18E3005460E7 /* MYTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DF0210F18E3005460E7 /* MYTimerViewController.m */; };
+		81F41DF4210FFD1E005460E7 /* NSObject+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DF3210FFD1E005460E7 /* NSObject+Addition.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81F9D6E3210EE89100CD14DF /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E2210EE89100CD14DF /* NSString+Safe.m */; };
 		81F9D6E6210EEAAF00CD14DF /* NSMutableString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6E5210EEAAF00CD14DF /* NSMutableString+Safe.m */; };
@@ -373,6 +374,8 @@
 		81F41DED210F15A8005460E7 /* NSTimer+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Safe.m"; sourceTree = "<group>"; };
 		81F41DEF210F18E3005460E7 /* MYTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYTimerViewController.h; sourceTree = "<group>"; };
 		81F41DF0210F18E3005460E7 /* MYTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYTimerViewController.m; sourceTree = "<group>"; };
+		81F41DF2210FFD1E005460E7 /* NSObject+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Addition.h"; sourceTree = "<group>"; };
+		81F41DF3210FFD1E005460E7 /* NSObject+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Addition.m"; sourceTree = "<group>"; };
 		81F868E820C55C9E00630F3B /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
 		81F868E920C55C9E00630F3B /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		81F9D6E1210EE89100CD14DF /* NSString+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
@@ -867,6 +870,8 @@
 				3215809B21069F1C005D7C34 /* NSObject+Swizzle.m */,
 				321373B11F627D9700E15D0A /* NSObject+AssociatedObject.h */,
 				321373B21F627D9700E15D0A /* NSObject+AssociatedObject.m */,
+				81F41DF2210FFD1E005460E7 /* NSObject+Addition.h */,
+				81F41DF3210FFD1E005460E7 /* NSObject+Addition.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -1364,6 +1369,7 @@
 				1138074F204FC53D00DAF098 /* NSString+Collection.m in Sources */,
 				321373351F616A1900E15D0A /* UIButton+Submitting.m in Sources */,
 				811CA2E920D8FBAE00C7807C /* NSObject+UnknowSelector.m in Sources */,
+				81F41DF4210FFD1E005460E7 /* NSObject+Addition.m in Sources */,
 				321372F71F61621C00E15D0A /* UITextView+InputLimit.m in Sources */,
 				812B36BB20E1E859007E8F54 /* MYSafeFoundationContainer.m in Sources */,
 				3285059B1F9F530F0098E2C0 /* UIImage+Addition.m in Sources */,

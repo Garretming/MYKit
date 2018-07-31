@@ -22,8 +22,23 @@
 }
 
 - (id)exchange_instanceMethod_forwardingTargetForSelector:(SEL)aSelector {
+    
+    // 1 如果是NSSNumber 和NSString没找到就是类型不对  切换下类型就好了
+    if ([self isKindOfClass:[NSNumber class]] && [NSString instancesRespondToSelector:aSelector]) {
+        NSNumber *number = (NSNumber *)self;
+        NSString *str = [number stringValue];
+        return str;
+    } else if ([self isKindOfClass:[NSString class]] && [NSNumber instancesRespondToSelector:aSelector]) {
+        NSString *str = (NSString *)self;
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        NSNumber *number = [formatter numberFromString:str];
+        return number;
+    }
+    
+    BOOL aBool = [self respondsToSelector:aSelector];
+    
     NSMethodSignature * signature = [self methodSignatureForSelector:aSelector];
-    if ([self respondsToSelector:aSelector] || signature) {
+    if (aBool || signature) {
         return [self exchange_instanceMethod_forwardingTargetForSelector:aSelector];
     } else {
         MYShieldStubObject *stub = [MYShieldStubObject shareInstance];
@@ -36,8 +51,23 @@
 }
 
 + (id)exchange_classMethod_forwardingTargetForSelector:(SEL)aSelector {
+    
+    // 1 如果是NSSNumber 和NSString没找到就是类型不对  切换下类型就好了
+    if ([self isKindOfClass:[NSNumber class]] && [NSString instancesRespondToSelector:aSelector]) {
+        NSNumber *number = (NSNumber *)self;
+        NSString *str = [number stringValue];
+        return str;
+    } else if ([self isKindOfClass:[NSString class]] && [NSNumber instancesRespondToSelector:aSelector]) {
+        NSString *str = (NSString *)self;
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        NSNumber *number = [formatter numberFromString:str];
+        return number;
+    }
+    
+    BOOL aBool = [self respondsToSelector:aSelector];
+    
     NSMethodSignature * signature = [self methodSignatureForSelector:aSelector];
-    if ([self respondsToSelector:aSelector] || signature) {
+    if (aBool || signature) {
         return [self exchange_classMethod_forwardingTargetForSelector:aSelector];
     } else {
         MYShieldStubObject *stub = [MYShieldStubObject shareInstance];

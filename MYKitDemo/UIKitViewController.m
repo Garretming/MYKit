@@ -32,11 +32,6 @@
     [self.dataSource addObject:@"*UIKit之Color*-MYColorViewController"];
     [self.dataSource addObject:@"*UIKit之Image*-MYImageViewController"];
     [self.dataSource addObject:@"*UIKit之View*-MYViewController"];
-    [self.dataSource addObject:@"*UIWebView实战*-MYWebViewController"];
-    [self.dataSource addObject:@"自定义UISwitch-MYAMViralSwitchViewController"];
-    [self.dataSource addObject:@"CollectionDynamicCell-MYAutomaticallyCollectionViewCellViewController"];
-    [self.dataSource addObject:@"自定义导航栏-MYCustomNavigationBarViewController"];
-
     [self.view addSubview:self.tableView];
 }
 

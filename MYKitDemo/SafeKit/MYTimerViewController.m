@@ -32,7 +32,7 @@
 - (void)testTimer {
 
     // target会被runloop持有 造成隐式的内存泄漏 开启防护之后会自动注销timer
-    [NSTimer scheduledTimerWithTimeInterval:1 target:[Person new] selector:@selector(fireTimer1:) userInfo:@{@"hah":@"jaj"} repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:[Person new] selector:@selector(fireTimer:) userInfo:@{@"hah":@"jaj"} repeats:YES];
     
 }
 

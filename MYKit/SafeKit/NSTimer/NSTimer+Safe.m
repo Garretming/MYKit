@@ -54,8 +54,8 @@
             proxy.target = aTarget;
             proxy.aSelector = aSelector;
             timer.timerProxy = proxy;
-            proxy.sourceTimer = timer;
             timer = [self safe_scheduledTimerWithTimeInterval:ti target:proxy selector:@selector(trigger:) userInfo:userInfo repeats:yesOrNo];
+            proxy.sourceTimer = timer;
         }
         return timer;
     }
