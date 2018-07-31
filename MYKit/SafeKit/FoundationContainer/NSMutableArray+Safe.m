@@ -16,6 +16,19 @@
     
     Class __NSArrayM = NSClassFromString(@"__NSArrayM");
     
+    // objectAtIndex
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexWithArrayM:)];
+    
+    // removeObjectAtIndex
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectAtIndex:) replaceMethod:@selector(safe_removeObjectAtIndex:)];
+    
+    // removeObjectsInRange
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsInRange:) replaceMethod:@selector(safe_removeObjectsInRange:)];
+    
+    // objectAtIndexedSubscript
+    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
+    
+    
     // insert
     //FOR __NSArrayI
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObject:atIndex:) replaceMethod:@selector(safe_insertObject:atIndex:)];
@@ -29,10 +42,8 @@
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectIdenticalTo:inRange:) replaceMethod:@selector(safe_removeObjectIdenticalTo:inRange:)];
     
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectAtIndex:) replaceMethod:@selector(safe_removeObjectAtIndex:)];
-    
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsInRange:) replaceMethod:@selector(safe_removeObjectsInRange:)];
-    
+   
+   
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsAtIndexes:) replaceMethod:@selector(safe_removeObjectsAtIndexes:)];
     
     // replace
@@ -42,15 +53,22 @@
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(exchangeObjectAtIndex:withObjectAtIndex:) replaceMethod:@selector(safe_exchangeObjectAtIndex:withObjectAtIndex:)];
     
-#if TARGET_IPHONE_SIMULATOR  //模拟器
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
-#endif
-    
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(setObject:atIndexedSubscript:) replaceMethod:@selector(safe_atIndexedSubscript:atIndexedSubscript:)];
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsInRange:withObjectsFromArray:) replaceMethod:@selector(safe_replaceObjectsInRange:withObjectsFromArray:)];
     
     [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsInRange:withObjectsFromArray:range:) replaceMethod:@selector(safe_replaceObjectsInRange:withObjectsFromArray:range:)];
+}
+
+- (id)safe_objectAtIndexWithArrayM:(NSUInteger)index{
+    if (index < [(NSArray *)self count]) {
+        return [self safe_objectAtIndexWithArrayM:index];
+    } else {
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
+                            [self class], NSStringFromSelector(@selector(objectAtIndex:)), @(index), @(self.count)];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
+        return nil;
+    }
 }
 
 - (void)safe_insertObject:(id)anObject atIndex:(NSUInteger)index {
@@ -66,6 +84,18 @@
         return;
     }
     [self safe_insertObject:anObject atIndex:index];
+}
+
+- (id)safe_objectAtIndexedSubscript:(NSUInteger)idx {
+    
+    if (idx < [(NSArray *)self count]) {
+        return [self safe_objectAtIndexedSubscript:idx];
+    } else {
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@,reason : index %@ out of count %@ of array ",
+                            [self class], NSStringFromSelector(@selector(objectAtIndexedSubscript:)), @(idx), @(self.count)];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:MYSafeKitShieldTypeContainer];
+        return nil;
+    }
 }
 
 - (void)safe_removeObject:(id)anObject inRange:(NSRange)range {
@@ -121,14 +151,6 @@
         return;
     }
     [self safe_exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
-}
-
-- (id)safe_objectAtIndexedSubscript:(NSUInteger)idx {
-    if (idx >= self.count) {
-        NSLog(@"*** -[__NSArrayM objectAtIndexedSubscript:]: index %ld beyond bounds [0 .. %ld]'",(unsigned long)idx,(unsigned long)self.count);
-        return nil;
-    }
-    return [self safe_objectAtIndexedSubscript:idx];
 }
 
 - (void)safe_removeObjectsInRange:(NSRange)range {

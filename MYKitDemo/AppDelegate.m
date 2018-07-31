@@ -10,6 +10,7 @@
 #import "UIViewController+ClassName.h"
 #import "MYSafeKit.h"
 #import "MYSafeKitRecord.h"
+#import "NSObject+Addition.h"
 
 @interface AppDelegate ()<MYSafeKitRecordProtocol>
 
@@ -25,6 +26,8 @@
 
     [MYSafeKit registerRecordHandler:self];
     [MYSafeKit registerSafeKitShield];
+    
+//    NSLog(@"%@", [NSObject findAllOf:[NSMutableArray class]]);
     
     return YES;
 }
