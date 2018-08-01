@@ -20,13 +20,11 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    [NSObject registerClassPairMethodsInKVO];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
   
-    [self testKVO1];
+    [self testKVO2];
 }
 
 - (void)testKVO1 {
@@ -37,7 +35,12 @@
 }
 
 - (void)testKVO2 {
-    [self addObserver:self forKeyPath:@"view" options:(NSKeyValueObservingOptionNew) context:NULL];
+    [self addObserver:[Person new ] forKeyPath:@"view" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
+    
+    [self addObserver:self forKeyPath:@"frame" options:kNilOptions context:NULL];
+    [self addObserver:self forKeyPath:@"center" options:kNilOptions context:NULL];
+    [self addObserver:self forKeyPath:@"bounds" options:kNilOptions context:NULL];
+    [self addObserver:self forKeyPath:@"transform" options:kNilOptions context:NULL];
     
     self.view = [UIView new];
     // 会触发多次响应事件

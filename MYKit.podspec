@@ -78,11 +78,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'Foundation' do |ss|
     ss.source_files = 'MYKit/Foundation/**/*'
-    ss.dependency 'MYKit/SafeKit'
   end
 
   s.subspec 'SafeKit' do |ss|
-    ss.source_files = 'MYKit/SafeKit/**/*'
+    ss.source_files = 'MYKit/SafeKit/*.h'
     ss.dependency 'MYKit/Foundation'
   end
 end

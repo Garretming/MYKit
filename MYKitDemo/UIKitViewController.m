@@ -27,6 +27,7 @@
     [self.dataSource addObject:@"*UIKit之AlertController*-MYAlertViewController"];
     [self.dataSource addObject:@"*UIKit之NavigationBar*-MYNavigationBarViewController"];
     [self.dataSource addObject:@"*UIKit之TextField*-MYTextFieldViewController"];
+    [self.dataSource addObject:@"*UIKit之TextView*-MYTextViewController"];
     [self.dataSource addObject:@"*UIKit之Label*-MYLabelViewController"];
     [self.dataSource addObject:@"*UIKit之Button*-MYButtonViewController"];
     [self.dataSource addObject:@"*UIKit之Color*-MYColorViewController"];

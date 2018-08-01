@@ -7,21 +7,24 @@
 //
 
 #import "UITextView+InputLimit.h"
+#import "NSObject+Swizzle.h"
 #import <objc/runtime.h>
 
 static const void *TextView_InputLimitMaxLengthKey = &TextView_InputLimitMaxLengthKey;
 
 @implementation UITextView (InputLimit)
 
+/**
+ 注册钩子
+ */
 + (void)load {
     // is this the best solution?
-    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")),
-                                   class_getInstanceMethod(self.class, @selector(swizzledDealloc)));
+//    [self instanceSwizzleMethodWithClass:[self class] orginalMethod:NSSelectorFromString(@"dealloc") replaceMethod:@selector(swizzledDealloc)];
 }
 
 - (void)swizzledDealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self swizzledDealloc];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    [self swizzledDealloc];
 }
 
 - (NSInteger)maxLength {

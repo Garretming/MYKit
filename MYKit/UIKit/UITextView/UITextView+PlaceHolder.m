@@ -15,8 +15,8 @@
 
 + (void)load {
     // is this the best solution?
-    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")),
-                                   class_getInstanceMethod(self.class, @selector(swizzledDealloc)));
+//    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")),
+//                                   class_getInstanceMethod(self.class, @selector(swizzledDealloc)));
 }
 
 - (void)swizzledDealloc {

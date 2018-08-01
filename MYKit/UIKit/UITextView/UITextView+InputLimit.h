@@ -12,4 +12,9 @@
 
 @property (nonatomic, assign) NSInteger maxLength;//if <=0, no limit
 
+/**
+ 注册钩子
+ */
++ (void)registerHookMethod;
+
 @end

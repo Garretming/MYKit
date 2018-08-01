@@ -15,10 +15,10 @@
 + (void)safeGuardNullSelector {
     
     // 防御对象实例方法
-    [self instanceSwizzleMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(exchange_instanceMethod_forwardingTargetForSelector:)];
+    [self instanceSwizzleMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(safe_forwardingTargetForSelector:)];
 }
 
-- (id)exchange_instanceMethod_forwardingTargetForSelector:(SEL)aSelector {
+- (id)safe_forwardingTargetForSelector:(SEL)aSelector {
     
     static NSArray *sTmpOutput = nil;
     if (sTmpOutput == nil) {
@@ -32,7 +32,7 @@
             return tmpObj;
         }
     }
-    return [self exchange_instanceMethod_forwardingTargetForSelector:aSelector];
+    return [self safe_forwardingTargetForSelector:aSelector];
 }
 
 @end
