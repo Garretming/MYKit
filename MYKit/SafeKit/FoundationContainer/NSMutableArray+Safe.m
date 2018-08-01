@@ -129,12 +129,12 @@
 
 - (void)safe_exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2 {
     if (idx1 >= [(NSArray *)self count]) {
-        NSString *reason = [NSString stringWithFormat:@"%@\"%@\"-idx1:(%@) must at range [0, %lu)",[self class], NSStringFromSelector(_cmd), idx1, (unsigned long)[(NSArray *)self count]];
+        NSString *reason = [NSString stringWithFormat:@"%@\"%@\"-idx1:(%lu) must at range [0, %lu)",[self class], NSStringFromSelector(_cmd), (unsigned long)idx1, (unsigned long)[(NSArray *)self count]];
         [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         return;
     }
     if (idx2 >= [(NSArray *)self count]) {
-        NSString *reason = [NSString stringWithFormat:@"%@\"%@\"-idx2:(%@) must at range [0, %lu)",[self class], NSStringFromSelector(_cmd), idx2, (unsigned long)[(NSArray *)self count]];
+        NSString *reason = [NSString stringWithFormat:@"%@\"%@\"-idx2:(%lu) must at range [0, %lu)",[self class], NSStringFromSelector(_cmd), (unsigned long)idx2, (unsigned long)[(NSArray *)self count]];
         [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         return;
     }

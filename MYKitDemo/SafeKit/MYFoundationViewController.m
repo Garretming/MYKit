@@ -19,7 +19,21 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self setupMutableArray];
+    [self setupDictionary];
+}
+
+- (void)setupDictionary {
+    
+    //1 @{nil:nil}
+    NSString *value = nil;
+    NSString *key = nil;
+    NSDictionary *dic = @{@"key":value};
+    dic = @{key:@"value"};
+    //    2、dictionaryWithObject:forKey：
+    [NSDictionary dictionaryWithObject:@"value" forKey:key];
+    [NSDictionary dictionaryWithObject:value forKey:@"key"];
+    //    3、dictionaryWithObjects:forKeys:
+    [NSDictionary dictionaryWithObjects:@[@"1",@"2",@"3"] forKeys:@[@"1",@"2",key]];
 }
 
 - (void)setupMutableArray {
