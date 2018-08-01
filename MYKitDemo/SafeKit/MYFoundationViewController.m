@@ -33,6 +33,8 @@
     NSMutableArray *tempArray = [NSMutableArray array];
     NSString *objectAtIndex = [tempArray objectAtIndex:5];
     objectAtIndex = array1[4];
+    
+    [array1 removeObject:nil];
     //2、removeObjectAtIndex:
     [array1 removeObjectAtIndex:5];
     //3、removeObjectsInRange:
@@ -67,6 +69,10 @@
     
     array1 = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
     [array1 replaceObjectAtIndex:2 withObject:nil];
+    
+    [array1 setObject:nil atIndexedSubscript:0];
+    
+    [array1 exchangeObjectAtIndex:18 withObjectAtIndex:15];
 }
 
 - (void)setupArray {
