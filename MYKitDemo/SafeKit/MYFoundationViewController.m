@@ -19,7 +19,22 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self setupDictionary];
+    [self setupMutableDictionary];
+}
+
+- (void)setupMutableDictionary {
+    
+    NSString *value = nil;
+    NSString *key = nil;
+    //    1、setObject:forKey:
+    NSMutableDictionary *dicM = [NSMutableDictionary dictionary];
+    [dicM setObject:@"value" forKey:key];
+    [dicM setObject:value forKey:@"key"];
+    [dicM setObject:@"value" forKey:@"key"];
+    NSLog(@"dicM:%@",dicM);
+    //    2、removeObjectForKey:
+    [dicM removeObjectForKey:key];
+    NSLog(@"dicM:%@",dicM);
 }
 
 - (void)setupDictionary {

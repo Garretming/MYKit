@@ -8,6 +8,7 @@
 
 #import "NSDictionary+Safe.h"
 #import "NSObject+Swizzle.h"
+#import "MYSafeKitRecord.h"
 
 @implementation NSMutableDictionary (Safe)
 
@@ -22,11 +23,15 @@
 
 - (void)safe_setObject:(id)anObject forKey:(id<NSCopying>)aKey {
     if (!anObject) {
-        NSLog(@"\"%@\"-parameter0:(%@) cannot be nil", NSStringFromSelector(_cmd), anObject);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : \"-parameter0:(%@) cannot be nil",
+                            [self class], NSStringFromSelector(_cmd), anObject];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         return;
     }
     if (!aKey) {
-        NSLog(@"\"%@\"-parameter1:(%@) cannot be nil", NSStringFromSelector(_cmd), aKey);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : \"-parameter1:(%@) cannot be nil",
+                            [self class], NSStringFromSelector(_cmd), aKey];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         return;
     }
     [self safe_setObject:anObject forKey:aKey];
@@ -34,7 +39,9 @@
 
 - (void)safe_removeObjectForKey:(id)aKey {
     if (!aKey) {
-        NSLog(@"\"%@\"-parameter0:(%@) cannot be nil", NSStringFromSelector(_cmd), aKey);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : \"-parameter0:(%@) cannot be nil",
+                            [self class], NSStringFromSelector(_cmd), aKey];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         return;
     }
     [self safe_removeObjectForKey:aKey];
