@@ -8,6 +8,7 @@
 
 #import "NSString+Safe.h"
 #import "NSObject+Swizzle.h"
+#import "MYSafeKitRecord.h"
 
 @implementation NSString (Safe)
 
@@ -28,8 +29,10 @@
 - (unichar)safe_characterAtIndex:(NSUInteger)index {
     if (index >= self.length) {
         unichar characteristic = 0;
-        NSString *errorInfo = @"*** -[__NSCFConstantString characterAtIndex:]: Range or index out of bounds";
-        NSLog(@"%@", errorInfo);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : Range [0, %lu) or index out of bounds [0, %lu)",
+                            [self class], NSStringFromSelector(_cmd), index, self.length];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
+        
         return characteristic;
     }
     return [self safe_characterAtIndex:index];
@@ -37,8 +40,10 @@
 
 - (NSString *)safe_substringFromIndex:(NSUInteger)from {
     if (from >= self.length) {
-        NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSCFConstantString substringFromIndex:]: Index %ld out of bounds; string length %ld",(unsigned long)from,(unsigned long)self.length];
-        NSLog(@"%@", errorInfo);
+        
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : Index %ld out of bounds; string length %ld",
+                            [self class], NSStringFromSelector(_cmd), (unsigned long)from, (unsigned long)self.length];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         return nil;
     }
     return [self safe_substringFromIndex:from];
@@ -46,8 +51,9 @@
 
 - (NSString *)safe_substringToIndex:(NSUInteger)to {
     if (to >= self.length) {
-        NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSCFConstantString substringToIndex:]: Index %ld out of bounds; string length %ld",(unsigned long)to,(unsigned long)self.length];
-        NSLog(@"%@", errorInfo);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : Index %ld out of bounds; string length %ld",
+                            [self class], NSStringFromSelector(_cmd), (unsigned long)to, (unsigned long)self.length];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         return [self safe_substringToIndex:self.length - 1];
     }
     return [self safe_substringToIndex:to];
@@ -55,8 +61,10 @@
 
 - (NSString *)safe_substringWithRange:(NSRange)range {
     if (range.location + range.length > self.length) {
-        NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSCFConstantString BMP_substringWithRange:]: Range {%ld, %ld} out of bounds; string length %ld",(unsigned long)range.location,(unsigned long)range.length,(unsigned long)self.length];
-        NSLog(@"%@", errorInfo);
+        
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : Range {%ld, %ld} out of bounds; string length %ld",
+                            [self class], NSStringFromSelector(_cmd), (unsigned long)range.location, (unsigned long)range.length, (unsigned long)self.length];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         if (range.location < self.length) {
             return [self safe_substringFromIndex:range.location];
         }
@@ -67,8 +75,9 @@
 
 - (NSString *)safe_stringByReplacingCharactersInRange:(NSRange)range withString:(NSString *)replacement {
     if (range.location + range.length > self.length) {
-        NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSCFString replaceCharactersInRange:withString:]: Range or index out of bounds"];
-        NSLog(@"%@", errorInfo);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : Range [0, %lu) or index out of bounds [0, %lu)",
+                            [self class], NSStringFromSelector(_cmd), range.length, self.length];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
         if (range.location<self.length) {
             return [self safe_stringByReplacingCharactersInRange:NSMakeRange(range.location, self.length - range.location) withString:replacement];
         }

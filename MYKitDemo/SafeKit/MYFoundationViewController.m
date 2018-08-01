@@ -22,6 +22,30 @@
     [self setupMutableStrinig];
 }
 
+- (void)setupString {
+    
+    /*
+     NSString->Methods On Protection:
+     2、substringFromIndex:
+     3、substringToIndex:
+     4、substringWithRange:
+     5、stringByReplacingCharactersInRange:withString:
+     */
+    NSString *string = @"abcdefg";
+    //    1、characterAtIndex：
+    NSLog(@"characterAtIndex:%c",[string characterAtIndex:20]);
+    //    2、substringFromIndex:
+    NSLog(@"substringFromIndex:%@",[string substringFromIndex:20]);
+    //    3、substringToIndex:
+    NSLog(@"substringToIndex:%@",[string substringToIndex:20]);
+    //    4、substringWithRange:
+    NSLog(@"substringWithRange:%@",[string substringWithRange:NSMakeRange(2, 20)]);
+    NSLog(@"substringWithRange:%@",[string substringWithRange:NSMakeRange(20, 10)]);
+    //    5、stringByReplacingCharactersInRange:withString:
+    NSLog(@"stringByReplacingCharactersInRange:%@",[string stringByReplacingCharactersInRange:NSMakeRange(2, 20) withString:@"****"]);
+    NSLog(@"stringByReplacingCharactersInRange:%@",[string stringByReplacingCharactersInRange:NSMakeRange(20, 20) withString:@"****"]);
+}
+
 - (void)setupMutableStrinig {
     
     /*
