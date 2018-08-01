@@ -8,6 +8,7 @@
 
 #import "NSMutableString+Safe.h"
 #import "NSObject+Swizzle.h"
+#import "MYSafeKitRecord.h"
 
 @implementation NSMutableString (Safe)
 
@@ -23,9 +24,11 @@
 }
 
 - (void)safe_replaceCharactersInRange:(NSRange)range withString:(NSString *)aString {
-    if (range.location+range.length > self.length) {
-        NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSCFString replaceCharactersInRange:withString:]: Range or index out of bounds"];
-        NSLog(@"%@", errorInfo);
+    if (range.location + range.length > self.length) {
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : Range [0, %lu) or index out of bounds [0, %lu)",
+                            [self class], NSStringFromSelector(_cmd), range.length, self.length];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
+        
         if (range.location < self.length) {
             [self safe_replaceCharactersInRange:NSMakeRange(range.location, self.length-range.location) withString:aString];
         }
@@ -36,8 +39,9 @@
 
 - (void)safe_insertString:(NSString *)aString atIndex:(NSUInteger)loc {
     if (loc > self.length) {
-        NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSCFString insertString:atIndex:]: Range or index out of bounds"];
-        NSLog(@"%@", errorInfo);
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : Range [0, %lu) or index out of bounds [0, %lu)",
+                            [self class], NSStringFromSelector(_cmd), loc, self.length];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
     } else {
         [self safe_insertString:aString atIndex:loc];
     }
@@ -45,8 +49,11 @@
 
 - (void)safe_deleteCharactersInRange:(NSRange)range {
     if (range.location + range.length > self.length) {
-        NSString *errorInfo = [NSString stringWithFormat:@"*** -[__NSCFString deleteCharactersInRange:]: Range or index out of bounds"];
-        NSLog(@"%@", errorInfo);
+        
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : Range [0, %lu) or index out of bounds [0, %lu)",
+                            [self class], NSStringFromSelector(_cmd), range.length, self.length];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
+   
         if (range.location < self.length) {
             [self safe_deleteCharactersInRange:NSMakeRange(range.location, self.length - range.location)];
         }

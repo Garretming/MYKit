@@ -19,7 +19,35 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self setupMutableDictionary];
+    [self setupMutableStrinig];
+}
+
+- (void)setupMutableStrinig {
+    
+    /*
+     NSMutableString->Methods On Protection:
+     1、replaceCharactersInRange:withString:
+     2、insertString:atIndex:
+     3、deleteCharactersInRange:
+     */
+    NSMutableString *stringM = [NSMutableString stringWithFormat:@"abcdefg"];
+    //    1、replaceCharactersInRange:withString:
+    [stringM replaceCharactersInRange:NSMakeRange(2, 20) withString:@"*****"];
+    NSLog(@"replaceCharactersInRange:%@",stringM);
+    
+    //    2、insertString:atIndex:
+    stringM = [NSMutableString stringWithFormat:@"abcdefg"];
+    [stringM insertString:@"****" atIndex:20];
+    NSLog(@"insertString:%@",stringM);
+    
+    //    3、deleteCharactersInRange:
+    stringM = [NSMutableString stringWithFormat:@"abcdefg"];
+    [stringM deleteCharactersInRange:NSMakeRange(2, 20)];
+    NSLog(@"deleteCharactersInRange:%@",stringM);
+    
+    stringM = [NSMutableString stringWithFormat:@"abcdefg"];
+    [stringM deleteCharactersInRange:NSMakeRange(10, 10)];
+    NSLog(@"deleteCharactersInRange:%@",stringM);
 }
 
 - (void)setupMutableDictionary {
