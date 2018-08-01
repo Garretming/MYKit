@@ -19,6 +19,20 @@
     [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(setObject:forKey:) replaceMethod:@selector(safe_setObject:forKey:)];
     
     [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(removeObjectForKey:) replaceMethod:@selector(safe_removeObjectForKey:)];
+    
+    [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(setObject:forKeyedSubscript:) replaceMethod:@selector(safe_setObject:forKeyedSubscript:)];
+}
+
+- (void)safe_setObject:(id)anObject forKeyedSubscript:(id <NSCopying>)aKey {
+    
+    if (anObject && aKey) {
+        [self safe_setObject:anObject forKeyedSubscript:aKey];
+        return;
+    } else {
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : key or value appear nil- key is %@, obj is %@",
+                            [self class], NSStringFromSelector(_cmd), aKey, anObject];
+        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeContainer)];
+    }
 }
 
 - (void)safe_setObject:(id)anObject forKey:(id<NSCopying>)aKey {
