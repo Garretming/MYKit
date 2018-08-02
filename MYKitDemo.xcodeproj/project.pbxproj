@@ -122,6 +122,7 @@
 		81F421A22111CBC5005460E7 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421902111CBC4005460E7 /* NSDictionary+Safe.m */; };
 		81F421A32111CBC5005460E7 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421912111CBC4005460E7 /* NSArray+Safe.m */; };
 		81F421A42111CBC5005460E7 /* NSTimer+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421942111CBC4005460E7 /* NSTimer+Safe.m */; };
+		81F421B721131A56005460E7 /* NSData+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421B521131A55005460E7 /* NSData+YYAdd.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81F9D6ED210EF0BF00CD14DF /* MYKVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6EC210EF0BF00CD14DF /* MYKVOViewController.m */; };
 		EF9BD7D6B2F80BF8C38AE594 /* libPods-MYKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9058D9FF16BE886904431B9 /* libPods-MYKitDemo.a */; };
@@ -387,6 +388,8 @@
 		81F421932111CBC4005460E7 /* NSTimer+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Safe.h"; sourceTree = "<group>"; };
 		81F421942111CBC4005460E7 /* NSTimer+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Safe.m"; sourceTree = "<group>"; };
 		81F421952111CBC4005460E7 /* MYSafeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSafeKit.h; sourceTree = "<group>"; };
+		81F421B521131A55005460E7 /* NSData+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YYAdd.m"; sourceTree = "<group>"; };
+		81F421B621131A56005460E7 /* NSData+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YYAdd.h"; sourceTree = "<group>"; };
 		81F868E820C55C9E00630F3B /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
 		81F868E920C55C9E00630F3B /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		81F9D6EB210EF0BF00CD14DF /* MYKVOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKVOViewController.h; sourceTree = "<group>"; };
@@ -551,6 +554,7 @@
 			isa = PBXGroup;
 			children = (
 				815F4D422091BB5200EA6DFF /* MYFoundationKit.h */,
+				81F421B421131A48005460E7 /* NSData */,
 				321373481F624D4800E15D0A /* NSArray */,
 				32322A1C1FD4E7B8008060D9 /* NSMutableArray */,
 				321373771F626B9200E15D0A /* NSDictionary */,
@@ -1108,6 +1112,15 @@
 			path = NSTimer;
 			sourceTree = "<group>";
 		};
+		81F421B421131A48005460E7 /* NSData */ = {
+			isa = PBXGroup;
+			children = (
+				81F421B621131A56005460E7 /* NSData+YYAdd.h */,
+				81F421B521131A55005460E7 /* NSData+YYAdd.m */,
+			);
+			path = NSData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1349,6 +1362,7 @@
 				327001822059046C00AD95EB /* UIViewController+PreviousController.m in Sources */,
 				3213734B1F62647800E15D0A /* NSArray+SafeAccess.m in Sources */,
 				321373201F6167C600E15D0A /* UILabel+AutomaticWriting.m in Sources */,
+				81F421B721131A56005460E7 /* NSData+YYAdd.m in Sources */,
 				3213733D1F616ADB00E15D0A /* UIBarButtonItem+Addition.m in Sources */,
 				1138074F204FC53D00DAF098 /* NSString+Collection.m in Sources */,
 				321373351F616A1900E15D0A /* UIButton+Submitting.m in Sources */,

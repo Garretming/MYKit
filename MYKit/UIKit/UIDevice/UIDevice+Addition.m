@@ -7,7 +7,7 @@
 //
 
 #import "UIDevice+Addition.h"
-#import "NSString+YYAdd.h"
+#import "NSString+Addition.h"
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #include <sys/utsname.h>
