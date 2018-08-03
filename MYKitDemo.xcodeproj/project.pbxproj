@@ -123,6 +123,7 @@
 		81F421A32111CBC5005460E7 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421912111CBC4005460E7 /* NSArray+Safe.m */; };
 		81F421A42111CBC5005460E7 /* NSTimer+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421942111CBC4005460E7 /* NSTimer+Safe.m */; };
 		81F421B721131A56005460E7 /* NSData+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421B521131A55005460E7 /* NSData+YYAdd.m */; };
+		81F421C32113EE93005460E7 /* MYUnrecognizedSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421C22113EE93005460E7 /* MYUnrecognizedSelectorViewController.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81F9D6ED210EF0BF00CD14DF /* MYKVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6EC210EF0BF00CD14DF /* MYKVOViewController.m */; };
 		EF9BD7D6B2F80BF8C38AE594 /* libPods-MYKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9058D9FF16BE886904431B9 /* libPods-MYKitDemo.a */; };
@@ -390,6 +391,8 @@
 		81F421952111CBC4005460E7 /* MYSafeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSafeKit.h; sourceTree = "<group>"; };
 		81F421B521131A55005460E7 /* NSData+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YYAdd.m"; sourceTree = "<group>"; };
 		81F421B621131A56005460E7 /* NSData+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YYAdd.h"; sourceTree = "<group>"; };
+		81F421C12113EE93005460E7 /* MYUnrecognizedSelectorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYUnrecognizedSelectorViewController.h; sourceTree = "<group>"; };
+		81F421C22113EE93005460E7 /* MYUnrecognizedSelectorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYUnrecognizedSelectorViewController.m; sourceTree = "<group>"; };
 		81F868E820C55C9E00630F3B /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
 		81F868E920C55C9E00630F3B /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		81F9D6EB210EF0BF00CD14DF /* MYKVOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKVOViewController.h; sourceTree = "<group>"; };
@@ -1003,6 +1006,8 @@
 				81F41DF0210F18E3005460E7 /* MYTimerViewController.m */,
 				81F41DFE211032DE005460E7 /* MYFoundationViewController.h */,
 				81F41DFF211032DE005460E7 /* MYFoundationViewController.m */,
+				81F421C12113EE93005460E7 /* MYUnrecognizedSelectorViewController.h */,
+				81F421C22113EE93005460E7 /* MYUnrecognizedSelectorViewController.m */,
 				81F41DE5210F0FA7005460E7 /* Person.h */,
 				81F41DE6210F0FA7005460E7 /* Person.m */,
 			);
@@ -1038,8 +1043,8 @@
 		81F421702111CBC4005460E7 /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				81F421712111CBC4005460E7 /* MYSafeKitRecord.m */,
 				81F421722111CBC4005460E7 /* MYSafeKitRecord.h */,
+				81F421712111CBC4005460E7 /* MYSafeKitRecord.m */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -1047,8 +1052,8 @@
 		81F421732111CBC4005460E7 /* UnknowSelector */ = {
 			isa = PBXGroup;
 			children = (
-				81F421742111CBC4005460E7 /* NSObject+UnknowSelector.m */,
 				81F421752111CBC4005460E7 /* NSObject+UnknowSelector.h */,
+				81F421742111CBC4005460E7 /* NSObject+UnknowSelector.m */,
 			);
 			path = UnknowSelector;
 			sourceTree = "<group>";
@@ -1387,6 +1392,7 @@
 				321373361F616A1900E15D0A /* UIButton+TouchAreaInsets.m in Sources */,
 				11380755204FC5AF00DAF098 /* NSArray+Collection.m in Sources */,
 				81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */,
+				81F421C32113EE93005460E7 /* MYUnrecognizedSelectorViewController.m in Sources */,
 				32077C3E1F5FF410006E4C70 /* UIView+Gesture.m in Sources */,
 				8174BC1F210585EE00ACC1F3 /* SafeKitViewController.m in Sources */,
 			);

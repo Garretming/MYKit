@@ -46,7 +46,7 @@
 
 + (void)safeGuardNotificationSelector {
     
-    [self instanceSwizzleMethod:@selector(addObserver:selector:name:object:) replaceMethod:@selector(safe_addObserver:selector:name:object:)];
+//    [self instanceSwizzleMethod:@selector(addObserver:selector:name:object:) replaceMethod:@selector(safe_addObserver:selector:name:object:)];
 }
 
 - (void)safe_addObserver:(id)observer selector:(SEL)aSelector name:(nullable NSNotificationName)aName object:(nullable id)anObject {
