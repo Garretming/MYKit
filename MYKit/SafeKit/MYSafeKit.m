@@ -8,7 +8,6 @@
 
 #import "MYSafeKit.h"
 #import "MYSafeKitRecord.h"
-#import "NSNull+SafeKit.h"
 #import "MYSafeFoundationContainer.h"
 #import "NSObject+UnknowSelector.h"
 #import "NSTimer+Safe.h"
@@ -28,9 +27,6 @@
     if (ability & MYSafeKitShieldTypeContainer) {
         [self registerContainer];
     }
-    if (ability & MYSafeKitShieldTypeNSNull) {
-        [self registerNSNull];
-    }
     if (ability & MYSafeKitShieldTypeKVO) {
         [self registerKVO];
     }
@@ -43,18 +39,10 @@
     if (ability & MYSafeKitShieldTypeAll) {
         [self registerUnrecognizedSelector];
         [self registerContainer];
-        [self registerNSNull];
         [self registerKVO];
         [self registerNotification];
         [self registerTimer];
     }
-}
-
-+ (void)registerNSNull {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [NSNull safeGuardNullSelector];
-    });
 }
 
 + (void)registerContainer {

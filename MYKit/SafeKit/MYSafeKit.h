@@ -11,10 +11,9 @@
 typedef NS_OPTIONS(NSUInteger, MYSafeKitShieldType) {
     MYSafeKitShieldTypeUnrecognizedSelector = 1 << 1,
     MYSafeKitShieldTypeContainer = 1 << 2,
-    MYSafeKitShieldTypeNSNull = 1 << 3,
-    MYSafeKitShieldTypeKVO = 1 << 4,
-    MYSafeKitShieldTypeNotification = 1 << 5,
-    MYSafeKitShieldTypeTimer = 1 << 6,
+    MYSafeKitShieldTypeKVO = 1 << 3,
+    MYSafeKitShieldTypeNotification = 1 << 4,
+    MYSafeKitShieldTypeTimer = 1 << 5,
     MYSafeKitShieldTypeAll,
 };
 

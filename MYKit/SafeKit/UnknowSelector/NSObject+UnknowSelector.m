@@ -83,19 +83,19 @@ static BOOL __addMethod(Class clazz, SEL sel) {
 + (void)safeGuardUnrecognizedSelector {
     
     // 防御对象实例方法
-    [self instanceSwizzleMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(exchange_instanceMethod_forwardingTargetForSelector:)];
+    [self instanceSwizzleMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(safe_instanceMethod_forwardingTargetForSelector:)];
     
     // 防御对象类方法
-    [self swizzleClassMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(exchange_classMethod_forwardingTargetForSelector:)];
+    [self swizzleClassMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(safe_classMethod_forwardingTargetForSelector:)];
 }
 
-- (id)exchange_instanceMethod_forwardingTargetForSelector:(SEL)aSelector {
-        
+- (id)safe_instanceMethod_forwardingTargetForSelector:(SEL)aSelector {
+
     BOOL aBool = [self respondsToSelector:aSelector];
     
     NSMethodSignature * signature = [self methodSignatureForSelector:aSelector];
     if (aBool || signature) {
-        return [self exchange_instanceMethod_forwardingTargetForSelector:aSelector];
+        return [self safe_instanceMethod_forwardingTargetForSelector:aSelector];
     } else {
         MYShieldStubObject *stub = [MYShieldStubObject shareInstance];
         [stub addFunc:aSelector];
@@ -106,13 +106,13 @@ static BOOL __addMethod(Class clazz, SEL sel) {
     }
 }
 
-+ (id)exchange_classMethod_forwardingTargetForSelector:(SEL)aSelector {
++ (id)safe_classMethod_forwardingTargetForSelector:(SEL)aSelector {
     
     BOOL aBool = [self respondsToSelector:aSelector];
     
     NSMethodSignature * signature = [self methodSignatureForSelector:aSelector];
     if (aBool || signature) {
-        return [self exchange_classMethod_forwardingTargetForSelector:aSelector];
+        return [self safe_classMethod_forwardingTargetForSelector:aSelector];
     } else {
         MYShieldStubObject *stub = [MYShieldStubObject shareInstance];
         [stub addFunc:aSelector];

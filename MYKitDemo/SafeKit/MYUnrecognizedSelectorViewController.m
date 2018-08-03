@@ -21,7 +21,7 @@
     
     UIButton * testObj = [[UIButton alloc] init];
     [testObj performSelector:@selector(someMethod:)];
-    
+
     [UIButton performSelector:@selector(someMethod:)];
 }
 

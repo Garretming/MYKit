@@ -28,8 +28,10 @@
     [self.dataSource addObject:@"*SafeKit之Timer*-MYTimerViewController"];
     [self.dataSource addObject:@"*SafeKit之Foundation*-MYFoundationViewController"];
     [self.dataSource addObject:@"*SafeKit之UnrecognizedSelector*-MYUnrecognizedSelectorViewController"];
-    
+    [self.dataSource addObject:@"*SafeKit之Notification*-MYNotificationViewController"];
     [self.view addSubview:self.tableView];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TestNotification" object:nil];
 }
 
 #pragma mark - UITableViewDataSource
