@@ -32,7 +32,7 @@
         if (sourceTimer) {
             [sourceTimer invalidate];
         }
-        NSString *reason = [NSString stringWithFormat:@"*****Warning***** logic error target is %@ method is %@, reason : an object dealloc not invalidate Timer.",[self class], NSStringFromSelector(self.aSelector)];
+        NSString *reason = [NSString stringWithFormat:@"*****Warning***** logic error target is %@ method is %@, reason : an object dealloc not invalidate Timer.", [self class], NSStringFromSelector(self.aSelector)];
         
         [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeTimer)];
     }
@@ -45,6 +45,8 @@
 + (void)registerClassPairMethodsInTimer {
     
     [self swizzleClassMethod:@selector(scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:) replaceMethod:@selector(safe_scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:)];
+    
+    [self swizzleClassMethod:@selector(timerWithTimeInterval:target:selector:userInfo:repeats:) replaceMethod:@selector(safe_timerWithTimeInterval:target:selector:userInfo:repeats:)];
 }
 
 + (NSTimer *)safe_scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo {
@@ -61,6 +63,22 @@
         return timer;
     }
     return [self safe_scheduledTimerWithTimeInterval:ti target:aTarget selector:aSelector userInfo:userInfo repeats:yesOrNo];
+}
+
++ (NSTimer *)safe_timerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(id)userInfo repeats:(BOOL)yesOrNo {
+    if (yesOrNo) {
+        NSTimer *timer = nil;
+        @autoreleasepool {
+            XXTimerProxy *proxy = [XXTimerProxy new];
+            proxy.target = aTarget;
+            proxy.aSelector = aSelector;
+            timer.timerProxy = proxy;
+            timer = [self safe_timerWithTimeInterval:ti target:proxy selector:@selector(trigger:) userInfo:userInfo repeats:yesOrNo];
+            proxy.sourceTimer = timer;
+        }
+        return timer;
+    }
+    return [self safe_timerWithTimeInterval:ti target:aTarget selector:aSelector userInfo:userInfo repeats:yesOrNo];
 }
 
 - (void)setTimerProxy:(XXTimerProxy *)timerProxy {

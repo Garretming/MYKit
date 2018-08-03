@@ -7,7 +7,6 @@
 //
 
 #import "MYKVOViewController.h"
-#import "Person.h"
 #import "NSObject+SafeKVO.h"
 
 @interface MYKVOViewController ()
@@ -28,26 +27,26 @@
 }
 
 - (void)testKVO1 {
-    [self addObserver:[Person new ] forKeyPath:@"view" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
+//    [self addObserver:[Person new ] forKeyPath:@"view" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
     
     self.view = [UIView new]; // Crash
     // 被观察者是局部变量  触发KVOCrash
 }
 
 - (void)testKVO2 {
-    [self addObserver:[Person new ] forKeyPath:@"view" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
-    
-    [self addObserver:self forKeyPath:@"frame" options:kNilOptions context:NULL];
-    [self addObserver:self forKeyPath:@"center" options:kNilOptions context:NULL];
-    [self addObserver:self forKeyPath:@"bounds" options:kNilOptions context:NULL];
-    [self addObserver:self forKeyPath:@"transform" options:kNilOptions context:NULL];
-    
-    self.view = [UIView new];
-    // 会触发多次响应事件
-    
-    // for test 多余的移除会导致Crash  because it is not registered as an observer.'
-    [self removeObserver:self forKeyPath:@"view"];
-    [self removeObserver:self forKeyPath:@"view"];
+//    [self addObserver:[Person new ] forKeyPath:@"view" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
+//
+//    [self addObserver:self forKeyPath:@"frame" options:kNilOptions context:NULL];
+//    [self addObserver:self forKeyPath:@"center" options:kNilOptions context:NULL];
+//    [self addObserver:self forKeyPath:@"bounds" options:kNilOptions context:NULL];
+//    [self addObserver:self forKeyPath:@"transform" options:kNilOptions context:NULL];
+//
+//    self.view = [UIView new];
+//    // 会触发多次响应事件
+//
+//    // for test 多余的移除会导致Crash  because it is not registered as an observer.'
+//    [self removeObserver:self forKeyPath:@"view"];
+//    [self removeObserver:self forKeyPath:@"view"];
 }
 
 @end

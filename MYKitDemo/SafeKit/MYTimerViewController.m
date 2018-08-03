@@ -7,10 +7,11 @@
 //
 
 #import "MYTimerViewController.h"
-#import "Person.h"
 #import "NSTimer+Safe.h"
 
 @interface MYTimerViewController ()
+
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -21,17 +22,18 @@
     
     self.title = @"";
     self.view.backgroundColor = [UIColor whiteColor];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self testTimer];
-}
-
-- (void)testTimer {
-
-    // target会被runloop持有 造成隐式的内存泄漏 开启防护之后会自动注销timer
-    [NSTimer scheduledTimerWithTimeInterval:1 target:[Person new] selector:@selector(fireTimer:) userInfo:@{@"hah":@"jaj"} repeats:YES];
     
+    self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(timerEvent) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)timerEvent{
+    NSLog(@"timer");
+}
+
+- (void)dealloc {
+    
+    NSLog(@"%@ %s 销毁",[self class] ,__func__);
 }
 
 @end
