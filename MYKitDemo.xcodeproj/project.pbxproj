@@ -1029,9 +1029,9 @@
 				81F421702111CBC4005460E7 /* Record */,
 				81F421732111CBC4005460E7 /* UnknowSelector */,
 				81F4217C2111CBC4005460E7 /* Notification */,
-				81F421792111CBC4005460E7 /* KVO */,
-				81F421812111CBC4005460E7 /* FoundationContainer */,
 				81F421922111CBC4005460E7 /* NSTimer */,
+				81F421812111CBC4005460E7 /* FoundationContainer */,
+				81F421792111CBC4005460E7 /* KVO */,
 			);
 			path = SafeKit;
 			sourceTree = "<group>";
@@ -1057,8 +1057,8 @@
 		81F421792111CBC4005460E7 /* KVO */ = {
 			isa = PBXGroup;
 			children = (
-				81F4217A2111CBC4005460E7 /* NSObject+SafeKVO.m */,
 				81F4217B2111CBC4005460E7 /* NSObject+SafeKVO.h */,
+				81F4217A2111CBC4005460E7 /* NSObject+SafeKVO.m */,
 			);
 			path = KVO;
 			sourceTree = "<group>";
