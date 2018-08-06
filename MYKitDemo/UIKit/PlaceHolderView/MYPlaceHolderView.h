@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MYPlaceHolderViewDelegate <NSObject>
+
+@required
+- (void)emptyOverlayClicked:(id)sender;
+
+@end
+
 @interface MYPlaceHolderView : UIView
+
+@property (nonatomic, weak) id<MYPlaceHolderViewDelegate> delegate;
 
 @end

@@ -114,6 +114,8 @@ static inline BOOL isSystemClass(Class cls) {
     if (os.count == 0) {
         os = [[NSHashTable alloc] initWithOptions:(NSPointerFunctionsWeakMemory) capacity:0];
         [os addObject:observer];
+        // 更新kvoInfoMaps
+        self.kvoProxy.kvoInfoMap[keyPath] = os;
         [self safe_addObserver:self.kvoProxy forKeyPath:keyPath options:options context:context];
     } else {
         if ([os containsObject:observer]) {
@@ -124,6 +126,7 @@ static inline BOOL isSystemClass(Class cls) {
             [os addObject:observer];
             // 更新kvoInfoMaps
             self.kvoProxy.kvoInfoMap[keyPath] = os;
+            [self safe_addObserver:self.kvoProxy forKeyPath:keyPath options:options context:context];
         }
     }
 }

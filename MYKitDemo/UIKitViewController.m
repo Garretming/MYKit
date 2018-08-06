@@ -33,6 +33,9 @@
     [self.dataSource addObject:@"*UIKit之Color*-MYColorViewController"];
     [self.dataSource addObject:@"*UIKit之Image*-MYImageViewController"];
     [self.dataSource addObject:@"*UIKit之View*-MYViewController"];
+    [self.dataSource addObject:@"*UIKit之TableView*-MYTableViewController"];
+    [self.dataSource addObject:@"*UIKit之CollectionView*-MYCollectionViewController"];
+    
     [self.view addSubview:self.tableView];
 }
 

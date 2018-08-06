@@ -123,6 +123,9 @@
 		81F421B721131A56005460E7 /* NSData+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421B521131A55005460E7 /* NSData+YYAdd.m */; };
 		81F421C32113EE93005460E7 /* MYUnrecognizedSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421C22113EE93005460E7 /* MYUnrecognizedSelectorViewController.m */; };
 		81F421C92114238F005460E7 /* MYNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421C82114238F005460E7 /* MYNotificationViewController.m */; };
+		81F421CC2117E6B6005460E7 /* MYCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421CB2117E6B6005460E7 /* MYCollectionViewController.m */; };
+		81F421CF2117E6CC005460E7 /* MYTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421CE2117E6CC005460E7 /* MYTableViewController.m */; };
+		81F421D32117E89D005460E7 /* MYPlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F421D22117E89D005460E7 /* MYPlaceHolderView.m */; };
 		81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F868E920C55C9E00630F3B /* UIView+Position.m */; };
 		81F9D6ED210EF0BF00CD14DF /* MYKVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9D6EC210EF0BF00CD14DF /* MYKVOViewController.m */; };
 		EF9BD7D6B2F80BF8C38AE594 /* libPods-MYKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F9058D9FF16BE886904431B9 /* libPods-MYKitDemo.a */; };
@@ -390,6 +393,12 @@
 		81F421C22113EE93005460E7 /* MYUnrecognizedSelectorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYUnrecognizedSelectorViewController.m; sourceTree = "<group>"; };
 		81F421C72114238F005460E7 /* MYNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYNotificationViewController.h; sourceTree = "<group>"; };
 		81F421C82114238F005460E7 /* MYNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYNotificationViewController.m; sourceTree = "<group>"; };
+		81F421CA2117E6B6005460E7 /* MYCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYCollectionViewController.h; sourceTree = "<group>"; };
+		81F421CB2117E6B6005460E7 /* MYCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYCollectionViewController.m; sourceTree = "<group>"; };
+		81F421CD2117E6CC005460E7 /* MYTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYTableViewController.h; sourceTree = "<group>"; };
+		81F421CE2117E6CC005460E7 /* MYTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYTableViewController.m; sourceTree = "<group>"; };
+		81F421D12117E89D005460E7 /* MYPlaceHolderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYPlaceHolderView.h; sourceTree = "<group>"; };
+		81F421D22117E89D005460E7 /* MYPlaceHolderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYPlaceHolderView.m; sourceTree = "<group>"; };
 		81F868E820C55C9E00630F3B /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
 		81F868E920C55C9E00630F3B /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		81F9D6EB210EF0BF00CD14DF /* MYKVOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKVOViewController.h; sourceTree = "<group>"; };
@@ -972,8 +981,13 @@
 		8174BC03210580B000ACC1F3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				81F421D02117E850005460E7 /* PlaceHolderView */,
 				8174BC0E210580B000ACC1F3 /* MYColorViewController.h */,
 				8174BC04210580B000ACC1F3 /* MYColorViewController.m */,
+				81F421CA2117E6B6005460E7 /* MYCollectionViewController.h */,
+				81F421CB2117E6B6005460E7 /* MYCollectionViewController.m */,
+				81F421CD2117E6CC005460E7 /* MYTableViewController.h */,
+				81F421CE2117E6CC005460E7 /* MYTableViewController.m */,
 				8174BC05210580B000ACC1F3 /* MYButtonViewController.h */,
 				8174BC0D210580B000ACC1F3 /* MYButtonViewController.m */,
 				8174BC0C210580B000ACC1F3 /* MYAlertViewController.h */,
@@ -1113,6 +1127,15 @@
 			path = NSData;
 			sourceTree = "<group>";
 		};
+		81F421D02117E850005460E7 /* PlaceHolderView */ = {
+			isa = PBXGroup;
+			children = (
+				81F421D12117E89D005460E7 /* MYPlaceHolderView.h */,
+				81F421D22117E89D005460E7 /* MYPlaceHolderView.m */,
+			);
+			path = PlaceHolderView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1124,6 +1147,7 @@
 				32077BE61F5FEC6F006E4C70 /* Sources */,
 				32077BE71F5FEC6F006E4C70 /* Frameworks */,
 				32077BE81F5FEC6F006E4C70 /* Resources */,
+				0029C18C1F04C1F70E702EC4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1244,6 +1268,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0029C18C1F04C1F70E702EC4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MYKitDemo/Pods-MYKitDemo-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MYKitDemo/Pods-MYKitDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9A06BBA848E02CFAA16939B1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1280,6 +1322,7 @@
 				32322A1F1FD4E7CC008060D9 /* NSMutableArray+Sort.m in Sources */,
 				81F9D6ED210EF0BF00CD14DF /* MYKVOViewController.m in Sources */,
 				321372F81F61621C00E15D0A /* UITextView+PlaceHolder.m in Sources */,
+				81F421CF2117E6CC005460E7 /* MYTableViewController.m in Sources */,
 				8174BC1A210580B000ACC1F3 /* MYTextFieldViewController.m in Sources */,
 				329AD3741FC030190036CF6D /* UIScreen+Addition.m in Sources */,
 				8174BC18210580B000ACC1F3 /* MYNavigationBarViewController.m in Sources */,
@@ -1296,6 +1339,7 @@
 				3210F5B1206A2CCF00000A6E /* UIImage+ImageEffects.m in Sources */,
 				81F421992111CBC5005460E7 /* NSObject+SafeKVO.m in Sources */,
 				321373051F6163FC00E15D0A /* UITextField+Shake.m in Sources */,
+				81F421D32117E89D005460E7 /* MYPlaceHolderView.m in Sources */,
 				32E1AB542063AF3C0072A1E4 /* UINavigationBar+Addition.m in Sources */,
 				327001672057ACD400AD95EB /* NSNumber+Addition.m in Sources */,
 				81F4219D2111CBC5005460E7 /* NSObject+Safe.m in Sources */,
@@ -1379,6 +1423,7 @@
 				11380755204FC5AF00DAF098 /* NSArray+Collection.m in Sources */,
 				81F868EA20C55C9F00630F3B /* UIView+Position.m in Sources */,
 				81F421C32113EE93005460E7 /* MYUnrecognizedSelectorViewController.m in Sources */,
+				81F421CC2117E6B6005460E7 /* MYCollectionViewController.m in Sources */,
 				32077C3E1F5FF410006E4C70 /* UIView+Gesture.m in Sources */,
 				8174BC1F210585EE00ACC1F3 /* SafeKitViewController.m in Sources */,
 			);
