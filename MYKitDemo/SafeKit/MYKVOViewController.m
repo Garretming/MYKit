@@ -34,7 +34,7 @@
 }
 
 - (void)testKVO2 {
-    [self addObserver:[UIButton new] forKeyPath:@"view" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
+    [self addObserver:self forKeyPath:@"view" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
 
     [self addObserver:self forKeyPath:@"frame" options:kNilOptions context:NULL];
     [self addObserver:self forKeyPath:@"center" options:kNilOptions context:NULL];
@@ -45,15 +45,15 @@
     // 会触发多次响应事件
 
     // for test 多余的移除会导致Crash  because it is not registered as an observer.'
-    [self removeObserver:self forKeyPath:@"view"];
-    [self removeObserver:self forKeyPath:@"view"];
+//    [self removeObserver:self forKeyPath:@"view"];
+//    [self removeObserver:self forKeyPath:@"view"];
 }
 
 - (void)dealloc {
     NSLog(@"%@ --> %s", [self class], __func__);
     
-    [self removeObserver:self forKeyPath:@"view"];
-    [self removeObserver:self forKeyPath:@"view"];
+//    [self removeObserver:self forKeyPath:@"view"];
+//    [self removeObserver:self forKeyPath:@"view"];
 }
 
 @end

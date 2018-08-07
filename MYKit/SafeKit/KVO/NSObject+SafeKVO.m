@@ -16,7 +16,7 @@
 static inline BOOL isSystemClass(Class cls) {
     __block BOOL system = NO;
     NSString *className = NSStringFromClass(cls);
-    if ([className hasPrefix:@"NS"] || [className hasPrefix:@"__NS"]) {
+    if ([className hasPrefix:@"NS"] || [className hasPrefix:@"__NS"] || [className hasPrefix:@"_UI"]) {
         system = YES;
         return system;
     }
@@ -26,7 +26,7 @@ static inline BOOL isSystemClass(Class cls) {
     } else {
         system = YES;
     }
-  
+    
     return system;
 }
 
@@ -37,7 +37,7 @@ static inline BOOL isSystemClass(Class cls) {
 /**
  {keypath : [ob1,ob2]}
  */
-@property (nonatomic, strong) NSMutableDictionary<NSString *, NSHashTable<NSObject *> *> *kvoInfoMap;;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSHashTable<NSObject *> *> *kvoInfoMap;
 
 @end
 
@@ -59,7 +59,7 @@ static inline BOOL isSystemClass(Class cls) {
     }
 }
 
-- (NSMutableDictionary<NSString *,NSHashTable<NSObject *> *> *)kvoInfoMap {
+- (NSMutableDictionary<NSString *, NSHashTable<NSObject *> *> *)kvoInfoMap {
     if (!_kvoInfoMap) {
         _kvoInfoMap = @{}.mutableCopy;
     }
@@ -89,64 +89,69 @@ static inline BOOL isSystemClass(Class cls) {
     
     [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:) replaceMethod:@selector(safe_removeObserver:forKeyPath:)];
     
-//    [self instanceSwizzleMethod:NSSelectorFromString(@"dealloc") replaceMethod:@selector(swizzledDealloc)];
+//     [self instanceSwizzleMethod:NSSelectorFromString(@"dealloc") replaceMethod:@selector(safe_dealloc)];
 }
 
-- (void)swizzledDealloc {
-   
+- (void)safe_dealloc {
     if (!isSystemClass(self.class)) {
-        
-        NSLog(@"%@", self.class);
+//        NSLog(@"%@",self.kvoProxy.kvoInfoMap);
     }
-    
-    [self swizzledDealloc];
+    [self safe_dealloc];
 }
 
 - (void)safe_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
     
-    if (!self.kvoProxy) {
-        @autoreleasepool {
-            self.kvoProxy = [[XXKVOProxy alloc] initWithObserverd:self];
+    if (!isSystemClass(self.class)) {
+        if (!self.kvoProxy) {
+            @autoreleasepool {
+                self.kvoProxy = [[XXKVOProxy alloc] initWithObserverd:self];
+            }
         }
-    }
-    
-    NSHashTable<NSObject *> *os = self.kvoProxy.kvoInfoMap[keyPath];
-    if (os.count == 0) {
-        os = [[NSHashTable alloc] initWithOptions:(NSPointerFunctionsWeakMemory) capacity:0];
-        [os addObject:observer];
-        // 更新kvoInfoMaps
-        self.kvoProxy.kvoInfoMap[keyPath] = os;
-        [self safe_addObserver:self.kvoProxy forKeyPath:keyPath options:options context:context];
-    } else {
+        
+        NSHashTable<NSObject *> *os = self.kvoProxy.kvoInfoMap[keyPath];
+        if (os.count == 0) {
+            os = [[NSHashTable alloc] initWithOptions:(NSPointerFunctionsWeakMemory) capacity:0];
+            [os addObject:observer];
+            
+            [self safe_addObserver:self.kvoProxy forKeyPath:keyPath options:options context:context];
+            self.kvoProxy.kvoInfoMap[keyPath] = os;
+            
+            return ;
+        }
+        
         if ([os containsObject:observer]) {
             NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : KVO add Observer to many timers.",
                                 [self class], NSStringFromSelector(_cmd)];
             [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeKVO)];
         } else {
             [os addObject:observer];
+            [self safe_addObserver:self.kvoProxy forKeyPath:keyPath options:options context:context];
             // 更新kvoInfoMaps
             self.kvoProxy.kvoInfoMap[keyPath] = os;
-            [self safe_addObserver:self.kvoProxy forKeyPath:keyPath options:options context:context];
         }
+    } else {
+        [self safe_addObserver:observer forKeyPath:keyPath options:options context:context];
     }
 }
 
 - (void)safe_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath {
     
-    NSHashTable<NSObject *> *os = self.kvoProxy.kvoInfoMap[keyPath];
-    
-    if (os.count == 0) {
-        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : KVO remove Observer to many times.",
-                            [self class], NSStringFromSelector(_cmd)];
-        [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeKVO)];
-    } else {
-        if ([os containsObject:observer]) {
-            [os removeObject:observer];
+    if (!isSystemClass(self.class)) {
+        NSHashTable<NSObject *> *os = self.kvoProxy.kvoInfoMap[keyPath];
+        
+        if (os.count == 0) {
+            NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : KVO remove Observer to many times.",
+                                [self class], NSStringFromSelector(_cmd)];
+            [MYSafeKitRecord recordFatalWithReason:reason errorType:(MYSafeKitShieldTypeKVO)];
+            return ;
         }
+        [os removeObject:observer];
         if (os.count == 0) {
             [self safe_removeObserver:self.kvoProxy forKeyPath:keyPath];
             [self.kvoProxy.kvoInfoMap removeObjectForKey:keyPath];
         }
+    } else {
+        [self safe_removeObserver:observer forKeyPath:keyPath];
     }
 }
 

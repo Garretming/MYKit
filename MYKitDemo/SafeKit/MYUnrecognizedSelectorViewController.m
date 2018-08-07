@@ -23,6 +23,10 @@
     [testObj performSelector:@selector(someMethod:)];
 
     [UIButton performSelector:@selector(someMethod:)];
+    
+    [testObj performSelector:@selector(someMethod:)];
+    
+    [UIButton performSelector:@selector(someMethod:)];
 }
 
 - (void)didReceiveMemoryWarning {
