@@ -29,8 +29,6 @@
 #import "UIScrollView+Addition.h"
 #import "UITextField+Shake.h"
 #import "UITextField+InputLimit.h"
-#import "UITextView+InputLimit.h"
-#import "UITextView+PlaceHolder.h"
 #import "UITextView+InputLengthCalculate.h"
 #import "UITextView+Select.h"
 #import "UIWindow+Hierarchy.h"

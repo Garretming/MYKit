@@ -96,7 +96,7 @@ static inline BOOL isSystemClass(Class cls) {
    
     if (!isSystemClass(self.class)) {
         
-  
+        NSLog(@"%@", self.class);
     }
     
     [self swizzledDealloc];

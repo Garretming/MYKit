@@ -26,7 +26,7 @@
     
     [self.dataSource addObject:@"*SafeKit之KVO*-MYKVOViewController"];
     [self.dataSource addObject:@"*SafeKit之Timer*-MYTimerViewController"];
-    [self.dataSource addObject:@"*SafeKit之Foundation*-MYFoundationViewController"];
+    [self.dataSource addObject:@"*SafeKit之Foundation*-FoundationViewController"];
     [self.dataSource addObject:@"*SafeKit之UnrecognizedSelector*-MYUnrecognizedSelectorViewController"];
     [self.dataSource addObject:@"*SafeKit之Notification*-MYNotificationViewController"];
     [self.view addSubview:self.tableView];

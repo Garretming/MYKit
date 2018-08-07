@@ -8,8 +8,6 @@
 
 #import "MYTextViewController.h"
 #import <YYKit.h>
-//#import "UITextView+Placeholder.h"
-//#import "UITextView+InputLimit.h"
 
 @interface MYTextViewController ()
 
@@ -20,12 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [UITextView registerHookMethod];
-    
     self.view.backgroundColor = [UIColor whiteColor];
     
     UITextView *textView = [[UITextView alloc] init];
-//    textView.maxLength = 10;
     textView.frame = CGRectMake(50, 120, 200, 300);
     textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 //    textView.placeholder = @"Are you sure you don\'t want to reconsider? Could you tell us why you wish to leave StyleShare? Your opinion helps us improve StyleShare into a better place for fashionistas from all around the world. We are always listening to our users. Help us improve!";

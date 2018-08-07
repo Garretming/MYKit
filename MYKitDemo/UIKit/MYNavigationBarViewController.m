@@ -9,6 +9,8 @@
 #import "MYNavigationBarViewController.h"
 #import "UINavigationBar+Addition.h"
 #import "UIScreen+Addition.h"
+#import "UIViewController+PreviousController.h"
+#import "UIViewController+PageViewLevel.h"
 
 // offsetY > -64 的时候导航栏开始偏移
 #define NAVBAR_TRANSLATION_POINT 0
@@ -31,6 +33,7 @@
     self.tableView.tableHeaderView = self.imgView;
     
     NSLog(@"navigationBarHeight%f",[UIScreen navigationBarHeight]);
+    NSLog(@"%ld", (long)[self pageViewLevel]);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -81,6 +84,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIViewController *vc = [UIViewController new];
+    vc.view.backgroundColor = [UIColor whiteColor];
     NSString *str = [NSString stringWithFormat:@"NavigationBar %zd",indexPath.row];
     vc.title = str;
     [self.navigationController pushViewController:vc animated:YES];

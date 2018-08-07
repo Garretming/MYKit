@@ -7,6 +7,7 @@
 //
 
 #import "UIKitViewController.h"
+#import "UIViewController+TopViewController.h"
 #import "MYKitMacroHeader.h"
 
 @interface UIKitViewController ()<UITableViewDelegate, UITableViewDataSource>
