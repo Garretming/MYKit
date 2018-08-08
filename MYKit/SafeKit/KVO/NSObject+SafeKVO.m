@@ -9,11 +9,10 @@
 #import "NSObject+SafeKVO.h"
 #import "NSObject+Swizzle.h"
 #import "MYSafeKitRecord.h"
-
 #include <CommonCrypto/CommonCrypto.h>
 #include <zlib.h>
 
-static NSLock *_bmp_kvoLock;
+#define SafeKit_margin_string @"================SafeKit Log================"
 
 static inline NSString *kvo_md5StringOfObject(NSObject *object) {
     NSString *string = [NSString stringWithFormat:@"%p",object];
@@ -44,12 +43,7 @@ static inline BOOL isSystemClass(Class cls) {
     return system;
 }
 
-@interface KVOInfo : NSObject
-
-@end
-
-@implementation KVOInfo
-{
+@interface KVOInfo : NSObject {
     @package
     void *_context;
     NSKeyValueObservingOptions _options;
@@ -57,101 +51,55 @@ static inline BOOL isSystemClass(Class cls) {
     __weak NSString *_keyPath;
     NSString *_md5Str;
 }
+
 @end
 
+@implementation KVOInfo
+
+@end
 
 @interface XXKVOProxy : NSObject {
-    NSMutableDictionary<NSString*, NSMutableArray<KVOInfo *> *> *_keyPathMaps;
+    NSMutableDictionary<NSString*, NSMutableArray<NSObject *> *> *_keyPathMaps;
+    
+    dispatch_semaphore_t _addKvoProxyLock;
+    dispatch_semaphore_t _removeKvoProxyLock;
 }
 
 /**
  将添加kvo时的相关信息加入到关系maps中，对应原有的添加观察者
  带成功和失败的回调
- 
- @param observer observer观察者
- @param keyPath keyPath
- @param options options
- @param context context
- @param success success 成功的回调
- @param failure failure 失败的回调
  */
 - (void)addKVOInfoToMapsWithObserver:(NSObject *)observer
                           forKeyPath:(NSString *)keyPath
                              options:(NSKeyValueObservingOptions)options
                              context:(void *)context
                              success:(void(^)(void))success
-                             failure:(void(^)(NSError *error))failure;
-
-/**
- 将添加kvo时的相关信息加入到关系maps中，对应原有的添加观察者
- 不带成功和失败的回调
- @param observer 实际观察者
- @param keyPath keyPath
- @param options options
- @param context context
- @return return 是否添加成功
- */
-- (BOOL)addKVOInfoToMapsWithObserver:(NSObject *)observer
-                          forKeyPath:(NSString *)keyPath
-                             options:(NSKeyValueObservingOptions)options
-                             context:(void *)context;
+                             failure:(void(^)(NSString *error))failure;
 
 /**
  从关系maps中移除观察者 对应原有的移除观察者操作
- 
- @param observer 实际观察者
- @param keyPath keypath
- @return 是否移除成功
- 如果重复移除，会返回NO
  */
-- (BOOL)removeKVOInfoInMapsWithObserver:(NSObject *)observer
-                             forKeyPath:(NSString *)keyPath;
+- (void)removeKVOInfoInMapsWithObserver:(NSObject *)observer
+                             forKeyPath:(NSString *)keyPath
+                                success:(void(^)(void))success
+                                failure:(void(^)(NSString *error))failure;
 
+/**
+ 获取所有对应的keyPaths
+ */
 - (NSArray *)getAllKeypaths;
 
 @end
 
 @implementation XXKVOProxy
 
-- (instancetype)init
-{
-    self = [super init];
-    if (nil != self) {
+- (instancetype)init {
+    if (self = [super init]) {
         _keyPathMaps = [NSMutableDictionary dictionary];
-        _bmp_kvoLock = [[NSLock alloc]init];
+        _addKvoProxyLock = dispatch_semaphore_create(1);
+        _removeKvoProxyLock = dispatch_semaphore_create(1);
     }
     return self;
-}
-
-- (BOOL)addKVOInfoToMapsWithObserver:(NSObject *)observer
-                          forKeyPath:(NSString *)keyPath
-                             options:(NSKeyValueObservingOptions)options
-                             context:(void *)context{
-    BOOL success;
-    //先判断有没有重复添加,有的话报错，没有的话，添加到数组中
-    [_bmp_kvoLock lock];
-    NSMutableArray <KVOInfo *> *kvoInfos = [self getKVOInfosForKeypath:keyPath];
-    __block BOOL isExist = NO;
-    [kvoInfos enumerateObjectsUsingBlock:^(KVOInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj->_observer == observer) {
-            isExist = YES;
-        }
-    }];
-    if (isExist) {//已经存在了
-        success = NO;
-    }else{
-        KVOInfo *info = [[KVOInfo alloc]init];
-        info->_observer = observer;
-        info->_md5Str = kvo_md5StringOfObject(observer);
-        info->_keyPath = keyPath;
-        info->_options = options;
-        info->_context = context;
-        [kvoInfos addObject:info];
-        [self setKVOInfos:kvoInfos ForKeypath:keyPath];
-        success = YES;
-    }
-    [_bmp_kvoLock unlock];
-    return success;
 }
 
 - (void)addKVOInfoToMapsWithObserver:(NSObject *)observer
@@ -159,24 +107,20 @@ static inline BOOL isSystemClass(Class cls) {
                              options:(NSKeyValueObservingOptions)options
                              context:(void *)context
                              success:(void(^)(void))success
-                             failure:(void(^)(NSError *error))failure{
-    [_bmp_kvoLock lock];
-    //先判断有没有重复添加,有的话报错，没有的话，添加到数组中
-    NSMutableArray <KVOInfo *> *kvoInfos = [self getKVOInfosForKeypath:keyPath];
-    __block BOOL isExist = NO;
-    [kvoInfos enumerateObjectsUsingBlock:^(KVOInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj->_observer == observer) {
-            isExist = YES;
-        }
-    }];
-    if (isExist) {//已经存在了
+                             failure:(void(^)(NSString *error))failure {
+    dispatch_semaphore_wait(_addKvoProxyLock, DISPATCH_TIME_FOREVER);
+    // 先判断有没有重复添加，上报 KVO 多次添加，没有的话，添加到数组中
+    NSMutableArray <NSObject *> *kvoInfos = [self getKVOInfosForKeypath:keyPath];
+    
+    // 多次添加 KVO
+    if (kvoInfos.count > 0) {
+        
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : KVO add Observer to many timers.",
+                            [self class], NSStringFromSelector(_cmd)];
         if (failure) {
-            NSInteger code = -1234;
-            NSString *msg = [NSString stringWithFormat:@"\n observer重复添加:\n observer:%@\n keypath:%@ \n",observer,keyPath];
-            NSError * error = [NSError errorWithDomain:@"com.BayMax.BayMaxKVODelegate" code:code userInfo:@{@"NSLocalizedDescriptionKey":msg}];
-            failure(error);
+            failure(reason);
         }
-    }else{
+    } else {
         KVOInfo *info = [[KVOInfo alloc]init];
         info->_observer = observer;
         info->_md5Str = kvo_md5StringOfObject(observer);
@@ -184,58 +128,76 @@ static inline BOOL isSystemClass(Class cls) {
         info->_options = options;
         info->_context = context;
         [kvoInfos addObject:info];
-        [self setKVOInfos:kvoInfos ForKeypath:keyPath];
+        
+        // 设置keyPath对应的观察者数组
+        if (![_keyPathMaps.allKeys containsObject:keyPath]) {
+            if (keyPath) {
+                _keyPathMaps[keyPath] = kvoInfos;
+            }
+        }
         if (success) {
             success();
         }
     }
-    [_bmp_kvoLock unlock];
+    dispatch_semaphore_signal(_addKvoProxyLock);
 }
 
-- (BOOL)removeKVOInfoInMapsWithObserver:(NSObject *)observer
-                             forKeyPath:(NSString *)keyPath{
-    [_bmp_kvoLock lock];
-    BOOL success;
-    NSMutableArray <KVOInfo *> *kvoInfos = [self getKVOInfosForKeypath:keyPath];
-    __block BOOL isExist = NO;
-    __block KVOInfo *kvoInfo;
-    [kvoInfos enumerateObjectsUsingBlock:^(KVOInfo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj->_md5Str isEqualToString:kvo_md5StringOfObject(observer)]) {
-            isExist = YES;
-            kvoInfo = obj;
+- (void)removeKVOInfoInMapsWithObserver:(NSObject *)observer
+                             forKeyPath:(NSString *)keyPath
+                                success:(void(^)(void))success
+                                failure:(void(^)(NSString *error))failure {
+    
+    dispatch_semaphore_wait(_removeKvoProxyLock, DISPATCH_TIME_FOREVER);
+    
+    NSMutableArray <NSObject *> *kvoInfos = [self getKVOInfosForKeypath:keyPath];
+    
+    if (kvoInfos.count == 0) {
+        
+        NSString *reason = [NSString stringWithFormat:@"target is %@ method is %@, reason : KVO remove Observer to many times.",
+                            [self class], NSStringFromSelector(_cmd)];
+        
+        if (failure) {
+            failure(reason);
         }
-    }];
-    if (kvoInfo) {
-        [kvoInfos removeObject:kvoInfo];
-        if (kvoInfos.count == 0) {//说明该keypath没有observer观察，可以移除该键
-            [_keyPathMaps removeObjectForKey:keyPath];
+    } else {
+        
+        KVOInfo *kvoInfo;
+        for (KVOInfo *obj in kvoInfos) {
+            if ([obj->_md5Str isEqualToString:kvo_md5StringOfObject(observer)]) {
+                kvoInfo = obj;
+                break;
+            }
+        }
+        if (kvoInfo) {
+            [kvoInfos removeObject:kvoInfo];
+            if (kvoInfos.count == 0) { // 说明该keypath没有observer观察，可以移除该键
+                [_keyPathMaps removeObjectForKey:keyPath];
+            }
         }
     }
-    success = isExist;
-    [_bmp_kvoLock unlock];
-    return success;
+    dispatch_semaphore_signal(_removeKvoProxyLock);
 }
 
-#pragma mark 获取keypath对应的所有观察者
-- (NSMutableArray *)getKVOInfosForKeypath:(NSString *)keypath{
+/**
+ 获取keypath对应的所有观察者
+ */
+- (NSMutableArray *)getKVOInfosForKeypath:(NSString *)keypath {
     if ([_keyPathMaps.allKeys containsObject:keypath]) {
         return [_keyPathMaps objectForKey:keypath];
-    }else{
+    } else {
         return [NSMutableArray array];
     }
 }
 
-#pragma mark  设置keypath对应的观察者数组
-- (void)setKVOInfos:(NSMutableArray *)kvoInfos ForKeypath:(NSString *)keypath{
-    if (![_keyPathMaps.allKeys containsObject:keypath]) {
-        if (keypath) {
-            _keyPathMaps[keypath] = kvoInfos;
-        }
-    }
+/**
+ 获取所有被观察的keypaths
+ */
+- (NSArray *)getAllKeypaths{
+    NSArray <NSString *>*keyPaths = _keyPathMaps.allKeys;
+    return keyPaths;
 }
 
-#pragma mark 实际观察者执行相对应的监听方法
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     NSMutableArray <KVOInfo *> *kvoInfos = [self getKVOInfosForKeypath:keyPath];
     for (NSObject *observer in kvoInfos) {
         @try {
@@ -247,93 +209,78 @@ static inline BOOL isSystemClass(Class cls) {
     }
 }
 
-#pragma mark 获取所有被观察的keypaths
-- (NSArray *)getAllKeypaths{
-    NSArray <NSString *>*keyPaths = _keyPathMaps.allKeys;
-    return keyPaths;
-}
-
-
 @end
 
 @implementation NSObject (SafeKVO)
 
 static void *KVOProtectorKey = &KVOProtectorKey;
-static NSString *const KVOProtectorValue = @"BMP_KVOProtector";
-static void *BayMaxKVODelegateKey = &BayMaxKVODelegateKey;
-
+static NSString *const KVOProtectorValue = @"KVOProtectorValue";
 
 + (void)registerClassPairMethodsInKVO {
     
-    [self instanceSwizzleMethod:@selector(addObserver:forKeyPath:options:context:) replaceMethod:@selector(BMP_addObserver:forKeyPath:options:context:)];
+    [self instanceSwizzleMethod:@selector(addObserver:forKeyPath:options:context:) replaceMethod:@selector(safe_addObserver:forKeyPath:options:context:)];
     
-    [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:) replaceMethod:@selector(BMP_removeObserver:forKeyPath:)];
+    [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:) replaceMethod:@selector(safe_removeObserver:forKeyPath:)];
     
-    [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:) replaceMethod:@selector(BMP_removeObserver:forKeyPath:context:)];
+    [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:) replaceMethod:@selector(safe_removeObserver:forKeyPath:context:)];
     
-     [self instanceSwizzleMethod:NSSelectorFromString(@"dealloc") replaceMethod:@selector(BMPKVO_dealloc)];
+    [self instanceSwizzleMethod:NSSelectorFromString(@"dealloc") replaceMethod:@selector(safeKvo_dealloc)];
 }
 
-- (void)BMP_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context{
+- (void)safe_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
     if (!isSystemClass(self.class)) {
         __weak typeof(self) weakSelf = self;
         objc_setAssociatedObject(self, KVOProtectorKey, KVOProtectorValue, OBJC_ASSOCIATION_RETAIN);
         [self.kvoProxy addKVOInfoToMapsWithObserver:observer forKeyPath:keyPath options:options context:context success:^{
-            [weakSelf BMP_addObserver:weakSelf.kvoProxy forKeyPath:keyPath options:options context:context];
-        } failure:^(NSError *error) {
-            NSArray *callStackSymbolsArr = [NSThread callStackSymbols];
-           
+            [weakSelf safe_addObserver:weakSelf.kvoProxy forKeyPath:keyPath options:options context:context];
+        } failure:^(NSString *error) {
+            [MYSafeKitRecord recordFatalWithReason:error errorType:MYSafeKitShieldTypeKVO];
         }];
-    }else{
-        [self BMP_addObserver:observer forKeyPath:keyPath options:options context:context];
+    } else {
+        [self safe_addObserver:observer forKeyPath:keyPath options:options context:context];
     }
 }
 
-- (void)BMP_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath{
+- (void)safe_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath {
     if (!isSystemClass(self.class)) {
-        if ([self.kvoProxy removeKVOInfoInMapsWithObserver:observer forKeyPath:keyPath]) {
-            [self BMP_removeObserver:self.kvoProxy forKeyPath:keyPath];
-        }else{
-            NSArray *callStackSymbolsArr = [NSThread callStackSymbols];
-            NSString *reson = [NSString stringWithFormat:@"Cannot remove an observer %@ for the key path '%@' from %@ because it is not registered as an observer",observer,keyPath,NSStringFromClass(self.class) == nil?@"":NSStringFromClass(self.class)];
-            
-        }
-    }else{
-        [self BMP_removeObserver:observer forKeyPath:keyPath];
+        [self.kvoProxy removeKVOInfoInMapsWithObserver:observer forKeyPath:keyPath success:^{
+            [self safe_removeObserver:self.kvoProxy forKeyPath:keyPath];
+        } failure:^(NSString *error) {
+            [MYSafeKitRecord recordFatalWithReason:error errorType:MYSafeKitShieldTypeKVO];
+        }];
+    } else {
+        [self safe_removeObserver:observer forKeyPath:keyPath];
     }
 }
 
-- (void)BMP_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(nullable void *)context{
+- (void)safe_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(nullable void *)context {
     if (!isSystemClass(self.class)) {
-        if ([self.kvoProxy removeKVOInfoInMapsWithObserver:observer forKeyPath:keyPath]) {
-            [self BMP_removeObserver:self.kvoProxy forKeyPath:keyPath];
-        }else{
-            NSArray *callStackSymbolsArr = [NSThread callStackSymbols];
-            NSString *reson = [NSString stringWithFormat:@"Cannot remove an observer %@ for the key path '%@' from %@ because it is not registered as an observer",observer,keyPath,NSStringFromClass(self.class) == nil?@"":NSStringFromClass(self.class)];
-            
-        }
-    }else{
-        [self BMP_removeObserver:observer forKeyPath:keyPath context:context];
+        [self.kvoProxy removeKVOInfoInMapsWithObserver:observer forKeyPath:keyPath success:^{
+            [self safe_removeObserver:self.kvoProxy forKeyPath:keyPath];
+        } failure:^(NSString *error) {
+            [MYSafeKitRecord recordFatalWithReason:error errorType:MYSafeKitShieldTypeKVO];
+        }];
+    } else {
+        [self safe_removeObserver:observer forKeyPath:keyPath context:context];
     }
 }
 
-- (void)BMPKVO_dealloc{
+- (void)safeKvo_dealloc{
     if (!isSystemClass(self.class)) {
         NSString *value = (NSString *)objc_getAssociatedObject(self, KVOProtectorKey);
         if ([value isEqualToString:KVOProtectorValue]) {
             NSArray *keypaths = [self.kvoProxy getAllKeypaths];
-            if (keypaths.count>0) {
-                NSArray *callStackSymbolsArr = [NSThread callStackSymbols];
-                NSString *reson = [NSString stringWithFormat:@"An instance %@ was deallocated while key value observers were still registered with it. The Keypaths is:'%@'",self,[keypaths componentsJoinedByString:@","]];
-               
+            if (keypaths.count > 0) {
+                NSString *reson = [NSString stringWithFormat:@"****** Waring ***** \n An instance %@ was deallocated while key value observers were still registered with it. The Keypaths is:%@", self.class, [keypaths componentsJoinedByString:@","]];
+                NSLog(@"%@\n\n%@",SafeKit_margin_string, reson);
             }
-            [keypaths enumerateObjectsUsingBlock:^(NSString *keyPath, NSUInteger idx, BOOL * _Nonnull stop) {
-                //错误信息
-                [self BMP_removeObserver:self.kvoProxy forKeyPath:keyPath];
-            }];
+            for (NSString *keyPath in keypaths) {
+                // 手动移除没有移除的监听者
+                [self safe_removeObserver:self.kvoProxy forKeyPath:keyPath];
+            }
         }
     }
-    [self BMPKVO_dealloc];
+    [self safeKvo_dealloc];
 }
 
 - (void)setKvoProxy:(XXKVOProxy *)kvoProxy {

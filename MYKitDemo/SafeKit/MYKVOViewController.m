@@ -37,6 +37,7 @@
     [self addObserver:self forKeyPath:@"view" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
 
     [self addObserver:self forKeyPath:@"frame" options:kNilOptions context:NULL];
+//    [self addObserver:self forKeyPath:@"frame" options:kNilOptions context:NULL];
     [self addObserver:self forKeyPath:@"center" options:kNilOptions context:NULL];
     [self addObserver:self forKeyPath:@"bounds" options:kNilOptions context:NULL];
     [self addObserver:self forKeyPath:@"transform" options:kNilOptions context:NULL];
@@ -52,8 +53,8 @@
 - (void)dealloc {
     NSLog(@"%@ --> %s", [self class], __func__);
     
-//    [self removeObserver:self forKeyPath:@"view"];
-//    [self removeObserver:self forKeyPath:@"view"];
+    [self removeObserver:self forKeyPath:@"view"];
+    [self removeObserver:self forKeyPath:@"view"];
 }
 
 @end
