@@ -67,7 +67,6 @@ Pod::Spec.new do |s|
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
-  s.dependency 'YYKit'
 
   s.requires_arc = true
 

@@ -7,7 +7,6 @@
 //
 
 #import "UIImage+Addition.h"
-#import "NSData+ImageContentType.h"
 #import <Accelerate/Accelerate.h>
 
 static NSTimeInterval _my_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef source, size_t index) {

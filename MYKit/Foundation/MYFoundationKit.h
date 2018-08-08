@@ -27,7 +27,7 @@
 #import "NSUserDefaults+SafeAccess.h"
 #import "NSURL+Param.h"
 #import "NSObject+Addition.h"
-#import "NSObject+Swizzling.h"
+#import "NSObject+Swizzle.h"
 #import "NSObject+AssociatedObject.h"
 #import "NSNumber+Round.h"
 #import "NSNumber+Addition.h"
