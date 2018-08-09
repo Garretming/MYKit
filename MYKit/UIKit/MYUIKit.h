@@ -60,7 +60,7 @@
 #import "UIView+Badge.h"
 #import "UIView+Line.h"
 #import "UIView+FindSubView.h"
-#import "UIView+GradientBackgroundColor.h"
+#import "UIView+Addition.h"
 #import "UIImageView+CornerRadius.h"
 #import "UIImageView+RectCorner.h"
 

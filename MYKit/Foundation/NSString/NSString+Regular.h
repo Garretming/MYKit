@@ -10,54 +10,65 @@
 
 @interface NSString (Regular)
 
-/**
- *  手机号码的有效性:分电信、联通、移动和小灵通
- */
-- (BOOL)isMobileNumberClassification;
-/**
- *  手机号有效性
- */
-- (BOOL)isMobileNumber;
 
-/**
- *  邮箱的有效性
+/*!
+ *  @method vertifyEmail
+ *  验证字符串是否邮箱格式
  */
-- (BOOL)isEmailAddress;
+- (BOOL)vertifyEmail;
 
-/**
- *  简单的身份证有效性
- *
+/*!
+ *  @method vertifyChinese
+ *  验证字符串是否中文
  */
-- (BOOL)simpleVerifyIdentityCardNum;
+- (BOOL)vertifyChinese;
 
-/**
- *  车牌号的有效性
+/*!
+ *  @method vertifyPassword
+ *  验证字符串是否6-18位大小字母混合数字密码
  */
-- (BOOL)isCarNumber;
+- (BOOL)vertifyPassword;
 
-/**
- *  Mac地址有效性
+/*!
+ *  @method vertifyHyperLink
+ *  验证字符串是否超链接
  */
-- (BOOL)isMacAddress;
+- (BOOL)vertifyHyperLink;
 
-/**
- *  网址有效性
+/*!
+ *  @method vertifyTelephone
+ *  验证字符串是否固机号码
  */
-- (BOOL)isValidUrl;
+- (BOOL)vertifyTelephone;
 
-/**
- *  纯汉字
+/*!
+ *  @method vertifyIpAddress
+ *  验证字符串是否IP地址
  */
-- (BOOL)isValidChinese;
+- (BOOL)vertifyIpAddress;
 
-/**
- *  邮政编码
+/*!
+ *  @method vertifyMobilePhone
+ *  验证字符串是否手机号码
  */
-- (BOOL)isValidPostalcode;
+- (BOOL)vertifyMobilePhone;
 
-/**
- *  工商税号
+/*!
+ *  @method vertifyCarNumber
+ *  验证字符串是否车牌号码
  */
-- (BOOL)isValidTaxNo;
+- (BOOL)vertifyCarNumber;
+
+/*!
+ *  @method vertifyIdentifierNumber
+ *  验证字符串是否身份证号码
+ */
+- (BOOL)vertifyIdentifierNumber;
+
+/*!
+ *  @method vertifyStringWithExp:
+ *  验证字符串是否符合正则表达式规则
+ */
+- (BOOL)vertifyStringWithExp:(NSString *)exp;
 
 @end

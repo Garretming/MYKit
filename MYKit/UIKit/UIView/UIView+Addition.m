@@ -1,12 +1,13 @@
 //
-//  UIView+GradientBackgroundColor.m
+//  UIView+Addition.m
 //  MYKitDemo
 //
 //  Created by sunjinshuai on 2017/12/29.
 //  Copyright © 2017年 com.51fanxing. All rights reserved.
 //
 
-#import "UIView+GradientBackgroundColor.h"
+#import "UIView+Addition.h"
+#import "UIView+Position.h"
 
 @implementation UIView (GradientBackgroundColor)
 
@@ -58,5 +59,29 @@
     [self.layer insertSublayer:gradientLayer atIndex:0];
 }
 
+- (UIImage *)snapshotImage {
+    return [self snapshotImageInRect:self.bounds];
+}
+
+- (UIImage *)snapshotImageInRect: (CGRect)rect {
+    if (CGRectGetMaxX(rect) > self.width) {
+        rect.size.width = self.width - rect.origin.x;
+    }
+    if (CGRectGetMaxY(rect) > self.height) {
+        rect.size.height = self.height - rect.origin.y;
+    }
+    if (CGRectGetHeight(rect) < 0 || CGRectGetWidth(rect) < 0) { return nil; }
+    
+    UIGraphicsBeginImageContext(self.bounds.size);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(ctx);
+    UIRectClip(rect);
+    
+    [self.layer renderInContext:ctx];
+    UIImage *snapImage = UIGraphicsGetImageFromCurrentImageContext();
+    CGContextRestoreGState(ctx);
+    UIGraphicsEndImageContext();
+    return snapImage;
+}
 
 @end

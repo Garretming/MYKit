@@ -51,7 +51,6 @@
 		321373411F616B4100E15D0A /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373401F616B4100E15D0A /* UIApplication+NetworkActivityIndicator.m */; };
 		3213734B1F62647800E15D0A /* NSArray+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213734A1F62647800E15D0A /* NSArray+SafeAccess.m */; };
 		3213734F1F6265CD00E15D0A /* NSBundle+AppIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213734E1F6265CD00E15D0A /* NSBundle+AppIcon.m */; };
-		321373761F626B7700E15D0A /* NSDateFormatter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373751F626B7700E15D0A /* NSDateFormatter+Extension.m */; };
 		3213737A1F626BA800E15D0A /* NSDictionary+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373791F626BA800E15D0A /* NSDictionary+SafeAccess.m */; };
 		3213738F1F626E1000E15D0A /* NSUserDefaults+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213738E1F626E1000E15D0A /* NSUserDefaults+SafeAccess.m */; };
 		321373931F626E8D00E15D0A /* NSURL+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373921F626E8D00E15D0A /* NSURL+Param.m */; };
@@ -63,7 +62,7 @@
 		324174531FF63BFD007BB277 /* UIScrollView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 324174521FF63BFD007BB277 /* UIScrollView+Addition.m */; };
 		3241745C1FF63E40007BB277 /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3241745B1FF63E40007BB277 /* NSMutableArray+Stack.m */; };
 		3241745F1FF63E6D007BB277 /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3241745E1FF63E6D007BB277 /* NSMutableArray+Queue.m */; };
-		324174691FF63F88007BB277 /* UIView+GradientBackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 324174681FF63F88007BB277 /* UIView+GradientBackgroundColor.m */; };
+		324174691FF63F88007BB277 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 324174681FF63F88007BB277 /* UIView+Addition.m */; };
 		325AFEA21FC023D1009FF8B1 /* NSArray+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEA11FC023D1009FF8B1 /* NSArray+Addition.m */; };
 		325AFEAF1FC02951009FF8B1 /* UIView+RedDot.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEAE1FC02951009FF8B1 /* UIView+RedDot.m */; };
 		325AFEB21FC029AC009FF8B1 /* UIView+Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEB11FC029AC009FF8B1 /* UIView+Line.m */; };
@@ -101,6 +100,7 @@
 		8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195078320FDD48000D43E89 /* UIAlertController+Blocks.m */; };
 		819BD9F0211942440006BAD8 /* MYAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8174BC06210580B000ACC1F3 /* MYAlertViewController.m */; };
 		819BD9F3211944400006BAD8 /* FoundationKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819BD9F2211944400006BAD8 /* FoundationKitViewController.m */; };
+		819BDA11211BDEED0006BAD8 /* MYDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819BDA10211BDEED0006BAD8 /* MYDateViewController.m */; };
 		81F41DF1210F18E3005460E7 /* MYTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DF0210F18E3005460E7 /* MYTimerViewController.m */; };
 		81F41DF4210FFD1E005460E7 /* NSObject+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DF3210FFD1E005460E7 /* NSObject+Addition.m */; };
 		81F41E00211032DE005460E7 /* MYFoundationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F41DFF211032DE005460E7 /* MYFoundationViewController.m */; };
@@ -236,8 +236,6 @@
 		3213734A1F62647800E15D0A /* NSArray+SafeAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SafeAccess.m"; sourceTree = "<group>"; };
 		3213734D1F6265CD00E15D0A /* NSBundle+AppIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+AppIcon.h"; sourceTree = "<group>"; };
 		3213734E1F6265CD00E15D0A /* NSBundle+AppIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+AppIcon.m"; sourceTree = "<group>"; };
-		321373741F626B7700E15D0A /* NSDateFormatter+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Extension.h"; sourceTree = "<group>"; };
-		321373751F626B7700E15D0A /* NSDateFormatter+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Extension.m"; sourceTree = "<group>"; };
 		321373781F626BA800E15D0A /* NSDictionary+SafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SafeAccess.h"; sourceTree = "<group>"; };
 		321373791F626BA800E15D0A /* NSDictionary+SafeAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SafeAccess.m"; sourceTree = "<group>"; };
 		3213738D1F626E1000E15D0A /* NSUserDefaults+SafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+SafeAccess.h"; sourceTree = "<group>"; };
@@ -260,8 +258,8 @@
 		3241745B1FF63E40007BB277 /* NSMutableArray+Stack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Stack.m"; sourceTree = "<group>"; };
 		3241745D1FF63E6D007BB277 /* NSMutableArray+Queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Queue.h"; sourceTree = "<group>"; };
 		3241745E1FF63E6D007BB277 /* NSMutableArray+Queue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Queue.m"; sourceTree = "<group>"; };
-		324174671FF63F88007BB277 /* UIView+GradientBackgroundColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+GradientBackgroundColor.h"; sourceTree = "<group>"; };
-		324174681FF63F88007BB277 /* UIView+GradientBackgroundColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+GradientBackgroundColor.m"; sourceTree = "<group>"; };
+		324174671FF63F88007BB277 /* UIView+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Addition.h"; sourceTree = "<group>"; };
+		324174681FF63F88007BB277 /* UIView+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addition.m"; sourceTree = "<group>"; };
 		325AFEA01FC023D1009FF8B1 /* NSArray+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Addition.h"; sourceTree = "<group>"; };
 		325AFEA11FC023D1009FF8B1 /* NSArray+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Addition.m"; sourceTree = "<group>"; };
 		325AFEAD1FC02951009FF8B1 /* UIView+RedDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RedDot.h"; sourceTree = "<group>"; };
@@ -344,6 +342,8 @@
 		8195078520FDD9C700D43E89 /* MYKitMacroHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYKitMacroHeader.h; sourceTree = "<group>"; };
 		819BD9F1211944400006BAD8 /* FoundationKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundationKitViewController.h; sourceTree = "<group>"; };
 		819BD9F2211944400006BAD8 /* FoundationKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundationKitViewController.m; sourceTree = "<group>"; };
+		819BDA0F211BDEED0006BAD8 /* MYDateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYDateViewController.h; sourceTree = "<group>"; };
+		819BDA10211BDEED0006BAD8 /* MYDateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYDateViewController.m; sourceTree = "<group>"; };
 		81F41DEF210F18E3005460E7 /* MYTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MYTimerViewController.h; sourceTree = "<group>"; };
 		81F41DF0210F18E3005460E7 /* MYTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MYTimerViewController.m; sourceTree = "<group>"; };
 		81F41DF2210FFD1E005460E7 /* NSObject+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Addition.h"; sourceTree = "<group>"; };
@@ -570,7 +570,6 @@
 				321373B01F627D7600E15D0A /* NSObject */,
 				321373901F626E7300E15D0A /* NSURL */,
 				3213738C1F626E0200E15D0A /* NSUserDefaults */,
-				321373731F626B5700E15D0A /* NSDateFormatter */,
 				321373661F6268C800E15D0A /* NSDate */,
 				3213734C1F6265BB00E15D0A /* NSBundle */,
 			);
@@ -639,8 +638,8 @@
 				325AFEB11FC029AC009FF8B1 /* UIView+Line.m */,
 				325AFEB31FC029E5009FF8B1 /* UIView+FindSubView.h */,
 				325AFEB41FC029E5009FF8B1 /* UIView+FindSubView.m */,
-				324174671FF63F88007BB277 /* UIView+GradientBackgroundColor.h */,
-				324174681FF63F88007BB277 /* UIView+GradientBackgroundColor.m */,
+				324174671FF63F88007BB277 /* UIView+Addition.h */,
+				324174681FF63F88007BB277 /* UIView+Addition.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -810,15 +809,6 @@
 				815F4D392091BA5500EA6DFF /* NSDate+NSDateRFC1123.m */,
 			);
 			path = NSDate;
-			sourceTree = "<group>";
-		};
-		321373731F626B5700E15D0A /* NSDateFormatter */ = {
-			isa = PBXGroup;
-			children = (
-				321373741F626B7700E15D0A /* NSDateFormatter+Extension.h */,
-				321373751F626B7700E15D0A /* NSDateFormatter+Extension.m */,
-			);
-			path = NSDateFormatter;
 			sourceTree = "<group>";
 		};
 		321373771F626B9200E15D0A /* NSDictionary */ = {
@@ -1029,6 +1019,8 @@
 		819BD9F4211945CC0006BAD8 /* FoundationKit */ = {
 			isa = PBXGroup;
 			children = (
+				819BDA0F211BDEED0006BAD8 /* MYDateViewController.h */,
+				819BDA10211BDEED0006BAD8 /* MYDateViewController.m */,
 			);
 			path = FoundationKit;
 			sourceTree = "<group>";
@@ -1381,7 +1373,6 @@
 				325AFEAF1FC02951009FF8B1 /* UIView+RedDot.m in Sources */,
 				321373A91F62752E00E15D0A /* NSString+Trims.m in Sources */,
 				815F4D1F2091B88D00EA6DFF /* NSDictionary+Addition.m in Sources */,
-				321373761F626B7700E15D0A /* NSDateFormatter+Extension.m in Sources */,
 				81F41DF1210F18E3005460E7 /* MYTimerViewController.m in Sources */,
 				81150FE5210AF8FF00A8B32D /* UICollectionView+PlaceHolder.m in Sources */,
 				81F421962111CBC5005460E7 /* MYSafeKitRecord.m in Sources */,
@@ -1391,6 +1382,7 @@
 				32047E23200F552100A36003 /* UIButton+ImageTitleStyle.m in Sources */,
 				321373161F61676600E15D0A /* UINavigationController+Addition.m in Sources */,
 				81F421A12111CBC5005460E7 /* NSMutableString+Safe.m in Sources */,
+				819BDA11211BDEED0006BAD8 /* MYDateViewController.m in Sources */,
 				327001682057ACD400AD95EB /* NSNumber+Round.m in Sources */,
 				327001822059046C00AD95EB /* UIViewController+PreviousController.m in Sources */,
 				3213734B1F62647800E15D0A /* NSArray+SafeAccess.m in Sources */,
@@ -1410,7 +1402,7 @@
 				32077C681F600C3A006E4C70 /* UINavigationItem+Loading.m in Sources */,
 				32077C721F600ED5006E4C70 /* UIResponder+Router.m in Sources */,
 				32077C4D1F5FF827006E4C70 /* UIView+CustomBorder.m in Sources */,
-				324174691FF63F88007BB277 /* UIView+GradientBackgroundColor.m in Sources */,
+				324174691FF63F88007BB277 /* UIView+Addition.m in Sources */,
 				815F4D3F2091BA5500EA6DFF /* NSDate+Addition.m in Sources */,
 				320695A41F600F780009FFDA /* UIResponder+Chain.m in Sources */,
 				8174BC19210580B000ACC1F3 /* MYButtonViewController.m in Sources */,
