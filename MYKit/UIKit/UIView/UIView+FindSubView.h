@@ -27,4 +27,9 @@
  */
 - (BOOL)intersectsWithView:(UIView *)view;
 
+/**
+ *  查找两个子视图的共同父视图
+ */
++ (NSArray<UIView *> *)findCommonSuperView:(UIView *)viewOne other:(UIView *)viewOther;
+
 @end
