@@ -45,7 +45,7 @@
     testLabel.font = [UIFont systemFontOfSize:14.0f];
     testLabel.text = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试";
     testLabel.numberOfLines = 0.0f;
-    testLabel.lineSpace = 10.0f;
+    testLabel.lineSpace = 5.0f;
     [self.view addSubview:testLabel];
     _testLabel = testLabel;
 }

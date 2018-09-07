@@ -19,21 +19,20 @@ static char *lineSpaceKey;
     [self instanceSwizzleMethod:@selector(setText:) replaceMethod:@selector(setHasLineSpaceText:)];
 }
 
-//设置带有行间距的文本。
+// 设置带有行间距的文本。
 - (void)setHasLineSpaceText:(NSString *)text {
     
-    if (!text.length || self.lineSpace==0) {
+    if (!text.length || self.lineSpace == 0) {
         [self setHasLineSpaceText:text];
         return;
     }
-    
-    NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
-    style.lineSpacing = self.lineSpace;
-    style.lineBreakMode = self.lineBreakMode;
-    
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:text];
-    [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, text.length)];
-    self.attributedText = attrString;
+
+    NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+    paragraphStyle.lineSpacing = self.lineSpace - (self.font.lineHeight - self.font.pointSize);
+    paragraphStyle.lineBreakMode = self.lineBreakMode;
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    [attributes setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+    self.attributedText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
 - (void)setLineSpace:(CGFloat)lineSpace {
