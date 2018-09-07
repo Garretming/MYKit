@@ -8,6 +8,7 @@
 
 #import "UILabel+LineSpacing.h"
 #import "NSObject+Swizzle.h"
+#import "NSString+Size.h"
 
 @implementation UILabel (LineSpacing)
 

@@ -40,7 +40,6 @@
 		321373051F6163FC00E15D0A /* UITextField+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373041F6163FC00E15D0A /* UITextField+Shake.m */; };
 		321373081F61645800E15D0A /* UITextField+InputLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373071F61645800E15D0A /* UITextField+InputLimit.m */; };
 		321373161F61676600E15D0A /* UINavigationController+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373131F61676600E15D0A /* UINavigationController+Addition.m */; };
-		3213731E1F6167C600E15D0A /* UILabel+LimitLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373191F6167C600E15D0A /* UILabel+LimitLines.m */; };
 		321373201F6167C600E15D0A /* UILabel+AutomaticWriting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213731D1F6167C600E15D0A /* UILabel+AutomaticWriting.m */; };
 		321373321F616A1900E15D0A /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 321373291F616A1900E15D0A /* UIButton+Badge.m */; };
 		321373341F616A1900E15D0A /* UIButton+Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3213732D1F616A1900E15D0A /* UIButton+Indicator.m */; };
@@ -214,8 +213,6 @@
 		321373071F61645800E15D0A /* UITextField+InputLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+InputLimit.m"; sourceTree = "<group>"; };
 		321373121F61676600E15D0A /* UINavigationController+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Addition.h"; sourceTree = "<group>"; };
 		321373131F61676600E15D0A /* UINavigationController+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Addition.m"; sourceTree = "<group>"; };
-		321373181F6167C600E15D0A /* UILabel+LimitLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+LimitLines.h"; sourceTree = "<group>"; };
-		321373191F6167C600E15D0A /* UILabel+LimitLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+LimitLines.m"; sourceTree = "<group>"; };
 		3213731C1F6167C600E15D0A /* UILabel+AutomaticWriting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutomaticWriting.h"; sourceTree = "<group>"; };
 		3213731D1F6167C600E15D0A /* UILabel+AutomaticWriting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutomaticWriting.m"; sourceTree = "<group>"; };
 		321373281F616A1900E15D0A /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -455,8 +452,6 @@
 				320695AE1F6010680009FFDA /* UILabel+CountDown.m */,
 				8174BBFA2101C92E00ACC1F3 /* UILabel+LineSpacing.h */,
 				8174BBFB2101C92E00ACC1F3 /* UILabel+LineSpacing.m */,
-				321373181F6167C600E15D0A /* UILabel+LimitLines.h */,
-				321373191F6167C600E15D0A /* UILabel+LimitLines.m */,
 				3213731C1F6167C600E15D0A /* UILabel+AutomaticWriting.h */,
 				3213731D1F6167C600E15D0A /* UILabel+AutomaticWriting.m */,
 			);
@@ -1362,7 +1357,6 @@
 				325AFEB21FC029AC009FF8B1 /* UIView+Line.m in Sources */,
 				815F4D222091B8C400EA6DFF /* NSString+Size.m in Sources */,
 				81F421972111CBC5005460E7 /* NSObject+UnknowSelector.m in Sources */,
-				3213731E1F6167C600E15D0A /* UILabel+LimitLines.m in Sources */,
 				328505941F9F51ED0098E2C0 /* UIDevice+Addition.m in Sources */,
 				3213734F1F6265CD00E15D0A /* NSBundle+AppIcon.m in Sources */,
 				329DB9B82047BD2500D933DD /* NSMutableArray+SafeAccess.m in Sources */,

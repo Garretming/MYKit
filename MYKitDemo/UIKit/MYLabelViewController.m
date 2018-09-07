@@ -8,13 +8,13 @@
 
 #import "MYLabelViewController.h"
 #import "MYKitMacroHeader.h"
-#import "UILabel+LimitLines.h"
 #import "UILabel+AutomaticWriting.h"
 #import "UILabel+LineSpacing.h"
 #import "UILabel+CountDown.h"
 
 @interface MYLabelViewController ()
 
+@property (nonatomic, strong) UILabel *limitLabel;
 @property (nonatomic, strong) UILabel *testLabel;
 @property (nonatomic, strong) UILabel *writingLabel;
 @property (nonatomic, strong) UIButton *automaticWritingButton;
@@ -30,22 +30,38 @@
     
     [UILabel registerLineSpacingSelector];
 
+    // 文本限制指定的行数
+    [self limitText];
+    
     // 设置行间距
     [self setupLineSpace];
-    
+  
     // 自动书写
     [self automaticWriting];
+    
     // 倒计时
     [self countDown];
 }
 
+- (void)limitText {
+    UILabel *limitLabel = [[UILabel alloc] init];
+    limitLabel.frame = CGRectMake(10, 64, MYScreenWidth - 20, 100);
+    limitLabel.font = [UIFont systemFontOfSize:14.0f];
+    limitLabel.text = @"文本限制指定的行数文本限制指定的行数文本限制指定的行数文本限制指定的行数文本限制指定的行数文本限制指定的行数文本限制指定的行数文本限制指定的行数文本限制指定的行数";
+    limitLabel.numberOfLines = 0.0f;
+    limitLabel.lineSpace = 10.0f;
+    limitLabel.numberOfLines = 2.0f;
+    [self.view addSubview:limitLabel];
+    _limitLabel = limitLabel;
+}
+
 - (void)setupLineSpace {
     UILabel *testLabel = [[UILabel alloc] init];
-    testLabel.frame = CGRectMake(10, 84, MYScreenWidth - 20, 100);
+    testLabel.frame = CGRectMake(10, CGRectGetMaxY(self.limitLabel.frame) + 20, MYScreenWidth - 20, 100);
     testLabel.font = [UIFont systemFontOfSize:14.0f];
-    testLabel.text = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试";
-    testLabel.numberOfLines = 0.0f;
-    testLabel.lineSpace = 5.0f;
+    testLabel.text = @"设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距设置行间距";
+    testLabel.numberOfLines = 2.0f;
+    testLabel.lineSpace = 15.0f;
     [self.view addSubview:testLabel];
     _testLabel = testLabel;
 }
@@ -53,7 +69,7 @@
 - (void)automaticWriting {
     
     UILabel *writingLabel = [[UILabel alloc] init];
-    writingLabel.frame = CGRectMake(10, CGRectGetMaxY(self.testLabel.frame) + 50, MYScreenWidth - 20, 100);
+    writingLabel.frame = CGRectMake(10, CGRectGetMaxY(self.testLabel.frame) + 20, MYScreenWidth - 20, 100);
     writingLabel.backgroundColor = [UIColor redColor];
     writingLabel.font = [UIFont systemFontOfSize:14.0f];
     writingLabel.textAlignment = NSTextAlignmentCenter;
@@ -62,7 +78,7 @@
     _writingLabel = writingLabel;
     
     UIButton *automaticWritingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    automaticWritingButton.frame = CGRectMake((MYScreenWidth - 150)/2, CGRectGetMaxY(writingLabel.frame) + 50, 150, 50);
+    automaticWritingButton.frame = CGRectMake((MYScreenWidth - 150)/2, CGRectGetMaxY(writingLabel.frame) + 20, 150, 50);
     [automaticWritingButton setTitle:@"automaticWriting" forState:UIControlStateNormal];
     [automaticWritingButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [automaticWritingButton addTarget:self action:@selector(automaticWriting:) forControlEvents:UIControlEventTouchUpInside];
@@ -81,7 +97,7 @@
 - (void)countDown {
     
     UILabel *countDownLabel = [[UILabel alloc] init];
-    countDownLabel.frame = CGRectMake((MYScreenWidth - 100)/2, CGRectGetMaxY(self.automaticWritingButton.frame) + 50, 100, 50);
+    countDownLabel.frame = CGRectMake((MYScreenWidth - 100)/2, CGRectGetMaxY(self.automaticWritingButton.frame) + 20, 100, 50);
     countDownLabel.backgroundColor = [UIColor orangeColor];
     countDownLabel.font = [UIFont systemFontOfSize:14.0f];
     countDownLabel.textAlignment = NSTextAlignmentCenter;

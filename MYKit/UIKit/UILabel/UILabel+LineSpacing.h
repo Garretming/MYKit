@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 此分类适合Label文本指定的行数，行间距等
+ */
 @interface UILabel (LineSpacing)
 
 // 请不要将属性名称取为lineSpacing，UILabel已有此隐藏属性。
-@property (assign, nonatomic) CGFloat lineSpace;
+@property (nonatomic, assign) CGFloat lineSpace;
 
 + (void)registerLineSpacingSelector;
 

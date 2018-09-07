@@ -34,7 +34,6 @@
 #import "UIWindow+Hierarchy.h"
 #import "UILabel+CountDown.h"
 #import "UILabel+LineSpacing.h"
-#import "UILabel+LimitLines.h"
 #import "UILabel+AutomaticWriting.h"
 #import "UIButton+CountDown.h"
 #import "UIButton+Badge.h"
