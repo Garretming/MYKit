@@ -222,7 +222,7 @@ static NSString *const KVOProtectorValue = @"KVOProtectorValue";
     
     [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:) replaceMethod:@selector(safe_removeObserver:forKeyPath:)];
     
-    [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:) replaceMethod:@selector(safe_removeObserver:forKeyPath:context:)];
+    [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:context:) replaceMethod:@selector(safe_removeObserver:forKeyPath:context:)];
     
     [self instanceSwizzleMethod:NSSelectorFromString(@"dealloc") replaceMethod:@selector(safeKvo_dealloc)];
 }
