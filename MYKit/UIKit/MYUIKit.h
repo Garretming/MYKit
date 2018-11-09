@@ -55,7 +55,6 @@
 #import "UIView+Gesture.h"
 #import "UIView+SuperController.h"
 #import "UIView+CustomBorder.h"
-#import "UIView+RedDot.h"
 #import "UIView+Badge.h"
 #import "UIView+Line.h"
 #import "UIView+FindSubView.h"

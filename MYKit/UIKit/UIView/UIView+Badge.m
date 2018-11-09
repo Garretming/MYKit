@@ -7,100 +7,118 @@
 //
 
 #import "UIView+Badge.h"
-#import "NSObject+AssociatedObject.h"
-#import "UIColor+Addition.h"
 #import <objc/runtime.h>
 
-@interface UIView ()
+#define ITGBadgeTextLayerFont               [UIFont systemFontOfSize:8]
+#define ITGBadgeTextLayerPadding            2
 
-@property (nonatomic, strong) UIView *badgeView;
+static const char *kBadgeValueTextLayerKey = "BadgeValueTextLayerKey";
+
+@interface UIView ()
 
 @end
 
 @implementation UIView (Badge)
 
-#pragma mark - properties
-- (NSString *)badgeString {
-    return [self object:@selector(setBadgeString:)];
-}
-
-- (void)setBadgeString:(NSString *)badgeString {
-    [self setCopyNonatomicObject:badgeString withKey:@selector(setBadgeString:)];
-}
-
-- (BOOL)shouldShowBadge {
-    return [[self object:@selector(setShouldShowBadge:)] boolValue];
-}
-
-- (void)setShouldShowBadge:(BOOL)shouldShowBadge {
-    [self setRetainNonatomicObject:@(shouldShowBadge) withKey:@selector(setShouldShowBadge:)];
+- (void)addBadgeWithRadius:(CGFloat)radius
+                   offsetX:(CGFloat)offsetX
+                   offsetY:(CGFloat)offsetY {
+    CATextLayer *badgeLayer = [self badgeLayer];
     
-    if (self) {
-        if (shouldShowBadge) {
-            if(self.badgeString){
-                if (self.badgeLabel == nil) {
-                    self.badgeLabel = [[UILabel alloc] init];
-                    self.badgeLabel.textAlignment = NSTextAlignmentCenter;
-                    self.badgeLabel.textColor = [UIColor whiteColor];
-                    self.badgeLabel.font = [UIFont systemFontOfSize:10];
-                    self.badgeLabel.layer.cornerRadius = 6;
-                    self.badgeLabel.layer.masksToBounds = YES;
-                    self.badgeLabel.backgroundColor = [UIColor colorWithHexString:@"#FD3B46"];
-                    self.badgeLabel.numberOfLines = 0;
-                    [self addSubview:self.badgeLabel];
-                    if (self.badgeConfigBlock) {
-                        self.badgeConfigBlock(self.badgeLabel);
-                    }
-                }
-                self.badgeLabel.text = self.badgeString;
-                //                [self.badgeLabel sizeToFit];
-                
-            }
-            else {
-                if (self.badgeView == nil) {
-                    self.badgeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 6, 6)];
-                    self.badgeView.layer.cornerRadius = 3;
-                    self.badgeView.backgroundColor = [UIColor colorWithHexString:@"#FF5E1C"];
-                    [self addSubview:self.badgeView];
-                    if (self.badgeConfigBlock) {
-                        self.badgeConfigBlock(self.badgeView);
-                    }
-                }
-            }
-        }
-        if (!shouldShowBadge && self.badgeView) {
-            [self.badgeView removeFromSuperview];
-            self.badgeView = nil;
-        }
-        if (!shouldShowBadge && self.badgeLabel){
-            [self.badgeLabel removeFromSuperview];
-            self.badgeLabel = nil;
-        }
+    if (badgeLayer) {
+        [badgeLayer removeFromSuperlayer];
+    }
+    CATextLayer *layer      = [CATextLayer layer];
+    layer.frame             = CGRectMake(-radius + offsetX,
+                                         -radius + offsetY,
+                                         radius * 2,
+                                         radius * 2);
+    layer.backgroundColor   = [UIColor redColor].CGColor;
+    layer.cornerRadius      = radius;
+    layer.hidden            = YES;
+    [self setBadgeLayer:layer];
+    [self.layer addSublayer:layer];
+}
+
+- (void)showBadgeWithRadius:(CGFloat)radius
+                    offsetX:(CGFloat)offsetX
+                    offsetY:(CGFloat)offsetY {
+    
+    CATextLayer *badgeLayer = [self badgeLayer];
+    
+    if (badgeLayer) {
+        [badgeLayer removeFromSuperlayer];
+    }
+    
+    CATextLayer *layer      = [CATextLayer layer];
+    layer.frame             = CGRectMake(-radius + offsetX,
+                                         -radius + offsetY,
+                                         radius * 2,
+                                         radius * 2);
+    layer.backgroundColor   = [UIColor redColor].CGColor;
+    layer.cornerRadius      = radius;
+    [self setBadgeLayer:layer];
+    [self.layer addSublayer:layer];
+}
+
+- (void)showBadgeValue:(NSString *)badgeValue
+               offsetX:(CGFloat)offsetX
+               offsetY:(CGFloat)offsetY {
+    
+    CATextLayer *badgeLayer = [self badgeLayer];
+    
+    if (badgeLayer) {
+        [badgeLayer removeFromSuperlayer];
+    }
+    
+    CGSize expectedLabelSize = [badgeValue boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+                                                        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                     attributes:@{
+                                                                  NSFontAttributeName:ITGBadgeTextLayerFont
+                                                                  }
+                                                        context:nil].size;
+    CGFloat minHeight        = expectedLabelSize.height;
+    CGFloat minWidth         = expectedLabelSize.width;
+    minWidth                 = (minWidth < minHeight) ? minHeight : expectedLabelSize.width;
+    CATextLayer *layer       = [CATextLayer layer];
+    layer.frame              = CGRectMake(offsetX,
+                                          offsetY,
+                                          minWidth + ITGBadgeTextLayerPadding,
+                                          minHeight + ITGBadgeTextLayerPadding);
+    layer.string             = badgeValue;
+    layer.backgroundColor    = [UIColor redColor].CGColor;
+    layer.foregroundColor    = [UIColor whiteColor].CGColor;
+    layer.alignmentMode      = kCAAlignmentCenter;
+    CFStringRef fontName     = (__bridge CFStringRef)ITGBadgeTextLayerFont.fontName;
+    layer.font               = CGFontCreateWithFontName(fontName);
+    layer.fontSize           = ITGBadgeTextLayerFont.pointSize;
+    layer.contentsScale      = [UIScreen mainScreen].scale;
+    layer.cornerRadius       = (minHeight + ITGBadgeTextLayerPadding) / 2;
+    [self setBadgeLayer:layer];
+    [self.layer addSublayer:layer];
+}
+
+- (void)showBadge {
+    CATextLayer *badgeLayer  = [self badgeLayer];
+    if (badgeLayer) {
+        badgeLayer.hidden    = NO;
     }
 }
 
-- (void (^)(UIView *))badgeConfigBlock {
-    return [self object:@selector(setBadgeConfigBlock:)];
+- (void)hiddenBadge {
+    CATextLayer *badgeLayer  = [self badgeLayer];
+    if (badgeLayer) {
+        badgeLayer.hidden    = YES;
+    }
 }
 
-- (void)setBadgeConfigBlock:(void (^)(UIView *))badgeConfigBlock {
-    [self setCopyNonatomicObject:badgeConfigBlock withKey:@selector(setBadgeConfigBlock:)];
+#pragma mark - getter & setter
+- (CATextLayer *)badgeLayer {
+    return objc_getAssociatedObject(self, kBadgeValueTextLayerKey);
 }
 
-- (UIView *)badgeView {
-    return [self object:@selector(setBadgeView:)];
-}
-
-- (void)setBadgeView:(UIView *)badgeView {
-    [self setRetainNonatomicObject:badgeView withKey:@selector(setBadgeView:)];
-}
-
-- (UILabel *)badgeLabel{
-    return [self object:@selector(setBadgeLabel:)];
-}
-
-- (void)setBadgeLabel:(UILabel *)badgeLabel{
-    [self setRetainNonatomicObject:badgeLabel withKey:@selector(setBadgeLabel:)];
+- (void)setBadgeLayer:(CATextLayer *)layer {
+    objc_setAssociatedObject(self, kBadgeValueTextLayerKey, layer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

@@ -13,22 +13,48 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (Badge)
 
 /**
- *  @brief 是否显示badge
+ 添加一个红点
+ 
+ @param radius 圆角半径
+ @param offsetX x
+ @param offsetY y
  */
-@property (nonatomic, assign) BOOL shouldShowBadge;
+- (void)addBadgeWithRadius:(CGFloat)radius
+                   offsetX:(CGFloat)offsetX
+                   offsetY:(CGFloat)offsetY;
 
 /**
- *  @brief badge内容，为空则显示小红点
+ 显示一个红点
+ 
+ @param radius 圆角半径
+ @param offsetX x
+ @param offsetY y
  */
-@property (nonatomic, copy) NSString *badgeString;
-
-@property (nonatomic, strong) UILabel *badgeLabel;
+- (void)showBadgeWithRadius:(CGFloat)radius
+                    offsetX:(CGFloat)offsetX
+                    offsetY:(CGFloat)offsetY;
 
 
 /**
- *  @brief 配置badge，参数UIView didMoveToSuperview
+ 显示带数字的红点
+ 
+ @param badgeValue 数字
+ @param offsetX x
+ @param offsetY y
  */
-@property (nonatomic, copy, nullable) void (^badgeConfigBlock)(UIView *);
+- (void)showBadgeValue:(NSString *)badgeValue
+               offsetX:(CGFloat)offsetX
+               offsetY:(CGFloat)offsetY;
+
+/**
+ 显示
+ */
+- (void)showBadge;
+
+/**
+ 隐藏
+ */
+- (void)hiddenBadge;
 
 @end
 

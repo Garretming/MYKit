@@ -63,7 +63,6 @@
 		3241745F1FF63E6D007BB277 /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3241745E1FF63E6D007BB277 /* NSMutableArray+Queue.m */; };
 		324174691FF63F88007BB277 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 324174681FF63F88007BB277 /* UIView+Addition.m */; };
 		325AFEA21FC023D1009FF8B1 /* NSArray+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEA11FC023D1009FF8B1 /* NSArray+Addition.m */; };
-		325AFEAF1FC02951009FF8B1 /* UIView+RedDot.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEAE1FC02951009FF8B1 /* UIView+RedDot.m */; };
 		325AFEB21FC029AC009FF8B1 /* UIView+Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEB11FC029AC009FF8B1 /* UIView+Line.m */; };
 		325AFEB51FC029E5009FF8B1 /* UIView+FindSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEB41FC029E5009FF8B1 /* UIView+FindSubView.m */; };
 		325AFEBE1FC02A75009FF8B1 /* UIView+CornerRadii.m in Sources */ = {isa = PBXBuildFile; fileRef = 325AFEBD1FC02A75009FF8B1 /* UIView+CornerRadii.m */; };
@@ -259,8 +258,6 @@
 		324174681FF63F88007BB277 /* UIView+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addition.m"; sourceTree = "<group>"; };
 		325AFEA01FC023D1009FF8B1 /* NSArray+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Addition.h"; sourceTree = "<group>"; };
 		325AFEA11FC023D1009FF8B1 /* NSArray+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Addition.m"; sourceTree = "<group>"; };
-		325AFEAD1FC02951009FF8B1 /* UIView+RedDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RedDot.h"; sourceTree = "<group>"; };
-		325AFEAE1FC02951009FF8B1 /* UIView+RedDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RedDot.m"; sourceTree = "<group>"; };
 		325AFEB01FC029AC009FF8B1 /* UIView+Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Line.h"; sourceTree = "<group>"; };
 		325AFEB11FC029AC009FF8B1 /* UIView+Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Line.m"; sourceTree = "<group>"; };
 		325AFEB31FC029E5009FF8B1 /* UIView+FindSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FindSubView.h"; sourceTree = "<group>"; };
@@ -625,8 +622,6 @@
 				32077C401F5FF4B2006E4C70 /* UIView+SuperController.m */,
 				32077C4B1F5FF827006E4C70 /* UIView+CustomBorder.h */,
 				32077C4C1F5FF827006E4C70 /* UIView+CustomBorder.m */,
-				325AFEAD1FC02951009FF8B1 /* UIView+RedDot.h */,
-				325AFEAE1FC02951009FF8B1 /* UIView+RedDot.m */,
 				3241744E1FF63B3A007BB277 /* UIView+Badge.h */,
 				3241744F1FF63B3A007BB277 /* UIView+Badge.m */,
 				325AFEB01FC029AC009FF8B1 /* UIView+Line.h */,
@@ -1364,7 +1359,6 @@
 				11380752204FC55A00DAF098 /* NSDictionary+Collection.m in Sources */,
 				8195078420FDD48000D43E89 /* UIAlertController+Blocks.m in Sources */,
 				3213737A1F626BA800E15D0A /* NSDictionary+SafeAccess.m in Sources */,
-				325AFEAF1FC02951009FF8B1 /* UIView+RedDot.m in Sources */,
 				321373A91F62752E00E15D0A /* NSString+Trims.m in Sources */,
 				815F4D1F2091B88D00EA6DFF /* NSDictionary+Addition.m in Sources */,
 				81F41DF1210F18E3005460E7 /* MYTimerViewController.m in Sources */,
