@@ -81,12 +81,14 @@ static BOOL __addMethod(Class clazz, SEL sel) {
 @implementation NSObject (UnknowSelector)
 
 + (void)safeGuardUnrecognizedSelector {
-    
-    // 防御对象实例方法
-    [self instanceSwizzleMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(safe_instanceMethod_forwardingTargetForSelector:)];
-    
-    // 防御对象类方法
-    [self swizzleClassMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(safe_classMethod_forwardingTargetForSelector:)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // 防御对象实例方法
+        [self instanceSwizzleMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(safe_instanceMethod_forwardingTargetForSelector:)];
+        
+        // 防御对象类方法
+        [self swizzleClassMethod:@selector(forwardingTargetForSelector:) replaceMethod:@selector(safe_classMethod_forwardingTargetForSelector:)];
+    });
 }
 
 - (id)safe_instanceMethod_forwardingTargetForSelector:(SEL)aSelector {

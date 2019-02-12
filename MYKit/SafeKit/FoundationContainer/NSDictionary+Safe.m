@@ -13,15 +13,18 @@
 @implementation NSDictionary (Safe)
 
 + (void)registerClassPairMethodsInDictionary {
-    
-    Class dictionaryClass = NSClassFromString(@"NSDictionary");
-    Class __NSPlaceholderDictionaryClass = NSClassFromString(@"__NSPlaceholderDictionary");
-    
-    [self classSwizzleMethodWithClass:dictionaryClass orginalMethod:@selector(dictionaryWithObjects:forKeys:count:) replaceMethod:@selector(safe_dictionaryWithObjects:forKeys:count:)];
-    
-    [self classSwizzleMethodWithClass:dictionaryClass orginalMethod:@selector(dictionaryWithObjects:forKeys:) replaceMethod:@selector(safe_dictionaryWithObjects:forKeys:)];
-    
-    [self instanceSwizzleMethodWithClass:__NSPlaceholderDictionaryClass orginalMethod:@selector(initWithObjects:forKeys:count:) replaceMethod:@selector(safe_initWithObjects:forKeys:count:)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        Class dictionaryClass = NSClassFromString(@"NSDictionary");
+        Class __NSPlaceholderDictionaryClass = NSClassFromString(@"__NSPlaceholderDictionary");
+        
+        [self classSwizzleMethodWithClass:dictionaryClass orginalMethod:@selector(dictionaryWithObjects:forKeys:count:) replaceMethod:@selector(safe_dictionaryWithObjects:forKeys:count:)];
+        
+        [self classSwizzleMethodWithClass:dictionaryClass orginalMethod:@selector(dictionaryWithObjects:forKeys:) replaceMethod:@selector(safe_dictionaryWithObjects:forKeys:)];
+        
+        [self instanceSwizzleMethodWithClass:__NSPlaceholderDictionaryClass orginalMethod:@selector(initWithObjects:forKeys:count:) replaceMethod:@selector(safe_initWithObjects:forKeys:count:)];
+    });
 }
 
 + (instancetype)safe_dictionaryWithObjects:(id _Nonnull const [])objects forKeys:(id<NSCopying>  _Nonnull const [])keys count:(NSUInteger)cnt {

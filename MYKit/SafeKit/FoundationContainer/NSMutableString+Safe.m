@@ -13,14 +13,17 @@
 @implementation NSMutableString (Safe)
 
 + (void)registerClassPairMethodsInMutableString {
-    
-    Class NSCFString = NSClassFromString(@"__NSCFString");
-    
-    [self instanceSwizzleMethodWithClass:NSCFString orginalMethod:@selector(replaceCharactersInRange:withString:) replaceMethod:@selector(safe_replaceCharactersInRange:withString:)];
-    
-    [self instanceSwizzleMethodWithClass:NSCFString orginalMethod:@selector(insertString:atIndex:) replaceMethod:@selector(safe_insertString:atIndex:)];
-    
-    [self instanceSwizzleMethodWithClass:NSCFString orginalMethod:@selector(deleteCharactersInRange:) replaceMethod:@selector(safe_deleteCharactersInRange:)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        Class NSCFString = NSClassFromString(@"__NSCFString");
+        
+        [self instanceSwizzleMethodWithClass:NSCFString orginalMethod:@selector(replaceCharactersInRange:withString:) replaceMethod:@selector(safe_replaceCharactersInRange:withString:)];
+        
+        [self instanceSwizzleMethodWithClass:NSCFString orginalMethod:@selector(insertString:atIndex:) replaceMethod:@selector(safe_insertString:atIndex:)];
+        
+        [self instanceSwizzleMethodWithClass:NSCFString orginalMethod:@selector(deleteCharactersInRange:) replaceMethod:@selector(safe_deleteCharactersInRange:)];
+    });
 }
 
 - (void)safe_replaceCharactersInRange:(NSRange)range withString:(NSString *)aString {

@@ -14,43 +14,47 @@
 
 + (void)registerClassPairMethodsInMutableArray {
     
-    Class __NSArrayM = NSClassFromString(@"__NSArrayM");
-    
-    // objectAtIndex
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexWithArrayM:)];
-    
-    // removeObjectAtIndex
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectAtIndex:) replaceMethod:@selector(safe_removeObjectAtIndex:)];
-    
-    // removeObjectsInRange
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsInRange:) replaceMethod:@selector(safe_removeObjectsInRange:)];
-    
-    // objectAtIndexedSubscript
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
-    
-    // insertObject:atIndex:
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObject:atIndex:) replaceMethod:@selector(safe_insertObject:atIndex:)];
-    
-    // insertObjects:atIndexes:
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObjects:atIndexes:) replaceMethod:@selector(safe_insertObjects:atIndexes:)];
-    
-    // removeObjectsAtIndexes
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsAtIndexes:) replaceMethod:@selector(safe_removeObjectsAtIndexes:)];
-    
-    // replaceObjectAtIndex:withObject:
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectAtIndex:withObject:) replaceMethod:@selector(safe_replaceObjectAtIndex:withObject:)];
-    
-    // replaceObjectsAtIndexes:withObjects:
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsAtIndexes:withObjects:) replaceMethod:@selector(safe_replaceObjectsAtIndexes:withObjects:)];
-    
-    // exchangeObjectAtIndex:withObjectAtIndex:
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(exchangeObjectAtIndex:withObjectAtIndex:) replaceMethod:@selector(safe_exchangeObjectAtIndex:withObjectAtIndex:)];
-    
-    // setObject:atIndexedSubscript:
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(setObject:atIndexedSubscript:) replaceMethod:@selector(safe_atIndexedSubscript:atIndexedSubscript:)];
-    
-    // replaceObjectsInRange:withObjectsFromArray:
-    [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsInRange:withObjectsFromArray:) replaceMethod:@selector(safe_replaceObjectsInRange:withObjectsFromArray:)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        Class __NSArrayM = NSClassFromString(@"__NSArrayM");
+        
+        // objectAtIndex
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexWithArrayM:)];
+        
+        // removeObjectAtIndex
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectAtIndex:) replaceMethod:@selector(safe_removeObjectAtIndex:)];
+        
+        // removeObjectsInRange
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsInRange:) replaceMethod:@selector(safe_removeObjectsInRange:)];
+        
+        // objectAtIndexedSubscript
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
+        
+        // insertObject:atIndex:
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObject:atIndex:) replaceMethod:@selector(safe_insertObject:atIndex:)];
+        
+        // insertObjects:atIndexes:
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(insertObjects:atIndexes:) replaceMethod:@selector(safe_insertObjects:atIndexes:)];
+        
+        // removeObjectsAtIndexes
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(removeObjectsAtIndexes:) replaceMethod:@selector(safe_removeObjectsAtIndexes:)];
+        
+        // replaceObjectAtIndex:withObject:
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectAtIndex:withObject:) replaceMethod:@selector(safe_replaceObjectAtIndex:withObject:)];
+        
+        // replaceObjectsAtIndexes:withObjects:
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsAtIndexes:withObjects:) replaceMethod:@selector(safe_replaceObjectsAtIndexes:withObjects:)];
+        
+        // exchangeObjectAtIndex:withObjectAtIndex:
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(exchangeObjectAtIndex:withObjectAtIndex:) replaceMethod:@selector(safe_exchangeObjectAtIndex:withObjectAtIndex:)];
+        
+        // setObject:atIndexedSubscript:
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(setObject:atIndexedSubscript:) replaceMethod:@selector(safe_atIndexedSubscript:atIndexedSubscript:)];
+        
+        // replaceObjectsInRange:withObjectsFromArray:
+        [self instanceSwizzleMethodWithClass:__NSArrayM orginalMethod:@selector(replaceObjectsInRange:withObjectsFromArray:) replaceMethod:@selector(safe_replaceObjectsInRange:withObjectsFromArray:)];
+    });
 }
 
 - (id)safe_objectAtIndexWithArrayM:(NSUInteger)index{

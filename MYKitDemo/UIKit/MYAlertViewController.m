@@ -9,6 +9,7 @@
 #import "MYAlertViewController.h"
 #import "MYKitMacroHeader.h"
 #import "UIAlertController+Blocks.h"
+#import "UINavigationController+BackButtonHandler.h"
 
 @interface MYAlertViewController ()
 
@@ -45,6 +46,10 @@
     [actionSheetButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [actionSheetButton addTarget:self action:@selector(showActionSheet:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:actionSheetButton];
+}
+
+- (BOOL)navigationShouldPopOnBackButton {
+    return NO;
 }
 
 - (IBAction)showAlert:(id)sender {

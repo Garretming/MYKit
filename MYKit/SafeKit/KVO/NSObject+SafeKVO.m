@@ -217,14 +217,17 @@ static void *KVOProtectorKey = &KVOProtectorKey;
 static NSString *const KVOProtectorValue = @"KVOProtectorValue";
 
 + (void)registerClassPairMethodsInKVO {
-    
-    [self instanceSwizzleMethod:@selector(addObserver:forKeyPath:options:context:) replaceMethod:@selector(safe_addObserver:forKeyPath:options:context:)];
-    
-    [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:) replaceMethod:@selector(safe_removeObserver:forKeyPath:)];
-    
-    [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:context:) replaceMethod:@selector(safe_removeObserver:forKeyPath:context:)];
-    
-    [self instanceSwizzleMethod:NSSelectorFromString(@"dealloc") replaceMethod:@selector(safeKvo_dealloc)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        [self instanceSwizzleMethod:@selector(addObserver:forKeyPath:options:context:) replaceMethod:@selector(safe_addObserver:forKeyPath:options:context:)];
+        
+        [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:) replaceMethod:@selector(safe_removeObserver:forKeyPath:)];
+        
+        [self instanceSwizzleMethod:@selector(removeObserver:forKeyPath:context:) replaceMethod:@selector(safe_removeObserver:forKeyPath:context:)];
+        
+        [self instanceSwizzleMethod:NSSelectorFromString(@"dealloc") replaceMethod:@selector(safeKvo_dealloc)];
+    });
 }
 
 - (void)safe_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {

@@ -14,16 +14,19 @@
 
 + (void)registerClassPairMethodsInObject {
     
-    Class objectClass = NSClassFromString(@"NSObject");
-    
-    [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(setValue:forKey:) replaceMethod:@selector(safe_setValue:forKey:)];
-    
-    [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(setValue:forKeyPath:) replaceMethod:@selector(safe_setValue:forKeyPath:)];
-    
-    [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(valueForKey:) replaceMethod:@selector(safe_valueForKey:)];
-    
-    [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(valueForKeyPath:) replaceMethod:@selector(safe_valueForKeyPath:)];
-    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        Class objectClass = NSClassFromString(@"NSObject");
+        
+        [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(setValue:forKey:) replaceMethod:@selector(safe_setValue:forKey:)];
+        
+        [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(setValue:forKeyPath:) replaceMethod:@selector(safe_setValue:forKeyPath:)];
+        
+        [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(valueForKey:) replaceMethod:@selector(safe_valueForKey:)];
+        
+        [self instanceSwizzleMethodWithClass:objectClass orginalMethod:@selector(valueForKeyPath:) replaceMethod:@selector(safe_valueForKeyPath:)];
+    });
 }
 
 - (void)safe_setValue:(nullable id)value forKey:(NSString *)key {

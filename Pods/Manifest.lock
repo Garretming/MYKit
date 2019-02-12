@@ -3,26 +3,20 @@ PODS:
   - SDWebImage (4.2.2):
     - SDWebImage/Core (= 4.2.2)
   - SDWebImage/Core (4.2.2)
-  - YYKit (1.0.9):
-    - YYKit/no-arc (= 1.0.9)
-  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - MJRefresh (~> 3.1.15.3)
   - SDWebImage (~> 4.2.2)
-  - YYKit (~> 1.0.9)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - MJRefresh
     - SDWebImage
-    - YYKit
 
 SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
-  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: e4e281ccfb6e8a2e117ecb8e37ce513f53310627
+PODFILE CHECKSUM: 43ea0b23f4e0db0d370196429cecd0de9c8a731d
 
 COCOAPODS: 1.5.3

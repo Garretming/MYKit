@@ -13,14 +13,17 @@
 @implementation NSMutableDictionary (Safe)
 
 + (void)registerClassPairMethodsInMutableDictionary {
-    
-    Class dictionaryM = NSClassFromString(@"__NSDictionaryM");
-    
-    [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(setObject:forKey:) replaceMethod:@selector(safe_setObject:forKey:)];
-    
-    [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(removeObjectForKey:) replaceMethod:@selector(safe_removeObjectForKey:)];
-    
-    [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(setObject:forKeyedSubscript:) replaceMethod:@selector(safe_setObject:forKeyedSubscript:)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        Class dictionaryM = NSClassFromString(@"__NSDictionaryM");
+        
+        [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(setObject:forKey:) replaceMethod:@selector(safe_setObject:forKey:)];
+        
+        [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(removeObjectForKey:) replaceMethod:@selector(safe_removeObjectForKey:)];
+        
+        [self instanceSwizzleMethodWithClass:dictionaryM orginalMethod:@selector(setObject:forKeyedSubscript:) replaceMethod:@selector(safe_setObject:forKeyedSubscript:)];
+    });
 }
 
 - (void)safe_setObject:(id)anObject forKeyedSubscript:(id <NSCopying>)aKey {

@@ -13,17 +13,21 @@
 @implementation NSString (Safe)
 
 + (void)registerClassPairMethodsInString {
-    Class NSCFConstantString = NSClassFromString(@"__NSCFConstantString");
-    
-    [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(characterAtIndex:) replaceMethod:@selector(safe_characterAtIndex:)];
-    
-    [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(substringFromIndex:) replaceMethod:@selector(safe_substringFromIndex:)];
-    
-    [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(substringToIndex:) replaceMethod:@selector(safe_substringToIndex:)];
-    
-    [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(substringWithRange:) replaceMethod:@selector(safe_substringWithRange:)];
-    
-    [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(stringByReplacingCharactersInRange:withString:) replaceMethod:@selector(safe_stringByReplacingCharactersInRange:withString:)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        Class NSCFConstantString = NSClassFromString(@"__NSCFConstantString");
+        
+        [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(characterAtIndex:) replaceMethod:@selector(safe_characterAtIndex:)];
+        
+        [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(substringFromIndex:) replaceMethod:@selector(safe_substringFromIndex:)];
+        
+        [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(substringToIndex:) replaceMethod:@selector(safe_substringToIndex:)];
+        
+        [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(substringWithRange:) replaceMethod:@selector(safe_substringWithRange:)];
+        
+        [self instanceSwizzleMethodWithClass:NSCFConstantString orginalMethod:@selector(stringByReplacingCharactersInRange:withString:) replaceMethod:@selector(safe_stringByReplacingCharactersInRange:withString:)];
+    });
 }
 
 - (unichar)safe_characterAtIndex:(NSUInteger)index {

@@ -13,40 +13,42 @@
 @implementation NSArray (Safe)
 
 + (void)registerClassPairMethodsInArray {
-    
-    Class __NSArray = NSClassFromString(@"NSArray");
-    Class __NSArrayI = NSClassFromString(@"__NSArrayI");
-    Class __NSSingleObjectArrayI = NSClassFromString(@"__NSSingleObjectArrayI");
-    Class __NSArray0 = NSClassFromString(@"__NSArray0");
-    
-    // 防御对象实例方法
-    // arrayWithObjects
-    [self classSwizzleMethodWithClass:__NSArray orginalMethod:@selector(arrayWithObjects:count:) replaceMethod:@selector(safeArrayWithObjects:count:)];
-    
-    // objectAtIndex:
-    [self instanceSwizzleMethodWithClass:__NSSingleObjectArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndex:)];
-    
-    [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexWithArrayI:)];
-    
-    [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexWithArray0:)];
-    
-    // objectAtIndexedSubscript
-    [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
-    
-    // arrayByAddingObject
-    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(arrayByAddingObject:) replaceMethod:@selector(safe_arrayByAddingObjectForNSArray:)];
-    
-    // indexOfObject
-    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(indexOfObject:inRange:) replaceMethod:@selector(safe_indexOfObjectWithArray:inRange:)];
-    
-    // indexOfObjectIdenticalTo
-    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(indexOfObjectIdenticalTo:inRange:) replaceMethod:@selector(safe_indexOfObjectIdenticalToWithArray:inRange:)];
-    
-    // subarrayWithRange
-    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(subarrayWithRange:) replaceMethod:@selector(safe_subarrayWithRange:)];
-    
-    // objectsAtIndexes: NSArray、__NSArrayI、__NSSingleObjectArrayI、__NSArray0
-    [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(objectsAtIndexes:) replaceMethod:@selector(safe_objectsAtIndexesWithNSArray:)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class __NSArray = NSClassFromString(@"NSArray");
+        Class __NSArrayI = NSClassFromString(@"__NSArrayI");
+        Class __NSSingleObjectArrayI = NSClassFromString(@"__NSSingleObjectArrayI");
+        Class __NSArray0 = NSClassFromString(@"__NSArray0");
+        
+        // 防御对象实例方法
+        // arrayWithObjects
+        [self classSwizzleMethodWithClass:__NSArray orginalMethod:@selector(arrayWithObjects:count:) replaceMethod:@selector(safeArrayWithObjects:count:)];
+        
+        // objectAtIndex:
+        [self instanceSwizzleMethodWithClass:__NSSingleObjectArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndex:)];
+        
+        [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexWithArrayI:)];
+        
+        [self instanceSwizzleMethodWithClass:__NSArray0 orginalMethod:@selector(objectAtIndex:) replaceMethod:@selector(safe_objectAtIndexWithArray0:)];
+        
+        // objectAtIndexedSubscript
+        [self instanceSwizzleMethodWithClass:__NSArrayI orginalMethod:@selector(objectAtIndexedSubscript:) replaceMethod:@selector(safe_objectAtIndexedSubscript:)];
+        
+        // arrayByAddingObject
+        [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(arrayByAddingObject:) replaceMethod:@selector(safe_arrayByAddingObjectForNSArray:)];
+        
+        // indexOfObject
+        [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(indexOfObject:inRange:) replaceMethod:@selector(safe_indexOfObjectWithArray:inRange:)];
+        
+        // indexOfObjectIdenticalTo
+        [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(indexOfObjectIdenticalTo:inRange:) replaceMethod:@selector(safe_indexOfObjectIdenticalToWithArray:inRange:)];
+        
+        // subarrayWithRange
+        [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(subarrayWithRange:) replaceMethod:@selector(safe_subarrayWithRange:)];
+        
+        // objectsAtIndexes: NSArray、__NSArrayI、__NSSingleObjectArrayI、__NSArray0
+        [self instanceSwizzleMethodWithClass:__NSArray orginalMethod:@selector(objectsAtIndexes:) replaceMethod:@selector(safe_objectsAtIndexesWithNSArray:)];
+    });
 }
 
 + (instancetype)safeArrayWithObjects:(id _Nonnull const [])objects count:(NSUInteger)cnt {

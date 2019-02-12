@@ -7,7 +7,6 @@
 //
 
 #import "MYTextViewController.h"
-#import <YYKit.h>
 
 @interface MYTextViewController ()
 

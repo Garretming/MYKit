@@ -30,7 +30,7 @@ static id<MYSafeKitRecordProtocol> __record;
 
 + (NSString *)getErrorMessageWithTipString:(NSString *)tipString {
     NSString *contentString = tipString;
-    //堆栈数据
+    // 堆栈数据
     NSArray *callStackSymbolsArr = [NSThread callStackSymbols];
     if (callStackSymbolsArr != nil) {
         NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:callStackSymbolsArr];

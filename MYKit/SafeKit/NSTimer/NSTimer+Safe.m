@@ -43,10 +43,12 @@
 @implementation NSTimer (Safe)
 
 + (void)registerClassPairMethodsInTimer {
-    
-    [self swizzleClassMethod:@selector(scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:) replaceMethod:@selector(safe_scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:)];
-    
-    [self swizzleClassMethod:@selector(timerWithTimeInterval:target:selector:userInfo:repeats:) replaceMethod:@selector(safe_timerWithTimeInterval:target:selector:userInfo:repeats:)];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self swizzleClassMethod:@selector(scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:) replaceMethod:@selector(safe_scheduledTimerWithTimeInterval:target:selector:userInfo:repeats:)];
+        
+        [self swizzleClassMethod:@selector(timerWithTimeInterval:target:selector:userInfo:repeats:) replaceMethod:@selector(safe_timerWithTimeInterval:target:selector:userInfo:repeats:)];
+    });
 }
 
 + (NSTimer *)safe_scheduledTimerWithTimeInterval:(NSTimeInterval)ti target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo {
