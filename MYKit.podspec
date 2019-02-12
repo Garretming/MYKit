@@ -89,8 +89,5 @@ Pod::Spec.new do |s|
 
    s.subspec 'Base' do |ss|
      ss.source_files = 'MYKit/Base/**/*'
-     ss.resource_bundles = {
-          'Base' => 'MYKit/Assets/Base/*.*'
-      }
    end
 end
