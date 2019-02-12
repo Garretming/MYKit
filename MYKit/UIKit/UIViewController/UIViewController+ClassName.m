@@ -10,6 +10,7 @@
 #import "UIDevice+Addition.h"
 #import "UIView+Position.h"
 #import "NSObject+Swizzle.h"
+#import "MYKitDefinition.h"
 
 #define kClassNameTag 20000
 
@@ -52,7 +53,7 @@ static BOOL displayClassName = NO;
         [window bringSubviewToFront:classNameLabel];
     } else {
         classNameLabel = [[UILabel alloc] init];
-        classNameLabel.frame = CGRectMake(5, 15 + ([UIDevice isIphoneX] ? 20 : 0), window.width, 20);
+        classNameLabel.frame = CGRectMake(5, 15 + (ITG_DEVICE_IPHONE_X ? ITGSafeAreaInsets().top : 0), window.width, 20);
         classNameLabel.textColor = [UIColor redColor];
         classNameLabel.font = [UIFont systemFontOfSize:12];
         classNameLabel.tag = kClassNameTag;

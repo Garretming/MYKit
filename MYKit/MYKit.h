@@ -17,4 +17,5 @@ FOUNDATION_EXPORT const unsigned char MYAdditionsVersionString[];
 #import "MYSafeKit.h"
 #import "MYFoundationKit.h"
 #import "MYUIKit.h"
+#import "MYKitDefinition.h"
 

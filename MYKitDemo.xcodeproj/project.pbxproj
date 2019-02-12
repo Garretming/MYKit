@@ -271,6 +271,7 @@
 		44976F5419D7BC59D055392A /* Pods-MYKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MYKitDemo/Pods-MYKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4C1BB21521C4CD930093F51A /* UINavigationController+BackButtonHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		4C1BB21621C4CD930093F51A /* UINavigationController+BackButtonHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		4C44BC0622126FC20033DEB6 /* MYKitDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYKitDefinition.h; sourceTree = "<group>"; };
 		81150FDD210AF70800A8B32D /* UITableView+PlaceHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+PlaceHolder.h"; sourceTree = "<group>"; };
 		81150FDE210AF70800A8B32D /* UITableView+PlaceHolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PlaceHolder.m"; sourceTree = "<group>"; };
 		81150FE0210AF7E100A8B32D /* TableViewPlaceHolderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewPlaceHolderDelegate.h; sourceTree = "<group>"; };
@@ -484,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				32077C211F5FED7B006E4C70 /* MYKit.h */,
+				4C44BC0522126F7B0033DEB6 /* Base */,
 				81F4216F2111CBC4005460E7 /* SafeKit */,
 				32077C231F5FEEA8006E4C70 /* UIKit */,
 				32077C221F5FEE96006E4C70 /* Foundation */,
@@ -863,6 +865,14 @@
 				328505931F9F51ED0098E2C0 /* UIDevice+Addition.m */,
 			);
 			path = UIDevice;
+			sourceTree = "<group>";
+		};
+		4C44BC0522126F7B0033DEB6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4C44BC0622126FC20033DEB6 /* MYKitDefinition.h */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		6891956E9623CB1A6DCC0F5B /* Pods */ = {

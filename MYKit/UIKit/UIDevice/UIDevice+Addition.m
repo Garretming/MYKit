@@ -74,19 +74,6 @@
     return platform;
 }
 
-+ (BOOL)isIphoneX {
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
-    if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) {
-        // judgment by height when in simulators
-        return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
-                CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)));
-    }
-    BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
-    return isIPhoneX;
-}
-
 + (NSString *)getCarrierName {
     
     CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc] init];

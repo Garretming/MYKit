@@ -73,14 +73,24 @@ Pod::Spec.new do |s|
   s.subspec 'UIKit' do |ss|
     ss.source_files = 'MYKit/UIKit/**/*'
     ss.dependency 'MYKit/Foundation'
+    ss.dependency 'MYKit/Base'
   end
 
   s.subspec 'Foundation' do |ss|
     ss.source_files = 'MYKit/Foundation/**/*'
+    ss.dependency 'MYKit/Base'
   end
 
   s.subspec 'SafeKit' do |ss|
     ss.source_files = 'MYKit/SafeKit/*.h'
     ss.dependency 'MYKit/Foundation'
+    ss.dependency 'MYKit/Base'
   end
+
+   s.subspec 'Base' do |ss|
+     ss.source_files = 'MYKit/Base/**/*'
+     ss.resource_bundles = {
+          'Base' => 'MYKit/Assets/Base/*.*'
+      }
+   end
 end

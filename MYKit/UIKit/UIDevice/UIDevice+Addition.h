@@ -38,11 +38,6 @@
 + (NSString *)platform;
 
 /**
- 获取是否是IphoneX
- */
-+ (BOOL)isIphoneX;
-
-/**
  获取当前网络运营商的名称
  @return 中国移动/中国联通/中国电信或者其他运营商
  */
